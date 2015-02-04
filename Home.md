@@ -42,7 +42,11 @@ You have to init the SDK in your application class
 ```Android
 //
 #import com.mngads.MNGAdsFactory;
-...
+
+
+```
+#!java
+
 public class DemoApp extends Application{
 @Override
 	public void onCreate() {
@@ -51,10 +55,15 @@ public class DemoApp extends Application{
 	}
 }
 ```
+
+
 #### Timeout
 The time given to the ad view to download the ad data. After this time, the dispacher stops the ad server running (with failure) and move to the next.
 
 the default timeout is 1s.
+
+#!java
+
 ```Android
 public class MainActivity extends Activity{
     private MNGAdsFactory mngAdsBannerAdsFactory;
@@ -63,6 +72,7 @@ public class MainActivity extends Activity{
     mngAdsBannerAdsFactory = new MNGAdsFactory(this);
     mngBannerAdsFactory.setTimeOut(3);
 ```
+
 #### isBusy
 Before making a request you have to check that factory not busy (handling old request).
 
