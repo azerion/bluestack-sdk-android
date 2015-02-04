@@ -13,12 +13,11 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 It contains a dispacher that will select an ads server according to the priority and state.
 
 ## Version
-1.0
+v1.0. See [Change Log] and [Upgrade Guide].
 
 ## Manual Install
 
-- download [MngAdsSDK.zip]
-- unzip [MngAdsSDK.zip]
+- download [MngAdsSDK] from our demo project, **you must use version of  Ads servers's librairies in used on demo project.**
 - drag and drop it in your project libs folder
 
 
@@ -33,7 +32,7 @@ MngAds SDK needs:
 
 ## Sample Application
 
-Included is a [MngAds sample app] to use as example and for help on MngAds integration. This basic application allows users to test our different format.
+Included is a [MngAds sample app] to use as example and for help on MngAds integration. This basic application allows users to test our differents formats.
 
 ## Start Integrating
 
@@ -321,9 +320,11 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [Smart ads server]:http://help.smartadserver.com/fr/Default.htm#../../../../specifications/Content/MobileSpecifications/Apps.htm
-[Mng-perf]:https://dashboard.mng-ads.com/sdk/mng-perf-sdk-integration-ios.html
+[Mng-perf]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mngperf-android-sdk.jar?at=master
 [Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
 [Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
 [Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
-[MngAdsSDK.zip]:http://dispatcher.mng-ads.com/sdk/android/MngAdsSDK.zip
-[MngAds sample app]:https://bitbucket.org/anypli/mng-ads-demo-android
+[MngAdsSDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mng-ads-v1.1.jar?at=master
+[MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
+[Help Center]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/faq
+[Change Log]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/change-log
