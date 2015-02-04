@@ -39,13 +39,12 @@ Included is a [MngAds sample app] to use as example and for help on MngAds integ
 ### Initializing the SDK
 
 You have to init the SDK in your application class
-```Android
-//
-#import com.mngads.MNGAdsFactory;
 
 
 ```
 #!java
+
+#import com.mngads.MNGAdsFactory;
 
 public class DemoApp extends Application{
 @Override
@@ -57,14 +56,16 @@ public class DemoApp extends Application{
 ```
 
 
+
+
 #### Timeout
 The time given to the ad view to download the ad data. After this time, the dispacher stops the ad server running (with failure) and move to the next.
 
 the default timeout is 1s.
 
+```
 #!java
 
-```Android
 public class MainActivity extends Activity{
     private MNGAdsFactory mngAdsBannerAdsFactory;
 ...	
@@ -82,7 +83,8 @@ isBusy will be setted to true when factory start handling request.
 
 isBusy will be setted to false when factory finish handling request.
 ##### example:
-```Android
+```
+#!java
 	if (!mngAdsBannerAdsFactory.isBusy()) {
 		Log.d(TAG, "Ads Factory is not busy");
 		mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50));
@@ -96,7 +98,8 @@ isBusy will be setted to false when factory finish handling request.
 
 To create a banner you have to init an object with type MNGAdsSDKFactory and set the bannerListener and the context.
 
-```Android
+```
+#!java
 public class MainActivity extends Activity implements MNGBannerListener{
 ...
     private MNGAdsFactory mngAdsBannerAdsFactory;
@@ -111,13 +114,15 @@ public class MainActivity extends Activity implements MNGBannerListener{
 ```
 You have also to set placementId (minimum one time)
 
-```Android
+```
+#!java
     mngAdsBannerAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #####Make a request
 To make a request you have to call 'createBanner'. this method return a bool value (canHandleRequest) 
 
-```Android
+```
+#!java
 if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
     //Wait callBack from listener
 }else{
@@ -127,7 +132,8 @@ if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
 
 #####Handle callBack from BannerListener
 adsAdapter.bannerDidLoad(View adView): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
-```Android
+```
+#!java
 	@Override
 	public void bannerDidLoad(View adView) {
 		Log.d(TAG, "your banner is ready")
@@ -137,7 +143,8 @@ adsAdapter.bannerDidLoad(View adView): will be called by the SDK when your banne
 ```
 
 adsAdapter.bannerDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```Android
+```
+#!java
 	@Override
 	public void bannerDidFail(Exception adsException) {
 		Log.e(TAG, "banner did fail :" + adsException.toString());
@@ -149,7 +156,8 @@ adsAdapter.bannerDidFail(Exception adsException): will be called when all ads se
 
 To create a interstitial you have to init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.
 
-```Android
+```
+#!java
 public class MainActivity extends Activity implements MNGInterstitialListener{
 ...
     private MNGAdsFactory mngAdsInterstitialAdsFactory;
@@ -165,14 +173,16 @@ public class MainActivity extends Activity implements MNGInterstitialListener{
 #####Make a request 
 To make a request you have to call 'createInterstitial()'. this method return a bool value (canHandleRequest).
 
-```Android
+```
+#!java
     if (!mngAdsInterstitialAdsFactory.isBusy()) {
 	mngAdsInterstitialAdsFactory.createInterstitial();
 	}
 ```
 #####Handle callBack from InterstitialListener
 adsAdapter.InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
-```Android
+```
+#!java
 @Override
 	public void interstitialDidLoad() {
 		Log.d(TAG, "interstitial did load");
@@ -180,7 +190,8 @@ adsAdapter.InterstitialDidLoad(): will be called by the SDK when your Interstiti
 ```
 
 adsAdapter.interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```Android
+```
+#!java
 @Override
 	public void interstitialDidFail(Exception adsException) {
 		Log.e(TAG, "interstitial did fail :" + adsException.toString());
@@ -188,7 +199,8 @@ adsAdapter.interstitialDidFail(Exception adsException): will be called when all 
 ```
 adsAdapter.InterstitialDisappear(): will be called when intertisialView did disappear. now you can update your UI for example.
 
-```Android
+```
+#!java
 @Override
 	public void interstitialDisappear() {
 		Log.d(TAG, "interstitial disappear")
@@ -201,7 +213,8 @@ Native ads give you the control to design the perfect ad units for your app. Wit
 
 To create a nativeAd  you have to init an object with type MNGAdsSDKFactory and set the nativeListener.
 
-```Android
+```
+#!java
 public class MainActivity extends Activity implements MNGNativeListener{
 ...
    private MNGAdsFactory mngAdsNativeAdsFactory;
@@ -217,13 +230,15 @@ public class MainActivity extends Activity implements MNGNativeListener{
 ```
 You have also to set placementId (minimum one time)
 
-```Android
+```
+#!java
   mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #####Make a request
 To make a request you have to call 'createNative()'. this method return a bool value (canHandleRequest) 
 
-```Android
+```
+#!java
 if(mngAdsNativeAdsFactory.createNative()){
 //Wait callBack from native listener
 }else{
@@ -233,7 +248,8 @@ if(mngAdsNativeAdsFactory.createNative()){
 
 #####Handle callBack from NativeListener
 adsAdapter.nativeObjectDidLoad(): will be called by the SDK when your nativeObject is ready. now you can create your own view.
-```Android
+```
+#!java
 @Override
 	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
 		Log.d(TAG, "native Object did load ");
@@ -242,7 +258,8 @@ adsAdapter.nativeObjectDidLoad(): will be called by the SDK when your nativeObje
 ```
 
 adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```Android
+```
+#!java
 @Override
 	public void nativeObjectDidFail(Exception adsException) {
 		Log.e(TAG, "nativeObject Did Fail :" + adsException.toString());
@@ -258,7 +275,8 @@ informations that you can set are:
 - language : language of user
 - gender : gender of user
 
-```Android
+```
+#!java
 #import com.mngads.util.MNGPreference;
 #import com.mngads.util.MNGGender;
 ...
@@ -276,7 +294,8 @@ informations that you can set are:
 ####Memory managment
 When you have finished your ads plant you must free the memory.
 
-```Android
+```
+#!java
 @Override
 	protected void onDestroy() {
 		mngAdsBannerAdsFactory.releaseMemory();
@@ -288,7 +307,8 @@ When you have finished your ads plant you must free the memory.
 ```
 ####MAndroidManifest.xml
 To make ad request we need to add the following permission to MAndroidManifest.xml file
-```Android
+```
+#!java
 
 ...
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
