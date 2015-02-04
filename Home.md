@@ -325,13 +325,12 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
 [Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
 [Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
-[MngAdsSDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mng-ads-v1.1.jar?at=master
+[mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mng-ads.jar?at=master
 [MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
 [Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
 [Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
 [Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/AudienceNetwork.jar?at=master
-[mng-ads.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mng-ads.jar?at=master
 [mngperf-android-sdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mngperf-android-sdk.jar?at=master
 [afAdSdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/afAdSdk.jar?at=master
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/android-support-v4.jar?at=master
