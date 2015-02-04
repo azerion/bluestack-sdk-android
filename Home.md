@@ -328,4 +328,4 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
 [Help Center]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/faq
 [Change Log]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/change-log
-[Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/upgrading
+[Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
