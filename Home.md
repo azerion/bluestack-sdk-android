@@ -23,7 +23,6 @@ v1.0. See [Change Log] and [Upgrade Guide].
 
 MngAds SDK needs:
 
- - [mng-ads.jar]
 - [Google-play-services_lib]
 - [SmartAdServer-Android-SDK-5.0.1.jar]
 - [mngperf-android-sdk.jar]
