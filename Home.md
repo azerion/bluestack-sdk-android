@@ -296,6 +296,7 @@ When you have finished your ads plant you must free the memory.
 
 ```
 #!java
+
 @Override
 	protected void onDestroy() {
 		mngAdsBannerAdsFactory.releaseMemory();
@@ -306,19 +307,18 @@ When you have finished your ads plant you must free the memory.
 	}
 ```
 ####MAndroidManifest.xml
-To make ad request we need to add the following permission to MAndroidManifest.xml file
-```
-#!java
 
-...
+To make ad request we need to add the following permission to MAndroidManifest.xml file :
+
+    ...
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
     </uses-permission>
     <uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
 
-   
     ...
+
     <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -345,8 +345,6 @@ To make ad request we need to add the following permission to MAndroidManifest.x
             android:configChanges="keyboardHidden|orientation" />
             <!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support video                  rotation -->
     ...
-  
- ```
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [Smart ads server]:http://help.smartadserver.com/fr/Default.htm#../../../../specifications/Content/MobileSpecifications/Apps.htm
