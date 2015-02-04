@@ -327,8 +327,8 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
 [MngAdsSDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mng-ads-v1.1.jar?at=master
 [MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
-[Help Center]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/faq
-[Change Log]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/change-log
+[Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
+[Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
 [Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/AudienceNetwork.jar?at=master
 [mng-ads.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/mng-ads.jar?at=master
