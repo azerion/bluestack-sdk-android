@@ -17,7 +17,7 @@ v1.0. See [Change Log] and [Upgrade Guide].
 
 ## Manual Install
 
-- download [MngAdsSDK] from our demo project, **you must use version of  Ads servers's librairies in used on demo project.**
+- download [mng-ads.jar Android SDK] from our demo project, **you must use version of  Ads servers's librairies in used on demo project.**
 - drag and drop it in your project libs folder
 
 
