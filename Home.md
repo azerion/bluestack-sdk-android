@@ -13,7 +13,7 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 It contains a dispacher that will select an ads server according to the priority and state.
 
 ## Version
-v1.0. See [Change Log] and [Upgrade Guide].
+v1.1. See [Change Log] and [Upgrade Guide].
 
 ## Manual Install
 
