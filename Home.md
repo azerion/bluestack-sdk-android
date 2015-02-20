@@ -15,6 +15,10 @@ It contains a dispacher that will select an ads server according to the priority
 ## Version
 v1.1. See [Change Log] and [Upgrade Guide].
 
+## Ad Examples and inspiration
+
+[Design ad units to fit your app]
+
 ## Manual Install
 
 - download [mng-ads.jar Android SDK] from our demo project, **you must use version of  Ads servers's librairies in used on demo project.**
@@ -363,3 +367,4 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/MngAdsDemo/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK-5.0.3.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/fc9b2da42b5d9d04342dbbeaf2d034c734284471/MngAdsDemo/libs/SmartAdServer-Android-SDK-5.0.3.jar?at=master
+[Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
