@@ -6,21 +6,20 @@
 
 Formats available |Banner size
 ------------- | ------------- | -------------
-![menu2-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/4277894405-menu2-mngads-android.png) | ![banners-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/165951324-banners-mngads-android.png)
+![menu2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2765152947-menu2-mngads-android-min.png) | ![banners-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/1458902957-banners-mngads-android-min.png)
 
 # Banner
 Banner 50dp |Banner 90 dp  |Banner 250 dp | Banner 250 dp 
 ------------- | ------------- | -------------|| -------------
-  ![banner50-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/1194827547-banner50-mngads-android.png) | ![banner70-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/3893489190-banner70-mngads-android.png) |![banner250-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/1076518202-banner250-mngads-android.png) | ![banner250-2-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/4163076468-banner250-2-mngads-android.png)
+![banner50-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/288211594-banner50-mngads-android-min.png) | ![banner70-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2124126250-banner70-mngads-android-min.png) | ![banner250-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/4181983461-banner250-mngads-android-min.png) | ![banner250-2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/734872252-banner250-2-mngads-android-min.png)
 
 # Interstitial
 
 Default / Overlay  | Premium | FB | appsfire
 ------------- | ------------- | ------------- | -------------
-![interstitial-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/1962383760-interstitial-mngads-android.png) | ![interstitial-smart-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/3181263321-interstitial-smart-mngads-android-min.png)| ![interstitial-fb-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/1744611612-interstitial-fb-mngads-android-min.png) | ![interstitial-appsfire-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/1984529458-interstitial-appsfire-mngads-android-min.png)
-
+![interstitial-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2663406850-interstitial-mngads-android-min.png)|![interstitial-smart-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/691431865-interstitial-smart-mngads-android-min.png)| ![interstitial-fb-mngads-android-min-min.png](https://bitbucket.org/repo/GyRXRR/images/416362138-interstitial-fb-mngads-android-min-min.png) |![interstitial-appsfire-mngads-android-min-min.png](https://bitbucket.org/repo/GyRXRR/images/15176750-interstitial-appsfire-mngads-android-min-min.png)
 # Native Ad
 
 content Ad  | carousel Ad | carousel Ad
 ------------- | ------------- | -------------  | -------------
-![nativead-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/4218122326-nativead-mngads-android.png)  | ![carousel-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/291661215-carousel-mngads-android.png) | ![carousel2-mngads-android.png](https://bitbucket.org/repo/GyRXRR/images/1055108893-carousel2-mngads-android.png)
+![nativead-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2023575496-nativead-mngads-android-min.png) | ![carousel-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/198158028-carousel-mngads-android-min.png)|![carousel2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/771135904-carousel2-mngads-android-min.png)
