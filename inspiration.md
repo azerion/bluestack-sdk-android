@@ -15,9 +15,12 @@ Banner 50dp |Banner 90 dp  |Banner 250 dp | Banner 250 dp
 
 # Interstitial
 
+ An interstitial Overlay Ad is an intertitial that can be capped to display once every  x pages.
+
 Default / Overlay  | Premium | FB | appsfire
 ------------- | ------------- | ------------- | -------------
 ![interstitial-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2663406850-interstitial-mngads-android-min.png)|![interstitial-smart-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/691431865-interstitial-smart-mngads-android-min.png)| ![interstitial-fb-mngads-android-min-min.png](https://bitbucket.org/repo/GyRXRR/images/416362138-interstitial-fb-mngads-android-min-min.png) |![interstitial-appsfire-mngads-android-min-min.png](https://bitbucket.org/repo/GyRXRR/images/15176750-interstitial-appsfire-mngads-android-min-min.png)
+
 # Native Ad
 
 content Ad  | carousel Ad | carousel Ad
