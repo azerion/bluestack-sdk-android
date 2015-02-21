@@ -238,12 +238,23 @@ You have also to set placementId (minimum one time)
 #!java
   mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
-#####Make a request
+#####Make a request for native ad
 To make a request you have to call 'createNative()'. this method return a bool value (canHandleRequest) 
 
 ```
 #!java
 if(mngAdsNativeAdsFactory.createNative()){
+//Wait callBack from native listener
+}else{
+//adsFactory can not handle your request
+}
+```
+#####Make a request for collection of native ad (**carousel**)
+To make a request you have to call 'createNativeCollection(int requestedAdNumber)'. this method return a bool value (canHandleRequest) 
+
+```
+#!java
+if(mngAdsNativeAdsFactory.createNativeCollection(int requestedAdNumber){
 //Wait callBack from native listener
 }else{
 //adsFactory can not handle your request
@@ -270,6 +281,26 @@ adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all 
 	}
 
 ```
+adsAdapter.nativeAdCollectionDidLoad(): will be called by the SDK when your collection is ready. now you can create your own views.
+```
+#!java
+@Override
+	public void nativeAdCollectionDidLoad(ArrayList<MNGNativeObject> nativeObjectCollection) {
+		Log.d(TAG, "native collection did load ");
+	}
+
+```
+
+adsAdapter.nativeAdCollectionDidFail(Exception adsCollectionException): will be called when the factory fail to return any native object
+```
+#!java
+@Override
+	public void nativeAdCollectionDidFail(Exception adsCollectionException) {
+		Log.e(TAG, "native collection Did Fail :"+ adsCollectionException.toString());
+	}
+
+```
+
 #### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
