@@ -42,6 +42,8 @@ Included is a [MngAds sample app] to use as example and for help on MngAds integ
 
 ### Initializing the SDK
 
+appId and placements Id of demo project must be configured on [Constants.java]
+
 You have to init the SDK in your application class
 
 
@@ -399,3 +401,4 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK-5.0.3.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/fc9b2da42b5d9d04342dbbeaf2d034c734284471/MngAdsDemo/libs/SmartAdServer-Android-SDK-5.0.3.jar?at=master
 [Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
+ [Constants.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/beec49b119ee64bfacb07fd10d8bd192bb0bfd8b/MngAdsDemo/src/com/example/mngadsdemo/global/Constants.java?at=master
