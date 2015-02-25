@@ -4,6 +4,32 @@ This document answers the following frequently asked questions:
 
 [TOC]
 # Implementation #
+## If your app uses Proguard, you must edit your Proguard settings to avoid stripping Google Play out of your app. 
+
+If your app uses Proguard, you must edit your Proguard settings to avoid stripping Google Play out of your app. Edit your project’s proguard-project.txt file to add the following:
+
+
+```
+#!android
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+ 
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+ 
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+ 
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+```
+
 ## What types of ad units are available? ##
 There are three ad units available to use in your app:
 
