@@ -28,6 +28,11 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
 -keepnames class * implements android.os.Parcelable {
     public static final ** CREATOR;
 }
+-keepclassmembers class com.smartadserver.android.library.** {
+@android.webkit.JavascriptInterface <methods>;
+}
+-keep class com.facebook.** { *; }
+-keepattributes Signature
 ```
 
 ## What types of ad units are available? ##
