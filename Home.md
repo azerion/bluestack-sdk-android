@@ -13,7 +13,7 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 It contains a dispacher that will select an ads server according to the priority and state.
 
 ## Version
-v1.2. See [Change Log] and [Upgrade Guide].
+v1.1. See [Change Log] and [Upgrade Guide].
 
 ## Ad Examples and inspiration
 
@@ -41,8 +41,6 @@ Included is a [MngAds sample app] to use as example and for help on MngAds integ
 ## Start Integrating
 
 ### Initializing the SDK
-
-appId and placements Id of demo project must be configured on [Constants.java]
 
 You have to init the SDK in your application class
 
@@ -165,15 +163,15 @@ To create a interstitial you have to init an object with type MNGAdsSDKFactory a
 ```
 #!java
 public class MainActivity extends Activity implements MNGInterstitialListener{
-...
+    ...
     private MNGAdsFactory mngAdsInterstitialAdsFactory;
-@Override
-     protected void onCreate(Bundle savedInstanceState) {
-...
-// init intertitial factory
-	mngAdsInterstitialAdsFactory = new MNGAdsFactory(this);
+        @Override
+         protected void onCreate(Bundle savedInstanceState) {
+    ...
+        // init intertitial factory
+    	mngAdsInterstitialAdsFactory = new MNGAdsFactory(this);
 
-// set intertitial listener
+         // set intertitial listener
 	mngAdsInterstitialAdsFactory.setInterstitialListener(this);
 ```
 #####Make a request 
@@ -181,9 +179,11 @@ To make a request you have to call 'createInterstitial()'. this method return a 
 
 ```
 #!java
-    if (!mngAdsInterstitialAdsFactory.isBusy()) {
-	mngAdsInterstitialAdsFactory.createInterstitial();
-	}
+    if (mngAdsInterstitialAdsFactory.createInterstitial()) {
+	   //Wait callBack from interstitial listener
+     }else{
+        //adsFactory can not handle your request
+    }
 ```
 #####Handle callBack from InterstitialListener
 adsAdapter.InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
@@ -212,6 +212,66 @@ adsAdapter.InterstitialDisappear(): will be called when intertisialView did disa
 		Log.d(TAG, "interstitial disappear")
 	}
 ```
+
+### Interstitial Overlay
+#####Init factory
+
+To create a interstitial overlay you have to init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.Note that you must use the same instance for making and handling the request.
+
+```
+#!java
+public class MainActivity extends Activity implements MNGInterstitialListener{
+    ...
+    private MNGAdsFactory mngAdsInterstitialOverlayAdsFactory;
+        @Override
+         protected void onCreate(Bundle savedInstanceState) {
+    ...
+        // init intertitial factory
+    	mngAdsInterstitialOverlayAdsFactory = new MNGAdsFactory(this);
+
+         // set intertitial listener
+    	mngAdsInterstitialOverlayAdsFactory.setInterstitialListener(this);
+```
+#####Make a request 
+To make a request you have to call 'createInterstitial()'. this method return a bool value (canHandleRequest).The interstitial will appear every n(capping) request
+
+```
+#!java
+    if (mngAdsInterstitialOverlayAdsFactory.createInterstitial()) {
+	   //Wait callBack from interstitial listener
+     }else{
+        //adsFactory can not handle your request
+    }
+```
+#####Handle callBack from InterstitialListener
+adsAdapter.InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
+```
+#!java
+@Override
+	public void interstitialDidLoad() {
+		Log.d(TAG, "interstitial did load");
+	}
+```
+
+adsAdapter.interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+```
+#!java
+@Override
+	public void interstitialDidFail(Exception adsException) {
+		Log.e(TAG, "interstitial did fail :" + adsException.toString());
+	}
+```
+adsAdapter.InterstitialDisappear(): will be called when intertisialView did disappear. now you can update your UI for example.
+
+```
+#!java
+@Override
+	public void interstitialDisappear() {
+		Log.d(TAG, "interstitial disappear")
+	}
+```
+
+
 
 ### Native Ads
 Native ads give you the control to design the perfect ad units for your app. With our Native Ad API, you can determine the look and feel, size and location of your ads. Because you decide how the ads are formatted, ads can fit seamlessly in your application.
@@ -245,24 +305,12 @@ To make a request you have to call 'createNative()'. this method return a bool v
 
 ```
 #!java
-if(mngAdsNativeAdsFactory.createNative()){
-//Wait callBack from native listener
-}else{
-//adsFactory can not handle your request
-}
+    if(mngAdsNativeAdsFactory.createNative()){
+        //Wait callBack from native listener
+    }else{
+        //adsFactory can not handle your request
+    }
 ```
-#####Make a request for collection of native ad (**carousel**)
-To make a request you have to call 'createNativeCollection(int requestedAdNumber)'. this method return a bool value (canHandleRequest) 
-
-```
-#!java
-if(mngAdsNativeAdsFactory.createNativeCollection(int requestedAdNumber){
-//Wait callBack from native listener
-}else{
-//adsFactory can not handle your request
-}
-```
-
 #####Handle callBack from NativeListener
 adsAdapter.nativeObjectDidLoad(): will be called by the SDK when your nativeObject is ready. now you can create your own view.
 ```
@@ -283,6 +331,46 @@ adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all 
 	}
 
 ```
+
+### Native Collection Ads  
+Native collection ads give you the control to design the perfect ad carousel for your app. 
+#####Init factory
+
+To create nativeAd collection you have to init an object with type MNGAdsSDKFactory and set the nativeCollectionListener.
+
+```
+#!java
+public class MainActivity extends Activity implements MNGNativeCollectionListener{
+...
+   private MNGAdsFactory mngNativeAdCollectionFactory;
+@Override
+     protected void onCreate(Bundle savedInstanceState) {
+...
+	// init native factory
+		mngNativeAdCollectionFactory = new MNGAdsFactory(this);
+
+	// set native listener
+		mngNativeAdCollectionFactory.setNativeListener(this);
+
+```
+You have also to set placementId (minimum one time)
+
+```
+#!java
+  mngNativeAdCollectionFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+```
+#####Make a request for collection of native ad (**carousel**)
+To make a request you have to call 'createNativeCollection(int requestedAdNumber)'. this method return a bool value (canHandleRequest) 
+
+```
+#!java
+    if(mngAdsNativeAdsFactory.createNativeCollection(int requestedAdNumber){
+        //Wait callBack from native collection listener
+    }else{
+        //adsFactory can not handle your request
+    }
+```
+#####Handle callBack from NativeCollectionListener
 adsAdapter.nativeAdCollectionDidLoad(): will be called by the SDK when your collection is ready. now you can create your own views.
 ```
 #!java
@@ -302,6 +390,7 @@ adsAdapter.nativeAdCollectionDidFail(Exception adsCollectionException): will be 
 	}
 
 ```
+
 
 #### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
@@ -401,4 +490,3 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/29b7e153ea309f2dc430c879d1484a1cf1f29e84/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK-5.0.3.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/fc9b2da42b5d9d04342dbbeaf2d034c734284471/MngAdsDemo/libs/SmartAdServer-Android-SDK-5.0.3.jar?at=master
 [Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
- [Constants.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/beec49b119ee64bfacb07fd10d8bd192bb0bfd8b/MngAdsDemo/src/com/example/mngadsdemo/global/Constants.java?at=master
