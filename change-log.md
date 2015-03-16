@@ -1,5 +1,11 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.2.3
+
+#### Release date: March 16th, 2015
+
+ - bug fix NullPointerException
+
 ## Version 1.2.1
 
 #### Release date: March 11th, 2015
