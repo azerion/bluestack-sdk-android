@@ -9,7 +9,7 @@ Formats available |Banner size
 ![menu2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2765152947-menu2-mngads-android-min.png) | ![banners-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/1458902957-banners-mngads-android-min.png)
 
 # Banner
-Banner 50dp |Banner 90 dp  |Banner 250 dp | Banner 250 dp 
+Banner 50dp |Banner 90 dp  |Banner 250 dp | Banner 250 dp (square)
 ------------- | ------------- | -------------|| -------------
 ![banner50-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/288211594-banner50-mngads-android-min.png) | ![banner70-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2124126250-banner70-mngads-android-min.png) | ![banner250-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/4181983461-banner250-mngads-android-min.png) | ![banner250-2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/734872252-banner250-2-mngads-android-min.png)
 
