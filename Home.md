@@ -8,12 +8,10 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Mng-perf]
 - [Appsfire]
 
-![mng-ads-state-diagram.png](https://bitbucket.org/repo/aen579/images/949359413-mng-ads-state-diagram.png)
-
-It contains a dispacher that will select an ads server according to the priority and state.
+It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
 ## Version
-v1.2.3. See [Change Log] and [Upgrade Guide].
+v1.2.4 See [Change Log] and [Upgrade Guide].
 
 ## Ad Examples and inspiration
 
@@ -390,8 +388,7 @@ adsAdapter.nativeAdCollectionDidFail(Exception adsCollectionException): will be 
 	}
 
 ```
-
-
+	
 #### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
@@ -400,19 +397,21 @@ informations that you can set are:
 - location : user location
 - language : language of user
 - gender : gender of user
+- keyword : keyword
 
 ```
 #!java
 #import com.mngads.util.MNGPreference;
 #import com.mngads.util.MNGGender;
 ...
-        myLocation = new Location("I");
+        	myLocation = new Location("I");
 		myLocation.setLatitude(35.757866);
 		myLocation.setLongitude(10.810547);
 		mngPreference = new MNGPreference();
 		mngPreference.setLocation(myLocation);
 		mngPreference.setAge(28);
 		mngPreference.setGender(MNGGender.MNGGenderFemale);
+ 		mngPreference.setKeyword(Constants.MNGADS_KEYWORCD);
 		mngPreference.setLanguage("fr");
 
 ```
@@ -488,5 +487,6 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [afAdSdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/afAdSdk.jar?at=master
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[SmartAdServer-Android-SDK-5.0.3.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-5.0.3.jar?at=master
+[SmartAdServer-Android-SDK-5.0.3.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-5.0.4.jar?at=master
 [Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
+[mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
