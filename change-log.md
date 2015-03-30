@@ -6,6 +6,7 @@
 
  - timeout improvement
  - capping improvement (on placementId and not on MNGAdsFactory)
+ - Add keyword preferences
  -  bug fix for FB and appsfire
 
 ## Version 1.2.3
