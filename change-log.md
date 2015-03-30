@@ -1,5 +1,13 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.2.4
+
+#### Release date: March 30th, 2015
+
+ - timeout improvement
+ - capping improvement (on placementId and not on MNGAdsFactory)
+ -  bug fix for FB and appsfire
+
 ## Version 1.2.3
 
 #### Release date: March 16th, 2015
