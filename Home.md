@@ -7,11 +7,12 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Facebook Audience Network]
 - [Mng-perf]
 - [Appsfire]
+- [AppNexus]
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
 ## Version
-v1.2.4 See [Change Log] and [Upgrade Guide].
+v1.2.5 See [Change Log] and [Upgrade Guide].
 
 ## Ad Examples and inspiration
 
@@ -31,6 +32,7 @@ MngAds SDK needs:
 - [AudienceNetwork.jar]
 - [afAdSdk.jar]
 - [Android-support-v4.jar]
+- [AppNexus-sdk]
 
 ## Sample Application
 
@@ -57,6 +59,53 @@ public class DemoApp extends Application{
 }
 ```
 
+#### Initialize Check
+
+To verify if the SDK is fully initialized you have to call isInitialized():
+
+```
+#!java
+
+public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
+   
+...	
+
+
+	if(MNGAdsFactory.isInitialized()){
+
+	    //The SDK is not initialized
+            Toast.makeText(this, "MNGAdsFactory is initialized", Toast.LENGTH_SHORT).show();
+
+        }else {
+	   
+	    //The SDK is initializing
+	    //set up a callback	that will be called when is fully initiamized
+            MNGAdsFactory.setMNGAdsSDKFactoryListener(this);
+
+            Toast.makeText(this, "MNGAdsFactory is not initialized", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+
+
+   @Override
+    public void onMNGAdsSDKFactoryDidFinishInitializing() {
+
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+
+                Toast.makeText(MainActivity.this, "MNGAds SDK Factory Did Finish Initializing", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
+    }
+
+
+```
 
 
 
@@ -469,6 +518,9 @@ To make ad request we need to add the following permission to MAndroidManifest.x
             android:name="com.facebook.ads.InterstitialAdActivity"
             android:configChanges="keyboardHidden|orientation" />
             <!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support video                  rotation -->
+
+
+   <activity android:name="com.appnexus.opensdk.AdActivity" />
     ...
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
@@ -490,3 +542,5 @@ To make ad request we need to add the following permission to MAndroidManifest.x
 [SmartAdServer-Android-SDK-5.0.3.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-5.0.4.jar?at=master
 [Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
+[AppNexus]:http://www.appnexus.com/fr
+[AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
