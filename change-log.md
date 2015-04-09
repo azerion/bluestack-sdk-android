@@ -1,5 +1,13 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.2.5
+
+#### Release date: April 9th, 2015
+
+ - Adding AppNexus adNetwork
+ - nativeAd improvements
+ - Adding MNGAdsFactory.isInitialized()
+
 ## Version 1.2.4
 
 #### Release date: March 30th, 2015
