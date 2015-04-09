@@ -1,5 +1,9 @@
 # upgrading SDK
 
+## Upgrading to 1.2.5
+
+You must add **AppNexus-sdk** 
+
 ## Upgrading from 1.1 to 1.2
 
 New method for carousel can be used, see [Ad Examples]
