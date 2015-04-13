@@ -481,6 +481,15 @@ When you have finished your ads plant you must free the memory.
 		super.onDestroy();
 	}
 ```
+
+####Enabling debug mode
+To enbale debug mode you need to set debug mode to true :
+
+```
+#!java
+
+MNGAdsFactory.setDebugModeEnabled(true);
+
 ####MAndroidManifest.xml
 
 To make ad request we need to add the following permission to MAndroidManifest.xml file :
