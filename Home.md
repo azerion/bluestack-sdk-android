@@ -443,10 +443,11 @@ Preferences object is an optional parameter that allow you select ads by user in
 informations that you can set are:
 
 - age : age of user
-- location : user location
-- language : language of user
+- location : geographical position of the user.
+- language : language of user (ISO code)
 - gender : gender of user
-- keyword : keyword
+- keyWord : Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**. 
+
 
 ```
 #!java
@@ -460,7 +461,7 @@ informations that you can set are:
 		mngPreference.setLocation(myLocation);
 		mngPreference.setAge(28);
 		mngPreference.setGender(MNGGender.MNGGenderFemale);
- 		mngPreference.setKeyword(Constants.MNGADS_KEYWORCD);
+ 		mngPreference.setKeyword("brand=myBrand;category=sport");
 		mngPreference.setLanguage("fr");
 
 ```
