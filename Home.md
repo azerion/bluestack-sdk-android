@@ -12,7 +12,7 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
 ## Version
-v1.2.5 See [Change Log] and [Upgrade Guide].
+v1.2.6 See [Change Log] and [Upgrade Guide].
 
 ## Ad Examples and inspiration
 
@@ -488,26 +488,43 @@ To enbale debug mode you need to set debug mode to true :
 ```
 #!java
 
+...
+
 MNGAdsFactory.setDebugModeEnabled(true);
+
+...
+
+```
 
 ####MAndroidManifest.xml
 
-To make ad request we need to add the following permission to MAndroidManifest.xml file :
+To make ad request we need to add the following permission to AndroidManifest.xml file :
 
     ...
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.INTERNET" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    <!--Grants the SDK permission to check for a live internet connection. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--Grants the SDK permission to access the internet. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--Grants the SDK permission to access approximate location based on cell tower. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--Grants the SDK permission to access a more accurate location based on GPS. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     ...
 
+
+    <!--This embeds the version of Google Play services that the app was compiled with.. -->
     <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
     ...
-      <activity
+    
+    <!--appNexus SDk Ad activity  -->
+    <activity 
+		android:name="com.appnexus.opensdk.AdActivity"/>
+
+    <!--mngPref SDk Ad activitys  -->
+    <activity
             android:name="com.adsdk.sdk.banner.InAppWebView"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
     <activity
@@ -519,18 +536,19 @@ To make ad request we need to add the following permission to MAndroidManifest.x
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
     <activity
             android:name="com.adsdk.sdk.mraid.MraidBrowser"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" >
-        </activity>
-        <activity
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        
+    <!--DFP SDk Ad activity  -->
+    <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+    <!--Facebook SDk Ad activity  -->
     <activity
             android:name="com.facebook.ads.InterstitialAdActivity"
             android:configChanges="keyboardHidden|orientation" />
-            <!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support video                  rotation -->
+            <!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support  	  video rotation -->
 
 
-   <activity android:name="com.appnexus.opensdk.AdActivity" />
     ...
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
