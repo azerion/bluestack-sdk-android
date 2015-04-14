@@ -1,5 +1,12 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.2.6
+
+#### Release date: April 14th, 2015
+
+ - Adding AppNexus preference keyworks
+ - update + appsfire SDK bug  fixing
+
 ## Version 1.2.5
 
 #### Release date: April 9th, 2015
