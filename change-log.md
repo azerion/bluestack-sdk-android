@@ -1,5 +1,12 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.2.7
+
+#### Release date: April 16th, 2015
+
+ - Fix issue with square format and dynamic width
+ - update appsfire and Facebook SDKs
+
 ## Version 1.2.6
 
 #### Release date: April 14th, 2015
