@@ -12,7 +12,7 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
 ## Version
-v1.2.6 See [Change Log] and [Upgrade Guide].
+v1.2.7 See [Change Log] and [Upgrade Guide].
 
 ## Ad Examples and inspiration
 
@@ -500,6 +500,18 @@ MNGAdsFactory.setDebugModeEnabled(true);
 
 To make ad request we need to add the following permission to AndroidManifest.xml file :
 
+```
+#!XML
+
+  <application
+        android:name=".DemoApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Sherlock"
+        android:largeHeap="true" <!-- use this if only you feel that your app might need it  -->  
+        >
+
     ...
     <!--Grants the SDK permission to check for a live internet connection. -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -521,7 +533,7 @@ To make ad request we need to add the following permission to AndroidManifest.xm
     
     <!--appNexus SDk Ad activity  -->
     <activity 
-		android:name="com.appnexus.opensdk.AdActivity"/>
+		android:name="com.appnexus.opensdk.AdActivity"/>    <!-- to display this activity in fullscreen mode :  android:theme="@android:style/Theme.Light.NoTitleBar" -->
 
     <!--mngPref SDk Ad activitys  -->
     <activity
@@ -540,7 +552,7 @@ To make ad request we need to add the following permission to AndroidManifest.xm
         
     <!--DFP SDk Ad activity  -->
     <activity
-            android:name="com.google.android.gms.ads.AdActivity"
+            android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
     <!--Facebook SDk Ad activity  -->
     <activity
@@ -550,6 +562,8 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 
 
     ...
+
+```
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [Smart ads server]:http://help.smartadserver.com/fr/Default.htm#../../../../specifications/Content/MobileSpecifications/Apps.htm
