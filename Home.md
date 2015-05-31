@@ -588,7 +588,6 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 
     ...
 
-```
 
 ```
 
