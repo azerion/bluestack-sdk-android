@@ -52,4 +52,4 @@ No special steps are required to upgrade to v1.1.
 
 
 [Ad Examples]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
-[Retency-sqk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
+[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
