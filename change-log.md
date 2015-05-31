@@ -78,5 +78,5 @@ You must check [Upgrade Guide]
 
 
 [Ad Examples]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
-[Best practice Mngads]:https://bitbucket.org/anypli/mng-ads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
+[Best practice Mngads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
