@@ -1,5 +1,19 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.3.1
+
+You must check [Upgrade Guide]
+
+#### Release date: June 1th, 2015
+
+ - Manage dynamic size for DFP and appNexus banners
+ - Add remote debug mode
+ - MNGNativeObject.getPriceType() (use to add "free" icon)
+ - Add [Best practice Mngads], optimized use case for several ad formats on one page
+ - Update appsfire, Facebook and DFP librairies
+ - Add retency adNetwork
+
+
 ## Version 1.2.7
 
 #### Release date: April 16th, 2015
@@ -64,3 +78,5 @@
 
 
 [Ad Examples]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
+[Best practice Mngads]:https://bitbucket.org/anypli/mng-ads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
+[Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
