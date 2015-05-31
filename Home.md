@@ -8,15 +8,16 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Mng-perf]
 - [Appsfire]
 - [AppNexus]
+- [Retency]
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
 ## Version
-v1.2.7 See [Change Log] and [Upgrade Guide].
+v1.3.1 See [Change Log] and [Upgrade Guide].
 
 ## Ad Examples and inspiration
 
-[Design ad units to fit your app]
+[Design ad units to fit your app]. You can see [Best practice Mngads], an optimized use case for several ad formats on one page.
 
 ## Manual Install
 
@@ -33,6 +34,7 @@ MngAds SDK needs:
 - [afAdSdk.jar]
 - [Android-support-v4.jar]
 - [AppNexus-sdk]
+- [Retency-sqk]
 
 ## Sample Application
 
@@ -503,6 +505,23 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 ```
 #!XML
 
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    ...
+
+
+    <!--Grants the SDK permission to access information about Wi-Fi networks. -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!--Grants the SDK permission to check for a live internet connection. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--Grants the SDK permission to access the internet. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--Grants the SDK permission to access approximate location based on cell tower. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--Grants the SDK permission to access a more accurate location based on GPS. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>	
+
+    ...
+
   <application
         android:name=".DemoApp"
         android:allowBackup="true"
@@ -513,15 +532,8 @@ To make ad request we need to add the following permission to AndroidManifest.xm
         >
 
     ...
-    <!--Grants the SDK permission to check for a live internet connection. -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <!--Grants the SDK permission to access the internet. -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!--Grants the SDK permission to access approximate location based on cell tower. -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!--Grants the SDK permission to access a more accurate location based on GPS. -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-
+    <!--Grants the SDK permission to start mng analytics service -->
+    <service android:name="com.mngads.service.MNGAnalyticsService"/>
     ...
 
 
@@ -531,11 +543,11 @@ To make ad request we need to add the following permission to AndroidManifest.xm
             android:value="@integer/google_play_services_version" />
     ...
     
-    <!--appNexus SDk Ad activity  -->
+    <!--appNexus SDK Ad activity  -->
     <activity 
 		android:name="com.appnexus.opensdk.AdActivity"/>    <!-- to display this activity in fullscreen mode :  android:theme="@android:style/Theme.Light.NoTitleBar" -->
 
-    <!--mngPref SDk Ad activitys  -->
+    <!--mngPref SDK Ad activitys  -->
     <activity
             android:name="com.adsdk.sdk.banner.InAppWebView"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
@@ -550,18 +562,42 @@ To make ad request we need to add the following permission to AndroidManifest.xm
             android:name="com.adsdk.sdk.mraid.MraidBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         
-    <!--DFP SDk Ad activity  -->
+    <!--DFP SDK Ad activity  -->
     <activity
             android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-    <!--Facebook SDk Ad activity  -->
+    <!--Facebook SDK Ad activity  -->
     <activity
             android:name="com.facebook.ads.InterstitialAdActivity"
             android:configChanges="keyboardHidden|orientation" />
             <!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support  	  video rotation -->
 
 
+    <!--Retency SDK Ad activitys  -->
+    <activity android:name="com.retency.sdk.android.banner.InAppWebView"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+    <activity android:name="com.retency.sdk.android.video.RichMediaActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:hardwareAccelerated="false" />
+
+    <activity android:name="com.retency.sdk.android.mraid.MraidBrowser"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+
+
     ...
+
+```
+####Notice
+    When trying to display several ad formats on one page try to synchronize your requests instead of making multiple ones at the some time. By making the requests at the same time you are decreasing your chance of receving an Ad and you are making your app slow .You can check the number of MNGAdsFactory running a request by calling :  
+
+```
+#!java
+
+...
+    int mNumberOfRunningFactory=MNGAdsFactory.getNumberOfRunningFactory() ;
+...
 
 ```
 
@@ -586,3 +622,6 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [AppNexus]:http://www.appnexus.com/fr
 [AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
+[Retency]:http://www.retency.com/public/
+[Retency-sqk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
+[Best practice Mngads]:https://bitbucket.org/anypli/mng-ads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
