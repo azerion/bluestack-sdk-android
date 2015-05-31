@@ -34,7 +34,7 @@ MngAds SDK needs:
 - [afAdSdk.jar]
 - [Android-support-v4.jar]
 - [AppNexus-sdk]
-- [Retency-sqk]
+- [Retency-sdk]
 
 ## Sample Application
 
@@ -608,5 +608,5 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [AppNexus]:http://www.appnexus.com/fr
 [AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
 [Retency]:http://www.retency.com/public/
-[Retency-sqk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
+[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
 [Best practice Mngads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
