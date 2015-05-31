@@ -584,11 +584,6 @@ To make ad request we need to add the following permission to AndroidManifest.xm
     <activity android:name="com.retency.sdk.android.mraid.MraidBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-
-
-    ...
-
-
 ```
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
