@@ -4,8 +4,6 @@
 
 ```
 #!java
-
-...
     int mNumberOfRunningFactory=MNGAdsFactory.getNumberOfRunningFactory() ;
 ...
 
