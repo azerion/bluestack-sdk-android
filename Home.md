@@ -609,4 +609,4 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
 [Retency]:http://www.retency.com/public/
 [Retency-sqk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
-[Best practice Mngads]:https://bitbucket.org/anypli/mng-ads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
+[Best practice Mngads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
