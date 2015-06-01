@@ -25,4 +25,4 @@ Default / Overlay  | Premium | FB | appsfire
 
 content Ad  | carousel Ad | carousel Ad
 ------------- | ------------- | -------------  | -------------
-![nativead-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2023575496-nativead-mngads-android-min.png) | ![carousel-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/198158028-carousel-mngads-android-min.png)|![carousel2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/771135904-carousel2-mngads-android-min.png)
+![nativeAd-1.png](https://bitbucket.org/repo/GyRXRR/images/1430534000-nativeAd-1.png)|![nativeAd-2.png](https://bitbucket.org/repo/GyRXRR/images/2633774569-nativeAd-2.png)|![carousel2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/771135904-carousel2-mngads-android-min.png)
