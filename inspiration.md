@@ -6,7 +6,7 @@
 
 Formats available |Banner size
 ------------- | ------------- | -------------
-![menu2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/2765152947-menu2-mngads-android-min.png) | ![banners-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/1458902957-banners-mngads-android-min.png)
+![mngads-android-menu.png](https://bitbucket.org/repo/GyRXRR/images/226219472-mngads-android-menu.png) | ![banners-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/1458902957-banners-mngads-android-min.png)
 
 # Banner
 Banner 50dp |Banner 90 dp  |Banner 250 dp | Banner 250 dp (square)
