@@ -4,9 +4,9 @@
 
 #### Release date: June 19th, 2015
 
-## Version 1.3.1
-
  - debug mode improvements
+
+## Version 1.3.1
 
 You must check [Upgrade Guide]
 
