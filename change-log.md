@@ -1,6 +1,12 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.3.2
+
+#### Release date: June 19th, 2015
+
 ## Version 1.3.1
+
+ - debug mode improvements
 
 You must check [Upgrade Guide]
 
