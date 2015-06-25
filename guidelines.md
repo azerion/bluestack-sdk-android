@@ -10,4 +10,4 @@ When trying to display several ad formats on one page try to synchronize your re
 You can see an example on [AdsFragment.java].
 
 
-[AdsFragment.java]:https://bitbucket.org/anypli/mng-ads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
+[AdsFragment.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
