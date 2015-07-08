@@ -439,7 +439,32 @@ adsAdapter.nativeAdCollectionDidFail(Exception adsCollectionException): will be 
 	}
 
 ```
-	
+#### Ad click listener
+You can then implement MNG AdListener callback to detect when an Ad is clicked
+```
+#!java
+public class MainActivity extends Activity implements MNGClickListener{
+...
+   private MNGAdsFactory mngAdsAdsFactory;
+@Override
+     protected void onCreate(Bundle savedInstanceState) {
+...
+    // init MNG factory
+        mngAdsAdsFactory = new MNGAdsFactory(this);
+
+    // set click listener
+        mngAdsNativeAdsFactory.setClickListener(this);
+}
+
+...
+    @Override
+    public void onAdClicked() {
+
+        Log.d(TAG, "Ad Clicked");
+
+    }
+...
+```
 #### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
