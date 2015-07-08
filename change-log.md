@@ -5,7 +5,7 @@
 #### Release date: July 8th, 2015
 
  - sortAdsServersByPriority optimization
- - add click listener (see readme )
+ - add click listener (see "Ad click listener" section on wiki )
  - mngperf adserving improvements
 
 You must update [mng-ads.jar Android SDK] and [mngperf-android-sdk.jar] librairies
