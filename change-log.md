@@ -1,5 +1,15 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.3.3
+
+#### Release date: July 8th, 2015
+
+ - sortAdsServersByPriority optimization
+ - add click listener (see readme )
+ - mngperf adserving improvements
+
+You must update [mng-ads.jar Android SDK] and [mngperf-android-sdk.jar] librairies
+
 ## Version 1.3.2
 
 #### Release date: June 19th, 2015
@@ -86,3 +96,5 @@ You must check [Upgrade Guide]
 [Ad Examples]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
 [Best practice Mngads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
+[mngperf-android-sdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mngperf-android-sdk.jar?at=master
+[mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mng-ads-sdk.jar?at=master
