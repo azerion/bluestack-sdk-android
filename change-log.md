@@ -8,7 +8,7 @@
  - add click listener (see "Ad click listener" section on wiki )
  - mngperf adserving improvements
 
-You must update [mng-ads.jar Android SDK] and [mngperf-android-sdk.jar] librairies
+You must update [mng-ads.jar Android SDK], [afAdSdk.jar] and [mngperf-android-sdk.jar] librairies
 
 ## Version 1.3.2
 
@@ -98,3 +98,4 @@ You must check [Upgrade Guide]
 [Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
 [mngperf-android-sdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mngperf-android-sdk.jar?at=master
 [mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mng-ads-sdk.jar?at=master
+[afAdSdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/c43a91fd22014a6e240619726c550b039b3f95b0/MngAdsDemo/libs/afAdSdk.jar?at=master
