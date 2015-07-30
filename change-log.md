@@ -1,5 +1,19 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+
+## Version 1.4
+
+#### Release date: July 30th, 2015
+
+ - new smart SDK (+prefetch support)
+ - new facebook SDK
+ - new appsfire SDK
+ - nativeAd, now we support DFP for premium nativeAd
+ - Keywords can be managed server side
+
+
+You must update [mng-ads.jar Android SDK], [afAdSdk.jar] and [Google-play-services_lib],[mngperf-android-sdk.jar],[AudienceNetwork.jar] and [Retency-sdk] librairies
+
 ## Version 1.3.3
 
 #### Release date: July 8th, 2015
@@ -7,6 +21,7 @@
  - sortAdsServersByPriority optimization
  - add click listener (see "Ad click listener" section on wiki )
  - mngperf adserving improvements
+
 
 You must update [mng-ads.jar Android SDK], [afAdSdk.jar] and [mngperf-android-sdk.jar] librairies
 
@@ -99,3 +114,6 @@ You must check [Upgrade Guide]
 [mngperf-android-sdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mngperf-android-sdk.jar?at=master
 [mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mng-ads-sdk.jar?at=master
 [afAdSdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/afAdSdk.jar?at=master
+[Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
+[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
+[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/AudienceNetwork.jar?at=master
