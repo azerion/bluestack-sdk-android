@@ -75,7 +75,7 @@ public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
 
 	if(MNGAdsFactory.isInitialized()){
 
-	    //The SDK is not initialized
+	    //The SDK is initialized
             Toast.makeText(this, "MNGAdsFactory is initialized", Toast.LENGTH_SHORT).show();
 
         }else {
@@ -94,20 +94,16 @@ public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
    @Override
     public void onMNGAdsSDKFactoryDidFinishInitializing() {
 
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-
-                Toast.makeText(MainActivity.this, "MNGAds SDK Factory Did Finish Initializing", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
+       
+           Toast.makeText(MainActivity.this, "MNGAds SDK Factory Did Finish Initializing", Toast.LENGTH_SHORT).show();
+        	
+           Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
     }
 
 
 ```
+
+`Note`: onMNGAdsSDKFactoryDidFinishInitializing(): this method is called at any time when the initialize(...) method of MNG gets called
 
 
 
