@@ -28,7 +28,7 @@ See [Change Log] and [Upgrade Guide].
 MngAds SDK needs:
 
 - [Google-play-services_lib]
-- [SmartAdServer-Android-SDK-5.0.3.jar] (>= 5..0.3 for lollipop support)
+- [SmartAdServer-Android-SDK-6.0.jar]
 - [mngperf-android-sdk.jar]
 - [AudienceNetwork.jar]
 - [afAdSdk.jar]
@@ -627,7 +627,7 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [afAdSdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/afAdSdk.jar?at=master
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[SmartAdServer-Android-SDK-5.0.3.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-5.0.4.jar?at=master
+[SmartAdServer-Android-SDK-6.0.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-6.0.jar?at=master
 [Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [AppNexus]:http://www.appnexus.com/fr
