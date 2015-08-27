@@ -595,8 +595,6 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 
 
     <!--Retency SDK Ad activitys  -->
-    <activity android:name="com.retency.sdk.android.banner.InAppWebView"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
     <activity android:name="com.retency.sdk.android.video.RichMediaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
