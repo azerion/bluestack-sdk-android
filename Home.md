@@ -17,7 +17,7 @@ See [Change Log] and [Upgrade Guide].
 
 ## Ad Examples and inspiration
 
-[Design ad units to fit your app]. You can see [Best practice Mngads], an optimized use case for several ad formats on one page.
+You can see [Best practice Mngads and Design ad units to fit your app], an optimized use case for several ad formats on one page.
 
 ## Manual Install
 
@@ -622,10 +622,9 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK-6.0.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-6.0.jar?at=master
-[Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [AppNexus]:http://www.appnexus.com/fr
 [AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
-[Best practice Mngads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
+[Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
