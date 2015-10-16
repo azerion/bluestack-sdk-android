@@ -1,5 +1,15 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.4.2
+
+#### Release date: October 16th, 2015
+
+ - Now Mngads supports android 23
+ - Interstitial improvement, now isInterstitialShowen is managed by SDK
+ - Update New SmartAdserver SDK
+
+You must update [mng-ads.jar Android SDK], [SmartAdServer-Android-SDK.jar].
+
 ## Version 1.4.1
 
 #### Release date: September 18th, 2015
@@ -9,7 +19,7 @@
  - new appsfire SDK (use Himono format for banner
  - Manage banner size (fixed or responsive) server side
 
-You must update [mng-ads.jar Android SDK], [SmartAdServer-Android-SDK-6.0.1.jar], [afAdSdk.jar], [AudienceNetwork.jar] and [AppNexus-sdk]
+You must update [mng-ads.jar Android SDK], [SmartAdServer-Android-SDK.jar], [afAdSdk.jar], [AudienceNetwork.jar] and [AppNexus-sdk]
 
 ## Version 1.4
 
@@ -127,5 +137,5 @@ You must check [Upgrade Guide]
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/AudienceNetwork.jar?at=master
-[SmartAdServer-Android-SDK-6.0.1.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-6.0.1.jar?at=master
+[SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-6.1.jar?at=master
 [AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
