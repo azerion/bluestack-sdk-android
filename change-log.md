@@ -1,5 +1,14 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.4.3
+
+#### Release date: October 22th, 2015
+
+ - clean warnings
+ - Update FB SDK (impression issue on FB SDK 4.6)
+
+You must update [mng-ads.jar Android SDK], [AudienceNetwork.jar].
+
 ## Version 1.4.2
 
 #### Release date: October 16th, 2015
