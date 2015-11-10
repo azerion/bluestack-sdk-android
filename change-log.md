@@ -1,5 +1,13 @@
 ## Change log and release notes for the MngAds SDK for Android.
 
+## Version 1.5
+
+#### Release date: November 10th, 2015
+
+ - New appsfire version (use mngads adserver)
+
+You must update [mng-ads.jar Android SDK], [afAdSdk.jar].
+
 ## Version 1.4.4
 
 #### Release date: October 26th, 2015
