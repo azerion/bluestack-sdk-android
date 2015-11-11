@@ -1,4 +1,5 @@
 ## Change log and release notes for the MngAds SDK for Android.
+See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
 ## Version 1.5
 
@@ -164,3 +165,6 @@ You must check [Upgrade Guide]
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/AudienceNetwork.jar?at=master
 [SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-6.1.jar?at=master
 [AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
+[Design Guidelines and Best practices]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
+[Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/
+[Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
