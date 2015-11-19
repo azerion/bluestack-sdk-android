@@ -180,13 +180,17 @@ if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
 ```
 
 #####Handle callBack from BannerListener
-adsAdapter.bannerDidLoad(View adView): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
+###### v1.5.1 or above
+adsAdapter.bannerDidLoad(View adView) changed to adsAdapter.bannerDidLoad(View adView,int preferredHeightDP).
+adsAdapter.bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
 ```
 #!java
 	@Override
-	public void bannerDidLoad(View adView) {
+	 public void bannerDidLoad(View adView ,int preferredHeightDP);
 		Log.d(TAG, "your banner is ready")
-		adLayout.removeAllViews();
+		...
+		// it's preferable to adjust the ad container view size to match the returned Ad size for a better display
+		...
 		adLayout.addView(adView);
 	}
 ```
@@ -198,6 +202,18 @@ adsAdapter.bannerDidFail(Exception adsException): will be called when all ads se
 	public void bannerDidFail(Exception adsException) {
 		Log.e(TAG, "banner did fail :" + adsException.toString());
 	}
+```
+###### v1.5.1 or above 
+adsAdapter.bannerResize(MNGFrame frame) : will be called when the banner has changed size
+```
+#!java
+	 @Override
+    public void bannerResize(MNGFrame frame) {
+    ...
+        // it's preferable to adjust the ad container view size to match the returned Ad size for a better display
+        Log.d(TAG, "Banner did resize w dp " + frame.getWidth() + " h dp " + frame.getHeight());
+    ...
+    }
 ```
 
 ### Interstitial
