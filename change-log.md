@@ -1,6 +1,14 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
+## Version 1.5.1
+
+#### Release date: November 19th, 2015
+
+ - Banner improvement for dynamic height
+
+You must update [mng-ads.jar Android SDK]. **Implementation has changed, you mus check [Upgrade Guide]
+
 ## Version 1.5
 
 #### Release date: November 10th, 2015
