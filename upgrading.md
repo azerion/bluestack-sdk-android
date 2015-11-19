@@ -1,6 +1,40 @@
 # upgrading SDK
 
 **You need to keep all Ad Network jars up to date.**
+## Upgrading to 1.5.1
+The following method have been changed. int preferredHeightDP is now available to more easily resize banners.
+
+```
+#!java
+ /**
+     * Notifies the Listener that the creative from the banner ad had been
+     * loaded.
+     * @param adView 
+     * @param Ad preferredHeightDP this value is in dp
+     */
+    public void bannerDidLoad(View adView ,int preferredHeightDP);
+```
+instead of
+```
+#!java
+   /**
+     * Notifies the Listener that the creative from the banner ad had been
+     * loaded.
+     * @param adView 
+     */
+    public void bannerDidLoad(View adView);
+```
+The following methode was added to the banner listener
+```
+#!java
+   /**
+     * Notifies the listener that the creative from the banner ad had been
+     * resized.
+     * @param frame Ad frame size width  dp , height dp
+     */
+    public void bannerResize(MNGFrame frame);
+```
+##### Note : it's preferable to adjust the ad container view size to match the returned Ad size for a better display.
 
 ## Upgrading to 1.3.1
 
