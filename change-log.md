@@ -1,6 +1,13 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
+## Version 1.5.2
+
+#### Release date: January 8th, 2016
+
+ - fix appsfire bugs + cleans
+ - code optimisations for smart banner
+
 ## Version 1.5.1
 
 #### Release date: November 19th, 2015
