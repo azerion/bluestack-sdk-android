@@ -136,7 +136,8 @@ isBusy will be setted to false when factory finish handling request.
 #!java
 	if (!mngAdsBannerAdsFactory.isBusy()) {
 		Log.d(TAG, "Ads Factory is not busy");
-		mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50));
+                 int bannerHeightDP = getResources().getBoolean(R.bool.is_tablet) ? Constants.BANNER_90_HEIGHT :Constants.BANNER_50_HEIGHT ;
+		mngAdsBannerAdsFactory.createBanner(new MNGFrame(bannerWidthDP, bannerHeightDP));
 	} else {
 		Log.d(TAG, "Ads Factory is busy");
 	}
@@ -172,7 +173,9 @@ To make a request you have to call 'createBanner'. this method return a bool val
 
 ```
 #!java
-if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
+
+int bannerHeightDP = getResources().getBoolean(R.bool.is_tablet) ? Constants.BANNER_90_HEIGHT :Constants.BANNER_50_HEIGHT ;
+if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(bannerWidthDP, bannerHeightDP))){
     //Wait callBack from listener
 }else{
     //adsFactory can not handle your request
