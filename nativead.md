@@ -18,6 +18,10 @@ Please check with MNG in order to receive the publisher ID for your native ads.
 
 You can set a listener on the newly created MNGNativeAd in order to know when the ad is loaded or if an error occurred:
 
+```
+#!java
+
+
 mNative.setNativeAdListener(new MNGNativeAdListener() {
    @Override
    public void onAdLoaded(MNGNativeAd mngNativeAd) {
@@ -29,12 +33,18 @@ mNative.setNativeAdListener(new MNGNativeAdListener() {
       // Error loading native ad..
    }
 };
+```
+
 
 You may also poll for ad readiness using mNativeAd.isAdLoaded();
 
 3. Retrieving the ad metadata
 
 Once a native ad is loaded, you may retrieve its metadata with the following methods:
+
+
+```
+#!java
 
 // Get the app name
 public String getTitle();
@@ -71,6 +81,8 @@ public double getAverageUserRating();
 
 // Register your custom ad view to automatically report impressions and clicks, and react to clicks by opening the app in the store. This is mandatory
 public void registerViewForInteraction (View monitoredView);
+```
+
 
 ## Conclusion
 
