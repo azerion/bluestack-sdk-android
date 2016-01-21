@@ -38,7 +38,7 @@ mNative.setNativeAdListener(new MNGNativeAdListener() {
 
 You may also poll for ad readiness using mNativeAd.isAdLoaded();
 
-##3. Retrieving the ad metadata
+##3. Native Ad Assets
 
 Once a native ad is loaded, you may retrieve its metadata with the following methods:
 
@@ -84,7 +84,6 @@ public void registerViewForInteraction (View monitoredView);
 ```
 
 
-## Conclusion
+##4. Native Ad Implementation
 
-Please check your native ads implementation with MNG before releasing your app using the ads to the store, so we can make sure that all elements are present, and that impressions and clicks
-are correctly reporting.
+![MNGNativeAds_Android_Methods.png](https://bitbucket.org/repo/GyRXRR/images/815342018-MNGNativeAds_Android_Methods.png)
