@@ -1,9 +1,9 @@
-## Native ads
+# Native ads
 
 MNG supports native ads, that allow you to retrieve the metadata of ad campaigns and present the ads yourself, within the context of your app, using your own art style. You are fully responsible
 for rendering the ad views using the information we supply. Native ads however offer methods to help you register impressions and clicks on your custom view.
 
-1. Requesting a native ad
+##1. Requesting a native ad
 
 MNGNativeAd mNativeAd;
 
@@ -14,7 +14,7 @@ mNativeAd = new MNGNativeAd (this, "my_publisher_id");
 Please check with MNG in order to receive the publisher ID for your native ads.
 
 
-2. Listening for native ad events
+##2. Listening for native ad events
 
 You can set a listener on the newly created MNGNativeAd in order to know when the ad is loaded or if an error occurred:
 
@@ -38,7 +38,7 @@ mNative.setNativeAdListener(new MNGNativeAdListener() {
 
 You may also poll for ad readiness using mNativeAd.isAdLoaded();
 
-3. Retrieving the ad metadata
+##3. Retrieving the ad metadata
 
 Once a native ad is loaded, you may retrieve its metadata with the following methods:
 
