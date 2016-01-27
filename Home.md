@@ -1,14 +1,16 @@
 #![MNG-Ads-1.png](https://bitbucket.org/repo/aen579/images/3739691856-MNG-Ads-1.png) for Android
 
+### NOTE :MNG Ads requires minimum Android API level 10
+
 MNG Ads provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK is a library that allow you to handle the following Ads servers with the easy way :
 
 - [Smart ads server]
 - [Google DFP]
 - [Facebook Audience Network]
-- [Mng-perf]
-- [Appsfire]
-- [AppNexus]
-- [Retency]
+- [Amazon]
+- [Liverail]
+- [Flurry]
+- [Retecny]
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
@@ -25,16 +27,52 @@ You can see [Best practice Mngads and Design ad units to fit your app], an optim
 - drag and drop it in your project libs folder
 
 
-MngAds SDK needs:
+MngAds SDK requeire:
 
 - [Google-play-services_lib]
 - [SmartAdServer-Android-SDK.jar]
-- [mngperf-android-sdk.jar]
 - [AudienceNetwork.jar]
-- [afAdSdk.jar]
 - [Android-support-v4.jar]
-- [AppNexus-sdk]
 - [Retency-sdk]
+- [Amazon.jar]
+- [Liverail.jar]
+- [FlurryAds.jar] and [FlurryAnalytics.jar]
+
+
+Gradle:
+  * The available librairies via Maven are : 
+
+    - Google-Play-Services
+    - Android-Support
+    - AudienceNetwork
+
+
+You must add ( drag and drop ) the other librairies in your project libs folder.
+ 
+  Add this to Module-level /app/build.gradle before dependencies
+```
+#!groovy
+repositories {
+	mavenCentral() 
+}
+```
+  Add the compile dependency in the build.gradle file:
+```
+#!groovy
+dependencies { 
+
+  //Google Play Services
+  compile 'com.google.android.gms:play-services:8.4.0'
+  // or you can use compile 'com.google.android.gms:play-services-ads:8.4.0'
+  
+  //Android support v4
+ compile 'com.android.support:support-v4:23.+'
+ 
+ // Audience Network 
+  compile 'com.facebook.android:audience-network-sdk:4.9.0'
+}
+```
+
 
 ## Sample Application
 
@@ -136,8 +174,7 @@ isBusy will be setted to false when factory finish handling request.
 #!java
 	if (!mngAdsBannerAdsFactory.isBusy()) {
 		Log.d(TAG, "Ads Factory is not busy");
-                 int bannerHeightDP = getResources().getBoolean(R.bool.is_tablet) ? Constants.BANNER_90_HEIGHT :Constants.BANNER_50_HEIGHT ;
-		mngAdsBannerAdsFactory.createBanner(new MNGFrame(bannerWidthDP, bannerHeightDP));
+		mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50));
 	} else {
 		Log.d(TAG, "Ads Factory is busy");
 	}
@@ -173,9 +210,7 @@ To make a request you have to call 'createBanner'. this method return a bool val
 
 ```
 #!java
-
-int bannerHeightDP = getResources().getBoolean(R.bool.is_tablet) ? Constants.BANNER_90_HEIGHT :Constants.BANNER_50_HEIGHT ;
-if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(bannerWidthDP, bannerHeightDP))){
+if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
     //Wait callBack from listener
 }else{
     //adsFactory can not handle your request
@@ -222,7 +257,7 @@ adsAdapter.bannerResize(MNGFrame frame) : will be called when the banner has cha
 ### Interstitial
 #####Init factory
 
-To create a interstitial you have to init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.
+To create a interstitial you must init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.
 
 ```
 #!java
@@ -239,7 +274,7 @@ public class MainActivity extends Activity implements MNGInterstitialListener{
 	mngAdsInterstitialAdsFactory.setInterstitialListener(this);
 ```
 #####Make a request 
-To make a request you have to call 'createInterstitial()'. this method return a bool value (canHandleRequest).
+To make a request you must call 'createInterstitial()'. this method return a bool value (canHandleRequest).
 
 ```
 #!java
@@ -280,7 +315,7 @@ adsAdapter.InterstitialDisappear(): will be called when intertisialView did disa
 ### Interstitial Overlay
 #####Init factory
 
-To create a interstitial overlay you have to init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.Note that you must use the same instance for making and handling the request.
+To create an interstitial overlay you must init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.Note that you must use the same instance for making and handling the request.
 
 ```
 #!java
@@ -297,7 +332,7 @@ public class MainActivity extends Activity implements MNGInterstitialListener{
     	mngAdsInterstitialOverlayAdsFactory.setInterstitialListener(this);
 ```
 #####Make a request 
-To make a request you have to call 'createInterstitial()'. this method return a bool value (canHandleRequest).The interstitial will appear every n(capping) request
+To make a request you must call 'createInterstitial()'. this method return a bool value (canHandleRequest).The interstitial will appear every n(capping) request
 
 ```
 #!java
@@ -395,6 +430,58 @@ adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all 
 	}
 
 ```
+#####Build Native Ad UI
+MNGNativeObject have all required metadata to build your customized native UI.
+```
+#!java
+@Override
+	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
+    ...
+    String title=nativeObject.getTitle();
+    String body=nativeObject.getBody();
+    String callToAction=nativeObject.getCallToAction();
+    String price=nativeObject.getPriceText();
+    Bitmap badge=nativeObject.getBadge();
+    
+    String iconUrl=nativeObject.getAdIconUrl();
+    String coverImageUrl=nativeObject.getAdCoverImageUrl();
+    
+    //to handle impression and user interaction you have to call 
+    nativeObject.registerViewForInteraction(nativeAdCallToActionView);
+   ...
+}
+```
+
+###### v2.0 or above
+You can also integrate video ads into your Native Ad experience. To enable video you must complete the following steps:
+
+- Have SDK version 2.0 or later
+- You have to call setMediaContainer(viewGroup) then the sdk will handle the rendering process ( displaying)  the image cover or the media video inside the view group that depends on the ad network result
+ 
+```
+#!java
+@Override
+	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
+    ...
+    String title=nativeObject.getTitle();
+    String body=nativeObject.getBody();
+    String callToAction=nativeObject.getCallToAction();
+    String price=nativeObject.getPriceText();
+    Bitmap badge=nativeObject.getBadge();
+    
+    String iconUrl=nativeObject.getAdIconUrl();
+   // String coverImageUrl=nativeObject.getAdCoverImageUrl();
+   //  there is no need to use coverurl
+   nativeObject.setMediaContainer(mediaViewGroup);
+    
+    //to handle impression and user interaction you have to call 
+    nativeObject.registerViewForInteraction(nativeAdCallToActionView);
+   ...
+}
+```
+
+[MNGNativeAds_Android]
+
 
 ### Native Collection Ads  
 Native collection ads give you the control to design the perfect ad carousel for your app. 
@@ -496,7 +583,7 @@ informations that you can set are:
 #import com.mngads.util.MNGPreference;
 #import com.mngads.util.MNGGender;
 ...
-        	myLocation = new Location("I");
+        myLocation = new Location("I");
 		myLocation.setLatitude(35.757866);
 		myLocation.setLongitude(10.810547);
 		mngPreference = new MNGPreference();
@@ -559,6 +646,8 @@ To make ad request we need to add the following permission to AndroidManifest.xm
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <!--Grants the SDK permission to access a more accurate location based on GPS. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>	
+  <!-- External storage is used for pre-caching features if available -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     ...
 
@@ -567,7 +656,6 @@ To make ad request we need to add the following permission to AndroidManifest.xm
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Sherlock"
         android:largeHeap="true" <!-- use this if only you feel that your app might need it  -->  
         >
 
@@ -583,46 +671,56 @@ To make ad request we need to add the following permission to AndroidManifest.xm
             android:value="@integer/google_play_services_version" />
     ...
     
-    <!--appNexus SDK Ad activity  -->
-    <activity 
-		android:name="com.appnexus.opensdk.AdActivity"/>    <!-- to display this activity in fullscreen mode :  android:theme="@android:style/Theme.Light.NoTitleBar" -->
-
-    <!--mngPref SDK Ad activitys  -->
-    <activity
-            android:name="com.adsdk.sdk.banner.InAppWebView"
+ 
+     <!--MNG Ad server activity -->
+        <activity
+            android:name="com.mngads.sdk.MNGInAppWebView"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-    <activity
-            android:name="com.adsdk.sdk.video.RichMediaActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:hardwareAccelerated="true" />
-    <activity
-            android:name="com.adsdk.sdk.mraid.MraidActivity"
+        <activity
+            android:name="com.mngads.sdk.interstitial.MNGInterstitialAdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-    <activity
-            android:name="com.adsdk.sdk.mraid.MraidBrowser"
+        <activity
+            android:name="com.mngads.sdk.MNGVideoPlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-        
-    <!--DFP SDK Ad activity  -->
-    <activity
+        <activity
+            android:name="com.mngads.sdk.nativead.MNGNativeAdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+            
+        <!--DFP SDK Ad activity  -->
+        <activity
             android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-    <!--Facebook SDK Ad activity  -->
-    <activity
+        <!--Facebook SDK Ad activity  -->
+        <activity
             android:name="com.facebook.ads.InterstitialAdActivity"
             android:configChanges="keyboardHidden|orientation" />
-            <!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support  	  video rotation -->
+        <!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support  	  video rotation -->
 
-
-    <!--Retency SDK Ad activitys  -->
-
-    <activity android:name="com.retency.sdk.android.video.RichMediaActivity"
+        <!--Retency SDK Ad activitys  -->
+        <activity
+            android:name="com.retency.sdk.android.video.RichMediaActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:hardwareAccelerated="false" />
 
-    <activity android:name="com.retency.sdk.android.mraid.MraidBrowser"
+        <activity
+            android:name="com.retency.sdk.android.mraid.MraidBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
+        <!--Amazon SDK Ad activity  -->
+        <activity
+            android:name="com.amazon.device.ads.AdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+        <!--Flurry SDK Ad activity  -->
+        <activity
+            android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+
 ```
+
+#### Troublesome
+ * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
+ * Android multidex issue [AndroidMultidex]
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [Smart ads server]:http://help.smartadserver.com/fr/Default.htm#../../../../specifications/Content/MobileSpecifications/Apps.htm
@@ -640,10 +738,19 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [afAdSdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/afAdSdk.jar?at=master
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[SmartAdServer-Android-SDK-6.1.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/SmartAdServer-Android-SDK-6.0.1.jar?at=master
+[SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
-[AppNexus]:http://www.appnexus.com/fr
 [AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
+[Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
+[Liverail]:https://platform4.liverail.com
+[Flurry]:https://developer.yahoo.com/flurry/
+[Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
+[Liverail.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
+[FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs 
+[FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
+[AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
+[MNGNativeAds_Android]:../nativead.md
+[Retency]:http://www.retency.com/public/
