@@ -485,7 +485,7 @@ You can also integrate video ads into your Native Ad experience. To enable video
 See [Native Ads guidelines]
 
 
-#### Ad click listener
+### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
 ```
 #!java
@@ -511,7 +511,7 @@ public class MainActivity extends Activity implements MNGClickListener{
     }
 ...
 ```
-#### Preferences Object
+### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
 
@@ -539,7 +539,7 @@ informations that you can set are:
 
 ```
 `Note`: this [link] can help you to get device location.
-####Memory managment
+### Memory managment
 When you have finished your ads plant you must free the memory.
 
 ```
@@ -555,7 +555,7 @@ When you have finished your ads plant you must free the memory.
 	}
 ```
 
-####Enabling debug mode
+### Enabling debug mode
 To enbale debug mode you need to set debug mode to true :
 
 ```
@@ -569,7 +569,7 @@ MNGAdsFactory.setDebugModeEnabled(true);
 
 ```
 
-####MAndroidManifest.xml
+### MAndroidManifest.xml
 
 To make ad request we need to add the following permission to AndroidManifest.xml file :
 
