@@ -1,6 +1,6 @@
 #![MNG-Ads-1.png](https://bitbucket.org/repo/aen579/images/3739691856-MNG-Ads-1.png) for Android
 [TOC]
-### NOTE :MNG Ads requires minimum Android API level 10
+
 
 MNG Ads provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK is a library that allow you to handle the following Ads servers with the easy way :
 
@@ -16,6 +16,8 @@ It contains a dispacher that will select an ads server according to the priority
 
 ## Version
 See [Change Log] and [Upgrade Guide].
+
+NOTE :MNG Ads requires minimum Android API level 10
 
 ## Ad Examples and inspiration
 
