@@ -45,8 +45,9 @@ Don't forget to update the other librairies google-play-services_lib , AudienceN
             android:name="com.adsdk.sdk.mraid.MraidBrowser"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
     ...
- ```
+```
 #### Added
+
 ```
 #!xml
 <manifest
@@ -82,7 +83,8 @@ Don't forget to update the other librairies google-play-services_lib , AudienceN
             android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
     ...
- ```
+```
+
  ### Implementation
 You can also integrate video ads into your Native Ad experience by calling setMediaContainer(mediaViewGroup) then the sdk will handle the rendering process ( displaying)  the image cover or the media video inside the view group that depends on the ad network result
 ```
