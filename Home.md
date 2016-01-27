@@ -1,5 +1,5 @@
 #![MNG-Ads-1.png](https://bitbucket.org/repo/aen579/images/3739691856-MNG-Ads-1.png) for Android
-
+[TOC]
 ### NOTE :MNG Ads requires minimum Android API level 10
 
 MNG Ads provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK is a library that allow you to handle the following Ads servers with the easy way :
@@ -718,7 +718,7 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 
 ```
 
-#### Troublesome
+#### troubleshooting
  * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
  * Android multidex issue [AndroidMultidex]
 
