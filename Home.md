@@ -454,7 +454,7 @@ MNGNativeObject have all required metadata to build your customized native UI.
 }
 ```
 
-###### v2.0 or above
+##### v2.0 or above
 You can also integrate video ads into your Native Ad experience. To enable video you must complete the following steps:
 
 - Have SDK version 2.0 or later
@@ -662,7 +662,7 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 
 ```
 
-#### Troubleshooting
+### Troubleshooting
 
  * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
  * Android multidex issue [AndroidMultidex]
