@@ -482,67 +482,9 @@ You can also integrate video ads into your Native Ad experience. To enable video
 }
 ```
 
-[MNGNativeAds_Android]
+See [Native Ads guidelines]
 
 
-### Native Collection Ads  
-Native collection ads give you the control to design the perfect ad carousel for your app. 
-#####Init factory
-
-To create nativeAd collection you have to init an object with type MNGAdsSDKFactory and set the nativeCollectionListener.
-
-```
-#!java
-public class MainActivity extends Activity implements MNGNativeCollectionListener{
-...
-   private MNGAdsFactory mngNativeAdCollectionFactory;
-@Override
-     protected void onCreate(Bundle savedInstanceState) {
-...
-	// init native factory
-		mngNativeAdCollectionFactory = new MNGAdsFactory(this);
-
-	// set native listener
-		mngNativeAdCollectionFactory.setNativeListener(this);
-
-```
-You have also to set placementId (minimum one time)
-
-```
-#!java
-  mngNativeAdCollectionFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
-```
-#####Make a request for collection of native ad (**carousel**)
-To make a request you have to call 'createNativeCollection(int requestedAdNumber)'. this method return a bool value (canHandleRequest) 
-
-```
-#!java
-    if(mngAdsNativeAdsFactory.createNativeCollection(int requestedAdNumber){
-        //Wait callBack from native collection listener
-    }else{
-        //adsFactory can not handle your request
-    }
-```
-#####Handle callBack from NativeCollectionListener
-adsAdapter.nativeAdCollectionDidLoad(): will be called by the SDK when your collection is ready. now you can create your own views.
-```
-#!java
-@Override
-	public void nativeAdCollectionDidLoad(ArrayList<MNGNativeObject> nativeObjectCollection) {
-		Log.d(TAG, "native collection did load ");
-	}
-
-```
-
-adsAdapter.nativeAdCollectionDidFail(Exception adsCollectionException): will be called when the factory fail to return any native object
-```
-#!java
-@Override
-	public void nativeAdCollectionDidFail(Exception adsCollectionException) {
-		Log.e(TAG, "native collection Did Fail :"+ adsCollectionException.toString());
-	}
-
-```
 #### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
 ```
@@ -720,7 +662,8 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 
 ```
 
-#### troubleshooting
+#### Troubleshooting
+
  * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
  * Android multidex issue [AndroidMultidex]
 
@@ -754,4 +697,4 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
-[MNGNativeAds_Android]:../nativead.md
+[Native Ads guidelines]:../nativead
