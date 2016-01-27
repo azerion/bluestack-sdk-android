@@ -220,7 +220,7 @@ if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
 ```
 
 #####Handle callBack from BannerListener
-###### v1.5.1 or above
+**v1.5.1 or above**
 adsAdapter.bannerDidLoad(View adView) changed to adsAdapter.bannerDidLoad(View adView,int preferredHeightDP).
 adsAdapter.bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
 ```
@@ -243,7 +243,7 @@ adsAdapter.bannerDidFail(Exception adsException): will be called when all ads se
 		Log.e(TAG, "banner did fail :" + adsException.toString());
 	}
 ```
-###### v1.5.1 or above 
+**v1.5.1 or above** 
 adsAdapter.bannerResize(MNGFrame frame) : will be called when the banner has changed size
 ```
 #!java
