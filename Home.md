@@ -10,7 +10,7 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Amazon]
 - [Liverail]
 - [Flurry]
-- [Retecny]
+- [Retency]
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
@@ -755,4 +755,3 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [MNGNativeAds_Android]:../nativead.md
-[Retency]:http://www.retency.com/public/
