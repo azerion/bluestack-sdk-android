@@ -130,4 +130,4 @@ You can also integrate video ads into your Native Ad experience. To enable video
    ...
 }
 ```
-![MNGNativeVideoAd.png](https://bitbucket.org/repo/GyRXRR/images/1182800621-MNGNativeVideoAd.png)
+![MNGNativeVideoAd2.png](https://bitbucket.org/repo/GyRXRR/images/1851406635-MNGNativeVideoAd2.png)
