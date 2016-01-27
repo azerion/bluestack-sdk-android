@@ -24,6 +24,7 @@ Don't forget to update the other librairies google-play-services_lib , AudienceN
 
 ```
 #!xml
+
 <application
  ...
 <!--appNexus SDK Ad activity  -->
