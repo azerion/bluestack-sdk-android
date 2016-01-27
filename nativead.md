@@ -101,8 +101,7 @@ String callToAction=nativeObject.getCallToAction();
 public void registerViewForInteraction (View monitoredView);
 ```
 ##3. Native Ad Implementation
-
-![MNGNativeAds_Android_Methods.png](../MNGNativeAds.png)
+![MNGNativeAds.png](https://bitbucket.org/repo/GyRXRR/images/4291524761-MNGNativeAds.png)
 
 
 ## 4. v2.0 or above
@@ -130,4 +129,4 @@ You can also integrate video ads into your Native Ad experience. To enable video
    ...
 }
 ```
-![MNGNativeVideoAds_Android_Methods.png](../MNGNativevideoAd.png)
+![MNGNativeAds.png](https://bitbucket.org/repo/GyRXRR/images/3716701077-MNGNativeAds.png)
