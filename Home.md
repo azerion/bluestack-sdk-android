@@ -101,7 +101,7 @@ public class DemoApp extends Application{
 }
 ```
 
-#### Initialize Check
+### Initialize Check
 
 To verify if the SDK is fully initialized you have to call isInitialized():
 
@@ -147,7 +147,7 @@ public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
 
 
 
-#### Timeout
+### Timeout
 The time given to the ad view to download the ad data. After this time, the dispacher stops the ad server running (with failure) and move to the next.
 
 the default timeout is 1s.
@@ -163,7 +163,7 @@ public class MainActivity extends Activity{
     mngBannerAdsFactory.setTimeOut(3);
 ```
 
-#### isBusy
+### isBusy
 Before making a request you have to check that factory not busy (handling old request).
 
 Ads factory is busy means that it has not finished the previous request yet.
@@ -183,7 +183,7 @@ isBusy will be setted to false when factory finish handling request.
 ```
 
 ### Banner
-#####Init factory
+#### Init factory
 
 To create a banner you have to init an object with type MNGAdsSDKFactory and set the bannerListener and the context.
 
@@ -207,7 +207,7 @@ You have also to set placementId (minimum one time)
 #!java
     mngAdsBannerAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
-#####Make a request
+#### Make a request
 To make a request you have to call 'createBanner'. this method return a bool value (canHandleRequest) 
 
 ```
