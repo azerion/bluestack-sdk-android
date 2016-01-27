@@ -171,7 +171,7 @@ Ads factory is busy means that it has not finished the previous request yet.
 isBusy will be setted to true when factory start handling request.
 
 isBusy will be setted to false when factory finish handling request.
-##### example:
+**example**:
 ```
 #!java
 	if (!mngAdsBannerAdsFactory.isBusy()) {
