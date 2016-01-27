@@ -219,7 +219,7 @@ if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
 }
 ```
 
-#####Handle callBack from BannerListener
+####Handle callBack from BannerListener
 **v1.5.1 or above**
 adsAdapter.bannerDidLoad(View adView) changed to adsAdapter.bannerDidLoad(View adView,int preferredHeightDP).
 adsAdapter.bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
