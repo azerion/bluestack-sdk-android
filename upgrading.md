@@ -15,6 +15,7 @@ The following librairies are not required any more for the sdk
  - AppNexus-sdk
 
 #### Added
+
 The following librairies are required for the sdk
 
 - [Amazon.jar]
@@ -22,6 +23,7 @@ The following librairies are required for the sdk
 - [FlurryAds.jar] and [FlurryAnalytics.jar]
 
 Don't forget to update the other librairies :
+
 - [Google-play-services_lib]
 - [SmartAdServer-Android-SDK.jar]
 - [AudienceNetwork.jar]
