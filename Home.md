@@ -670,25 +670,22 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [Smart ads server]:http://help.smartadserver.com/fr/Default.htm#../../../../specifications/Content/MobileSpecifications/Apps.htm
-[Mng-perf]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mngperf-android-sdk.jar?at=master
+[Mng-perf]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngperf-android-sdk.jar?at=master
 [Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
 [Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
 [Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
-[mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mng-ads-sdk.jar?at=master
+[mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
 [MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
 [Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
 [Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
 [Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
-[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/AudienceNetwork.jar?at=master
-[mngperf-android-sdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/mngperf-android-sdk.jar?at=master
-[afAdSdk.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/afAdSdk.jar?at=master
-[Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/android-support-v4.jar?at=master
+[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/AudienceNetwork.jar?at=master
+[Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
-[AppNexus-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/sdk/?at=master
 [Retency]:http://www.retency.com/public/
-[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
+[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
 [Liverail]:https://platform4.liverail.com
 [Flurry]:https://developer.yahoo.com/flurry/
