@@ -32,7 +32,7 @@ You can see [Best practice Mngads and Design ad units to fit your app], an optim
 
 MngAds SDK requeire:
 
-- [Google-play-services_lib]
+- - Google-play-services_lib (com.google.android.gms:play-services:8.4.0)
 - [SmartAdServer-Android-SDK.jar]
 - [AudienceNetwork.jar]
 - [Android-support-v4.jar]
