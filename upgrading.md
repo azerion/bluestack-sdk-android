@@ -7,17 +7,24 @@ MNG Ads requires minimum Android API level 10
 
 ### Librairies
 #### Removed
+
 The following librairies are not required any more for the sdk
-* afAdSdk.jar
-* mngperf-android-sdk.jar
-* AppNexus-sdk
+ - afAdSdk.jar
+ - mngperf-android-sdk.jar
+ - AppNexus-sdk
+
 #### Added
 The following librairies are required for the sdk
-* amazon-ads.jar
-* FlurryAds.jar and FlurryAnalytics.jar
-* liverail-admanager.jar
+- [Amazon.jar]
+- [Liverail.jar]
+- [FlurryAds.jar] and [FlurryAnalytics.jar]
 
-Don't forget to update the other librairies google-play-services_lib , AudienceNetwork.jar , SmartAdServer-Android-SDK.jar And Retency.
+Don't forget to update the other librairies :
+- [Google-play-services_lib]
+- [SmartAdServer-Android-SDK.jar]
+- [AudienceNetwork.jar]
+- [Android-support-v4.jar]
+- [Retency-sdk]
 
 ### AndroidManifest.xml
 #### Removed
@@ -194,3 +201,31 @@ No special steps are required to upgrade to v1.1.
 
 [Ad Examples]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/inspiration
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs/retency-sdk.jar?at=master
+[link]:https://developer.android.com/training/location/retrieve-current.html
+[Smart ads server]:http://help.smartadserver.com/fr/Default.htm#../../../../specifications/Content/MobileSpecifications/Apps.htm
+[Mng-perf]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngperf-android-sdk.jar?at=master
+[Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
+[Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
+[Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
+[mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
+[MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
+[Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
+[Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
+[Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
+[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/AudienceNetwork.jar?at=master
+[Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
+[Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
+[SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
+[mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
+[Retency]:http://www.retency.com/public/
+[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
+[Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
+[Liverail]:https://platform4.liverail.com
+[Flurry]:https://developer.yahoo.com/flurry/
+[Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
+[Liverail.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
+[FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs 
+[FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
+[Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
+[AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
+[Native Ads guidelines]:../nativead
