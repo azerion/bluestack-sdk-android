@@ -24,7 +24,7 @@ The following librairies are required for the sdk
 
 Don't forget to update the other librairies :
 
-- [Google-play-services_lib]
+- Google-play-services_lib (com.google.android.gms:play-services:8.4.0)
 - [SmartAdServer-Android-SDK.jar]
 - [AudienceNetwork.jar]
 - [Android-support-v4.jar]
