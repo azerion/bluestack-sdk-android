@@ -9,12 +9,14 @@ MNG Ads requires minimum Android API level 10
 #### Removed
 
 The following librairies are not required any more for the sdk
+
  - afAdSdk.jar
  - mngperf-android-sdk.jar
  - AppNexus-sdk
 
 #### Added
 The following librairies are required for the sdk
+
 - [Amazon.jar]
 - [Liverail.jar]
 - [FlurryAds.jar] and [FlurryAnalytics.jar]
