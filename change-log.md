@@ -4,6 +4,8 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 ## Version 2.0
 #### Release date: January 27th, 2016
 
+you mus check [Upgrade Guide]
+
  - The sdk afAdSdk.jar, mngperf-android-sdk.jar, AppNexus-sdk are merged on mngads SDK [mng-ads.jar Android SDK] for better performance and reduce librairies number
  - We have added - [Amazon.jar], [Liverail.jar], [FlurryAds.jar] to mngads mediation in order to increase fill rate and revenus
 
