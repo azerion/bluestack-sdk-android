@@ -34,6 +34,8 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
 -keep class com.facebook.** { *; }
 -keepattributes Signature
 -keep class com.flurry.** { *; }
+
+//Flurry
 -dontwarn com.flurry.**
 -keepattributes *Annotation*,EnclosingMethod,Signature
 -keepclasseswithmembers class * {
@@ -64,6 +66,11 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
 -keep class com.google.android.gms.** { *;
 }
 -dontwarn com.google.android.gms.**
+
+//liverail
+ # Third party adapters (e.g. AdColony, GoogleIMA) are initialized using reflection
+  -keep class com.liverail.adapters.** {*;}
+
 ```
 
 ## What types of ad units are available? ##
