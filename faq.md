@@ -47,20 +47,6 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
     protected Object[][] getContents();
 }
 
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
--keepnames @com.google.android.gms.common.annotation.KeepName class *
-
--keepclassmembernames class * {
-    @com.google.android.gms.common.annotation.KeepName *;
-}
-
--keepnames class * implements android.os.Parcelable {
-    public static final ** CREATOR;
-}
-
 #If you are using the Google Mobile Ads SDK, add the following:
 # Preserve GMS ads classes
 -keep class com.google.android.gms.** { *;
