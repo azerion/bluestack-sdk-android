@@ -33,6 +33,37 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
 }
 -keep class com.facebook.** { *; }
 -keepattributes Signature
+-keep class com.flurry.** { *; }
+-dontwarn com.flurry.**
+-keepattributes *Annotation*,EnclosingMethod,Signature
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+# Google Play Services library
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+#If you are using the Google Mobile Ads SDK, add the following:
+# Preserve GMS ads classes
+-keep class com.google.android.gms.** { *;
+}
+-dontwarn com.google.android.gms.**
 ```
 
 ## What types of ad units are available? ##
