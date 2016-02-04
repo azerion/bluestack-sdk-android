@@ -213,9 +213,9 @@ private MNGNativeAdListener createNativeAdListener() {
 }
 
 ```
+See [Native Ads guidelines]
 
-[Sushi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sushi.mp4
-[Sashimi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sashimi-extended-light.jpg
+
 
 
 ## Mopub
@@ -269,3 +269,6 @@ allow MNG Appsfire ads to be mediated and served.
 
 [mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
 [mngads-server Mopub adapter]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/mopub-adapter/?at=master
+[Sushi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sushi.mp4
+[Sashimi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sashimi-extended-light.jpg
+[Native Ads guidelines]:../nativead
