@@ -166,6 +166,54 @@ private MNGSushiAdListener createSushiAdListener() {
 }
 ```
 
+### Getting native ads metadata
+
+```java
+...
+import com.mngads.sdk.nativead.MNGNativeAd;
+...
+MNGNativeAd mNativeAd;
+
+mNativeAd = new MNGNativeAd (this, "YOUR_PUBLISHER_ID");
+mNativeAd.setNativeAdListener(createNativeAdListener());    
+```
+##### Make a request 
+To make a request you have to call loadAd 
+
+```
+mNativeAd.loadAd();
+```
+
+##### Handle callBack from MNGNativeAdDelegate
+```java
+private MNGNativeAdListener createNativeAdListener() {
+   return new MNGNativeAdListener() {
+      @Override
+      public void onAdLoaded(MNGNativeAd mngNativeAd) {
+         Log.d(TAG, "nativeAd: onAdLoaded");
+
+         // You can now pull information from the nativeAd
+         Log.d(TAG, "nativeAd: app name: " + nativeAd.getTitle());
+         // etc
+
+         // Once you create a view, "myNativeAdView", to display your native ad, you can register it for impressions and click management
+         nativeAd.registerViewForInteraction(myNativeAdView);
+      }
+
+      @Override
+      public void onError(MNGNativeAd mngNativeAd, Exception e) {
+         Log.d(TAG, "nativeAd: onError " + e.toString(), e);
+      }
+
+      @Override
+      public void onAdClicked(MNGNativeAd ad) {
+          // Called if you linked your view with registerViewForInteraction and the ad is clicked
+      }
+   };
+}
+
+```
+
 [Sushi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sushi.mp4
 [Sashimi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sashimi-extended-light.jpg
 
