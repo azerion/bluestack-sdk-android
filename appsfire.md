@@ -224,27 +224,27 @@ It is also possible to use the Mopub SDK and Mopub mediation to serve Appsfire a
 
 Preliminary steps:
 
-1. Add the [mngads-server Mopub adapter] (mngads-adserver-mopub-adapter.jar) to the libs folder of your application project, 
-2. Add the [mng-ads.jar Android SDK] to the libs folder of your app as well
-3. If building with Android studio, add the libs to gradle, for instance:
+- Add the [mngads-server Mopub adapter] (mngads-adserver-mopub-adapter.jar) to the libs folder of your application project, 
+- Add the [mng-ads.jar Android SDK] to the libs folder of your app as well
+- If building with Android studio, add the libs to gradle, for instance:
 
     compile files('libs/mngads-adserver-sdk.jar')
     compile files('libs/mngads-adserver-mopub-adapter.jar')
 
     to the dependencies{} section of your app's build.gradle
 
-4. On your mopub dashboard, create a custom network for instance called MNGAppsfireSushi and set the following class name for interstitials:
+- On your mopub dashboard, create a custom network for instance called MNGAppsfireSushi and set the following class name for interstitials:
 com.mopub.mobileads.MNGSushiInterstitial
 
 And for native ads:
 com.mopub.nativeads.MNGNative
 
-5. On your mopub dashboard, create new banner inventory for a custom network and add the following class name for banners:
+- On your mopub dashboard, create new banner inventory for a custom network and add the following class name for banners:
 com.mopub.mobileads.MNGHimonoBanner
 
 You do not need to set any other custom data on the dashboard.
 
-6. Initialize the publisher ID's for the MNG Appsfire placements
+- Initialize the publisher ID's for the MNG Appsfire placements
 
 ```java
 import com.mopub.mobileads.MNGSushiInterstitial;
@@ -261,7 +261,7 @@ MNGHimonoBanner.setPublisherId("MY_BANNER_PUBLISHER_ID");
 // If you use native ads
 MNGNative.setPublisherId("MY_NATIVEAD_PUBLISHER_ID");
 ```
-7. Use Mopub as usual
+- Use Mopub as usual
 
 You may now use MoPubInterstitial, MoPubView and MoPubAdAdapter to show interstitials, banners and native ads as usual. The adapter code and the setup you did on your Mopub dashboard will
 allow MNG Appsfire ads to be mediated and served.
