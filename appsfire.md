@@ -172,7 +172,7 @@ It is also possible to use the Mopub SDK and Mopub mediation to serve Appsfire a
 
 Preliminary steps:
 
-1. Add the mngads-server Mopub adapter (mngads-adserver-mopub-adapter.jar) to the libs folder of your application project, 
+1. Add the [mngads-server Mopub adapter] (mngads-adserver-mopub-adapter.jar) to the libs folder of your application project, 
 2. Add the [mng-ads.jar Android SDK] to the libs folder of your app as well
 3. If building with Android studio, add the libs to gradle, for instance:
 
@@ -216,3 +216,4 @@ allow MNG Appsfire ads to be mediated and served.
 
 
 [mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
+[mngads-server Mopub adapter]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/mopub-adapter/?at=master
