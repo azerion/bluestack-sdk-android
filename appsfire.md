@@ -17,6 +17,10 @@ The Monetization features of Appsfire SDK allows you to display ads in your appl
 
 ## Start Integrating appsfire
 
+### Install
+
+Add the [mng-ads.jar Android SDK] to the libs folder of your app as well
+
 ### Banner
 
 ```java
