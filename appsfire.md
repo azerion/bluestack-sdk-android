@@ -271,4 +271,4 @@ allow MNG Appsfire ads to be mediated and served.
 [mngads-server Mopub adapter]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/mopub-adapter/?at=master
 [Sushi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sushi.mp4
 [Sashimi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sashimi-extended-light.jpg
-[Native Ads guidelines]:../nativead
+[Native Ads guidelines]:./nativead
