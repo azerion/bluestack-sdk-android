@@ -102,7 +102,7 @@ String callToAction=nativeObject.getCallToAction();
 public void registerViewForInteraction (View monitoredView);
 ```
 ##3. Native Ad Implementation
-![MNGNativeAds.png](https://bitbucket.org/repo/GyRXRR/images/4291524761-MNGNativeAds.png)
+![img_native_new.png](https://bitbucket.org/repo/GyRXRR/images/1198580967-img_native_new.png)
 
 
 ## 4. v2.0 or above
