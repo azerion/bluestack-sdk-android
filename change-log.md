@@ -1,5 +1,12 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
+## Version 2.0.2
+#### Release date: February 21th, 2016
+
+You need to keep all Ad Network jars up to date.
+
+ - fix issues.
+ - appsfire performance optimisations
 
 ## Version 2.0.1
 #### Release date: February 1th, 2016
