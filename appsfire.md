@@ -298,12 +298,14 @@ anymore but still need to be set up.
 
  - Initialize the publisher ID's for the MNG Appsfire placements
 
-```java
+```
+java
+
 import com.appsfire.mediation.AdmobAdapter;
 ...
 
 AdmobAdapter.setPublisherId("MY_INTER_PUBLISHER_ID");
-
+```
  - Use Admob as usual
 
 You may now use InterstitialAd to show interstitials as usual. The adapter code and the setup you did on your Admob dashboard will allow MNG Appsfire ads to be mediated and served.
