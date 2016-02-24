@@ -275,7 +275,7 @@ Preliminary steps:
 
  - Add the mngads-server Admob adapter (src/com/appsfire/mediation/AdmobAdapter.java, src/com/appsfire/mediation/AppsfireNetworkExtras.java and src/com/appsfire/mediation/AppsfireServerParameters.java) to your application project, 
  - Add [mng-ads.jar Android SDK] to the libs folder of your app as well
-3. If building with Android studio, add the lib to gradle, for instance:
+ - If building with Android studio, add the lib to gradle, for instance:
 
    
 ```
@@ -287,12 +287,12 @@ Preliminary steps:
 
     to the `dependencies{}` section of your app's build.gradle
 
-4. Create your Android app in the Monetize tab of the Admob dashboard if that wasn't done already, and create an interstitial ad unit for your app.
+ - Create your Android app in the Monetize tab of the Admob dashboard if that wasn't done already, and create an interstitial ad unit for your app.
 
-5. On your Admob dashboard, for the interstitial ad unit, add a new ad source, select Appsfire from the list of networks. Enter 1 for the SDK token and secret key; they aren't used by MNGAds
+ - On your Admob dashboard, for the interstitial ad unit, add a new ad source, select Appsfire from the list of networks. Enter 1 for the SDK token and secret key; they aren't used by MNGAds
 anymore but still need to be set up. 
 
-6. Initialize the publisher ID's for the MNG Appsfire placements
+ - Initialize the publisher ID's for the MNG Appsfire placements
 
 ```java
 import com.appsfire.mediation.AdmobAdapter;
@@ -300,7 +300,7 @@ import com.appsfire.mediation.AdmobAdapter;
 
 AdmobAdapter.setPublisherId("MY_INTER_PUBLISHER_ID");
 
-7. Use Admob as usual
+ - Use Admob as usual
 
 You may now use InterstitialAd to show interstitials as usual. The adapter code and the setup you did on your Admob dashboard will allow MNG Appsfire ads to be mediated and served.
 
