@@ -298,8 +298,7 @@ anymore but still need to be set up.
 
  - Initialize the publisher ID's for the MNG Appsfire placements
 
-```
-java
+```java
 
 import com.appsfire.mediation.AdmobAdapter;
 ...
