@@ -273,7 +273,11 @@ You may also use the Admob SDK and Admob mediation to serve Appsfire ads using t
 
 Preliminary steps:
 
- - Add the mngads-server Admob adapter (src/com/appsfire/mediation/AdmobAdapter.java, src/com/appsfire/mediation/AppsfireNetworkExtras.java and src/com/appsfire/mediation/AppsfireServerParameters.java) to your application project, 
+ - Add the mngads-server Admob adapter to your application project :
+      - [src/com/appsfire/mediation/AdmobAdapter.java]
+      - [src/com/appsfire/mediation/AppsfireNetworkExtras.java]
+      - [src/com/appsfire/mediation/AppsfireServerParameters.java]
+ 
  - Add [mng-ads.jar Android SDK] to the libs folder of your app as well
  - If building with Android studio, add the lib to gradle, for instance:
 
@@ -309,3 +313,6 @@ You may now use InterstitialAd to show interstitials as usual. The adapter code 
 [Sushi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sushi.mp4
 [Sashimi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sashimi-extended-light.jpg
 [Native Ads guidelines]:./nativead
+[src/com/appsfire/mediation/AdmobAdapter.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/admob-adapter/sources/src/com/appsfire/mediation/AdmobAdapter.java?at=master
+[src/com/appsfire/mediation/AppsfireNetworkExtras.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/admob-adapter/sources/src/com/appsfire/mediation/AppsfireNetworkExtras.java?at=master
+[src/com/appsfire/mediation/AppsfireServerParameters.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/admob-adapter/sources/src/com/appsfire/mediation/AppsfireServerParameters.java?at=master
