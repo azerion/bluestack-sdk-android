@@ -267,9 +267,9 @@ You may now use MoPubInterstitial, MoPubView and MoPubAdAdapter to show intersti
 allow MNG Appsfire ads to be mediated and served.
 
 
-## Admob
+## Admob Mediation (certified)
 
-You may also use the Admob SDK and Admob mediation to serve Appsfire ads using the mngads-server SDK.
+You may also use the Admob SDK and [Admob mediation] to serve Appsfire ads using the mngads-server SDK.
 
 Preliminary steps:
 
@@ -309,6 +309,29 @@ AdmobAdapter.setPublisherId("MY_INTER_PUBLISHER_ID");
 
 You may now use InterstitialAd to show interstitials as usual. The adapter code and the setup you did on your Admob dashboard will allow MNG Appsfire ads to be mediated and served.
 
+Interstitial example for Admob (not specific to MNG/Appsfire):
+
+```java
+// Admob interstitial
+private InterstitialAd mInterstitial;
+
+// Load interstitial
+// If the mediation is configured as such, this will load an MNG Appsfire ad
+
+mInterstitial = new InterstitialAd(this);
+mInterstitial.setAdUnitId(ADMOB_ADUNIT_ID);
+mInterstitial.setAdListener(this);
+AdRequest adRequest = new AdRequest.Builder().build();
+mInterstitial.loadAd(adRequest);
+
+...
+
+// Show
+if (mInterstitial.isLoaded()) 
+mInterstitial.show();
+...
+```
+
 [mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
 [mngads-server Mopub adapter]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/mopub-adapter/?at=master
 [Sushi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sushi.mp4
@@ -317,3 +340,4 @@ You may now use InterstitialAd to show interstitials as usual. The adapter code 
 [src/com/appsfire/mediation/AdmobAdapter.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/admob-adapter/sources/src/com/appsfire/mediation/AdmobAdapter.java?at=master
 [src/com/appsfire/mediation/AppsfireNetworkExtras.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/admob-adapter/sources/src/com/appsfire/mediation/AppsfireNetworkExtras.java?at=master
 [src/com/appsfire/mediation/AppsfireServerParameters.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/admob-adapter/sources/src/com/appsfire/mediation/AppsfireServerParameters.java?at=master
+[Admob mediation]:https://developers.google.com/admob/android/mediation-networks
