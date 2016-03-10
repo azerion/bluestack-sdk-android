@@ -21,6 +21,12 @@ The Monetization features of Appsfire SDK allows you to display ads in your appl
 
 Add the [mng-ads.jar Android SDK] to the libs folder of your app as well
 
+Add the MNG Appsfire activities to your AndroidManifest.xml inside the <application> tag, below your own activities:
+   <activity android:name="com.mngads.sdk.MNGInAppWebView"
+             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+   <activity android:name="com.mngads.sdk.nativead.MNGNativeAdActivity"
+             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
 ### Banner
 
 ```java
