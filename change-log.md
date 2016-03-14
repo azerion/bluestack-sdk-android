@@ -1,6 +1,14 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
+## Version 2.0.4
+#### Release date: March 14th, 2016
+
+You need to keep all Ad Network jars up to date.
+
+ - bug fixes for [mng-ads.jar Android SDK]
+
+
 ## Version 2.0.3
 #### Release date: March 2th, 2016
 
@@ -229,3 +237,4 @@ You must check [Upgrade Guide]
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
+[presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.7.2.jar?fileviewer=file-view-default
