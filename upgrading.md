@@ -1,6 +1,81 @@
 # upgrading SDK
 
 **You need to keep all Ad Network jars up to date.**
+## Upgrading to 2.0.4
+MNG Ads requires minimum Android API level 11
+
+
+Contact mngads support to get presage API key .
+
+### Librairies
+#### Added
+
+The following librairie is required for the sdk
+
+ - [Presage-lib.jar]
+
+Don't forget to update the other librairies :
+
+- [SmartAdServer-Android-SDK.jar]
+ 
+### AndroidManifest.xml
+#### Added
+
+```
+#!xml
+<manifest
+...
+    <!-- Grants the SDK permission to receive the ACTION_BOOT_COMPLETED that is broadcast after the system finishes booting. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--Tracking permissions -->
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
+    <!--Shortcut permissions -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+... 
+
+<application
+ ...
+ <!-- PRESAGE LIBRARY -->
+        <!-- !!!!!! An API Key will be assigned to your application by mngads support team for Ogury library . !!!!!!-->
+        <meta-data android:name="presage_key" android:value="presage_key"/>
+        <service android:name="io.presage.services.PresageServiceImp" />
+        <activity
+            android:name="io.presage.activities.PresageActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:theme="@style/Presage.Theme.Transparent" >
+            <intent-filter>
+                <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <receiver android:name="io.presage.receivers.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="io.presage.receivers.BootReceiver.RESTART_SERVICE" />
+            </intent-filter>
+        </receiver>
+ ...
+```
+
+### Styles
+If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
+```
+#!XML
+<style name="Presage.Theme.Transparent" parent="android:Theme">
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:backgroundDimEnabled">false</item>
+</style>
+```
 ## Upgrading to 2.0
 
 MNG Ads requires minimum Android API level 10
