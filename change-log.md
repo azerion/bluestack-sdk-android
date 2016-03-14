@@ -7,6 +7,8 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 You need to keep all Ad Network jars up to date.
 
  - bug fixes for [mng-ads.jar Android SDK]
+ - Add new adnetwork Ogury [Presage-lib.jar]
+ - update [SmartAdServer-Android-SDK.jar]
 
 
 ## Version 2.0.3
