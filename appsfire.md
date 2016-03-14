@@ -87,6 +87,13 @@ public void himonoBannerViewDidRecordClick (MNGHimonoAd ad) {
 }
 ```
 
+##### Clean up
+Once you're done with the banner it is recommended you destroy it to collect assets that were used while it was displayed
+
+```java
+mHimonoAd.destroy();
+```
+
 ### Interstitial
 
 ```java
