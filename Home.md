@@ -12,13 +12,15 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Liverail]
 - [Flurry]
 - [Retency]
+- [Ogury] Note : An API Key will be assigned to your application by mngads support team for Ogury library.
+
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
 
 ## Version
 See [Change Log] and [Upgrade Guide].
 
-NOTE :MNG Ads requires minimum Android API level 10
+NOTE :MNG Ads requires minimum Android API level 11
 
 ## Ad Examples and inspiration
 
@@ -40,7 +42,7 @@ MngAds SDK requeire:
 - [Amazon.jar]
 - [Liverail.jar]
 - [FlurryAds.jar] and [FlurryAnalytics.jar]
-
+- [Presage-lib.jar]
 
 Gradle:
   * The available librairies via Maven are : 
@@ -591,9 +593,18 @@ To make ad request we need to add the following permission to AndroidManifest.xm
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <!--Grants the SDK permission to access a more accurate location based on GPS. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>	
-  <!-- External storage is used for pre-caching features if available -->
+    <!-- External storage is used for pre-caching features if available -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <!-- Grants the SDK permission to receive the ACTION_BOOT_COMPLETED that is broadcast after the system finishes booting. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!--Tracking permissions -->
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
+    <!--Shortcut permissions -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
     ...
 
   <application
@@ -660,9 +671,105 @@ To make ad request we need to add the following permission to AndroidManifest.xm
         <activity
             android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        
+        <!-- PRESAGE LIBRARY -->
+        <!-- !!!!!! An API Key will be assigned to your application by mngads support team for Ogury library . !!!!!!-->
+        <meta-data android:name="presage_key" android:value="presage_key"/>
+        <service android:name="io.presage.services.PresageServiceImp" />
+
+        <activity
+            android:name="io.presage.activities.PresageActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:theme="@style/Presage.Theme.Transparent" >
+            <intent-filter>
+                <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="io.presage.receivers.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="io.presage.receivers.BootReceiver.RESTART_SERVICE" />
+            </intent-filter>
+        </receiver>
+```
+### Styles
+If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
+```
+#!XML
+<style name="Presage.Theme.Transparent" parent="android:Theme">
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:backgroundDimEnabled">false</item>
+</style>
+```
+### Ogury integration
+Ogury interation is different from others Ad network .
+
+ * Step 1 : Contact mngads support to get presage API key.
+ * Step 2 : Add presage-lib.jar to your libs folder
+ * Step 3 : Copy the following lines in your AndroidManifest.xml inside <application> tag.Don't forget your API Key: presage_key.
+
+```
+#!XML
+<!-- PRESAGE LIBRARY -->
+<meta-data android:name="presage_key" android:value="presage_key"/>
+<service android:name="io.presage.services.PresageServiceImp"/>
+<activity android:name="io.presage.activities.PresageActivity" 
+  android:label="@string/app_name" 
+  android:theme="@style/Presage.Theme.Transparent" 
+  android:configChanges="keyboard|keyboardHidden|orientation|screenSize" 
+  android:hardwareAccelerated="true" >
+    <intent-filter>
+      <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+</activity>
+<receiver android:name="io.presage.receivers.BootReceiver">
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="android.intent.action.DATE_CHANGED"/>
+        <action android:name="io.presage.receivers.BootReceiver.RESTART_SERVICE"/>
+    </intent-filter>
+</receiver>
+```
+ * Step 4 : Add the following permissions that will be grouped together
+Placed just before the opening <application> tag:
+
+```
+#!XML
+Default internet and boot permissions
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+Tracking permissions
+<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+<uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
+Shortcut permissions
+<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
 
 ```
 
+* Step 5 : If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
+
+```
+#!XML
+<style name="Presage.Theme.Transparent" parent="android:Theme">
+    <item name="android:windowIsTranslucent">true</item>
+    <item name="android:windowBackground">@android:color/transparent</item>
+    <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:backgroundDimEnabled">false</item>
+</style>
+```
 ### Troubleshooting
 
  * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
@@ -694,4 +801,6 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 [FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
+[Ogury]:http://www.ogury.co/
+[presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/libs
 [Native Ads guidelines]:./nativead
