@@ -57,6 +57,34 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
  # Third party adapters (e.g. AdColony, GoogleIMA) are initialized using reflection
   -keep class com.liverail.adapters.** {*;}
 
+//Ogury
+Pro Tips
+Use Proguard
+If you use Proguard, you need to add these lines in your configuration
+
+-keepattributes Signature
+-keep class sun.misc.Unsafe { *; }
+
+-keep class shared_presage.** { *; }
+-keep class io.presage.** { *; }
+-keepclassmembers class io.presage.** {
+ *;
+}
+
+-keepattributes *Annotation*
+-keepattributes JavascriptInterface
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
 ```
 
 ## What types of ad units are available? ##
