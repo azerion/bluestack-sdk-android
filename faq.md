@@ -62,7 +62,6 @@ Pro Tips
 Use Proguard
 If you use Proguard, you need to add these lines in your configuration
 
--keepattributes Signature
 -keep class sun.misc.Unsafe { *; }
 
 -keep class shared_presage.** { *; }
