@@ -12,6 +12,17 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
 ```
 #!android
 
+//mngads
+-keep class com.mngads.** { *; }
+-keep class com.retency.** { *; }
+-keep class com.flurry.** { *; }
+-keep class com.google.android.gms.** { *;}
+-keep class com.facebook.** { *; }
+-keep class com.smartadserver.** { *; }
+-keep class com.liverail.** { *; }
+-keep class com.amazon.** { *; }
+-keep class io.presage.** { *; }
+
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
 }
