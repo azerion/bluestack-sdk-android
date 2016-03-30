@@ -22,7 +22,6 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
 -keep class com.liverail.** { *; }
 -keep class com.amazon.** { *; }
 -keep class io.presage.** { *; }
--keep interface com.mngads.* { *; }
 
 -keep class * extends java.util.ListResourceBundle {
     protected Object[][] getContents();
