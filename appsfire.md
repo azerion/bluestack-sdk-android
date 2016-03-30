@@ -230,6 +230,13 @@ private MNGNativeAdListener createNativeAdListener() {
 See [Native Ads guidelines]
 
 
+## Using Proguard
+
+If you are using Proguard to reduce the size of your application and obfuscate class names, you need to add the following to your Proguard configuration:
+-keep class com.mngads.** { ; }
+-keep interface com.mngads.* { *; }
+
+Some MNG Appsfire ads such as custom Sashimi views and Himono banners use reflection and require this in order to operate correctly when building with Proguard.
 
 
 ## Mopub
