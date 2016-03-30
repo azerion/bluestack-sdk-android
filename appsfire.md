@@ -240,7 +240,6 @@ If you are using Proguard to reduce the size of your application and obfuscate c
 
 
 -keep class com.mngads.** { ; }
--keep interface com.mngads.* { *; }
 ```
 
 
