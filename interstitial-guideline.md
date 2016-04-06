@@ -70,7 +70,7 @@ public class BaseActivity extends AppCompatActivity implements ApplicationManage
 
 Even though the onBecameForeground listener will be called after an interstitial is closed the create interstitial will be ignored due to the 5s delay lock.
     
- ###### Note : This workaround covers most of the scenarios but you need to handle more specific cases in your application.
+>Note : This workaround covers most of the scenarios but you need to handle more specific cases in your application.
 
 
 ```
