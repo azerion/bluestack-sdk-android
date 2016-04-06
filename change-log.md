@@ -1,6 +1,19 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
+
+## Version 2.0.5
+#### Release date: April 6th, 2016
+
+you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
+
+ - MNG Ads Factory will ignore any interstitial request while there is a pending request or there is interstitial shown at that moment.
+ - MNG Ads Factory will ignore any interstitial request if interstitial was just closed and there is a new interstitial request before 5s delay.
+ - Banner rotation for appsfire
+ - NativeAd improvement for DFP
+ - Check with proguard 
+
+ - 
 ## Version 2.0.4
 #### Release date: March 14th, 2016
 
