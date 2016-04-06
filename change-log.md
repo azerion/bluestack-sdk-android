@@ -13,7 +13,6 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
  - NativeAd improvement for DFP
  - Check with proguard 
 
- - 
 ## Version 2.0.4
 #### Release date: March 14th, 2016
 
