@@ -8,7 +8,7 @@ To avoid stacking up two interstitial Ad MNG added lock system :
 
 ## Show Interstitial after return from background
 
-On Android, we don’t have the option to directly detect whether the app is in  background or not like applicationdidenterbackground in iOS. But There are few workarounds. 
+Unlike iOS with applicationdidenterbackgroundwith, on Android we don’t have the option to directly detect whether the app is in  background. But There are few workarounds. 
 
    - If your application has only one activity , you can make interstitial request from the [onStart()] method .This will enable you to make a request when the app starts and every time the app goes through [onStop()] method. Even though the [onStart()] method will be called after an interstitial is closed the create intertitial will be ignored due to the 5s delay lock.
 
