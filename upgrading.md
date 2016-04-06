@@ -1,6 +1,17 @@
 # upgrading SDK
 
 **You need to keep all Ad Network jars up to date.**
+## Upgrading to 2.0.5
+### Implementation
+
+The MNGNativeObject registerViewForInteraction methode now accapte only Button , TextView or ImageView instead of View as a parameter
+
+public void registerViewForInteraction(Button adClickButton)
+
+public void registerViewForInteraction(TextView adClickTextView)
+
+public void registerViewForInteraction(ImageView adClickImageView)
+
 ## Upgrading to 2.0.4
 MNG Ads requires minimum Android API level 11
 
