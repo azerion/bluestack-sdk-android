@@ -1,9 +1,16 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
+## Version 2.0.6
+#### Release date: April 8th, 2016
+
+you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. You must update [mng-ads.jar Android SDK]
+
+ - MNGAnalyticsService collecting data optimisation
+ - Now MNGAdapter methods are public to allow extends (e.g Xamarin integration)
 
 ## Version 2.0.5
-#### Release date: April 6th, 2016
+#### Relase date: April 6th, 2016
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 
