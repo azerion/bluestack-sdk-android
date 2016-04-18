@@ -37,7 +37,7 @@ MngAds SDK requeire:
 - Google-play-services_lib (com.google.android.gms:play-services:8.4.0)
 - [SmartAdServer-Android-SDK.jar]
 - [AudienceNetwork.jar]
-- com.android.support:support-v4:23.+
+- com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing
 - [Retency-sdk]
 - [Amazon.jar]
 - [Liverail.jar]
