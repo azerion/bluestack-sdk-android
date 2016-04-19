@@ -12,6 +12,9 @@ public void registerViewForInteraction(TextView adClickTextView)
 
 public void registerViewForInteraction(ImageView adClickImageView)
 
+
+see https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-5-v25-or-above
+
 ## Upgrading to 2.0.4
 MNG Ads requires minimum Android API level 11
 
