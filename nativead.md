@@ -136,6 +136,6 @@ You can also integrate video ads into your Native Ad experience. To enable video
 
 ## 5. v2.5 or above 
 
-To avoid case where native DFP adapter fail to register view for interaction , MNG ads now limits the type of view passed to registerViewForInteraction method (it only accept Button , TextView , ImageView). 
+To avoid case where native DFP adapter fails to register view for interaction , MNG ads limits the type of view passed to **registerViewForInteraction** method (it only accept Button , TextView , ImageView). 
 
 >Note : If you want the whole native ad clickable you can use a transparent button above the native content as a workaround .
