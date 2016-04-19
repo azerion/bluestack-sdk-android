@@ -4,7 +4,7 @@
 MNG supports native ads, that allow you to retrieve the metadata of ad campaigns and present the ads yourself, within the context of your app, using your own art style. You are fully responsible
 for rendering the ad views using the information we supply. Native ads however offer methods to help you register impressions and clicks on your custom view.
 
-## 1. Requesting a native ad
+## Requesting a native ad
 
 ##### Init factory
 
@@ -63,7 +63,7 @@ adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all 
 
 ```
 
-##2. Native Ad Assets
+## Native Ad Assets
 
 Once a native ad is loaded, you may retrieve its metadata with the following methods:
 
@@ -101,11 +101,11 @@ String callToAction=nativeObject.getCallToAction();
 // Register your custom ad view to automatically report impressions and clicks, and react to clicks by opening the app in the store. This is mandatory
 public void registerViewForInteraction (View monitoredView);
 ```
-##3. Native Ad Implementation
+## Native Ad Implementation
 ![img_native_new.png](https://bitbucket.org/repo/GyRXRR/images/1198580967-img_native_new.png)
 
 
-## 4. v2.0 or above
+## Video (>= v2.0)
 You can also integrate video ads into your Native Ad experience. To enable video you must complete the following steps:
  - Have SDK version 2.0 or later
  -  You have to call setMediaContainer(viewGroup) then the sdk will handle the rendering process ( displaying)  the image cover or the media video inside the view group that depends on the ad network result
@@ -134,7 +134,7 @@ You can also integrate video ads into your Native Ad experience. To enable video
 ![MNGNativeVideoAd2.png](https://bitbucket.org/repo/GyRXRR/images/1851406635-MNGNativeVideoAd2.png)
 
 
-## 5. v2.5 or above 
+## registerViewForInteraction  (>=v2.5)
 
 To avoid case where native DFP adapter fails to register view for interaction , MNG ads limits the type of view passed to **registerViewForInteraction** method (it only accept Button , TextView , ImageView). 
 
