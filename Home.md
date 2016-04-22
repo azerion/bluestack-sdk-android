@@ -82,7 +82,6 @@ dependencies {
 
 [see Proguard rules on our faq]
 
-https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 
 ## Sample Application
 
