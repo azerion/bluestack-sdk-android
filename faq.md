@@ -111,6 +111,8 @@ If you use native ads in feed and plan to show several units as the user scrolls
 Native ads allow you to customize the look and feel of ads to match that of your app. Native ads work by receiving the metadata for ads through MngAds.
 
 
+##  interstitial did load callback without display
 
-# Publisher Application Process #
-# Support #
+**You must use an instance per activity.**
+
+Some AdNetworks show their interstitials on top of an Activity layout and then disappear. Therefore, you must instantiate **once MNGAdsFactory by activity** (used for display the interstitial). If you want to build an interstitials manager for your app to handle all interstitials requests, you should make sure to instantiate MNGAdsFactory with the activity that will make the request.
