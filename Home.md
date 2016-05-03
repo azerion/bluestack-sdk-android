@@ -82,7 +82,6 @@ dependencies {
 
 [see Proguard rules on our faq]
 
-
 ## Sample Application
 
 Included is a [MngAds sample app] to use as example and for help on MngAds integration. This basic application allows users to test our differents formats.
@@ -266,7 +265,7 @@ adsAdapter.bannerResize(MNGFrame frame) : will be called when the banner has cha
 ### Interstitial
 #####Init factory
 
-To create a interstitial you must init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.
+To create a interstitial you must init an object with type MNGAdsSDKFactory and set the interstitalListener and the context (Activity)  [more details about instance on our FAQ].
 
 ```
 #!java
@@ -817,3 +816,4 @@ Shortcut permissions
 [BaseActivity.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.java?at=master&fileviewer=file-view-default
 [Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
 [see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
+[more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
