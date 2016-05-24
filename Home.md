@@ -95,11 +95,12 @@ You have to init the SDK in your application class
 
 ```
 #!java
-
-#import com.mngads.MNGAdsFactory;
-
+...
+import com.mngads.MNGAdsFactory;
+...
 public class DemoApp extends Application{
-@Override
+
+    @Override
 	public void onCreate() {
 		super.onCreate();
 		MNGAdsFactory.initialize(this,"YOUR_APP_ID");
@@ -113,18 +114,17 @@ To verify if the SDK is fully initialized you have to call isInitialized():
 
 ```
 #!java
-
+...
+import com.mngads.MNGAdsFactory;
+import com.mngads.listener.MNGAdsSDKFactoryListener;
+...
 public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
-   
 ...	
-
-
 	if(MNGAdsFactory.isInitialized()){
-
 	    //The SDK is initialized
             Toast.makeText(this, "MNGAdsFactory is initialized", Toast.LENGTH_SHORT).show();
 
-        }else {
+    }else {
 	   
 	    //The SDK is initializing
 	    //set up a callback	that will be called when is fully initiamized
@@ -132,11 +132,10 @@ public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
 
             Toast.makeText(this, "MNGAdsFactory is not initialized", Toast.LENGTH_SHORT).show();
 
-        }
-
-
-
-
+    }
+  ...
+  
+  ...
    @Override
     public void onMNGAdsSDKFactoryDidFinishInitializing() {
 
@@ -146,12 +145,11 @@ public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
            Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
     }
 
+...
 
 ```
 
 `Note`: onMNGAdsSDKFactoryDidFinishInitializing(): this method is called at any time when the initialize(...) method of MNG gets called
-
-
 
 ### Timeout
 The time given to the ad view to download the ad data. After this time, the dispacher stops the ad server running (with failure) and move to the next.
@@ -160,13 +158,18 @@ the default timeout is 1s.
 
 ```
 #!java
+...
+import com.mngads.MNGAdsFactory;
+...
 
 public class MainActivity extends Activity{
+
     private MNGAdsFactory mngAdsBannerAdsFactory;
 ...	
 // init banner factory
     mngAdsBannerAdsFactory = new MNGAdsFactory(this);
     mngBannerAdsFactory.setTimeOut(3);
+...
 ```
 
 ### isBusy
@@ -181,7 +184,9 @@ isBusy will be setted to false when factory finish handling request.
 ```
 #!java
 	if (!mngAdsBannerAdsFactory.isBusy()) {
+	
 		Log.d(TAG, "Ads Factory is not busy");
+		
 		mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50));
 	} else {
 		Log.d(TAG, "Ads Factory is busy");
@@ -195,6 +200,12 @@ To create a banner you have to init an object with type MNGAdsSDKFactory and set
 
 ```
 #!java
+...
+import com.mngads.MNGAdsFactory;
+import com.mngads.listener.MNGBannerListener;
+import com.mngads.util.MNGFrame;
+...
+
 public class MainActivity extends Activity implements MNGBannerListener{
 ...
     private MNGAdsFactory mngAdsBannerAdsFactory;
@@ -269,6 +280,12 @@ To create a interstitial you must init an object with type MNGAdsSDKFactory and 
 
 ```
 #!java
+
+...
+import com.mngads.MNGAdsFactory;
+import com.mngads.listener.MNGInterstitialListener;
+...
+
 public class MainActivity extends Activity implements MNGInterstitialListener{
     ...
     private MNGAdsFactory mngAdsInterstitialAdsFactory;
@@ -279,7 +296,7 @@ public class MainActivity extends Activity implements MNGInterstitialListener{
     	mngAdsInterstitialAdsFactory = new MNGAdsFactory(this);
 
          // set intertitial listener
-	mngAdsInterstitialAdsFactory.setInterstitialListener(this);
+	   mngAdsInterstitialAdsFactory.setInterstitialListener(this);
 ```
 #####Make a request 
 To make a request you must call 'createInterstitial()'. this method return a bool value (canHandleRequest).
@@ -320,63 +337,29 @@ adsAdapter.InterstitialDisappear(): will be called when intertisialView did disa
 	}
 ```
 
-### Interstitial Overlay
-#####Init factory
-
-To create an interstitial overlay you must init an object with type MNGAdsSDKFactory and set the interstitalListener and the context.Note that you must use the same instance for making and handling the request.
-
+#####Disable auto-displaying
+With v2.0.8 and above, you can disable auto-displaying.
 ```
 #!java
-public class MainActivity extends Activity implements MNGInterstitialListener{
-    ...
-    private MNGAdsFactory mngAdsInterstitialOverlayAdsFactory;
-        @Override
-         protected void onCreate(Bundle savedInstanceState) {
-    ...
-        // init intertitial factory
-    	mngAdsInterstitialOverlayAdsFactory = new MNGAdsFactory(this);
+...
+    mngAdsInterstitialAdsFactory.createInterstitial(false);
+...
 
-         // set intertitial listener
-    	mngAdsInterstitialOverlayAdsFactory.setInterstitialListener(this);
 ```
-#####Make a request 
-To make a request you must call 'createInterstitial()'. this method return a bool value (canHandleRequest).The interstitial will appear every n(capping) request
-
+To check if the interstitial is ready to be show, you must call isInterstitialReady() and displayInterstitial() in order to display the ads (in case of success).
 ```
 #!java
-    if (mngAdsInterstitialOverlayAdsFactory.createInterstitial()) {
-	   //Wait callBack from interstitial listener
-     }else{
-        //adsFactory can not handle your request
+...
+    if (mngAdsInterstitialAdsFactory.isInterstitialReady()) {
+    
+        mngAdsInterstitialAdsFactory.displayInterstitial();
+    } else {
+        Log.d(TAG, "Interstitial not ready ");
     }
+...
 ```
-#####Handle callBack from InterstitialListener
-adsAdapter.InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
-```
-#!java
-@Override
-	public void interstitialDidLoad() {
-		Log.d(TAG, "interstitial did load");
-	}
-```
-
-adsAdapter.interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```
-#!java
-@Override
-	public void interstitialDidFail(Exception adsException) {
-		Log.e(TAG, "interstitial did fail :" + adsException.toString());
-	}
-```
-adsAdapter.InterstitialDisappear(): will be called when intertisialView did disappear. now you can update your UI for example.
-
-```
-#!java
-@Override
-	public void interstitialDisappear() {
-		Log.d(TAG, "interstitial disappear")
-	}
-```
+######info 
+To try out auto-displaying disabled on demo, you can check interstitial page. Others interstitials (background returns, overlay) run with auto-displaying.
 
 ###Show Interstitial after return from background
 
@@ -393,6 +376,11 @@ To create a nativeAd  you have to init an object with type MNGAdsSDKFactory and 
 
 ```
 #!java
+...
+import com.mngads.MNGAdsFactory;
+import com.mngads.MNGNativeObject;
+import com.mngads.listener.MNGNativeListener;
+...
 public class MainActivity extends Activity implements MNGNativeListener{
 ...
    private MNGAdsFactory mngAdsNativeAdsFactory;
@@ -407,7 +395,6 @@ public class MainActivity extends Activity implements MNGNativeListener{
 
 ```
 You have also to set placementId (minimum one time)
-
 ```
 #!java
   mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
@@ -500,6 +487,10 @@ See [Native Ads guidelines]
 You can then implement MNG AdListener callback to detect when an Ad is clicked
 ```
 #!java
+...
+import com.mngads.MNGAdsFactory;
+import com.mngads.listener.MNGClickListener;
+...
 public class MainActivity extends Activity implements MNGClickListener{
 ...
    private MNGAdsFactory mngAdsAdsFactory;
@@ -516,9 +507,7 @@ public class MainActivity extends Activity implements MNGClickListener{
 ...
     @Override
     public void onAdClicked() {
-
         Log.d(TAG, "Ad Clicked");
-
     }
 ...
 ```
@@ -535,10 +524,10 @@ informations that you can set are:
 
 ```
 #!java
-#import com.mngads.util.MNGPreference;
-#import com.mngads.util.MNGGender;
+import com.mngads.util.MNGPreference;
+import com.mngads.util.MNGGender;
 ...
-        myLocation = new Location("I");
+                myLocation = new Location("I");
 		myLocation.setLatitude(35.757866);
 		myLocation.setLongitude(10.810547);
 		mngPreference = new MNGPreference();
@@ -571,13 +560,9 @@ To enbale debug mode you need to set debug mode to true :
 
 ```
 #!java
-
 ...
-
-MNGAdsFactory.setDebugModeEnabled(true);
-
+    MNGAdsFactory.setDebugModeEnabled(true);
 ...
-
 ```
 
 ### MAndroidManifest.xml
