@@ -1,6 +1,27 @@
 # upgrading SDK
 
 **You need to keep all Ad Network jars up to date.**
+## Upgrading to 2.0.8
+### New features
+With the 2.0.8 you can disable [interstitial auto-displaying] 
+interstitial
+
+public boolean createInterstitial() 
+
+public boolean createInterstitial(boolean autoDisplay) 
+
+public boolean createInterstitial(MNGPreference preference) 
+
+public boolean createInterstitial(MNGPreference preference, boolean autoDisplay) 
+
+public boolean isInterstitialReady()
+
+public boolean displayInterstitial()
+
+### Librairies
+Don't forget to update the other librairies :
+- [SmartAdServer-Android-SDK.jar]
+
 ## Upgrading to 2.0.5
 ### Implementation
 
@@ -308,7 +329,7 @@ No special steps are required to upgrade to v1.1.
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/AudienceNetwork.jar?at=master
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/SmartAdServer-Android-SDK-6.2.4.jar
+[SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
@@ -323,3 +344,4 @@ No special steps are required to upgrade to v1.1.
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Native Ads guidelines]:../nativead
 [presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.7.2.jar?fileviewer=file-view-default
+[interstitial auto-displaying]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-disable-auto-displaying
