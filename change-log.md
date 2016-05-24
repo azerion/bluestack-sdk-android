@@ -5,6 +5,8 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. You must update [mng-ads.jar Android SDK] and [SmartAdServer-Android-SDK.jar]
 
+ - Now you can disable [interstitial auto-displaying] 
+
 ## Version 2.0.7
 #### Release date: May 12th, 2016
 
@@ -269,3 +271,4 @@ You must check [Upgrade Guide]
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
 [presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.7.2.jar?fileviewer=file-view-default
+[interstitial auto-displaying]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-disable-auto-displaying
