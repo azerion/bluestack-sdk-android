@@ -3,7 +3,7 @@
 **You need to keep all Ad Network jars up to date.**
 ## Upgrading to 2.0.8
 ### New features
-With the 2.0.8 you can disable [interstitial auto-displaying] 
+Now you can disable [interstitial auto-displaying] 
 interstitial
 
 public boolean createInterstitial() 
