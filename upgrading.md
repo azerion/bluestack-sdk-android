@@ -6,6 +6,10 @@
 Now you can disable [interstitial auto-displaying] 
 interstitial
 
+
+```
+#!java
+
 public boolean createInterstitial() 
 
 public boolean createInterstitial(boolean autoDisplay) 
@@ -17,6 +21,8 @@ public boolean createInterstitial(MNGPreference preference, boolean autoDisplay)
 public boolean isInterstitialReady()
 
 public boolean displayInterstitial()
+```
+
 
 ### Librairies
 Don't forget to update the other librairies :
@@ -27,11 +33,17 @@ Don't forget to update the other librairies :
 
 The MNGNativeObject registerViewForInteraction methode now accapte only Button , TextView or ImageView instead of View as a parameter
 
+```
+#!java
+
+
 public void registerViewForInteraction(Button adClickButton)
 
 public void registerViewForInteraction(TextView adClickTextView)
 
 public void registerViewForInteraction(ImageView adClickImageView)
+```
+
 
 
 see https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-5-v25-or-above
