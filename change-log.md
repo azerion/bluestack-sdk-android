@@ -1,5 +1,9 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
+## Version 2.0.8
+#### Release date: May 24th, 2016
+
+you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. You must update [mng-ads.jar Android SDK] and [SmartAdServer-Android-SDK.jar]
 
 ## Version 2.0.7
 #### Release date: May 12th, 2016
