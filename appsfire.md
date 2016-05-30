@@ -360,6 +360,16 @@ mInterstitial.show();
 ...
 ```
 
+## Enabling debug mode
+To enbale debug mode you need to set debug mode to true :
+
+```
+#!java
+import com.mngads.sdk.util.MNGUtils;
+...
+MNGUtils.setDebugModeEnabled(true);
+...
+
 [mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
 [mngads-server Mopub adapter]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/mopub-adapter/?at=master
 [Sushi]:http://docs.appsfire.com/sdk/ios/integration-reference/img/doc/sushi.mp4
