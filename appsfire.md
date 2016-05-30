@@ -369,6 +369,7 @@ import com.mngads.sdk.util.MNGUtils;
 ...
 MNGUtils.setDebugModeEnabled(true);
 ...
+```
 
 [mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
 [mngads-server Mopub adapter]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/mopub-adapter/?at=master
