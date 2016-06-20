@@ -44,7 +44,7 @@ MngAds SDK requeire:
 
 Gradle:
 
-  The available librairies via Maven are : 
+  You can use Maven for following libs : 
 
     - Google-Play-Services
     - Android-Support
