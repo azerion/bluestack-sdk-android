@@ -38,7 +38,7 @@ MngAds SDK requeire:
 - AudienceNetwork (com.facebook.android:audience-network-sdk:4.12.1)
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing)
 - [Retency-sdk]
-- Amazon (com.amazon.android:mobile-ads:5.7.2)
+- [Amazon.jar] (com.amazon.android:mobile-ads:5.7.2)
 - [FlurryAds.jar] and [FlurryAnalytics.jar]
 - [Presage-lib.jar]
 
