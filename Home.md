@@ -280,7 +280,7 @@ bannerResize(MNGFrame frame) : will be called when the banner has changed size
 ### Infeed
 #### Init factory
 
-To create an **In-Feed** Ad format ( the ads that show up in the middle of the stream as you scroll through your content) you must init an object with type MNGAdsSDKFactory and set the infeedListener, context.
+To create an **In-Feed** Ad format ( the ads that show up in the middle of the stream as you scroll through your content Parallax or Video) you must init an object with type MNGAdsSDKFactory and set the infeedListener, context.
 
 ```
 #!java
