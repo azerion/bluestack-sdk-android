@@ -1,5 +1,20 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
+## Version 2.1
+#### Release date: June 20th, 2016
+
+ - Add Smart [In-Feed Ad format] (Parallax or Video)
+ - Fixes for appsfire crashes and out of memory
+ - Improve mng adserving (interstitial capping, keywords)
+ - Improve logging system
+ - Improved preferredHeightDP
+ - Add listener for refresh event
+ - Remove [Liverail.jar]
+ - Don't forget to update following librairies :
+    - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
+    - [Amazon.jar]   (com.amazon.android:mobile-ads:5.7.2)
+    - [FlurryAds.jar] and [FlurryAnalytics.jar]
+
 ## Version 2.0.8
 #### Release date: May 24th, 2016
 
@@ -272,3 +287,4 @@ You must check [Upgrade Guide]
 [Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
 [presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.7.2.jar?fileviewer=file-view-default
 [interstitial auto-displaying]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-disable-auto-displaying
+[In-Feed Ad format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-infeed
