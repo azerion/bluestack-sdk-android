@@ -1,6 +1,35 @@
 # upgrading SDK
 
 **You need to keep all Ad Network jars up to date.**
+## Upgrading to 2.1
+### New features
+Now you can create an [In-Feed Ad format]
+
+```
+#!java
+
+public boolean createInfeed() 
+
+public boolean createInfeed(MNGFrame frame) 
+
+public boolean createInfeed(MNGPreference preference)
+
+public boolean createInfeed(MNGFrame frame, MNGPreference preference)
+
+```
+### Librairies
+#### Removed
+
+The following librairies are not required anymore for the sdk
+
+- [Liverail.jar]
+
+
+ - Don't forget to update following librairies :
+    - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
+    - [Amazon.jar]   (com.amazon.android:mobile-ads:5.7.2)
+    - [FlurryAds.jar] and [FlurryAnalytics.jar]
+
 ## Upgrading to 2.0.8
 ### New features
 Now you can disable [interstitial auto-displaying] 
@@ -357,3 +386,4 @@ No special steps are required to upgrade to v1.1.
 [Native Ads guidelines]:../nativead
 [presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.7.2.jar?fileviewer=file-view-default
 [interstitial auto-displaying]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-disable-auto-displaying
+[In-Feed Ad format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-infeed
