@@ -9,7 +9,6 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Google DFP]
 - [Facebook Audience Network]
 - [Amazon]
-- [Liverail]
 - [Flurry]
 - [Retency]
 - [Ogury] Note : An API Key will be assigned to your application by mngads support team for Ogury library.
@@ -36,20 +35,21 @@ MngAds SDK requeire:
 
 - Google-play-services_lib (com.google.android.gms:play-services:8.4.0)
 - [SmartAdServer-Android-SDK.jar]
-- [AudienceNetwork.jar]
-- com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.12.1)
+- Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing)
 - [Retency-sdk]
-- [Amazon.jar]
-- [Liverail.jar]
+- Amazon (com.amazon.android:mobile-ads:5.7.2)
 - [FlurryAds.jar] and [FlurryAnalytics.jar]
 - [Presage-lib.jar]
 
 Gradle:
-  * The available librairies via Maven are : 
+
+  The available librairies via Maven are : 
 
     - Google-Play-Services
     - Android-Support
     - AudienceNetwork
+    - Amazon
 
 
 You must add ( drag and drop ) the other librairies in your project libs folder.
@@ -73,8 +73,11 @@ dependencies {
   //Android support v4
  compile 'com.android.support:support-v4:23.+'
  
- // Audience Network 
-  compile 'com.facebook.android:audience-network-sdk:4.9.0'
+  //Audience Network 
+  compile 'com.facebook.android:audience-network-sdk:4.12.1'
+  
+ //Amazon
+  compile 'com.amazon.android:mobile-ads:5.7.2'
 }
 ```
 
@@ -127,7 +130,7 @@ public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
     }else {
 	   
 	    //The SDK is initializing
-	    //set up a callback	that will be called when is fully initiamized
+	    //set up a callback	that will be called when is fully initialized
             MNGAdsFactory.setMNGAdsSDKFactoryListener(this);
 
             Toast.makeText(this, "MNGAdsFactory is not initialized", Toast.LENGTH_SHORT).show();
@@ -238,8 +241,8 @@ if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
 
 ####Handle callBack from BannerListener
 **v1.5.1 or above**
-adsAdapter.bannerDidLoad(View adView) changed to adsAdapter.bannerDidLoad(View adView,int preferredHeightDP).
-adsAdapter.bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
+bannerDidLoad(View adView) changed to bannerDidLoad(View adView,int preferredHeightDP).
+bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
 ```
 #!java
 	@Override
@@ -252,7 +255,7 @@ adsAdapter.bannerDidLoad(View adView,int preferredHeightDP): will be called by t
 	}
 ```
 
-adsAdapter.bannerDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+bannerDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
 ```
 #!java
 	@Override
@@ -261,7 +264,7 @@ adsAdapter.bannerDidFail(Exception adsException): will be called when all ads se
 	}
 ```
 **v1.5.1 or above** 
-adsAdapter.bannerResize(MNGFrame frame) : will be called when the banner has changed size
+bannerResize(MNGFrame frame) : will be called when the banner has changed size
 ```
 #!java
 	 @Override
@@ -271,6 +274,72 @@ adsAdapter.bannerResize(MNGFrame frame) : will be called when the banner has cha
         Log.d(TAG, "Banner did resize w dp " + frame.getWidth() + " h dp " + frame.getHeight());
     ...
     }
+```
+
+
+### Infeed
+#### Init factory
+
+To create an **In-Feed** Ad format ( the ads that show up in the middle of the stream as you scroll through your content) you must init an object with type MNGAdsSDKFactory and set the infeedListener, context.
+
+```
+#!java
+...
+import com.mngads.MNGAdsFactory;
+import com.mngads.listener.MNGInfeedListener;
+import com.mngads.util.MNGFrame;
+...
+
+public class MainActivity extends Activity implements MNGInfeedListener{
+...
+    private MNGAdsFactory mngAdsInfeedAdsFactory;
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+...
+// init infeed factory
+    mngAdsInfeedAdsFactory = new MNGAdsFactory(this);
+// set infeed listener
+    mngAdsInfeedAdsFactory.setInfeedListener(this);
+
+```
+You have also to set placementId (minimum one time)
+
+```
+#!java
+    mngAdsInfeedAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+```
+#### Make a request
+To make a request you have to call 'createInfeed'. this method return a bool value (canHandleRequest) 
+
+```
+#!java
+if(mngAdsInfeedAdsFactory.createInfeed(new MNGFrame(300, 250))){
+    //Wait callBack from listener
+}else{
+    //adsFactory can not handle your request
+}
+```
+
+####Handle callBack from InfeedListener
+
+infeedDidLoad(View infeedView): will be called by the SDK when your infeedView is ready. now you can add your infeedView to your view.
+```
+#!java
+	@Override
+    public void infeedDidLoad(View infeedView) {
+		Log.d(TAG, "your infeed view is ready")
+		...
+		adLayout.addView(infeedView);
+	}
+```
+
+infeedDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+```
+#!java
+	@Override
+	public void infeedDidFail(Exception adsException) {
+		Log.e(TAG, "infeed did fail :" + adsException.toString());
+	}
 ```
 
 ### Interstitial
@@ -310,7 +379,7 @@ To make a request you must call 'createInterstitial()'. this method return a boo
     }
 ```
 #####Handle callBack from InterstitialListener
-adsAdapter.InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
+InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
 ```
 #!java
 @Override
@@ -319,7 +388,7 @@ adsAdapter.InterstitialDidLoad(): will be called by the SDK when your Interstiti
 	}
 ```
 
-adsAdapter.interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
 ```
 #!java
 @Override
@@ -327,7 +396,7 @@ adsAdapter.interstitialDidFail(Exception adsException): will be called when all 
 		Log.e(TAG, "interstitial did fail :" + adsException.toString());
 	}
 ```
-adsAdapter.InterstitialDisappear(): will be called when intertisialView did disappear. now you can update your UI for example.
+InterstitialDisappear(): will be called when intertisialView did disappear. now you can update your UI for example.
 
 ```
 #!java
@@ -411,7 +480,7 @@ To make a request you have to call 'createNative()'. this method return a bool v
     }
 ```
 #####Handle callBack from NativeListener
-adsAdapter.nativeObjectDidLoad(): will be called by the SDK when your nativeObject is ready. now you can create your own view.
+nativeObjectDidLoad()  will be called by the SDK when your nativeObject is ready. now you can create your own view.
 ```
 #!java
 @Override
@@ -421,7 +490,7 @@ adsAdapter.nativeObjectDidLoad(): will be called by the SDK when your nativeObje
 
 ```
 
-adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
 ```
 #!java
 @Override
@@ -501,7 +570,7 @@ public class MainActivity extends Activity implements MNGClickListener{
         mngAdsAdsFactory = new MNGAdsFactory(this);
 
     // set click listener
-        mngAdsNativeAdsFactory.setClickListener(this);
+        mngAdsAdsFactory.setClickListener(this);
 }
 
 ...
@@ -511,6 +580,42 @@ public class MainActivity extends Activity implements MNGClickListener{
     }
 ...
 ```
+
+### Ad refresh listener
+You can also implement MNG refresh listener callback to detect when an Ad refreshed
+
+```
+#!java
+...
+import com.mngads.MNGAdsFactory;
+import com.mngads.listener.MNGRefreshListener;
+...
+public class MainActivity extends Activity implements MNGClickListener{
+...
+   private MNGAdsFactory mngAdsAdsFactory;
+@Override
+     protected void onCreate(Bundle savedInstanceState) {
+...
+    // init MNG factory
+        mngAdsAdsFactory = new MNGAdsFactory(this);
+
+    // set refresh listener
+        mngAdsAdsFactory.setRefreshListener(this);
+}
+
+...
+     @Override
+    public void onRefreshSucceed() {
+        Log.d(TAG, "refresh succeed");
+    }
+
+    @Override
+    public void onRefreshFailed(Exception e) {
+        Log.d(TAG, "refresh failed");
+    }
+...
+```
+
 ### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
@@ -548,6 +653,7 @@ When you have finished your ads plant you must free the memory.
 @Override
 	protected void onDestroy() {
 		mngAdsBannerAdsFactory.releaseMemory();
+		mngAdsInfeedAdsFactory.releaseMemory();
 		mngAdsInterstitialAdsFactory.releaseMemory();
 		mngAdsNativeAdsFactory.releaseMemory();
 		mngAdsInterstitialAdsFactoryOverlay.releaseMemory();
@@ -565,7 +671,7 @@ To enbale debug mode you need to set debug mode to true :
 ...
 ```
 
-### MAndroidManifest.xml
+### AndroidManifest.xml
 
 To make ad request we need to add the following permission to AndroidManifest.xml file :
 
@@ -786,10 +892,8 @@ Shortcut permissions
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
-[Liverail]:https://platform4.liverail.com
 [Flurry]:https://developer.yahoo.com/flurry/
 [Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
-[Liverail.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
@@ -802,3 +906,4 @@ Shortcut permissions
 [Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
 [see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
+
