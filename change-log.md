@@ -3,6 +3,7 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 ## Version 2.1
 #### Release date: June 20th, 2016
 
+ - Native Ad, add getAdChoiceBadgeView for Google/Adx certification
  - Add Smart [In-Feed Ad format] (Parallax or Video)
  - Fixes for appsfire crashes and out of memory
  - Improve mng adserving (interstitial capping, keywords)
