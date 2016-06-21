@@ -98,11 +98,20 @@ String callToAction=nativeObject.getCallToAction();
 // Get ahe URL of the cover image for the app
  String coverImageUrl=nativeObject.getAdCoverImageUrl();
 
+// adChoiceView
+View adChoiceBadgeView = nativeObject.getAdChoiceBadgeView();
+
+        if (adChoiceBadgeView != null) {
+
+            adChoiceContainer.addView(adChoiceBadgeView);
+        }
+
 // Register your custom ad view to automatically report impressions and clicks, and react to clicks by opening the app in the store. This is mandatory
 public void registerViewForInteraction (View monitoredView);
 ```
 ## Native Ad Implementation
-![img_native_new.png](https://bitbucket.org/repo/GyRXRR/images/1198580967-img_native_new.png)
+
+![nativeAd-min.png](https://bitbucket.org/repo/GyRXRR/images/2587222597-nativeAd-min.png)
 
 
 ## Video (>= v2.0)
@@ -120,6 +129,13 @@ You can also integrate video ads into your Native Ad experience. To enable video
     String callToAction=nativeObject.getCallToAction();
     String price=nativeObject.getPriceText();
     Bitmap badge=nativeObject.getBadge();
+
+   View adChoiceBadgeView = nativeObject.getAdChoiceBadgeView();
+
+        if (adChoiceBadgeView != null) {
+
+            adChoiceContainer.addView(adChoiceBadgeView);
+        }
     
     String iconUrl=nativeObject.getAdIconUrl();
    // String coverImageUrl=nativeObject.getAdCoverImageUrl();
