@@ -12,6 +12,7 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
  - Add listener for refresh event
  - Remove [Liverail.jar]
  - Don't forget to update following librairies :
+    - [mng-ads.jar Android SDK]
     - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
     - [Amazon.jar]   (com.amazon.android:mobile-ads:5.7.2)
     - [FlurryAds.jar] and [FlurryAnalytics.jar]
