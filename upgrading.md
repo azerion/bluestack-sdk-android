@@ -26,6 +26,7 @@ The following librairies are not required anymore for the sdk
 
 
  - Don't forget to update following librairies :
+    - [mng-ads.jar Android SDK]
     - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
     - [Amazon.jar]   (com.amazon.android:mobile-ads:5.7.2)
     - [FlurryAds.jar] and [FlurryAnalytics.jar]
