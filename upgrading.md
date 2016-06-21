@@ -18,11 +18,10 @@ public boolean createInfeed(MNGFrame frame, MNGPreference preference)
 
 ```
 ### Librairies
-#### Removed
 
-The following librairies are not required anymore for the sdk
+ - The following librairies are not required anymore for the sdk
 
-- [Liverail.jar]
+      - [Liverail.jar]
 
 
  - Don't forget to update following librairies :
