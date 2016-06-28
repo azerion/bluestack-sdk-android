@@ -31,16 +31,16 @@ You can see [Best practice Mngads and Design ad units to fit your app], an optim
 - drag and drop it in your project libs folder
 
 
-MngAds SDK requeire:
+MngAds SDK requires:
 
-- Google-play-services_lib (com.google.android.gms:play-services:8.4.0)
-- [SmartAdServer-Android-SDK.jar]
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.12.1)
-- Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing)
-- [Retency-sdk]
-- [Amazon.jar] (com.amazon.android:mobile-ads:5.7.2)
-- [FlurryAds.jar] and [FlurryAnalytics.jar]
-- [Presage-lib.jar]
+- Google-play-services_lib (com.google.android.gms:play-services:8.4.0) (**mandatory**)
+- [SmartAdServer-Android-SDK.jar] (**recommended**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.12.1) (**recommended**)
+- Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
+- [Retency-sdk] (**mandatory**)
+- [Amazon.jar] (com.amazon.android:mobile-ads:5.7.2) (**mandatory**)
+- [FlurryAds.jar] and [FlurryAnalytics.jar] (**mandatory**)
+- [Presage-lib.jar] (**mandatory**)
 
 Gradle:
 
