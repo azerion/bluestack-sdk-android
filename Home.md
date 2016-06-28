@@ -37,10 +37,10 @@ MngAds SDK requires:
 - [SmartAdServer-Android-SDK.jar] (**recommended**)
 - AudienceNetwork (com.facebook.android:audience-network-sdk:4.12.1) (**recommended**)
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
-- [Retency-sdk] (**mandatory**)
-- [Amazon.jar] (com.amazon.android:mobile-ads:5.7.2) (**mandatory**)
-- [FlurryAds.jar] and [FlurryAnalytics.jar] (**mandatory**)
-- [Presage-lib.jar] (**mandatory**)
+- [Retency-sdk] (**recommended**)
+- [Amazon.jar] (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
+- [FlurryAds.jar] and [FlurryAnalytics.jar] (**recommended**)
+- [Presage-lib.jar] (**recommended**)
 
 Gradle:
 
