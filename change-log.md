@@ -11,6 +11,7 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
  - Improved preferredHeightDP
  - Add listener for refresh event
  - Remove [Liverail.jar]
+ - Use gradle dependency for Amazon compile 'com.amazon.android:mobile-ads:5.7.2' instead of compile files('amazon-ads-5.6.20.jar')
  - Don't forget to update following librairies :
     - [mng-ads.jar Android SDK]
     - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
