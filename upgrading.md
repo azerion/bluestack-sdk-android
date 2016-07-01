@@ -24,10 +24,27 @@ public boolean createInfeed(MNGFrame frame, MNGPreference preference)
       - [Liverail.jar]
 
 
+ - amazon as gradle dependency
+
+remove  
+
+#!groovy
+repositories {
+compile files('amazon-ads-5.6.20.jar')
+```
+
+add
+
+#!groovy
+repositories {
+compile 'com.amazon.android:mobile-ads:5.7.2'
+```
+
+
+
  - Don't forget to update following librairies :
     - [mng-ads.jar Android SDK]
     - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
-    - [Amazon.jar]   (com.amazon.android:mobile-ads:5.7.2)
     - [FlurryAds.jar] and [FlurryAnalytics.jar]
 
 ## Upgrading to 2.0.8
