@@ -38,7 +38,7 @@ MngAds SDK requires:
 - AudienceNetwork (com.facebook.android:audience-network-sdk:4.12.1) (**recommended**)
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - [Retency-sdk] (**recommended**)
-- [Amazon.jar] (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
+- Amazon (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
 - [FlurryAds.jar] and [FlurryAnalytics.jar] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
 
@@ -893,7 +893,6 @@ Shortcut permissions
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
 [Flurry]:https://developer.yahoo.com/flurry/
-[Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
