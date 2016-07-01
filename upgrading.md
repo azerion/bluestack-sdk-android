@@ -27,14 +27,14 @@ public boolean createInfeed(MNGFrame frame, MNGPreference preference)
  - amazon as gradle dependency
 
 remove  
-
+```
 #!groovy
 repositories {
 compile files('amazon-ads-5.6.20.jar')
 ```
 
 add
-
+```
 #!groovy
 repositories {
 compile 'com.amazon.android:mobile-ads:5.7.2'
