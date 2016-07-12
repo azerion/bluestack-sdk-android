@@ -1,6 +1,28 @@
 # upgrading SDK
-
 **You need to keep all Ad Network jars up to date.**
+
+## Upgrading to 2.2
+
+ - Flurry as gradle dependency
+
+remove  
+```
+#!groovy
+repositories {
+compile files('libs/flurryAds-6.3.1.jar')
+compile files('libs/flurryAnalytics-6.3.1.jar')
+```
+
+add
+```
+#!groovy
+repositories {
+ //Flurry
+  compile 'com.flurry.android:analytics:6.3.1'
+  compile 'com.flurry.android:ads:6.3.1'
+```
+
+
 ## Upgrading to 2.1
 ### New features
 Now you can create an [In-Feed Ad format]
