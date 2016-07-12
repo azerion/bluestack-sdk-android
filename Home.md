@@ -35,7 +35,7 @@ MngAds SDK requires:
 
 - Google-play-services_lib (com.google.android.gms:play-services:8.4.0) (**mandatory**)
 - [SmartAdServer-Android-SDK.jar] (**recommended**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.12.1) (**recommended**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.13.0) (**recommended**)
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - [Retency-sdk] (**recommended**)
 - Amazon (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
