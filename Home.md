@@ -39,7 +39,7 @@ MngAds SDK requires:
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - [Retency-sdk] (**recommended**)
 - Amazon (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
-- [FlurryAds.jar] and [FlurryAnalytics.jar] (**recommended**)
+- com.flurry.android:analytics:6.3.1 and com.flurry.android:ads:6.3.1 (**recommended**)
 - [Presage-lib.jar] (**recommended**)
 
 Gradle:
@@ -50,6 +50,7 @@ Gradle:
     - Android-Support
     - AudienceNetwork
     - Amazon
+    - Flurry
 
 
 You must add ( drag and drop ) the other librairies in your project libs folder.
@@ -78,6 +79,10 @@ dependencies {
   
  //Amazon
   compile 'com.amazon.android:mobile-ads:5.7.2'
+
+ //Flurry
+  compile 'com.flurry.android:analytics:6.3.1'
+  compile 'com.flurry.android:ads:6.3.1'
 }
 ```
 
