@@ -1,5 +1,36 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
+
+## Version 2.1.1
+#### Release date: July 13th, 2016
+
+ - fix smart issue (thread and interstitial)
+ - Add constants for banner size (MNGAdSize.MNG_DYNAMIC_LEADERBOARD for tablets, MNGAdSize.MNG_DYNAMIC_BANNER for mobiles)
+
+ - Don't forget to update following librairies :
+    - [mng-ads.jar Android SDK]
+    - com.facebook.android:audience-network-sdk:4.13.0
+    - [SmartAdServer-Android-SDK.jar]
+    - Flurry as gradle dependency
+ 
+remove  
+```
+#!groovy
+repositories {
+compile files('libs/flurryAds-6.3.1.jar')
+compile files('libs/flurryAnalytics-6.3.1.jar')
+```
+
+add
+```
+#!groovy
+repositories {
+ //Flurry
+  compile 'com.flurry.android:analytics:6.3.1'
+  compile 'com.flurry.android:ads:6.3.1'
+```
+
+
 ## Version 2.1
 #### Release date: June 20th, 2016
 
@@ -274,7 +305,7 @@ You must check [Upgrade Guide]
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/AudienceNetwork.jar?at=master
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/SmartAdServer-Android-SDK-6.3.jar
+[SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/SmartAdServer-Android-SDK-6.4.jar
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
