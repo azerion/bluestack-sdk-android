@@ -237,11 +237,17 @@ To make a request you have to call 'createBanner'. this method return a bool val
 
 ```
 #!java
-if(mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50))){
-    //Wait callBack from listener
-}else{
-    //adsFactory can not handle your request
-}
+    private MNGFrame mFrame;
+    mFrame = getResources().getBoolean(R.bool.is_tablet) ? MNGAdSize.MNG_DYNAMIC_LEADERBOARD : MNGAdSize.MNG_DYNAMIC_BANNER;
+if(mngAdsBannerAdsFactory.createBanner(mFrame))
+	{
+	  //Wait callBack from listener
+	}
+	else
+	{
+    	 //adsFactory can not handle your request
+        }
+
 ```
 
 ####Handle callBack from BannerListener
@@ -280,6 +286,37 @@ bannerResize(MNGFrame frame) : will be called when the banner has changed size
     ...
     }
 ```
+### MNGAdSize
+Mng ads provides variant pre-defined sizes ( example below).
+```
+#!java
+
+public final static MNGFrame MNG_BANNER = new MNGFrame(320, 50);
+	public final static MNGFrame MNG_DYNAMIC_BANNER = new MNGFrame(MNGConstants.UNDEFINED_WIDTH, 50);
+	public final static MNGFrame MNG_LARGE_BANNER = new MNGFrame(320, 100);
+	public final static MNGFrame MNG_FULL_BANNER = new MNGFrame(468, 60);
+	public final static MNGFrame MNG_LEADERBOARD = new MNGFrame(728, 90);
+	public final static MNGFrame MNG_DYNAMIC_LEADERBOARD = new MNGFrame(MNGConstants.UNDEFINED_WIDTH, 90);
+	public final static MNGFrame MNG_MEDIUM_RECTANGLE = new MNGFrame(300, 250);
+```
+Example:
+
+```
+#!java
+
+    MNGFrame mFrame;
+
+    if (isSquare) 
+	{
+         mFrame=MNGAdSize.MNG_MEDIUM_RECTANGLE;
+	}
+	else
+	{
+                mFrame = getResources().getBoolean(R.bool.is_tablet) ?  MNGAdSize.MNG_DYNAMIC_LEADERBOARD: MNGAdSize.MNG_DYNAMIC_BANNER;
+	}
+	mngAdsBannerAdsFactory.createBanner(mFrame);
+```
+
 
 
 ### Infeed
