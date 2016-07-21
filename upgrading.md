@@ -1,7 +1,7 @@
 # upgrading SDK
 **You need to keep all Ad Network jars up to date.**
 
-## Upgrading to 2.2
+## Upgrading to 2.1.1
 
  - Flurry as gradle dependency
 
