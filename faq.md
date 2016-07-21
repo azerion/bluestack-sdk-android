@@ -46,6 +46,9 @@ If your app uses Proguard, you must edit your Proguard settings to avoid strippi
 -keepattributes Signature
 -keep class com.flurry.** { *; }
 
+//amazon
+-dontwarn com.amazon.**
+
 //Flurry
 -dontwarn com.flurry.**
 -keepattributes *Annotation*,EnclosingMethod,Signature
