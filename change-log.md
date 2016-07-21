@@ -1,8 +1,12 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
+you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. You must update [mng-ads.jar Android SDK] and [SmartAdServer-Android-SDK.jar]
+
 ## Version 2.1.1
 #### Release date: July 13th, 2016
+
+you must check [Upgrade Guide]
 
  - fix smart issue (thread and interstitial)
  - Add constants for banner size (MNGAdSize.MNG_DYNAMIC_LEADERBOARD for tablets, MNGAdSize.MNG_DYNAMIC_BANNER for mobiles)
@@ -34,6 +38,8 @@ repositories {
 ## Version 2.1
 #### Release date: June 20th, 2016
 
+you must check [Upgrade Guide]
+
  - Native Ad, add getAdChoiceBadgeView for Google/Adx certification
  - Add Smart [In-Feed Ad format] (Parallax or Video)
  - Fixes for appsfire crashes and out of memory
@@ -52,7 +58,6 @@ repositories {
 ## Version 2.0.8
 #### Release date: May 24th, 2016
 
-you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. You must update [mng-ads.jar Android SDK] and [SmartAdServer-Android-SDK.jar]
 
  - Now you can disable [interstitial auto-displaying] 
 
