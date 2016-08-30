@@ -25,68 +25,81 @@ NOTE :MNG Ads requires minimum Android API level 11
 
 You can see [Best practice Mngads and Design ad units to fit your app], an optimized use case for several ad formats on one page.
 
-## Manual Install
+## Set up the SDK
 
-- download [mng-ads.jar Android SDK] from our demo project, **you must use version of  Ads servers's librairies in used on demo project.**
-- drag and drop it in your project libs folder
+### Using Gradle
 
-
-MngAds SDK requires:
-
-- Google-play-services_lib (com.google.android.gms:play-services:8.4.0) (**mandatory**)
-- [SmartAdServer-Android-SDK.jar] (**recommended**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.13.0) (**recommended**)
-- Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
-- [Retency-sdk] (**recommended**)
-- Amazon (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
-- com.flurry.android:analytics:6.3.1 and com.flurry.android:ads:6.3.1 (**recommended**)
-- [Presage-lib.jar] (**recommended**)
-
-Gradle:
-
-  You can use Maven for following libs : 
-
-    - Google-Play-Services
-    - Android-Support
-    - AudienceNetwork
-    - Amazon
-    - Flurry
-
-
-You must add ( drag and drop ) the other librairies in your project libs folder.
- 
-  Add this to Module-level /app/build.gradle before dependencies
+If using Gradle,Add this to Module-level /app/build.gradle before dependencies
 ```
 #!groovy
 repositories {
 	mavenCentral() 
 }
 ```
-  Add the compile dependency in the build.gradle file:
+
+ include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
+
+- Google-play-services_lib (com.google.android.gms:play-services:9.4.0) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.13.0) (**recommended**)
+- Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
+- Amazon (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
+- com.flurry.android:analytics:6.3.1 and com.flurry.android:ads:6.3.1 (**recommended**)
+
 ```
 #!groovy
 dependencies { 
 
   //Google Play Services
-  compile 'com.google.android.gms:play-services:8.4.0'
-  // or you can use compile 'com.google.android.gms:play-services-ads:8.4.0'
+  compile 'com.google.android.gms:play-services:9.4.0'
+  // or you can use compile compile 'com.google.android.gms:play-services-ads:9.4.0'
   
   //Android support v4
  compile 'com.android.support:support-v4:23.+'
  
   //Audience Network 
-  compile 'com.facebook.android:audience-network-sdk:4.12.1'
+  compile 'com.facebook.android:audience-network-sdk:4.15.0'
   
  //Amazon
-  compile 'com.amazon.android:mobile-ads:5.7.2'
+    compile 'com.amazon.android:mobile-ads:5.8.1'
 
  //Flurry
-  compile 'com.flurry.android:analytics:6.3.1'
-  compile 'com.flurry.android:ads:6.3.1'
+    compile 'com.flurry.android:analytics:6.5.0'
+    compile 'com.flurry.android:ads:6.5.0'
 }
 ```
 
-## If your app uses Proguard
+
+ **download and extract following files and place them in the /libs folder in your project**
+ 
+ - [mng-ads.jar Android SDK] (**mandatory**)
+ - [SmartAdServer-Android-SDK.jar] (**recommended**)
+ - [Retency-sdk] (**recommended**)
+ - [Presage-lib.jar] (**recommended**)
+ 
+
+### Manual installation
+
+If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK] from our demo project and
+
+- download [mng-ads.jar Android SDK] from our demo project
+- drag and drop it in your libs/ folder
+
+**MngAds SDK requires following librairies (you must use version in used on demo project): **
+
+
+
+- [SmartAdServer-Android-SDK.jar] (**recommended**)
+- [AudienceNetwork.jar] (**recommended**)
+- [Android-support-v4.jar] (**mandatory**)
+- [Google-play-services_lib]: (com.google.android.gms:play-services:9.4.0) (**mandatory**)
+- [amazon-ads-5.8.1.jar] (**recommended**)
+- [flurryAds_6.5.0.jar] and [flurryAnalytics_6.5.0.jar] (**recommended**)
+- [Retency-sdk] (**recommended**)
+- [Presage-lib.jar] (**recommended**)
+
+
+
+### If your app uses Proguard
 
 [see Proguard rules on our faq]
 
@@ -713,7 +726,7 @@ To enbale debug mode you need to set debug mode to true :
 ...
 ```
 
-### AndroidManifest.xml
+### Configure your Manifest
 
 To make ad request we need to add the following permission to AndroidManifest.xml file :
 
@@ -926,7 +939,7 @@ Shortcut permissions
 [Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
 [Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
 [Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
-[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/AudienceNetwork.jar?at=master
+[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/AudienceNetwork.jar?at=master&fileviewer=file-view-default
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
@@ -934,9 +947,10 @@ Shortcut permissions
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
+[amazon-ads-5.8.1.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/amazon-ads-5.8.1.jar?at=master&fileviewer=file-view-default
 [Flurry]:https://developer.yahoo.com/flurry/
-[FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
-[FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[flurryAds_6.5.0.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/flurryAds_6.5.0.jar?at=master&fileviewer=file-view-default
+[flurryAnalytics_6.5.0.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/flurryAnalytics_6.5.0.jar?at=master&fileviewer=file-view-default
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Ogury]:http://www.ogury.co/
