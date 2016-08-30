@@ -1,12 +1,49 @@
 ## Change log and release notes for the MngAds SDK for Android.
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations
 
-you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. You must update [mng-ads.jar Android SDK] and [SmartAdServer-Android-SDK.jar]
+you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
+
+
+## Version 2.2
+#### Release date: AUgust 30th, 2016
+
+ - HTTPS support
+ - New appsfire template for banner, medium rectangle and interstitial
+ - upgrade librairies
+
+Don't forget to update following librairies 
+
+ - [mng-ads.jar Android SDK] 
+ - [Presage-lib.jar]
+
+
+Don't forget to update following lines to your app's build.gradle
+:
+```
+#!graddle
+   //Google Play Services
+   compile 'com.google.android.gms:play-services-ads:9.4.0'
+
+  //Audience Network 
+  compile 'com.facebook.android:audience-network-sdk:4.15.0'
+  
+ //Amazon
+    compile 'com.amazon.android:mobile-ads:5.8.1'
+
+ //Flurry
+    compile 'com.flurry.android:analytics:6.5.0'
+    compile 'com.flurry.android:ads:6.5.0'
+```
+If using Intellij IDEA or Eclipse, [download and extract here]
+
+
+ 
+
 
 ## Version 2.1.1
 #### Release date: July 13th, 2016
 
-you must check [Upgrade Guide]
+you must check [Upgrade Guide]. You must update [mng-ads.jar Android SDK] and [SmartAdServer-Android-SDK.jar]
 
  - fix smart issue (thread and interstitial)
  - Add constants for banner size (MNGAdSize.MNG_DYNAMIC_LEADERBOARD for tablets, MNGAdSize.MNG_DYNAMIC_BANNER for mobiles)
@@ -327,3 +364,4 @@ You must check [Upgrade Guide]
 [presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.7.2.jar?fileviewer=file-view-default
 [interstitial auto-displaying]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-disable-auto-displaying
 [In-Feed Ad format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-infeed
+[download and extract here]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/
