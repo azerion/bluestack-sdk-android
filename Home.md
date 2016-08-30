@@ -51,7 +51,7 @@ dependencies {
 
   //Google Play Services
   compile 'com.google.android.gms:play-services:9.4.0'
-  // or you can use compile compile 'com.google.android.gms:play-services-ads:9.4.0'
+  // or you can use  compile 'com.google.android.gms:play-services-ads:9.4.0'
   
   //Android support v4
  compile 'com.android.support:support-v4:23.+'
