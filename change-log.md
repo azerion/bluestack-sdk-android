@@ -34,7 +34,7 @@ Don't forget to update following lines to your app's build.gradle
     compile 'com.flurry.android:analytics:6.5.0'
     compile 'com.flurry.android:ads:6.5.0'
 ```
-If using Intellij IDEA or Eclipse, [download and extract here]
+If using Intellij IDEA or Eclipse, [download and extract here] and on [libs]
 
 
  
@@ -365,3 +365,4 @@ You must check [Upgrade Guide]
 [interstitial auto-displaying]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-disable-auto-displaying
 [In-Feed Ad format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-infeed
 [download and extract here]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/
+[libs]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
