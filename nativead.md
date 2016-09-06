@@ -203,3 +203,8 @@ You can also integrate video ads into your Native Ad experience. To enable video
 To avoid case where native DFP adapter fails to register view for interaction , MNG ads limits the type of view passed to **registerViewForInteraction** method (it only accept Button , TextView , ImageView). 
 
 >Note : If you want the whole native ad clickable you can use a transparent button above the native content as a workaround .
+
+
+## 4. cache
+
+Ad metadata that you receive can be cached and re-used for up to 3 hours. If you plan to use the metadata after this time period, make a call to load a new ad.
