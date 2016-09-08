@@ -76,7 +76,16 @@ dependencies {
  - [Retency-sdk] (**recommended**)
  - [Presage-lib.jar] (**recommended**)
  
-
+```
+#!groovy
+dependencies { 
+dependencies {
+    compile files('libs/SmartAdServer-Android-SDK-6.4.jar')
+    compile files('libs/retency-sdk.jar')
+    compile files('libs/mng-ads-sdk.jar')
+    compile files('libs/presage-lib-1.8.1.jar')
+}
+```
 ### Manual installation
 
 If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK] from our demo project and
