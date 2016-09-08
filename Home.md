@@ -55,6 +55,9 @@ dependencies {
   
   //Android support v4
  compile 'com.android.support:support-v4:23.+'
+
+  // SmartAdServer
+  compile files('libs/SmartAdServer-Android-SDK-6.4.jar')
  
   //Audience Network 
   compile 'com.facebook.android:audience-network-sdk:4.15.0'
