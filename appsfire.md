@@ -227,6 +227,31 @@ private MNGNativeAdListener createNativeAdListener() {
 }
 
 ```
+
+### Getting native ads mediaContainer
+
+You can also integrate video ads into your Native Ad experience. To enable video you must complete the following steps:
+You have to call setMediaContainer(viewGroup) then the sdk will handle the rendering process ( displaying) the image cover or the media video inside the view group that depends on the ad network result
+
+
+ @Override
+            public void onAdLoaded(final MNGNativeAd mngNativeAd) {
+        	Log.d(TAG, "nativeAd: onAdLoaded");
+		.
+		.
+		.
+	         // You can now pull information from the nativeAd
+        	 Log.d(TAG, "nativeAd: app name: " + mngNativeAd.getTitle());
+        	.
+		.
+		.		
+	
+		//  there is no need to use coverurl setMediaContainer will create a media view that contains cover imager or video
+		mngNativeAd.setMediaContainer(mediaContainer);
+		
+		//to handle impression and user interaction you have to call 
+		mngNativeAd.registerViewForInteraction(nativeAdCallToActionView);
+		}
 See [Native Ads guidelines]
 
 
