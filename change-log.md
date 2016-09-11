@@ -3,6 +3,14 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.2.1
+#### Release date: September 9th, 2016
+
+ - Now appsfire support videos for square, nativeAds and interstitials
+
+Don't forget to update following librairies 
+
+ - [mng-ads.jar Android SDK] 
 
 ## Version 2.2
 #### Release date: AUgust 30th, 2016
