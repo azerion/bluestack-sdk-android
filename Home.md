@@ -1,4 +1,4 @@
-![MNG-Ads-1.png](https://bitbucket.org/repo/aen579/images/3739691856-MNG-Ads-1.png) for Android
+![MNG-Ads-1.png](https://bitbucket.org/repo/aen579/images/3739691856-MNG-Ads-1.png) for Android by ![madvertise_city_logo-min.jpg](https://bitbucket.org/repo/aen579/images/2653598869-madvertise_city_logo-min.jpg)
 
 [TOC]
 
