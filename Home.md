@@ -1,4 +1,4 @@
-![mad_AdNetworkMediation_rgb.png](https://bitbucket.org/repo/GyRXRR/images/3930283509-mad_AdNetworkMediation_rgb.png) for Android
+![mad_AdNetworkMediation_rgb_small.png](https://bitbucket.org/repo/GyRXRR/images/3981639300-mad_AdNetworkMediation_rgb_small.png) for Android
 
 [TOC]
 
