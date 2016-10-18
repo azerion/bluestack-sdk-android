@@ -98,6 +98,10 @@ If you use Proguard, you need to add these lines in your configuration
     java.lang.Object writeReplace();
     java.lang.Object readResolve();
 }
+
+-dontwarn com.smartadserver.**
+-dontwarn io.presage.**
+-dontwarn com.facebook.**
 ```
 
 ## What types of ad units are available? ##
