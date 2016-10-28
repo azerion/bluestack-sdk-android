@@ -211,7 +211,8 @@ Ad metadata that you receive can be cached and re-used for up to 3 hours. If you
 
 
 ## 5. Assets download
-MNGNativeObject provide method to download an display assets.
+
+We provide method to download assets.
 ```
 #!java
 @Override
