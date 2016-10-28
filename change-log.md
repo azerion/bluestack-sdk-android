@@ -4,7 +4,7 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
 ## Version 2.3
-
+#### Release date: October 28th, 2016
  - Now MNGADS becomes MADVERTISE MEDIATION and MADVERTISE ADSERVING
  - VAST 2 /VPAID 1 support for MADVERTISE ADSERVING
  - Upgrading MADVERTISE MEDIATION librairies
