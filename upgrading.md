@@ -20,12 +20,15 @@ The Google Mobile Ads SDK for Android is now a part of the Google Play services 
 so you have to remove this :
 ```
     compile 'com.google.android.gms:play-services-ads:9.4.0'
-   ```
+```
 add this : 
+
 ```
     compile 'com.google.android.gms:play-services:9.8.0'
-   ```
+```
+
 For  Ebeacon technology withB4S , you must add following librairies
+
 ```
        //b4s
     compile 'nl.qbusict:cupboard:2.1.4'
