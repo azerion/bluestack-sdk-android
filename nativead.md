@@ -208,3 +208,24 @@ To avoid case where native DFP adapter fails to register view for interaction , 
 ## 4. cache
 
 Ad metadata that you receive can be cached and re-used for up to 3 hours. If you plan to use the metadata after this time period, make a call to load a new ad.
+
+
+## 5. Assets download
+MNGNativeObject provide method to download an display assets.
+```
+#!java
+@Override
+	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
+    ...
+   
+    ImageView nativeAdIcon = (ImageView) adView.findViewById(R.id.nativeAdIcon);
+    //this will download and display icon
+    nativeObject.downloadAssetsForType(MAdvertiseAssetsType.MAdvertiseAssetsIcon,nativeAdIcon);
+
+    ImageView nativeAdCover = (ImageView) adView.findViewById(R.id.nativeAdCover);
+    //this will download and display cover image
+    nativeObject.downloadAssetsForType(MAdvertiseAssetsType.MAdvertiseAssetsCover,nativeAdCover);
+
+   ...
+}
+```
