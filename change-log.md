@@ -10,12 +10,13 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
  - VAST 2 /VPAID 1 support for MADVERTISE ADSERVING
  - Upgrading MADVERTISE MEDIATION librairies
  - Improve Native Ad assets management with 
- - Cache Optimisations
- - Bugs fixes
-
 ```
  nativeObject.downloadAssetsForType(mMAdvertiseType,mImageView);
 ```
+ - Cache Optimisations
+ - Bugs fixes
+
+
 
 
 Don't forget to update following librairies :
