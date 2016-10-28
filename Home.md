@@ -137,7 +137,89 @@ public class DemoApp extends Application{
 	}
 }
 ```
+### MAdvertiseBeacon
 
+Get Ebeacon technology to propose to the advertisers to target the users inside the point of sale. 
+- An installation base of 12,500 ebeacons ready to track the users.
+- An exclusive format in Push notification to the users inside a tabacco shop, press shop, pharmay or mall.
+
+### Initializing Beacons
+
+You have to init becon in your application class
+MAdvertiseBeaconAdapter.initBeacons(this) should be called before         MNGAdsFactory.initialize(this,"YOUR_APP_ID");
+
+
+```
+#!java
+public class DemoApp extends Application{
+
+@Override
+    public void onCreate() {
+        super.onCreate();
+        MAdvertiseBeaconAdapter.initBeacons(this);
+        MNGAdsFactory.initialize(this,"YOUR_APP_ID");
+}
+}
+```
+you have to update your manifest.xml
+```
+#!XML
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+ <uses-sdk tools:overrideLibrary="com.ezeeworld.b4s.android.sdk.playservices"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+```
+and you have to edit your build.gradle file
+```
+#!java
+ buildTypes {
+ .
+ .
+ .
+  packagingOptions {
+            exclude 'META-INF/ASL2.0'
+            exclude 'META-INF/LICENSE'
+            exclude 'META-INF/NOTICE'
+        }
+ .
+ .
+ .
+ }
+ 
+ 
+ 
+ dependencies {
+  .
+  .
+  .
+  compile 'nl.qbusict:cupboard:2.1.4'
+  compile 'de.greenrobot:eventbus:2.4.0'
+  compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
+  compile (name:'b4s-android-sdk', ext:'aar')
+  compile (name:'b4s-android-sdk-playservices830', ext:'aar')
+  .
+  .
+  .
+}
+```
+and you need to declare your flat file repository.
+```
+allprojects {
+    repositories {
+        jcenter()
+        flatDir{
+            dirs 'libs'
+        }
+    }
+
+}
+```
 ### Initialize Check
 
 To verify if the SDK is fully initialized you have to call isInitialized():
@@ -970,4 +1052,5 @@ Shortcut permissions
 [Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
 [see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
+
 
