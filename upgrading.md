@@ -40,9 +40,10 @@ For  Ebeacon technology withB4S , you must add following librairies
 #### Native Ad
 
 you dont have to download assets, the sdk will do it.
-   ```
+
+```
  nativeObject.downloadAssetsForType(mMAdvertiseType,mImageView);
-   ```
+```
 
 ## Upgrading to 2.1.1
 
