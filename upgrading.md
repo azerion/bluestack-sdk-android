@@ -6,13 +6,15 @@
 
 Don't forget to update following librairies :
 
-   ```
+```
+
     compile 'com.amazon.android:mobile-ads:5.8.1.1'
     compile files('libs/SmartAdServer-Android-SDK-6.4.1.jar')
     compile 'com.flurry.android:analytics:6.6.0'
     compile 'com.flurry.android:ads:6.6.0'
-    compile 'com.facebook.android:audience-network-sdk:4.16.1'          
-   ```
+    compile 'com.facebook.android:audience-network-sdk:4.16.1'  
+        
+```
 
 The Google Mobile Ads SDK for Android is now a part of the Google Play services platform. It is no longer available as a standalone SDK.
 so you have to remove this :
