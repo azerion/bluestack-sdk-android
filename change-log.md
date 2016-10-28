@@ -3,6 +3,56 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.3
+
+ - Now MNGADS becomes MADVERTISE MEDIATION and MADVERTISE ADSERVING
+ - VAST 2 /VPAID 1 support for MADVERTISE ADSERVING
+ - Upgrading MADVERTISE MEDIATION librairies
+ - Improve Native Ad assets management with 
+ - Cache Optimisations
+ - Bugs fixes
+
+```
+ nativeObject.downloadAssetsForType(mMAdvertiseType,mImageView);
+```
+
+
+Don't forget to update following librairies :
+
+```
+
+    compile 'com.amazon.android:mobile-ads:5.8.1.1'
+    compile files('libs/SmartAdServer-Android-SDK-6.4.1.jar')
+    compile 'com.flurry.android:analytics:6.6.0'
+    compile 'com.flurry.android:ads:6.6.0'
+    compile 'com.facebook.android:audience-network-sdk:4.16.1'  
+        
+```
+
+The Google Mobile Ads SDK for Android is now a part of the Google Play services platform. It is no longer available as a standalone SDK.
+so you have to remove this :
+```
+    compile 'com.google.android.gms:play-services-ads:9.4.0'
+```
+add this : 
+
+```
+    compile 'com.google.android.gms:play-services:9.8.0'
+```
+
+For  Ebeacon technology withB4S , you must add following librairies
+
+```
+       //b4s
+    compile 'nl.qbusict:cupboard:2.1.4'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
+    compile(name: 'b4s-android-sdk', ext: 'aar')
+    compile(name: 'b4s-android-sdk-playservices830', ext: 'aar')
+```
+
+
+
 ## Version 2.2.1
 #### Release date: September 9th, 2016
 
