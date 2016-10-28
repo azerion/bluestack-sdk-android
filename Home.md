@@ -50,21 +50,28 @@ repositories {
 dependencies { 
 
   //Google Play Services
-  compile 'com.google.android.gms:play-services:9.4.0'
-  // or you can use  compile 'com.google.android.gms:play-services-ads:9.4.0'
-  
+  compile 'com.google.android.gms:play-services:9.8.0'
   //Android support v4
  compile 'com.android.support:support-v4:23.+'
  
   //Audience Network 
-  compile 'com.facebook.android:audience-network-sdk:4.15.0'
+  compile 'com.facebook.android:audience-network-sdk:4.16.1'  
   
  //Amazon
     compile 'com.amazon.android:mobile-ads:5.8.1'
 
  //Flurry
-    compile 'com.flurry.android:analytics:6.5.0'
-    compile 'com.flurry.android:ads:6.5.0'
+    compile 'com.flurry.android:analytics:6.6.0'
+    compile 'com.flurry.android:ads:6.6.0'
+    
+ //smart
+ compile files('libs/SmartAdServer-Android-SDK-6.4.1.jar')
+ 
+ //madvertise mediation+adserving
+ compile files('libs/mng-ads-sdk.jar')
+ 
+ //retency
+  compile files('libs/retency-sdk.jar')
 }
 ```
 
