@@ -13,18 +13,8 @@ Don't forget to update following librairies :
     compile 'com.flurry.android:analytics:6.6.0'
     compile 'com.flurry.android:ads:6.6.0'
     compile 'com.facebook.android:audience-network-sdk:4.16.1'  
+    compile 'com.google.android.gms:play-services-ads:9.8.0'
         
-```
-
-The Google Mobile Ads SDK for Android is now a part of the Google Play services platform. It is no longer available as a standalone SDK.
-so you have to remove this :
-```
-    compile 'com.google.android.gms:play-services-ads:9.4.0'
-```
-add this : 
-
-```
-    compile 'com.google.android.gms:play-services:9.8.0'
 ```
 
 For  Ebeacon technology withB4S , you must add following librairies
