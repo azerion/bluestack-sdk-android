@@ -49,8 +49,10 @@ repositories {
 #!groovy
 dependencies { 
 
-  //Google Play Services
-  compile 'com.google.android.gms:play-services:9.8.0'
+  //Google Play Services with Google Mobile Ads only ( Individual APIs and corresponding )
+  compile 'com.google.android.gms:play-services-ads:9.8.0'
+//or use All Google PLay service compile 'com.google.android.gms:play-services:9.8.0'
+ 
   //Android support v4
  compile 'com.android.support:support-v4:23.+'
  
@@ -520,6 +522,13 @@ public class MainActivity extends Activity implements MNGInterstitialListener{
          // set intertitial listener
 	   mngAdsInterstitialAdsFactory.setInterstitialListener(this);
 ```
+You have also to set placementId (minimum one time)
+
+```
+#!java
+    mngAdsInterstitialAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+```
+
 #####Make a request 
 To make a request you must call 'createInterstitial()'. this method return a bool value (canHandleRequest).
 
