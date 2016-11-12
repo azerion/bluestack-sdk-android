@@ -14,6 +14,7 @@ Don't forget to update following librairies :
 
    compile files('libs/mng-ads-sdk.jar')
    compile 'com.google.android.gms:play-services-ads:9.8.0'
+   compile 'com.google.android.gms:play-services-location:9.8.0'
    compile files('libs/SmartAdServer-Android-SDK-6.5.jar')
    compile 'com.facebook.android:audience-network-sdk:4.17'
 ```
