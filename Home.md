@@ -51,6 +51,7 @@ dependencies {
 
   //Google Play Services with Google Mobile Ads only ( Individual APIs and corresponding )
   compile 'com.google.android.gms:play-services-ads:9.8.0'
+  compile 'com.google.android.gms:play-services-location:9.8.0'
 //or use All Google PLay service compile 'com.google.android.gms:play-services:9.8.0'
  
   //Android support v4
