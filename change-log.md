@@ -3,6 +3,22 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.3.1
+#### Release date: November 11th, 2016
+
+ - core optimization (dispatcher)
+ - use new SmartAdServer 6.5 version [SmartAdServer-Android-SDK.jar]
+
+Don't forget to update following librairies :
+```
+
+   compile files('libs/mng-ads-sdk.jar')
+   compile 'com.google.android.gms:play-services-ads:9.8.0'
+   compile files('libs/SmartAdServer-Android-SDK-6.5.jar')
+   compile 'com.facebook.android:audience-network-sdk:4.17'
+```
+
+
 ## Version 2.3
 #### Release date: October 28th, 2016
 
