@@ -39,51 +39,13 @@ repositories {
 
  include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:9.4.0) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.13.0) (**recommended**)
+- Google-play-services_lib (com.google.android.gms:play-services:10.0.1) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.18.0) (**recommended**)
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
-- Amazon (com.amazon.android:mobile-ads:5.7.2) (**recommended**)
-- com.flurry.android:analytics:6.3.1 and com.flurry.android:ads:6.3.1 (**recommended**)
+- Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
+- com.flurry.android:analytics:6.7.0 and com.flurry.android:ads:6.7.0 (**recommended**)
 
-```
-#!groovy
-dependencies { 
-
-  //Google Play Services with Google Mobile Ads only ( Individual APIs and corresponding )
-  compile 'com.google.android.gms:play-services-ads:10.0.1'
-  compile 'com.google.android.gms:play-services-location:10.0.1'
-//or use All Google PLay service compile 'com.google.android.gms:play-services:10.0.1'
- 
-  //Android support v4
- compile 'com.android.support:support-v4:23.+'
- 
-  //Audience Network 
-  compile 'com.facebook.android:audience-network-sdk:4.16.1'  
-  
- //Amazon
-    compile 'com.amazon.android:mobile-ads:5.8.1'
-
- //Flurry
-    compile 'com.flurry.android:analytics:6.6.0'
-    compile 'com.flurry.android:ads:6.6.0'
-    
- //smart
- compile files('libs/SmartAdServer-Android-SDK-6.4.1.jar')
- 
- //madvertise mediation+adserving
- compile files('libs/mng-ads-sdk.jar')
- 
- //retency
-  compile files('libs/retency-sdk.jar')
-
- //b4s - beacons support
- compile 'nl.qbusict:cupboard:2.1.4'
- compile 'de.greenrobot:eventbus:2.4.0'
- compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
- compile(name: 'b4s-android-sdk', ext: 'aar')
- compile(name: 'b4s-android-sdk-playservices830', ext: 'aar')
-}
-```
+**See our [build.gradle] sample**
 
 
  **download and extract following files and place them in the /libs folder in your project**
@@ -103,7 +65,7 @@ dependencies {
 #!groovy
 dependencies { 
 dependencies {
-    compile files('libs/SmartAdServer-Android-SDK-6.4.jar')
+    compile files('libs/SmartAdServer-Android-SDK-6.6.jar')
     compile files('libs/retency-sdk.jar')
     compile files('libs/mng-ads-sdk.jar')
     compile files('libs/presage-lib-1.8.1.jar')
@@ -123,9 +85,9 @@ If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK
 - [SmartAdServer-Android-SDK.jar] (**recommended**)
 - [AudienceNetwork.jar] (**recommended**)
 - [Android-support-v4.jar] (**mandatory**)
-- [Google-play-services_lib]: (com.google.android.gms:play-services:9.4.0) (**mandatory**)
-- [amazon-ads-5.8.1.jar] (**recommended**)
-- [flurryAds_6.5.0.jar] and [flurryAnalytics_6.5.0.jar] (**recommended**)
+- [Google-play-services_lib]: (com.google.android.gms:play-services:10.0.1) (**mandatory**)
+- [Amazon.jar] (**recommended**)
+- [flurryAds.jar] and [flurryAnalytics.jar] (**recommended**)
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
 
@@ -1075,10 +1037,10 @@ Shortcut permissions
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
-[amazon-ads-5.8.1.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/amazon-ads-5.8.1.jar?at=master&fileviewer=file-view-default
+[Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Flurry]:https://developer.yahoo.com/flurry/
-[flurryAds_6.5.0.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/flurryAds_6.5.0.jar?at=master&fileviewer=file-view-default
-[flurryAnalytics_6.5.0.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/flurryAnalytics_6.5.0.jar?at=master&fileviewer=file-view-default
+[FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Ogury]:http://www.ogury.co/
@@ -1094,5 +1056,6 @@ Shortcut permissions
 [com.squareup.retrofit2:converter-jackson:2.0.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
 
 
