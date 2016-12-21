@@ -50,9 +50,9 @@ repositories {
 dependencies { 
 
   //Google Play Services with Google Mobile Ads only ( Individual APIs and corresponding )
-  compile 'com.google.android.gms:play-services-ads:9.8.0'
-  compile 'com.google.android.gms:play-services-location:9.8.0'
-//or use All Google PLay service compile 'com.google.android.gms:play-services:9.8.0'
+  compile 'com.google.android.gms:play-services-ads:10.0.1'
+  compile 'com.google.android.gms:play-services-location:10.0.1'
+//or use All Google PLay service compile 'com.google.android.gms:play-services:10.0.1'
  
   //Android support v4
  compile 'com.android.support:support-v4:23.+'
@@ -75,6 +75,13 @@ dependencies {
  
  //retency
   compile files('libs/retency-sdk.jar')
+
+ //b4s - beacons support
+ compile 'nl.qbusict:cupboard:2.1.4'
+ compile 'de.greenrobot:eventbus:2.4.0'
+ compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
+ compile(name: 'b4s-android-sdk', ext: 'aar')
+ compile(name: 'b4s-android-sdk-playservices830', ext: 'aar')
 }
 ```
 
@@ -85,6 +92,12 @@ dependencies {
  - [SmartAdServer-Android-SDK.jar] (**recommended**)
  - [Retency-sdk] (**recommended**)
  - [Presage-lib.jar] (**recommended**)
+
+ - [nl.qbusict:cupboard:2.1.4] (for beacon)
+ - [de.greenrobot:eventbus:2.4.0] (for beacon)
+ - [com.squareup.retrofit2:converter-jackson:2.0.0] (for beacon)
+ - [b4s-android-sdk] (for beacon)
+ - [b4s-android-sdk-playservices830] (for beacon)
  
 ```
 #!groovy
@@ -115,6 +128,12 @@ If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK
 - [flurryAds_6.5.0.jar] and [flurryAnalytics_6.5.0.jar] (**recommended**)
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
+
+- [nl.qbusict:cupboard:2.1.4] (for beacon)
+- [de.greenrobot:eventbus:2.4.0] (for beacon)
+- [com.squareup.retrofit2:converter-jackson:2.0.0] (for beacon)
+- [b4s-android-sdk] (for beacon)
+- [b4s-android-sdk-playservices830] (for beacon)
 
 
 
@@ -1069,5 +1088,10 @@ Shortcut permissions
 [Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
 [see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
+[nl.qbusict:cupboard:2.1.4]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[de.greenrobot:eventbus:2.4.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[com.squareup.retrofit2:converter-jackson:2.0.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 
 
