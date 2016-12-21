@@ -8,9 +8,9 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 #### Release date: December 21th, 2016
 
  - new template interstitial and square (Appsfire [mng-ads.jar Android SDK] )
- - use new FBAudienceNetwork 4.18.0 version
- - use new DFP 10.0.1 version
- - use new Flurry 6.7.0 version
+ - use new Facebook [AudienceNetwork.jar] 4.18.0 version
+ - use new Google DFP 10.0.1 version
+ - use new Flurry 6.7.0 version ([flurryAds.jar] and [flurryAnalytics.jar] )
  - use new BeaconForStore 2.0.13 version
  - use new [SmartAdServer-Android-SDK.jar] 6.6 version
 
