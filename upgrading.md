@@ -1,6 +1,19 @@
 # upgrading SDK
 **You need to keep all Ad Network jars up to date.**
 
+###Upgrading to 2.3.2
+
+You must update :
+```
+compile files('libs/mng-ads-sdk.jar')
+compile files('libs/SmartAdServer-Android-SDK-6.6.jar')
+compile 'com.google.android.gms:play-services-ads:10.0.1'
+compile 'com.google.android.gms:play-services-location:10.0.1'
+compile 'com.flurry.android:analytics:6.7.0'
+compile 'com.flurry.android:ads:6.7.0'
+compile 'com.facebook.android:audience-network-sdk:4.18.0'
+```
+
 ###Upgrading to 2.3
 
 
