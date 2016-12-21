@@ -129,6 +129,7 @@ If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
 
+
 - [nl.qbusict:cupboard:2.1.4] (for beacon)
 - [de.greenrobot:eventbus:2.4.0] (for beacon)
 - [com.squareup.retrofit2:converter-jackson:2.0.0] (for beacon)
