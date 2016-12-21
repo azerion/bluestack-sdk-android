@@ -3,6 +3,30 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+
+## Version 2.3.2
+#### Release date: December 21th, 2016
+
+ - new template interstitial and square (Appsfire [mng-ads.jar Android SDK] )
+ - use new FBAudienceNetwork 4.18.0 version
+ - use new DFP 10.0.1 version
+ - use new Flurry 6.7.0 version
+ - use new BeaconForStore 2.0.13 version
+ - use new [SmartAdServer-Android-SDK.jar] 6.6 version
+
+Don't forget to update following librairies :
+
+
+```
+compile files('libs/mng-ads-sdk.jar')
+compile files('libs/SmartAdServer-Android-SDK-6.6.jar')
+compile 'com.google.android.gms:play-services-ads:10.0.1'
+compile 'com.google.android.gms:play-services-location:10.0.1'
+compile 'com.flurry.android:analytics:6.7.0'
+compile 'com.flurry.android:ads:6.7.0'
+compile 'com.facebook.android:audience-network-sdk:4.18.0'
+```
+
 ## Version 2.3.1
 #### Release date: November 11th, 2016
 
@@ -59,6 +83,14 @@ For  Ebeacon technology withB4S , you must add following librairies
     compile(name: 'b4s-android-sdk', ext: 'aar')
     compile(name: 'b4s-android-sdk-playservices830', ext: 'aar')
 ```
+
+available on 
+
+ - [nl.qbusict:cupboard:2.1.4]
+ - [de.greenrobot:eventbus:2.4.0]
+ - [com.squareup.retrofit2:converter-jackson:2.0.0]
+ - [b4s-android-sdk]
+ - [b4s-android-sdk-playservices830]
 
 
 
@@ -433,3 +465,8 @@ You must check [Upgrade Guide]
 [In-Feed Ad format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-infeed
 [download and extract here]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/
 [libs]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[nl.qbusict:cupboard:2.1.4]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[de.greenrobot:eventbus:2.4.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[com.squareup.retrofit2:converter-jackson:2.0.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
