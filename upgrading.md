@@ -17,7 +17,7 @@ compile 'com.facebook.android:audience-network-sdk:4.18.0'
 ###Upgrading to 2.3
 
 
-Don't forget to update following librairies :
+Don't forget to update following libraries :
 
 ```
 
@@ -30,7 +30,7 @@ Don't forget to update following librairies :
         
 ```
 
-For  Ebeacon technology withB4S , you must add following librairies
+For  Ebeacon technology withB4S , you must add following libraries
 
 ```
        //b4s
@@ -86,9 +86,9 @@ public boolean createInfeed(MNGPreference preference)
 public boolean createInfeed(MNGFrame frame, MNGPreference preference)
 
 ```
-### Librairies
+### libraries
 
- - The following librairies are not required anymore for the sdk
+ - The following libraries are not required anymore for the sdk
 
       - [Liverail.jar]
 
@@ -111,7 +111,7 @@ compile 'com.amazon.android:mobile-ads:5.7.2'
 
 
 
- - Don't forget to update following librairies :
+ - Don't forget to update following libraries :
     - [mng-ads.jar Android SDK]
     - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
     - [FlurryAds.jar] and [FlurryAnalytics.jar]
@@ -139,8 +139,8 @@ public boolean displayInterstitial()
 ```
 
 
-### Librairies
-Don't forget to update the other librairies :
+### libraries
+Don't forget to update the other libraries :
 - [SmartAdServer-Android-SDK.jar]
 
 ## Upgrading to 2.0.5
@@ -169,14 +169,14 @@ MNG Ads requires minimum Android API level 11
 
 Contact mngads support to get presage API key .
 
-### Librairies
+### libraries
 #### Added
 
 The following librairie is required for the sdk
 
  - [Presage-lib.jar]
 
-Don't forget to update the other librairies :
+Don't forget to update the other libraries :
 
 - [SmartAdServer-Android-SDK.jar]
  
@@ -242,10 +242,10 @@ If you have styles.xml inside res/values folder, copy the following lines inside
 
 MNG Ads requires minimum Android API level 10
 
-### Librairies
+### libraries
 #### Removed
 
-The following librairies are not required any more for the sdk
+The following libraries are not required any more for the sdk
 
  - afAdSdk.jar
  - mngperf-android-sdk.jar
@@ -253,13 +253,13 @@ The following librairies are not required any more for the sdk
 
 #### Added
 
-The following librairies are required for the sdk
+The following libraries are required for the sdk
 
 - [Amazon.jar]
 - [Liverail.jar]
 - [FlurryAds.jar] and [FlurryAnalytics.jar]
 
-Don't forget to update the other librairies :
+Don't forget to update the other libraries :
 
 - Google-play-services_lib (com.google.android.gms:play-services:8.4.0)
 - [SmartAdServer-Android-SDK.jar]
