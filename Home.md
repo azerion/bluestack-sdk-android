@@ -78,7 +78,7 @@ If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK
 - download [mng-ads.jar Android SDK] from our demo project
 - drag and drop it in your libs/ folder
 
-**MngAds SDK requires following librairies (you must use version in used on demo project): **
+**MngAds SDK requires following libraries (you must use version in used on demo project): **
 
 
 
@@ -1057,5 +1057,3 @@ Shortcut permissions
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
-
-
