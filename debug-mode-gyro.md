@@ -32,7 +32,7 @@ You'll now be able to shake your phone while in your app to bring up Madvertise 
 
 ### 2.1 Madvertise Mediation Settings
 
-After [Manual Install] or [through pod "MNGAds"], this page check status of mediation in order to avoid adaptors/librairies oversight.
+This page check status of mediation in order to avoid librairies oversight, you can check version of each librairy too.
 
 On following example, all mediation librairies have been added excepted presage (Ogury).
 
