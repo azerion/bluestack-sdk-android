@@ -28,15 +28,15 @@ Or see with Madvertise team in order to allow Debug Mode server side from Madver
 
 You'll now be able to shake your phone while in your app to bring up Madvertise Debug menu.
 
-![debug-menu.PNG](https://bitbucket.org/repo/aen579/images/1392529032-debug-menu.PNG)
+![debug-menu.png](https://bitbucket.org/repo/GyRXRR/images/2129476937-debug-menu.png)
 
 ### 2.1 Madvertise Mediation Settings
 
 After [Manual Install] or [through pod "MNGAds"], this page check status of mediation in order to avoid adaptors/librairies oversight.
 
-On following example, all mediation librairies have been added excepted B4S.
+On following example, all mediation librairies have been added excepted presage (Ogury).
 
-![mediation-settings.PNG](https://bitbucket.org/repo/aen579/images/519663520-mediation-settings.PNG)
+![mediation-settings.png](https://bitbucket.org/repo/GyRXRR/images/2114839361-mediation-settings.png)
 
 
 ### 2.2 Debug placements
