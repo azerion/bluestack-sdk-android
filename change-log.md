@@ -14,7 +14,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
  - use new BeaconForStore 2.0.13 version
  - use new [SmartAdServer-Android-SDK.jar] 6.6 version
 
-Don't forget to update following librairies :
+Don't forget to update following libraries :
 
 
 ```
@@ -33,7 +33,7 @@ compile 'com.facebook.android:audience-network-sdk:4.18.0'
  - core optimization (dispatcher)
  - use new SmartAdServer 6.5 version [SmartAdServer-Android-SDK.jar]
 
-Don't forget to update following librairies :
+Don't forget to update following libraries :
 ```
 
    compile files('libs/mng-ads-sdk.jar')
@@ -49,7 +49,7 @@ Don't forget to update following librairies :
 
  - Now MNGADS becomes MADVERTISE MEDIATION and MADVERTISE ADSERVING
  - VAST 2 /VPAID 1 support for MADVERTISE ADSERVING
- - Upgrading MADVERTISE MEDIATION librairies
+ - Upgrading MADVERTISE MEDIATION libraries
  - Improve Native Ad assets management with 
 ```
  nativeObject.downloadAssetsForType(mMAdvertiseType,mImageView);
@@ -60,7 +60,7 @@ Don't forget to update following librairies :
 
 
 
-Don't forget to update following librairies :
+Don't forget to update following libraries :
 
 ```
 
@@ -73,7 +73,7 @@ Don't forget to update following librairies :
         
 ```
 
-For  Ebeacon technology withB4S , you must add following librairies
+For  Ebeacon technology withB4S , you must add following libraries
 
 ```
        //b4s
@@ -99,7 +99,7 @@ available on
 
  - Now appsfire support videos for square, nativeAds and interstitials
 
-Don't forget to update following librairies 
+Don't forget to update following libraries 
 
  - [mng-ads.jar Android SDK] 
 
@@ -108,9 +108,9 @@ Don't forget to update following librairies
 
  - HTTPS support
  - New appsfire template for banner, medium rectangle and interstitial
- - upgrade librairies
+ - upgrade libraries
 
-Don't forget to update following librairies 
+Don't forget to update following libraries 
 
  - [mng-ads.jar Android SDK] 
  - [Presage-lib.jar]
@@ -147,7 +147,7 @@ you must check [Upgrade Guide]. You must update [mng-ads.jar Android SDK] and [S
  - fix smart issue (thread and interstitial)
  - Add constants for banner size (MNGAdSize.MNG_DYNAMIC_LEADERBOARD for tablets, MNGAdSize.MNG_DYNAMIC_BANNER for mobiles)
 
- - Don't forget to update following librairies :
+ - Don't forget to update following libraries :
     - [mng-ads.jar Android SDK]
     - com.facebook.android:audience-network-sdk:4.13.0
     - [SmartAdServer-Android-SDK.jar]
@@ -185,7 +185,7 @@ you must check [Upgrade Guide]
  - Add listener for refresh event
  - Remove [Liverail.jar]
  - Use gradle dependency for Amazon compile 'com.amazon.android:mobile-ads:5.7.2' instead of compile files('amazon-ads-5.6.20.jar')
- - Don't forget to update following librairies :
+ - Don't forget to update following libraries :
     - [mng-ads.jar Android SDK]
     - [AudienceNetwork.jar]  (com.facebook.android:audience-network-sdk:4.12.1)
     - [Amazon.jar]   (com.amazon.android:mobile-ads:5.7.2)
@@ -259,7 +259,7 @@ You need to keep all Ad Network jars up to date.
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 
- - The sdk afAdSdk.jar, mngperf-android-sdk.jar, AppNexus-sdk are merged on mngads SDK [mng-ads.jar Android SDK] for better performance and reduce librairies number
+ - The sdk afAdSdk.jar, mngperf-android-sdk.jar, AppNexus-sdk are merged on mngads SDK [mng-ads.jar Android SDK] for better performance and reduce libraries number
  - We have added - [Amazon.jar], [Liverail.jar], [FlurryAds.jar] to mngads mediation in order to increase fill rate and revenus
 
 
@@ -336,7 +336,7 @@ You must update [mng-ads.jar Android SDK], [SmartAdServer-Android-SDK.jar], [afA
  - Keywords can be managed server side
 
 
-You must update [mng-ads.jar Android SDK], [SmartAdServer-Android-SDK-6.0.jar], [afAdSdk.jar] and [Google-play-services_lib],[mngperf-android-sdk.jar],[AudienceNetwork.jar] and [Retency-sdk] librairies
+You must update [mng-ads.jar Android SDK], [SmartAdServer-Android-SDK-6.0.jar], [afAdSdk.jar] and [Google-play-services_lib],[mngperf-android-sdk.jar],[AudienceNetwork.jar] and [Retency-sdk] libraries
 
 ## Version 1.3.3
 
@@ -347,7 +347,7 @@ You must update [mng-ads.jar Android SDK], [SmartAdServer-Android-SDK-6.0.jar], 
  - mngperf adserving improvements
 
 
-You must update [mng-ads.jar Android SDK], [afAdSdk.jar] and [mngperf-android-sdk.jar] librairies
+You must update [mng-ads.jar Android SDK], [afAdSdk.jar] and [mngperf-android-sdk.jar] libraries
 
 ## Version 1.3.2
 
@@ -365,7 +365,7 @@ You must check [Upgrade Guide]
  - Add remote debug mode
  - MNGNativeObject.getPriceType() (use to add "free" icon)
  - Add [Best practice Mngads], optimized use case for several ad formats on one page
- - Update appsfire, Facebook and DFP librairies
+ - Update appsfire, Facebook and DFP libraries
  - Add retency adNetwork
 
 
