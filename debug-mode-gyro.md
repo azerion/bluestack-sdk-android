@@ -46,11 +46,8 @@ On shaking, you can see the past 3 requests ( Madvertise Mediation) and check wa
 |      |    |
 | --------|---------|
 | 
-![debug-placement-min.jpg](https://bitbucket.org/repo/aen579/images/495917987-debug-placement-min.jpg)  | ![debug-placement2.PNG](https://bitbucket.org/repo/aen579/images/843601529-debug-placement2.PNG)   |
+![debug-1.png](https://bitbucket.org/repo/GyRXRR/images/2869168639-debug-1.png)  | ![debug.png](https://bitbucket.org/repo/GyRXRR/images/414804944-debug.png)  |
 
 
 
-
-[Manual Install]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/Home#markdown-header-manual-install
-[through pod "MNGAds"]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/Using%20CocoaPods
-[Preference Object]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/Home#markdown-header-preferences-object
+[Preference Object]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-preferences-object
