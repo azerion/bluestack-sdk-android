@@ -141,9 +141,11 @@ String price=nativeObject.getPriceText();
 String callToAction=nativeObject.getCallToAction();
 
 // Get the URL of the icon image for the app
+// FYI this method return NO_URL_FOUND = "http://" if no cover image found
  String iconUrl=nativeObject.getAdIconUrl();
 
 // Get ahe URL of the cover image for the app
+// FYI this method return NO_URL_FOUND = "http://" if no cover image found
  String coverImageUrl=nativeObject.getAdCoverImageUrl();
 
 // adChoiceView
