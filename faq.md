@@ -123,3 +123,16 @@ Native ads allow you to customize the look and feel of ads to match that of your
 **You must use an instance per activity.**
 
 Some AdNetworks show their interstitials on top of an Activity layout and then disappear. Therefore, you must instantiate **once MNGAdsFactory by activity** (used for display the interstitial). If you want to build an interstitials manager for your app to handle all interstitials requests, you should make sure to instantiate MNGAdsFactory with the activity that will make the request.
+
+##android:noHistory
+
+http://developer.android.com/guide/topics/manifest/activity-element.html#nohist
+
+android:noHistory
+Whether or not the activity should be removed from the activity stack and finished (its finish() method called) when the user navigates away from it and it's no longer visible on screen .
+
+Therefore, do not use
+
+```java
+android:noHistory="true"
+```
