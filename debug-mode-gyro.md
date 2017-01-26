@@ -17,7 +17,7 @@ To enbale debug mode see with Madvertise team in order to allow Debug Mode serve
 
 ## 2. Debug Madvertise Mediation SDK
 
-You'll now be able to shake your phone while in your app to bring up Madvertise Debug menu.
+You'll now be able to shake your phone (**during 2 secondes**) while in your app to bring up Madvertise Debug menu.
 
 ![debug-menu.png](https://bitbucket.org/repo/GyRXRR/images/2129476937-debug-menu.png)
 
