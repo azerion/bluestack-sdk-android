@@ -1,6 +1,35 @@
 # upgrading SDK
 **You need to keep all Ad Network jars up to date.**
 
+
+###Upgrading to 2.3.3
+
+You must update :
+```
+compile files('libs/mng-ads-sdk.jar')
+
+ //mediation - smart Adserver
+compile files('libs/SmartAdServer-Android-SDK-6.6.2.jar')
+ 
+//mediation - Audience Network (Facebook)
+compile 'com.facebook.android:audience-network-sdk:4.19.0'
+
+//mediation - Flurry
+compile 'com.flurry.android:analytics:6.8.0'
+compile 'com.flurry.android:ads:6.8.0'
+
+//mediation - b4s - beacons support
+ compile 'nl.qbusict:cupboard:2.1.4'
+ compile 'de.greenrobot:eventbus:2.4.0'
+ compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
+ compile(name: 'b4s-android-sdk', ext: 'aar')
+ compile(name: 'b4s-android-sdk-playservices830', ext: 'aar')
+
+ //mediation - ogury
+ compile files('libs/presage-lib-1.8.3.jar')
+
+```
+
 ###Upgrading to 2.3.2
 
 You must update :
