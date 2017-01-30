@@ -30,8 +30,7 @@ You can see [Best practice Mngads and Design ad units to fit your app], an optim
 ### Using Gradle
 
 If using Gradle,Add this to Module-level /app/build.gradle before dependencies
-```
-#!groovy
+```groovy
 repositories {
 	mavenCentral() 
 }
@@ -61,8 +60,7 @@ repositories {
  - [b4s-android-sdk] (for beacon)
  - [b4s-android-sdk-playservices830] (for beacon)
  
-```
-#!groovy
+```groovy
 dependencies { 
 dependencies {
     compile files('libs/SmartAdServer-Android-SDK-6.6.jar')
@@ -78,7 +76,7 @@ If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK
 - download [mng-ads.jar Android SDK] from our demo project
 - drag and drop it in your libs/ folder
 
-**MngAds SDK requires following libraries (you must use version in used on demo project): **
+**MngAds SDK requires following librairies (you must use version in used on demo project): **
 
 
 
@@ -115,8 +113,7 @@ Included is a [MngAds sample app] to use as example and for help on MngAds integ
 You have to init the SDK in your application class
 
 
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 ...
@@ -141,8 +138,7 @@ You have to init becon in your application class
 MAdvertiseBeaconAdapter.initBeacons(this) should be called before         MNGAdsFactory.initialize(this,"YOUR_APP_ID");
 
 
-```
-#!java
+```java
 public class DemoApp extends Application{
 
 @Override
@@ -154,8 +150,7 @@ public class DemoApp extends Application{
 }
 ```
 you have to update your manifest.xml
-```
-#!XML
+```xml
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
@@ -168,36 +163,27 @@ you have to update your manifest.xml
 
 ```
 and you have to edit your build.gradle file
-```
-#!java
+```java
  buildTypes {
- .
- .
- .
+
   packagingOptions {
             exclude 'META-INF/ASL2.0'
             exclude 'META-INF/LICENSE'
             exclude 'META-INF/NOTICE'
         }
- .
- .
- .
+
  }
  
  
  
  dependencies {
-  .
-  .
-  .
+
   compile 'nl.qbusict:cupboard:2.1.4'
   compile 'de.greenrobot:eventbus:2.4.0'
   compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
   compile (name:'b4s-android-sdk', ext:'aar')
   compile (name:'b4s-android-sdk-playservices830', ext:'aar')
-  .
-  .
-  .
+
 }
 ```
 and you need to declare your flat file repository.
@@ -216,8 +202,7 @@ allprojects {
 
 To verify if the SDK is fully initialized you have to call isInitialized():
 
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 import com.mngads.listener.MNGAdsSDKFactoryListener;
@@ -260,8 +245,7 @@ The time given to the ad view to download the ad data. After this time, the disp
 
 the default timeout is 1s.
 
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 ...
@@ -285,8 +269,7 @@ isBusy will be setted to true when factory start handling request.
 
 isBusy will be setted to false when factory finish handling request.
 **example**:
-```
-#!java
+```java
 	if (!mngAdsBannerAdsFactory.isBusy()) {
 	
 		Log.d(TAG, "Ads Factory is not busy");
@@ -302,8 +285,7 @@ isBusy will be setted to false when factory finish handling request.
 
 To create a banner you have to init an object with type MNGAdsSDKFactory and set the bannerListener and the context.
 
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 import com.mngads.listener.MNGBannerListener;
@@ -324,15 +306,13 @@ public class MainActivity extends Activity implements MNGBannerListener{
 ```
 You have also to set placementId (minimum one time)
 
-```
-#!java
+```java
     mngAdsBannerAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #### Make a request
 To make a request you have to call 'createBanner'. this method return a bool value (canHandleRequest) 
 
-```
-#!java
+```java
     private MNGFrame mFrame;
     mFrame = getResources().getBoolean(R.bool.is_tablet) ? MNGAdSize.MNG_DYNAMIC_LEADERBOARD : MNGAdSize.MNG_DYNAMIC_BANNER;
 if(mngAdsBannerAdsFactory.createBanner(mFrame))
@@ -350,8 +330,7 @@ if(mngAdsBannerAdsFactory.createBanner(mFrame))
 **v1.5.1 or above**
 bannerDidLoad(View adView) changed to bannerDidLoad(View adView,int preferredHeightDP).
 bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
-```
-#!java
+```java
 	@Override
 	 public void bannerDidLoad(View adView ,int preferredHeightDP);
 		Log.d(TAG, "your banner is ready")
@@ -363,8 +342,7 @@ bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when
 ```
 
 bannerDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```
-#!java
+```java
 	@Override
 	public void bannerDidFail(Exception adsException) {
 		Log.e(TAG, "banner did fail :" + adsException.toString());
@@ -372,8 +350,7 @@ bannerDidFail(Exception adsException): will be called when all ads servers fail.
 ```
 **v1.5.1 or above** 
 bannerResize(MNGFrame frame) : will be called when the banner has changed size
-```
-#!java
+```java
 	 @Override
     public void bannerResize(MNGFrame frame) {
     ...
@@ -384,8 +361,7 @@ bannerResize(MNGFrame frame) : will be called when the banner has changed size
 ```
 ### MNGAdSize
 Mng ads provides variant pre-defined sizes ( example below).
-```
-#!java
+```java
 
 public final static MNGFrame MNG_BANNER = new MNGFrame(320, 50);
 	public final static MNGFrame MNG_DYNAMIC_BANNER = new MNGFrame(MNGConstants.UNDEFINED_WIDTH, 50);
@@ -397,8 +373,7 @@ public final static MNGFrame MNG_BANNER = new MNGFrame(320, 50);
 ```
 Example:
 
-```
-#!java
+```java
 
     MNGFrame mFrame;
 
@@ -420,8 +395,7 @@ Example:
 
 To create an **In-Feed** Ad format ( the ads that show up in the middle of the stream as you scroll through your content Parallax or Video) you must init an object with type MNGAdsSDKFactory and set the infeedListener, context.
 
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 import com.mngads.listener.MNGInfeedListener;
@@ -442,15 +416,13 @@ public class MainActivity extends Activity implements MNGInfeedListener{
 ```
 You have also to set placementId (minimum one time)
 
-```
-#!java
+```java
     mngAdsInfeedAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #### Make a request
 To make a request you have to call 'createInfeed'. this method return a bool value (canHandleRequest) 
 
-```
-#!java
+```java
 if(mngAdsInfeedAdsFactory.createInfeed(new MNGFrame(300, 250))){
     //Wait callBack from listener
 }else{
@@ -461,8 +433,7 @@ if(mngAdsInfeedAdsFactory.createInfeed(new MNGFrame(300, 250))){
 ####Handle callBack from InfeedListener
 
 infeedDidLoad(View infeedView): will be called by the SDK when your infeedView is ready. now you can add your infeedView to your view.
-```
-#!java
+```java
 	@Override
     public void infeedDidLoad(View infeedView) {
 		Log.d(TAG, "your infeed view is ready")
@@ -472,8 +443,7 @@ infeedDidLoad(View infeedView): will be called by the SDK when your infeedView i
 ```
 
 infeedDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```
-#!java
+```java
 	@Override
 	public void infeedDidFail(Exception adsException) {
 		Log.e(TAG, "infeed did fail :" + adsException.toString());
@@ -485,8 +455,7 @@ infeedDidFail(Exception adsException): will be called when all ads servers fail.
 
 To create a interstitial you must init an object with type MNGAdsSDKFactory and set the interstitalListener and the context (Activity)  [more details about instance on our FAQ].
 
-```
-#!java
+```java
 
 ...
 import com.mngads.MNGAdsFactory;
@@ -507,16 +476,14 @@ public class MainActivity extends Activity implements MNGInterstitialListener{
 ```
 You have also to set placementId (minimum one time)
 
-```
-#!java
+```java
     mngAdsInterstitialAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
 #####Make a request 
 To make a request you must call 'createInterstitial()'. this method return a bool value (canHandleRequest).
 
-```
-#!java
+```java
     if (mngAdsInterstitialAdsFactory.createInterstitial()) {
 	   //Wait callBack from interstitial listener
      }else{
@@ -525,8 +492,7 @@ To make a request you must call 'createInterstitial()'. this method return a boo
 ```
 #####Handle callBack from InterstitialListener
 InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
-```
-#!java
+```java
 @Override
 	public void interstitialDidLoad() {
 		Log.d(TAG, "interstitial did load");
@@ -534,8 +500,7 @@ InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready
 ```
 
 interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```
-#!java
+```java
 @Override
 	public void interstitialDidFail(Exception adsException) {
 		Log.e(TAG, "interstitial did fail :" + adsException.toString());
@@ -543,8 +508,7 @@ interstitialDidFail(Exception adsException): will be called when all ads servers
 ```
 InterstitialDisappear(): will be called when intertisialView did disappear. now you can update your UI for example.
 
-```
-#!java
+```java
 @Override
 	public void interstitialDisappear() {
 		Log.d(TAG, "interstitial disappear")
@@ -553,16 +517,14 @@ InterstitialDisappear(): will be called when intertisialView did disappear. now 
 
 #####Disable auto-displaying
 With v2.0.8 and above, you can disable auto-displaying.
-```
-#!java
+```java
 ...
     mngAdsInterstitialAdsFactory.createInterstitial(false);
 ...
 
 ```
 To check if the interstitial is ready to be show, you must call isInterstitialReady() and displayInterstitial() in order to display the ads (in case of success).
-```
-#!java
+```java
 ...
     if (mngAdsInterstitialAdsFactory.isInterstitialReady()) {
     
@@ -588,8 +550,7 @@ Native ads give you the control to design the perfect ad units for your app. Wit
 
 To create a nativeAd  you have to init an object with type MNGAdsSDKFactory and set the nativeListener.
 
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 import com.mngads.MNGNativeObject;
@@ -609,15 +570,13 @@ public class MainActivity extends Activity implements MNGNativeListener{
 
 ```
 You have also to set placementId (minimum one time)
-```
-#!java
+```java
   mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #####Make a request for native ad
 To make a request you have to call 'createNative()'. this method return a bool value (canHandleRequest) 
 
-```
-#!java
+```java
     if(mngAdsNativeAdsFactory.createNative()){
         //Wait callBack from native listener
     }else{
@@ -626,8 +585,7 @@ To make a request you have to call 'createNative()'. this method return a bool v
 ```
 #####Handle callBack from NativeListener
 nativeObjectDidLoad()  will be called by the SDK when your nativeObject is ready. now you can create your own view.
-```
-#!java
+```java
 @Override
 	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
 		Log.d(TAG, "native Object did load ");
@@ -636,8 +594,7 @@ nativeObjectDidLoad()  will be called by the SDK when your nativeObject is ready
 ```
 
 nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
-```
-#!java
+```java
 @Override
 	public void nativeObjectDidFail(Exception adsException) {
 		Log.e(TAG, "nativeObject Did Fail :" + adsException.toString());
@@ -646,8 +603,7 @@ nativeObjectDidFail(Exception adsException): will be called when all ads servers
 ```
 #####Build Native Ad UI
 MNGNativeObject have all required metadata to build your customized native UI.
-```
-#!java
+```java
 @Override
 	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
     ...
@@ -672,8 +628,7 @@ You can also integrate video ads into your Native Ad experience. To enable video
 - Have SDK version 2.0 or later
 - You have to call setMediaContainer(viewGroup) then the sdk will handle the rendering process ( displaying)  the image cover or the media video inside the view group that depends on the ad network result
  
-```
-#!java
+```java
 @Override
 	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
     ...
@@ -699,8 +654,7 @@ See [Native Ads guidelines]
 
 ### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 import com.mngads.listener.MNGClickListener;
@@ -729,8 +683,7 @@ public class MainActivity extends Activity implements MNGClickListener{
 ### Ad refresh listener
 You can also implement MNG refresh listener callback to detect when an Ad refreshed
 
-```
-#!java
+```java
 ...
 import com.mngads.MNGAdsFactory;
 import com.mngads.listener.MNGRefreshListener;
@@ -772,8 +725,7 @@ informations that you can set are:
 - keyWord : Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**. 
 
 
-```
-#!java
+```java
 import com.mngads.util.MNGPreference;
 import com.mngads.util.MNGGender;
 ...
@@ -792,8 +744,7 @@ import com.mngads.util.MNGGender;
 ### Memory managment
 When you have finished your ads plant you must free the memory.
 
-```
-#!java
+```java
 
 @Override
 	protected void onDestroy() {
@@ -809,8 +760,7 @@ When you have finished your ads plant you must free the memory.
 ### Enabling debug mode
 To enbale debug mode you need to set debug mode to true :
 
-```
-#!java
+```java
 ...
     MNGAdsFactory.setDebugModeEnabled(true);
 ...
@@ -820,8 +770,7 @@ To enbale debug mode you need to set debug mode to true :
 
 To make ad request we need to add the following permission to AndroidManifest.xml file :
 
-```
-#!XML
+```xml
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     ...
@@ -943,8 +892,7 @@ To make ad request we need to add the following permission to AndroidManifest.xm
 ```
 ### Styles
 If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
-```
-#!XML
+```xml
 <style name="Presage.Theme.Transparent" parent="android:Theme">
     <item name="android:windowIsTranslucent">true</item>
     <item name="android:windowBackground">@android:color/transparent</item>
@@ -960,8 +908,7 @@ Ogury interation is different from others Ad network .
  * Step 2 : Add presage-lib.jar to your libs folder
  * Step 3 : Copy the following lines in your AndroidManifest.xml inside <application> tag.Don't forget your API Key: presage_key.
 
-```
-#!XML
+```xml
 <!-- PRESAGE LIBRARY -->
 <meta-data android:name="presage_key" android:value="presage_key"/>
 <service android:name="io.presage.services.PresageServiceImp"/>
@@ -986,8 +933,7 @@ Ogury interation is different from others Ad network .
  * Step 4 : Add the following permissions that will be grouped together
 Placed just before the opening <application> tag:
 
-```
-#!XML
+```xml
 Default internet and boot permissions
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -1004,8 +950,7 @@ Shortcut permissions
 
 * Step 5 : If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
 
-```
-#!XML
+```xml
 <style name="Presage.Theme.Transparent" parent="android:Theme">
     <item name="android:windowIsTranslucent">true</item>
     <item name="android:windowBackground">@android:color/transparent</item>
