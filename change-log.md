@@ -5,7 +5,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 
 ## Version 2.3.3
 #### Release date: January 30th, 2017
-
+ - Smart Interstitial, manage State
  - use new BeaconForStore 2.1.4 version
  - use new Flurry 6.8.0 version, compile 'com.flurry.android:analytics:6.8.0', compile 'com.flurry.android:ads:6.8.0'
  - use new  SmartAdServer 6.6.2 version, [SmartAdServer-Android-SDK.jar]
