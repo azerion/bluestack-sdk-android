@@ -7,10 +7,10 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 #### Release date: January 30th, 2017
 
  - use new BeaconForStore 2.1.4 version
- - use new Flurry 6.8.0 version, [flurryAds.jar] and [flurryAnalytics.jar]
+ - use new Flurry 6.8.0 version, compile 'com.flurry.android:analytics:6.8.0', compile 'com.flurry.android:ads:6.8.0'
  - use new  SmartAdServer 6.6.2 version, [SmartAdServer-Android-SDK.jar]
  - use new Ogury 1.8.3 version, [Presage-lib.jar]
- - use new Facebook sdk 4.19.0 version 
+ - use new Facebook sdk 4.19.0 version, compile 'com.facebook.android:audience-network-sdk:4.19.0'
 - add *Shake To Debug* system, [debug-mode-gyro]
  - add support contentURL for DFP
  - improve Demo:
