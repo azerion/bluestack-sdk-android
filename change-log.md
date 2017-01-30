@@ -3,6 +3,19 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.3.3
+#### Release date: January 30th, 2017
+
+ - use new BeaconForStore 2.1.4 version
+ - use new Flurry 6.8.0 version, [flurryAds.jar] and [flurryAnalytics.jar]
+ - use new  SmartAdServer 6.6.2 version, [SmartAdServer-Android-SDK.jar]
+ - use new Ogury 1.8.3 version, [Presage-lib.jar]
+ - use new Facebook sdk 4.19.0 version 
+- add *Shake To Debug* system, [debug-mode-gyro]
+ - add support contentURL for DFP
+ - improve Demo:
+    - add view pager sample: contains a native ad page, https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/SwipeAdFragment.java?at=master&fileviewer=file-view-default
+
 
 ## Version 2.3.2
 #### Release date: December 21th, 2016
@@ -470,3 +483,4 @@ You must check [Upgrade Guide]
 [com.squareup.retrofit2:converter-jackson:2.0.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[debug-mode-gyro]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/debug-mode-gyro
