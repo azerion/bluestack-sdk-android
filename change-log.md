@@ -3,6 +3,21 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.3.4
+#### Release date: February 9th, 2017
+
+ - Smart Interstitial ( clean interstitial container on smart failed)
+ - fix dispatcher cache on placement pause
+
+
+Don't forget to update following libraries :
+
+ - [mng-ads.jar Android SDK]
+
+```
+compile files('libs/mng-ads-sdk.jar')
+```
+
 ## Version 2.3.3
 #### Release date: January 30th, 2017
  - Smart Interstitial, manage State
