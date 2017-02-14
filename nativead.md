@@ -76,7 +76,7 @@ Once a native ad is loaded, you may retrieve its metadata with the following met
  
 ###**Icon Image**
 
- - 82x82 max
+ - 128x128 max
  - asset name : **nativeObject.getAdIconUrl()**
  
  
