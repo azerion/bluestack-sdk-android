@@ -88,6 +88,14 @@ Target campaigns with following rules can be apply by Madvertise Team.
 
 Audiences can be defined by date of birth, gender, locations, Apple's Advertising Identifier (IDFA), Android's advertising ID or by a combination of rules used to identify users who took specific actions on your app (device, carrier, ...).
 
+# Content mapping for apps
+
+since v2.4. https://support.google.com/adxseller/answer/6270563
+
+```
+#!java
+ mngPreference.setContentUrl("put your content url here")
+```
 
 
 [device location]:https://developer.android.com/training/location/retrieve-current.html
