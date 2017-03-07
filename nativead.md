@@ -207,12 +207,12 @@ To avoid case where native DFP adapter fails to register view for interaction , 
 >Note : If you want the whole native ad clickable you can use a transparent button above the native content as a workaround .
 
 
-## 4. cache
+## cache
 
 Ad metadata that you receive can be cached and re-used for up to 3 hours. If you plan to use the metadata after this time period, make a call to load a new ad.
 
 
-## 5. Assets download
+## Assets download
 
 We provide method to download assets.
 ```
@@ -235,7 +235,7 @@ We provide method to download assets.
 
 
 
-## 6.  Customize Native Ad Badge
+## Customize Native Ad Badge
 
 You can use a custom badge for the native ad.
 ```
