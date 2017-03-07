@@ -232,3 +232,18 @@ We provide method to download assets.
    ...
 }
 ```
+
+
+
+## 6.  Customize Native Ad Badge
+
+You can use a custom badge for the native ad.
+```
+#!java
+@Override
+    public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
+   ...
+        Bitmap badge=nativeObject.getBadge(getActivity(),"String to be displayed in the badge");
+   ...
+}
+```
