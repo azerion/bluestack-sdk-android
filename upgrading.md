@@ -2,6 +2,84 @@
 **You need to keep all Ad Network jars up to date.**
 
 
+## Upgrading to 2.4
+Don't forget to update following libraries :
+```
+ compile files('libs/mng-ads-sdk.jar')
+ compile 'com.facebook.android:audience-network-sdk:4.20.0'
+ compile 'com.flurry.android:analytics:6.9.1'
+ compile 'com.flurry.android:ads:6.9.1'
+ compile files('libs/SmartAdServer-Android-SDK-6.6.3.jar')
+ compile files('libs/presage-lib-2.0.2-obfuscated.jar')
+
+```
+For **Ogury integration**, Add these lines in your build.gradle
+```
+ buildTypes 
+ {
+      packagingOptions {
+            exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
+            exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.xml'
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+            }
+ }
+```
+Tracking, shortcut and boot permissions aren't required so you can remove them from manifest.xml
+   
+   ```xml
+   <!--remove these lines if you don't use them in your app -->
+   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+   ```
+BootReceiver is deleted, so remove it from you manifest.xml
+   ```xml
+     <!--remove the BootReceiver-->
+        <receiver android:name="io.presage.receivers.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="io.presage.receivers.BootReceiver.RESTART_SERVICE" />
+            </intent-filter>
+        </receiver>
+```
+Add NetworkChangeReceiver, AlarmReceiver and persageProvider in your manifest.xml
+```xml
+      <receiver android:name="io.presage.receiver.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="io.presage.receiver.AlarmReceiver" />
+        <provider
+            android:name="io.presage.provider.PresageProvider"
+            android:authorities="${applicationId}.PresageProvider"
+            android:enabled="true"
+            android:exported="true" />
+```
+Perasage Service declaration is changed, so try to remove 
+```xml
+        <service android:name="io.presage.services.PresageServiceImp" />
+```
+
+and add these lines
+```xml
+  <service
+            android:name="io.presage.PresageService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="io.presage.PresageService.PIVOT" />
+            </intent-filter>
+        </service>
+```
+
+
 ###Upgrading to 2.3.3
 
 You must update :
