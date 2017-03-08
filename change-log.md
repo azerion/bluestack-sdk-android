@@ -5,7 +5,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 
 
 ## Version 2.4
-#### Release date: March 07th, 2017
+#### Release date: March 08th, 2017
  - add support for vast inline
  - add Interstitial singleton manager : your request is  ignored if you have already an Interstitial loded.
  - add inall targetting
