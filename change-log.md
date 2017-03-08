@@ -3,6 +3,36 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+
+## Version 2.4
+#### Release date: March 07th, 2017
+ - add support for vast inline
+ - add Interstitial singleton manager : your request is  ignored if you have already an Interstitial loded.
+ - add inall targetting
+ - new custom badge for native ad
+ - new content url in MNGPreference : now you can pass  to the sdk an URL for content related to your app (url must be a string which length not exceed 512 caracters)
+ - persistent capping : capping is now managed on cache.
+ - use new AdNetworks version:
+    - use new FBAudienceNetwork 4.20.0 version
+    - use new DFP 10.2.0 version
+    - use new Flurry 6.9.1 version
+    - use new SmartAdServer 6.6.3 version, [SmartAdServer-Android-SDK.jar]
+    - use new Ogury 2.0.2 version, [Presage-lib.jar]
+
+Don't forget to update following librairies :
+
+
+```
+compile files('libs/mng-ads-sdk.jar')
+compile 'com.google.android.gms:play-services-ads:10.2.0'
+compile 'com.google.android.gms:play-services-location:10.2.0'
+compile 'com.flurry.android:analytics:6.9.1'
+compile 'com.flurry.android:ads:6.9.1'
+compile 'com.facebook.android:audience-network-sdk:4.20.0'
+compile files('libs/presage-lib-2.0.2-obfuscated.jar')
+compile files('libs/SmartAdServer-Android-SDK-6.6.3.jar')
+```
+
 ## Version 2.3.4
 #### Release date: February 9th, 2017
 
@@ -488,7 +518,7 @@ You must check [Upgrade Guide]
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
-[presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.8.1.jar?fileviewer=file-view-default
+[presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [interstitial auto-displaying]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-disable-auto-displaying
 [In-Feed Ad format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-infeed
 [download and extract here]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/
