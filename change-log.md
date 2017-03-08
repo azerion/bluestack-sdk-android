@@ -13,9 +13,9 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
  - new content url in MNGPreference : now you can pass  to the sdk an URL for content related to your app (url must be a string which length not exceed 512 caracters)
  - persistent capping : capping is now managed on cache.
  - use new AdNetworks version:
-    - use new FBAudienceNetwork 4.20.0 version
+    - use new FBAudienceNetwork 4.20.0 version,  [AudienceNetwork.jar]
     - use new DFP 10.2.0 version
-    - use new Flurry 6.9.1 version
+    - use new Flurry 6.9.1 version,  ([flurryAds.jar] and [flurryAnalytics.jar] )
     - use new SmartAdServer 6.6.3 version, [SmartAdServer-Android-SDK.jar]
     - use new Ogury 2.0.2 version, [Presage-lib.jar]
 
