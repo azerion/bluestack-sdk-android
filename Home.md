@@ -38,11 +38,11 @@ repositories {
 
  include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:10.0.1) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.18.0) (**recommended**)
+- Google-play-services_lib (com.google.android.gms:play-services:10.2.0) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.20.0) (**recommended**)
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:6.7.0 and com.flurry.android:ads:6.7.0 (**recommended**)
+- com.flurry.android:analytics:6.9.1 and com.flurry.android:ads:6.9.1 (**recommended**)
 
 **See our [build.gradle] sample**
 
@@ -63,10 +63,10 @@ repositories {
 ```groovy
 dependencies { 
 dependencies {
-    compile files('libs/SmartAdServer-Android-SDK-6.6.jar')
+    compile files('libs/SmartAdServer-Android-SDK-6.6.3.jar')
     compile files('libs/retency-sdk.jar')
     compile files('libs/mng-ads-sdk.jar')
-    compile files('libs/presage-lib-1.8.1.jar')
+    compile files('libs/presage-lib-2.0.2-obfuscated.jar')
 }
 ```
 ### Manual installation
@@ -83,7 +83,7 @@ If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK
 - [SmartAdServer-Android-SDK.jar] (**recommended**)
 - [AudienceNetwork.jar] (**recommended**)
 - [Android-support-v4.jar] (**mandatory**)
-- [Google-play-services_lib]: (com.google.android.gms:play-services:10.0.1) (**mandatory**)
+- [Google-play-services_lib]: (com.google.android.gms:play-services:10.2.0) (**mandatory**)
 - [Amazon.jar] (**recommended**)
 - [flurryAds.jar] and [flurryAnalytics.jar] (**recommended**)
 - [Retency-sdk] (**recommended**)
@@ -622,6 +622,19 @@ MNGNativeObject have all required metadata to build your customized native UI.
 }
 ```
 
+#####Customize Native Ad Badge 
+You can use a custom badge for the native ad.
+
+```java
+@Override
+	public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
+   ...
+        Bitmap badge=nativeObject.getBadge(getActivity(),"String to be displayed in the badge");
+   ...
+}
+```
+
+
 ##### v2.0 or above
 You can also integrate video ads into your Native Ad experience. To enable video you must complete the following steps:
 
@@ -723,13 +736,13 @@ informations that you can set are:
 - language : language of user (ISO code)
 - gender : gender of user
 - keyWord : Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**. 
-
+- content url : URL for content related to your app (url must be a string which length not exceed 512 caracters). 
 
 ```java
 import com.mngads.util.MNGPreference;
 import com.mngads.util.MNGGender;
 ...
-                myLocation = new Location("I");
+        myLocation = new Location("I");
 		myLocation.setLatitude(35.757866);
 		myLocation.setLongitude(10.810547);
 		mngPreference = new MNGPreference();
@@ -738,6 +751,7 @@ import com.mngads.util.MNGGender;
 		mngPreference.setGender(MNGGender.MNGGenderFemale);
  		mngPreference.setKeyword("brand=myBrand;category=sport");
 		mngPreference.setLanguage("fr");
+		mngPreference.setContentUrl("put your content url here")
 
 ```
 `Note`: this [link] can help you to get device location.
@@ -788,16 +802,8 @@ To make ad request we need to add the following permission to AndroidManifest.xm
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>	
     <!-- External storage is used for pre-caching features if available -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <!-- Grants the SDK permission to receive the ACTION_BOOT_COMPLETED that is broadcast after the system finishes booting. -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <!--Tracking permissions -->
-    <uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
-    <uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
-    <!--Shortcut permissions -->
-    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
     ...
 
   <application
@@ -868,8 +874,15 @@ To make ad request we need to add the following permission to AndroidManifest.xm
         <!-- PRESAGE LIBRARY -->
         <!-- !!!!!! An API Key will be assigned to your application by mngads support team for Ogury library . !!!!!!-->
         <meta-data android:name="presage_key" android:value="presage_key"/>
-        <service android:name="io.presage.services.PresageServiceImp" />
-
+   <service
+            android:name="io.presage.PresageService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="io.presage.PresageService.PIVOT" />
+            </intent-filter>
+        </service>
         <activity
             android:name="io.presage.activities.PresageActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
@@ -882,13 +895,19 @@ To make ad request we need to add the following permission to AndroidManifest.xm
             </intent-filter>
         </activity>
 
-        <receiver android:name="io.presage.receivers.BootReceiver" >
+        <receiver android:name="io.presage.receiver.NetworkChangeReceiver">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.DATE_CHANGED" />
-                <action android:name="io.presage.receivers.BootReceiver.RESTART_SERVICE" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
             </intent-filter>
         </receiver>
+        <receiver android:name="io.presage.receiver.AlarmReceiver" />
+        <provider
+            android:name="io.presage.provider.PresageProvider"
+            android:authorities="${applicationId}.PresageProvider"
+            android:enabled="true"
+            android:exported="true" />
 ```
 ### Styles
 If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
@@ -911,7 +930,7 @@ Ogury interation is different from others Ad network .
 ```xml
 <!-- PRESAGE LIBRARY -->
 <meta-data android:name="presage_key" android:value="presage_key"/>
-<service android:name="io.presage.services.PresageServiceImp"/>
+
 <activity android:name="io.presage.activities.PresageActivity" 
   android:label="@string/app_name" 
   android:theme="@style/Presage.Theme.Transparent" 
@@ -922,30 +941,38 @@ Ogury interation is different from others Ad network .
         <category android:name="android.intent.category.DEFAULT" />
     </intent-filter>
 </activity>
-<receiver android:name="io.presage.receivers.BootReceiver">
+ <service
+    android:name="io.presage.PresageService"
+    android:enabled="true"
+    android:exported="true"
+    android:process=":remote">
+        <intent-filter>
+            <action android:name="io.presage.PresageService.PIVOT" />
+        </intent-filter>
+ </service>
+        
+ <receiver android:name="io.presage.receiver.NetworkChangeReceiver">
     <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        <action android:name="android.intent.action.DATE_CHANGED"/>
-        <action android:name="io.presage.receivers.BootReceiver.RESTART_SERVICE"/>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+        <action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
     </intent-filter>
-</receiver>
+ </receiver>
+ <receiver android:name="io.presage.receiver.AlarmReceiver" />
+    <provider
+        android:name="io.presage.provider.PresageProvider"
+        android:authorities="${applicationId}.PresageProvider"
+        android:enabled="true"
+        android:exported="true" />
+
 ```
  * Step 4 : Add the following permissions that will be grouped together
 Placed just before the opening <application> tag:
 
 ```xml
-Default internet and boot permissions
+Default internet permissions
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-Tracking permissions
-<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
-<uses-permission android:name="com.android.browser.permission.WRITE_HISTORY_BOOKMARKS" />
-Shortcut permissions
-<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
-<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
-
 ```
 
 * Step 5 : If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
@@ -959,6 +986,19 @@ Shortcut permissions
     <item name="android:backgroundDimEnabled">false</item>
 </style>
 ```
+* Step 6 : If you use okhhtp in your project or in an other dependency, try to add these lines in your build.gradle to avoid build error :
+```java
+ buildTypes 
+ {
+      packagingOptions {
+            exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
+            exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.xml'
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+            exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+            }
+ }
+```
+
 ### Troubleshooting
 
  * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
@@ -1002,3 +1042,5 @@ Shortcut permissions
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
+
+p
