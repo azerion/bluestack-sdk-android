@@ -7,6 +7,15 @@
 
  - Require mng-ads.jar >= 2.3.3
  - An Android phone with Gyroscope Sensor
+ - Update your manifest
+
+
+```
+#!xml
+
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+```
+
 
 
 ## 1. Enable Debug Mode
