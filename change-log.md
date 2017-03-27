@@ -3,6 +3,26 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.4.1
+#### Release date: March 27th, 2017
+
+ - onBackPressed button close interstitial
+ - use mute for appsfire videos
+ - demo sample for isTablet
+ - clarify doc about debug gyro that requires
+
+
+```
+#!xml
+
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+```
+Don't forget to update following librairies :
+
+
+```
+compile files('libs/mng-ads-sdk.jar')
+```
 
 ## Version 2.4
 #### Release date: March 08th, 2017
