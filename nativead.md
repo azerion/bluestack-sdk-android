@@ -247,3 +247,8 @@ You can use a custom badge for the native ad.
    ...
 }
 ```
+
+
+## click - registerViewForInteraction
+
+It's **HIGHLY** recommended to only register ONE and ONLY one view for interaction , because some of the AdNetworks only accept one view and if you try to assign more than one then probably none of the views you assign will be responsive.
