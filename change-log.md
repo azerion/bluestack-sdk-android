@@ -3,6 +3,80 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.5
+#### Release date: Avril 14th, 2017
+
+ - Some methods in MNGAdsFactory are now deprecated and will be removed in next version:
+
+| Depecated method | New method |
+| --- | --- |
+| createBanner() | loadBanner() |
+| createBanner(MNGFrame frame) | loadBanner(MNGFrame frame)  |
+|createBanner(MNGPreference preference)|loadBanner(MNGPreference preference)   |
+|createBanner(MNGFrame frame, MNGPreference preference)|loadBanner(MNGFrame frame, MNGPreference preference) |
+|createInterstitial()|loadInterstitial()   |
+|createInterstitial(boolean autoDisplay)|loadInterstitial(boolean autoDisplay)  |
+|createInterstitial(MNGPreference preference)|loadInterstitial(MNGPreference preference)   |
+|createInterstitial(MNGPreference preference, boolean autoDisplay)|loadInterstitial(MNGPreference preference, boolean autoDisplay)   |
+|createNative()|loadNative()   |
+|createNative(MNGPreference preference)|loadNative(MNGPreference preference)   |
+|createNativeCollection(int requestedAdNumber)|loadNativeCollection(int requestedAdNumber)  |
+|createNativeCollection(int requestedAdNumber, MNGPreference preference)|loadNativeCollection(int requestedAdNumber, MNGPreference preference)   |
+|createInfeed()|loadInfeed() |
+|createInfeed(MNGFrame frame)|loadInfeed(MNGFrame frame) |
+|createInfeed(MNGPreference preference)|loadInfeed(MNGPreference preference) |
+|createInfeed(MNGFrame frame, MNGPreference preference)|loadInfeed(MNGFrame frame, MNGPreference preference) |
+
+- MAdvertiseException : in case of fail, the didFail callback will be fired with an Exception, if you want to check which exception was invoked, you can cast it to MAdvertiseException and use getErrorCode().
+- persisent seenAd : seenAd is now managed in the sdk cache without life time.
+- native ad adChoice : adserver can return an adchoice view for native ad.
+- clarify doc about native ad registerViewForInterraction.
+- add crashlitycs in MngAdsDemo. 
+ - Fixed bugs:
+   - Interstitial Disapper callback : in some case the listener Disapper is not called in back pressed, the problem appear only with smart interstitial . 
+   - Null values in Request : don't send the parameter to the adNetwork if it is null or empty.
+   - Inall : fix dfp custom targetting and key words.
+   - utf8 Encoding : fix ut8 encoding for adserver html pubs.
+- use new AdNetworks version:
+    - use new FBAudienceNetwork 4.21.0 version
+    - use new Flurry 7.0.0 version
+    - use new SmartAdServer 6.6.5 version
+    - use new BeaconForStore 2.2.3 version 
+    - use new Ogury 2.0.5 version 
+Don't forget to update following librairies :
+
+
+```
+compile files('libs/mng-ads-sdk.jar')
+compile 'com.facebook.android:audience-network-sdk:4.21.1'
+compile files('libs/SmartAdServer-Android-SDK-6.6.5.jar')
+compile 'com.flurry.android:analytics:7.0.0@aar'
+compile 'com.flurry.android:ads:7.0.0@aar'
+compile(name: 'b4s-android-sdk', ext: 'aar')
+compile files('libs/presage-lib-2.0.5-obfuscated.jar')
+
+```
+Don't forget to change flurry dependencies from JAR to AAR
+
+```
+Important
+It is highly recommended to use the AAR format of the Flurry SDK. Using jars is now deprecated. Please update to AARs as Flurry will be removing jars in a future release.
+```
+
+```
+Note
+If you are adding the AAR format of the Flurry dependencies, you do not need to add flurry activity  in your AndroidManifest file. 
+   <activity
+    android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode| screenSize|smallestScreenSize">
+    </activity>
+    
+    And you do not need to add flurry proguard rules to your proguard.cfg file
+    -keep class com.flurry.** { *; }
+    -dontwarn com.flurry.**
+    
+```
+
 ## Version 2.4.1
 #### Release date: March 27th, 2017
 
