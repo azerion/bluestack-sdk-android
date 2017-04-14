@@ -1,6 +1,52 @@
 # upgrading SDK
 **You need to keep all Ad Network jars up to date.**
 
+## Upgrading to 2.5
+Dont forget to change your implementation, don't use deprecated methods. 
+|Depecated method|New method|
+| --- | --- |
+|createBanner()|loadBanner() |
+|createBanner(MNGFrame frame)|loadBanner(MNGFrame frame)  |
+|createBanner(MNGPreference preference)|loadBanner(MNGPreference preference)   |
+|createBanner(MNGFrame frame, MNGPreference preference)|loadBanner(MNGFrame frame, MNGPreference preference) |
+|createInterstitial()|loadInterstitial()   |
+|createInterstitial(boolean autoDisplay)|loadInterstitial(boolean autoDisplay)  |
+|createInterstitial(MNGPreference preference)|loadInterstitial(MNGPreference preference)   |
+|createInterstitial(MNGPreference preference, boolean autoDisplay)|loadInterstitial(MNGPreference preference, boolean autoDisplay)   |
+|createNative()|loadNative()   |
+|createNative(MNGPreference preference)|loadNative(MNGPreference preference)   |
+|createNativeCollection(int requestedAdNumber)|loadNativeCollection(int requestedAdNumber)  |
+|createNativeCollection(int requestedAdNumber, MNGPreference preference)|loadNativeCollection(int requestedAdNumber, MNGPreference preference)   |
+|createInfeed()|loadInfeed() |
+|createInfeed(MNGFrame frame)|loadInfeed(MNGFrame frame) |
+|createInfeed(MNGPreference preference)|loadInfeed(MNGPreference preference) |
+|createInfeed(MNGFrame frame, MNGPreference preference)|loadInfeed(MNGFrame frame, MNGPreference preference) |
+
+
+
+Don't forget to update following libraries :
+```
+compile files('libs/mng-ads-sdk.jar')
+compile 'com.facebook.android:audience-network-sdk:4.21.1'
+compile files('libs/SmartAdServer-Android-SDK-6.6.5.jar')
+compile 'com.flurry.android:analytics:7.0.0@aar'
+compile 'com.flurry.android:ads:7.0.0@aar'
+compile(name: 'b4s-android-sdk', ext: 'aar')
+compile files('libs/presage-lib-2.0.5-obfuscated.jar')
+
+```
+For flurry users, change your dependencies from JAR to AAR
+remove this lines :
+```
+compile 'com.flurry.android:analytics:6.9.1'
+compile 'com.flurry.android:ads:6.9.1'
+```
+add this lines : 
+```
+compile 'com.flurry.android:ads:7.0.0@aar'
+compile(name: 'b4s-android-sdk', ext: 'aar')
+```
+
 
 ## Upgrading to 2.4
 Don't forget to update following libraries :
