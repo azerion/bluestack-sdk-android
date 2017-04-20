@@ -39,10 +39,10 @@ repositories {
  include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
 - Google-play-services_lib (com.google.android.gms:play-services:10.2.0) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.20.0) (**recommended**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.21.1) (**recommended**)
 - Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:6.9.1 and com.flurry.android:ads:6.9.1 (**recommended**)
+- com.flurry.android:analytics:7.0.0 and com.flurry.android:ads:7.0.0 (**recommended**)
 
 **See our [build.gradle] sample**
 
@@ -63,7 +63,7 @@ repositories {
 ```groovy
 dependencies { 
 dependencies {
-    compile files('libs/SmartAdServer-Android-SDK-6.6.3.jar')
+    compile files('libs/SmartAdServer-Android-SDK-6.6.5.jar')
     compile files('libs/retency-sdk.jar')
     compile files('libs/mng-ads-sdk.jar')
     compile files('libs/presage-lib-2.0.2-obfuscated.jar')
@@ -261,7 +261,7 @@ public class MainActivity extends Activity{
 ```
 
 ### isBusy
-Before making a request you have to check that factory not busy (handling old request).
+Before making a request if you want to check that factory not busy (handling old request).
 
 Ads factory is busy means that it has not finished the previous request yet.
 
@@ -274,7 +274,7 @@ isBusy will be setted to false when factory finish handling request.
 	
 		Log.d(TAG, "Ads Factory is not busy");
 		
-		mngAdsBannerAdsFactory.createBanner(new MNGFrame(320, 50));
+		mngAdsBannerAdsFactory.loadBanner(new MNGFrame(320, 50));
 	} else {
 		Log.d(TAG, "Ads Factory is busy");
 	}
@@ -310,20 +310,13 @@ You have also to set placementId (minimum one time)
     mngAdsBannerAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #### Make a request
-To make a request you have to call 'createBanner'. this method return a bool value (canHandleRequest) 
+To make a request you have to call 'loadBanner'. It is a void methode, This is a void method, result will be returned in the callback.
 
 ```java
     private MNGFrame mFrame;
     mFrame = getResources().getBoolean(R.bool.is_tablet) ? MNGAdSize.MNG_DYNAMIC_LEADERBOARD : MNGAdSize.MNG_DYNAMIC_BANNER;
-if(mngAdsBannerAdsFactory.createBanner(mFrame))
-	{
-	  //Wait callBack from listener
-	}
-	else
-	{
-    	 //adsFactory can not handle your request
-        }
-
+mngAdsBannerAdsFactory.loadBanner(mFrame)
+	
 ```
 
 ####Handle callBack from BannerListener
@@ -385,7 +378,7 @@ Example:
 	{
                 mFrame = getResources().getBoolean(R.bool.is_tablet) ?  MNGAdSize.MNG_DYNAMIC_LEADERBOARD: MNGAdSize.MNG_DYNAMIC_BANNER;
 	}
-	mngAdsBannerAdsFactory.createBanner(mFrame);
+	mngAdsBannerAdsFactory.loadBanner(mFrame);
 ```
 
 
@@ -420,14 +413,11 @@ You have also to set placementId (minimum one time)
     mngAdsInfeedAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #### Make a request
-To make a request you have to call 'createInfeed'. this method return a bool value (canHandleRequest) 
+To make a request you have to call 'loadInfeed'. This is a void method, result will be returned in the callback. 
 
 ```java
-if(mngAdsInfeedAdsFactory.createInfeed(new MNGFrame(300, 250))){
-    //Wait callBack from listener
-}else{
-    //adsFactory can not handle your request
-}
+mngAdsInfeedAdsFactory.loadInfeed(new MNGFrame(300, 250))
+    
 ```
 
 ####Handle callBack from InfeedListener
@@ -481,14 +471,10 @@ You have also to set placementId (minimum one time)
 ```
 
 #####Make a request 
-To make a request you must call 'createInterstitial()'. this method return a bool value (canHandleRequest).
+To make a request you must call 'loadInterstitial()'. This is a void method, result will be returned in the callback.
 
 ```java
-    if (mngAdsInterstitialAdsFactory.createInterstitial()) {
-	   //Wait callBack from interstitial listener
-     }else{
-        //adsFactory can not handle your request
-    }
+    mngAdsInterstitialAdsFactory.loadInterstitial()
 ```
 #####Handle callBack from InterstitialListener
 InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
@@ -519,7 +505,7 @@ InterstitialDisappear(): will be called when intertisialView did disappear. now 
 With v2.0.8 and above, you can disable auto-displaying.
 ```java
 ...
-    mngAdsInterstitialAdsFactory.createInterstitial(false);
+    mngAdsInterstitialAdsFactory.loadInterstitial(false);
 ...
 
 ```
@@ -574,14 +560,10 @@ You have also to set placementId (minimum one time)
   mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #####Make a request for native ad
-To make a request you have to call 'createNative()'. this method return a bool value (canHandleRequest) 
+To make a request you have to call 'loadNative()'. This is a void method, result will be returned in the callback.
 
 ```java
-    if(mngAdsNativeAdsFactory.createNative()){
-        //Wait callBack from native listener
-    }else{
-        //adsFactory can not handle your request
-    }
+    mngAdsNativeAdsFactory.loadNative()
 ```
 #####Handle callBack from NativeListener
 nativeObjectDidLoad()  will be called by the SDK when your nativeObject is ready. now you can create your own view.
@@ -755,11 +737,46 @@ import com.mngads.util.MNGGender;
 
 ```
 `Note`: this [link] can help you to get device location.
+### Exceptions
+|Exception|Error code|Message|Meaning|
+| --- | --- | --- | --- |
+|MAdvertiseWrongPlacementIdException|WRONG_PLACEMENT_ERROR = 0   |    Wrong placement | You have set a wrong placement |
+|MAdvertiseInternetException|NO_INTERNET_ERROR = 1   |    No Internet | There is no internet connection at the moment      |
+|MAdvertiseSDKUninitializedException|SDK_UNINITIALIZED_ERROR = 2   |    MNGAds is not initialized | The sdk is not initialized, you have to call  MNGAdsFactory.initialize(context,"your app id");      |
+|MAdvertiseRequestCappedException|CAPPED_REQUEST_ERROR = 3  |    Your request has been capped | Your request is capped, If you are in doubt, check your capping value related to the placement|
+|MAdvertiseLockedPlacementException|LOCKED_PLACEMENT_ERROR = 4   |   This placement is locked by an other factory | An other factory has loaded an interstitial using this placement, and its no yet displayed     |
+|MAdvertiseBusyFactoryException|BUSY_FACTORY_ERROR = 5   |    Your factory is busy| Your factory is busy by an other request at the moment     |
+|MAdvertiseNoAdException|NO_AD_ERROR = 7   |    No Ad found | Therese no ad to dilver at the moment     |
+|MAdvertiseInterstitialCoolDownException|INTERSTITIAL_COOLDOWN_ERROR = 8   |   Time between last interstitalDisappear and loadInterstital Must be more than 5s |We have defined a minimum time between interstitalDisappear and loadInterstital, this interval is set to 5 second       |
+|MAdvertiseAlreadyShownInterstitialException|INTERSTITIAL_ALREADY_SHOWN_ERROR = 9   |   Other Interstitial is shown | We tolerate only one interstitial to be shown at time   |
+|MAdvertiseTimeOutException|TIME_OUT_ERROR = 10   |  no ad to deliver before time out | Therese no ad to deliver before the specified time out  |
+
+#### Handle Exception
+If you want to check which exception was invoked, in the didFail callback you have to cast the exception to MAdvertiseException and then use getErrorCode() to get exception code.
+Also you can get exception message by calling getMessage().
+In the example below we use interstitialDidFail, even you can use this logic in all our didFail callBack(bannerDidFail, infeedDidFail,nativeAdCollectionDidFail and nativeObjectDidFail) 
+```java
+  @Override
+    public void interstitialDidFail(Exception e) {
+
+        MAdvertiseException adException=(MAdvertiseException)e;
+        
+        switch (adException.getErrorCode())
+        {
+            case MAdvertiseException.BUSY_FACTORY_ERROR :
+            case MAdvertiseException.INTERSTITIAL_ALREADY_SHOWN_ERROR : 
+            .
+            .
+            .
+            
+        }
+        Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+adException.getErrorCode());
+    }
+```
 ### Memory managment
 When you have finished your ads plant you must free the memory.
 
 ```java
-
 @Override
 	protected void onDestroy() {
 		mngAdsBannerAdsFactory.releaseMemory();
@@ -803,6 +820,7 @@ To make ad request we need to add the following permission to AndroidManifest.xm
     <!-- External storage is used for pre-caching features if available -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
+    <!--this permission is required for Debug Mode with Gyroscope Sensor.-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     ...
 
@@ -1042,5 +1060,3 @@ Default internet permissions
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
-
-p
