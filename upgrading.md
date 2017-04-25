@@ -1,6 +1,17 @@
 # upgrading SDK
 **You need to keep all Ad Network jars up to date.**
 
+
+## Upgrading to 2.5.1
+
+Don't forget to update following libraries :
+
+ - [mng-ads.jar Android SDK]
+
+```
+compile files('libs/mng-ads-sdk.jar')
+```
+
 ## Upgrading to 2.5
 Dont forget to change your implementation, don't use deprecated methods. 
 
