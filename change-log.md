@@ -3,8 +3,21 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+## Version 2.5.1
+#### Release date: Avril 25th, 2017
+
+ - use setSSLSocketFactory instead of setDefaultSSLSocketFactory for HttpsURLConnection (SSL)
+
+Don't forget to update following libraries :
+
+ - [mng-ads.jar Android SDK]
+
+```
+compile files('libs/mng-ads-sdk.jar')
+```
+
 ## Version 2.5
-#### Release date: Avril 14th, 2017
+#### Release date: April 14th, 2017
 
  - Some methods in MNGAdsFactory are now deprecated and will be removed in next version:
 
