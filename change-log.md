@@ -3,6 +3,23 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
+
+## Version 2.5.2
+#### Release date: May 10th, 2017
+
+ - Bug fixes :
+
+    - fix crash in MNGAdPreferences : fix out of memory error related to big data in String object
+    - fix Ogury crash
+ 
+Don't forget to update following librairies :
+
+```
+compile files('libs/mng-ads-sdk.jar')
+compile files('libs/presage-lib-2.0.7-obfuscated.jar')
+
+```
+
 ## Version 2.5.1
 #### Release date: Avril 25th, 2017
 
