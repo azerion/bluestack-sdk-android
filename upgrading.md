@@ -1,6 +1,14 @@
 # upgrading SDK
 **You need to keep all Ad Network jars up to date.**
 
+## Upgrading to 2.5.2
+Don't forget to update following libraries :
+```
+compile files('libs/mng-ads-sdk.jar')
+compile files('libs/presage-lib-2.0.7-obfuscated.jar')
+
+```
+
 
 ## Upgrading to 2.5.1
 
