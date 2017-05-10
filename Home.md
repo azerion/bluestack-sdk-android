@@ -66,7 +66,7 @@ dependencies {
     compile files('libs/SmartAdServer-Android-SDK-6.6.5.jar')
     compile files('libs/retency-sdk.jar')
     compile files('libs/mng-ads-sdk.jar')
-    compile files('libs/presage-lib-2.0.2-obfuscated.jar')
+    compile files('libs/presage-lib-2.0.7-obfuscated.jar')
 }
 ```
 ### Manual installation
@@ -523,6 +523,8 @@ To check if the interstitial is ready to be show, you must call isInterstitialRe
 ######info 
 To try out auto-displaying disabled on demo, you can check interstitial page. Others interstitials (background returns, overlay) run with auto-displaying.
 
+Ogury ad network returns interstitial only with autoDisplay true.
+
 ###Show Interstitial after return from background
 
 You can see [Interstitial Guideline] and our demo app with following files
@@ -939,10 +941,15 @@ If you have styles.xml inside res/values folder, copy the following lines inside
 </style>
 ```
 ### Ogury integration
-Ogury interation is different from others Ad network .
+Ogury integration is different from others Ad network .
+
+Ogury ad network returns interstitial only with autoDisplay true.
+
 
  * Step 1 : Contact mngads support to get presage API key.
+ 
  * Step 2 : Add presage-lib.jar to your libs folder
+ *
  * Step 3 : Copy the following lines in your AndroidManifest.xml inside <application> tag.Don't forget your API Key: presage_key.
 
 ```xml
