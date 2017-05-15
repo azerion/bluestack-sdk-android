@@ -50,7 +50,7 @@ repositories {
  **download and extract following files and place them in the /libs folder in your project**
  
  - [mng-ads.jar Android SDK] (**mandatory**)
- - [SmartAdServer-Android-SDK.jar] (**recommended**)
+ - [SmartAdServer-Android-SDK.jar] (**mandatory**)
  - [Retency-sdk] (**recommended**)
  - [Presage-lib.jar] (**recommended**)
 
