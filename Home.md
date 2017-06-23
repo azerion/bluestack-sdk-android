@@ -50,6 +50,7 @@ include JCenter/Maven repository and add the following lines to your app's build
 **download and extract following files and place them in the /libs folder in your project**
 
 - [mng-ads.jar Android SDK] (**mandatory**)
+- [umooveV2.aar] (**mandatory**, eyes tracking solution for MAS, need camera permission)
 - [SmartAdServer-Android-SDK.jar] (**recommended**)
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
@@ -1113,3 +1114,4 @@ android.useDeprecatedNdk=true
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [umoove]:https://developers.google.com/mobile-ads-sdk/download#download
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
+[umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
