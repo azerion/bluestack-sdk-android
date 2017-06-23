@@ -16,6 +16,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 - Remove spaces from keywords.
 - Debug gyro : add adsize to request details.
 - use new AdNetworks version:
+
+  - use new SmartAdServer 6.6.6 version
   - use new FacebookAudience 4.23.0 version
   - use new Flurry 7.1.1 version 
   - use new Ogury 2.1.6 version 
@@ -24,6 +26,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 ```java
   //madvertise mediation+adserving
   compile files('libs/mng-ads-sdk.jar')
+   //mediation - smart Adserver
+    compile files('libs/SmartAdServer-Android-SDK-6.6.6.jar')
   //mediation - Audience Network (Facebook)
     compile 'com.facebook.android:audience-network-sdk:4.23.0'
   //mediation - Flurry
