@@ -46,6 +46,8 @@ android.useDeprecatedNdk=true
 ```java
   //madvertise mediation+adserving
   compile files('libs/mng-ads-sdk.jar')
+   //mediation - smart Adserver
+    compile files('libs/SmartAdServer-Android-SDK-6.6.6.jar')
   //mediation - Audience Network (Facebook)
     compile 'com.facebook.android:audience-network-sdk:4.23.0'
   //mediation - Flurry
