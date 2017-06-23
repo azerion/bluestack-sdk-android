@@ -1,6 +1,64 @@
 # upgrading SDK
 **You need to keep all Ad Network jars up to date.**
 
+
+## Upgrading to 2.6
+
+
+- the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
+- download umoove library and place it in the /libs folder in your project.
+- edit your build.gradle, add the library : 
+```
+ //face detection umoove
+    compile(name: 'umooveV2', ext: 'aar')
+```
+- you need to declare your flat file repository.
+```
+allprojects {
+    repositories {
+        jcenter()
+        flatDir{
+            dirs 'libs'
+        }
+    }
+
+}
+```
+- and you have to specify abiFilters to avoid some problems with arm64-v8a devices : add abiFilters to your build.gradle like this
+```
+    defaultConfig 
+            {
+            .
+            .
+            .
+            ndk {
+            abiFilters "armeabi-v7a","x86"
+            }
+        }
+                    
+```
+- and you need to allow deprecated ndk in your gradle.properties file.
+```
+android.useDeprecatedNdk=true
+```
+
+- Don't forget to update following librairies :
+```java
+  //madvertise mediation+adserving
+  compile files('libs/mng-ads-sdk.jar')
+  //mediation - Audience Network (Facebook)
+    compile 'com.facebook.android:audience-network-sdk:4.23.0'
+  //mediation - Flurry
+  compile 'com.flurry.android:analytics:7.1.1@aar'
+  compile 'com.flurry.android:ads:7.1.1@aar'
+  //mediation - ogury
+    compile files('libs/presage-lib-2.1.6-obfuscated.jar')
+   //Google Play Services with Google Mobile Ads only ( Individual APIs and corresponding )
+    compile 'com.google.android.gms:play-services-ads:11.0.0'
+    compile 'com.google.android.gms:play-services-location:11.0.0'
+    //or use All Google PLay service compile 'com.google.android.gms:play-services:11.0.0'
+```
+
 ## Upgrading to 2.5.2
 Don't forget to update following libraries :
 ```
