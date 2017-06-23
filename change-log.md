@@ -17,11 +17,13 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 - Debug gyro : add adsize to request details.
 - use new AdNetworks version:
 
-  - use new SmartAdServer 6.6.6 version
-  - use new FacebookAudience 4.23.0 version
-  - use new Flurry 7.1.1 version 
-  - use new Ogury 2.1.6 version 
-  - use new DFP 11.0.0 version
+  1.  use new SmartAdServer 6.6.6 version
+  2. use new FacebookAudience 4.23.0 version
+  3. use new Flurry 7.1.1 version 
+  4. use new Ogury 2.1.6 version 
+  5. use new DFP 11.0.0 version
+
+
 - Don't forget to update following librairies :
 ```java
   //madvertise mediation+adserving
