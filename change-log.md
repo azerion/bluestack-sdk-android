@@ -7,7 +7,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date.
 ## Version 2.6
 #### Release date: June 23th, 2017
 
-- Implemented new feature in MAdvertiseAdserver (MAS) that tracks the user's face to determine if he is really watching the ad or not , and for how long.
+- Implemented new feature in MAdvertiseAdserver (MAS) that tracks the user's face to determine if he is really watching the ad or not , and for how long. You must add [umooveV2.aar]
 - New infeed ad format in mngadserver (MAS).
 - Fix possible bug where the cascade would be blocked without returning a valid ad, no a fail error.
 - Fix click issue with deeplink 
@@ -692,3 +692,4 @@ You must check [Upgrade Guide]
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [debug-mode-gyro]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/debug-mode-gyro
+[umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
