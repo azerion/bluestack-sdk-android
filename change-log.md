@@ -4,6 +4,39 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars up to date. 
 
 
+## Version 2.6
+#### Release date: June 23th, 2017
+
+- Implemented new feature in MAdvertiseAdserver (MAS) that tracks the user's face to determine if he is really watching the ad or not , and for how long.
+- New infeed ad format in mngadserver (MAS).
+- Fix possible bug where the cascade would be blocked without returning a valid ad, no a fail error.
+- Fix click issue with deeplink 
+- Edit impression requirements.
+- Add sdk version to cache : reset the dispatcher on new sdk version.
+- Remove spaces from keywords.
+- Debug gyro : add adsize to request details.
+- use new AdNetworks version:
+  - use new FacebookAudience 4.23.0 version
+  - use new Flurry 7.1.1 version 
+  - use new Ogury 2.1.6 version 
+  - use new DFP 11.0.0 version
+- Don't forget to update following librairies :
+```java
+  //madvertise mediation+adserving
+  compile files('libs/mng-ads-sdk.jar')
+  //mediation - Audience Network (Facebook)
+    compile 'com.facebook.android:audience-network-sdk:4.23.0'
+  //mediation - Flurry
+  compile 'com.flurry.android:analytics:7.1.1@aar'
+    compile 'com.flurry.android:ads:7.1.1@aar'
+  //mediation - ogury
+    compile files('libs/presage-lib-2.1.6-obfuscated.jar')
+ //mediation - DFP
+    compile 'com.google.android.gms:play-services-ads:11.0.0'
+    compile 'com.google.android.gms:play-services-location:11.0.0'
+```
+
+
 ## Version 2.5.2
 #### Release date: May 10th, 2017
 
