@@ -4,6 +4,49 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 2.7
+#### Release date: August 29th, 2017
+- Major configuration change:
+   - We now use aar file instead of a jar file.
+   - We reduced the AndroidManifest configuration needed to work with our sdk.
+   - If you are using Proguard you don't have to add extra configurations, it will be done automatically.
+- What we added :
+   - Mopub adapter for mngads sdk.
+   - AppsFire menu in demo app.
+   - AchoiceView for MAdvertise ads.
+   - Call impressions from a js script.
+   - Event status ignored(8) for Analytics events.
+- Bug fixes :
+    - In app click issue with deeplink fallback url. 
+    - Debug gyro showing a popup when the app is on background.
+    - Out of memory error in appsFire shashimi view.
+- AdNetworks version:
+  - FacebookAudience: version 4.25.0
+  - Flurry: version 7.2.3
+  - SmartAdServer: version 6.7
+  - DFP: version 11.2.0
+
+- Updated dependencies :
+```java
+  //madvertise mediation+adserving
+  compile(name: 'mngads-sdk-2.7', ext: 'aar')
+  //mediation - Audience Network (Facebook)
+  compile 'com.facebook.android:audience-network-sdk:4.25.0'
+  //mediation - Flurry
+  compile 'com.flurry.android:analytics:7.2.3@aar'
+  compile 'com.flurry.android:ads:7.2.3@aar'
+  //Smart AdServer SDK
+  compile(name: 'SmartAdServer-Android-SDK-6.7', ext: 'aar')
+  //mediation - ogury
+  compile files('libs/presage-lib-2.1.13-obfuscated.jar')
+  //mediation - ogury
+  compile files('libs/presage-lib-2.1.13-obfuscated.jar')
+  //Google Play Services with Google Mobile Ads
+  compile 'com.google.android.gms:play-services-ads:11.2.0'
+  compile 'com.google.android.gms:play-services-location:11.2.0'
+  ```
+
+
 ## Version 2.6
 #### Release date: June 23th, 2017
 
