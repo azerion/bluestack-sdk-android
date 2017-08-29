@@ -2,6 +2,92 @@
 **You need to keep all Ad Network jars up to date.**
 
 
+## Version 2.7
+#### Release date: August 25th, 2017
+
+In this new version we managed to reduce the configuration needed to work with our sdk.
+We now use, instead of a .jar file, an .aar file that includes most of the AndroidManifest.xml, proguard file and resources setup.
+
+####AndroidManifest Configuration
+#####Ogury
+If you are using presage library you need to add these lines
+
+```xml
+ <!-- PRESAGE LIBRARY -->
+        <!-- !!!!!! An API Key will be assigned to your application by mngads support team for Ogury library . !!!!!!-->
+<meta-data
+     android:name="presage_key"
+     android:value="presage_key" />
+
+<provider
+    android:name="io.presage.provider.PresageProvider"
+    android:authorities="${applicationId}.PresageProvider"
+    android:exported="true" />
+```
+Adding a style for Presage library is also no longer necessary.
+
+#####Google DFP
+
+```xml
+<meta-data
+    android:name="com.google.android.gms.version"
+    android:value="@integer/google_play_services_version" />
+```
+
+####Dependencies update
+
+```groovy
+//madvertise mediation+adserving
+compile files('libs/mng-ads-sdk.jar')
+//mediation - Audience Network (Facebook)
+compile 'com.facebook.android:audience-network-sdk:4.25.0'
+//mediation - Flurry
+compile 'com.flurry.android:analytics:7.2.3@aar'
+compile 'com.flurry.android:ads:7.2.3@aar'
+//Smart AdServer SDK
+compile(name: 'SmartAdServer-Android-SDK-6.7', ext: 'aar')
+//mediation - ogury
+compile files('libs/presage-lib-2.1.13-obfuscated.jar')
+
+//Google Play Services with Google Mobile Ads
+compile 'com.google.android.gms:play-services-ads:11.2.0'
+compile 'com.google.android.gms:play-services-location:11.2.0'
+```
+
+####Note:
+#####If you are using the version 11.2.0 of google play services
+
+- *your app’s build.gradle must also be updated to specify a compileSdkVersion of at least 26 (Android O)* 
+
+- *Dependencies of google play services are available from maven.google.com, you have to specify it in your build.gradle script as following:*
+
+```groovy
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+```
+
+Your app’s build.gradle must also be updated to specify a compileSdkVersion of at least 26 (Android O)
+
+Dependencies of google play services are available from maven.google.com, you have to specify it in your build.gradle script as following:
+
+```groovy
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
+    }
+}
+```
+
+
 ## Upgrading to 2.6
 
 
