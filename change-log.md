@@ -21,10 +21,11 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - Debug gyro showing a popup when the app is on background.
     - Out of memory error in appsFire shashimi view.
 - AdNetworks version:
-  - FacebookAudience: version 4.25.0
-  - Flurry: version 7.2.3
-  - SmartAdServer: version 6.7
-  - DFP: version 11.2.0
+  - [mngads-sdk-x.aar], version 2.7
+  - FacebookAudience, version 4.25.0
+  - Flurry, version 7.2.3
+  - [SmartAdServer-Android-SDK-x.aar], version 6.7
+  - DFP, version 11.2.0
 
 - Updated dependencies :
 ```java
@@ -711,6 +712,7 @@ You must check [Upgrade Guide]
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[SmartAdServer-Android-SDK-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [Retency]:http://www.retency.com/public/
 [Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
@@ -736,3 +738,4 @@ You must check [Upgrade Guide]
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [debug-mode-gyro]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/debug-mode-gyro
 [umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
+[mngads-sdk-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
