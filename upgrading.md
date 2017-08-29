@@ -3,7 +3,6 @@
 
 
 ## Version 2.7
-#### Release date: August 25th, 2017
 
 In this new version we managed to reduce the configuration needed to work with our sdk.
 We now use, instead of a .jar file, an .aar file that includes most of the AndroidManifest.xml, proguard file and resources setup.
