@@ -1,5 +1,6 @@
 # upgrading SDK
-**You need to keep all Ad Network jars up to date.**
+See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
+you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
 
 ## Version 2.7
