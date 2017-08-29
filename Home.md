@@ -19,13 +19,13 @@ It contains a dispacher that will select an ads server according to the priority
 ## Version
 See [Change Log] and [Upgrade Guide].
 
-NOTE :MNG Ads requires minimum Android API level 11
+NOTE :MNG Ads requires minimum Android API level 16 and a compileSdkVersion of at least 26
 
 ## Ad Examples and inspiration
 
 You can see [Best practice Mngads and Design ad units to fit your app], an optimized use case for several ad formats on one page.
 
-## Set up the SDK
+## Set up the SDK 
 
 ### Using Gradle
 
@@ -38,19 +38,18 @@ mavenCentral()
 
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:11.0.0) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.23.0) (**recommended**)
-- Support-v4 (com.android.support:support-v4:23.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
+- Google-play-services_lib (com.google.android.gms:play-services:11.2.0) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.25.0) (**recommended**)
+- Support-v4 (com.android.support:support-v4:26.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:7.1.1 and com.flurry.android:ads:7.1.1 (**recommended**)
+- com.flurry.android:analytics:7.2.3 and com.flurry.android:ads:7.2.3 (**recommended**)
 
 **See our [build.gradle] sample**
 
 
 **download and extract following files and place them in the /libs folder in your project**
 
-- [mng-ads.jar Android SDK] (**mandatory**)
-- [umooveV2.aar] (**mandatory**, eyes tracking solution for MAS, need camera permission)
+- [mngads-sdk-2.7.aar Android SDK] (**mandatory**)
 - [SmartAdServer-Android-SDK.jar] (**recommended**)
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
@@ -64,45 +63,12 @@ include JCenter/Maven repository and add the following lines to your app's build
 
 ```groovy
 dependencies { 
-dependencies {
+compile(name: 'mngads-sdk-2.7', ext: 'aar')
 compile files('libs/SmartAdServer-Android-SDK-6.6.6.jar')
 compile files('libs/retency-sdk.jar')
-compile files('libs/mng-ads-sdk.jar')
-compile files('libs/presage-lib-2.1.6-obfuscated.jar')
+compile files('libs/presage-lib-2.1.14-obfuscated.jar')
 }
 ```
-### Manual installation
-
-If using Intellij IDEA or Eclipse, download and extract [mng-ads.jar Android SDK] from our demo project and
-
-- download [mng-ads.jar Android SDK] from our demo project
-- drag and drop it in your libs/ folder
-
-**MngAds SDK requires following librairies (you must use version in used on demo project): **
-
-
-
-- [SmartAdServer-Android-SDK.jar] (**recommended**)
-- [AudienceNetwork.jar] (**recommended**)
-- [Android-support-v4.jar] (**mandatory**)
-- [Google-play-services_lib]: (com.google.android.gms:play-services:11.0.0) (**mandatory**)
-- [Amazon.jar] (**recommended**)
-- [flurryAds.jar] and [flurryAnalytics.jar] (**recommended**)
-- [Retency-sdk] (**recommended**)
-- [Presage-lib.jar] (**recommended**)
-
-
-- [nl.qbusict:cupboard:2.1.4] (for beacon)
-- [de.greenrobot:eventbus:2.4.0] (for beacon)
-- [com.squareup.retrofit2:converter-jackson:2.0.0] (for beacon)
-- [b4s-android-sdk] (for beacon)
-- [b4s-android-sdk-playservices830] (for beacon)
-
-
-
-### If your app uses Proguard
-
-[see Proguard rules on our faq]
 
 ## Sample Application
 
@@ -151,20 +117,7 @@ MNGAdsFactory.initialize(this,"YOUR_APP_ID");
 }
 }
 ```
-you have to update your manifest.xml
-```xml
-
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
-<uses-sdk tools:overrideLibrary="com.ezeeworld.b4s.android.sdk.playservices"/>
-<uses-feature
-android:name="android.hardware.bluetooth_le"
-android:required="true" />
-<uses-permission android:name="android.permission.BLUETOOTH" />
-<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-```
-and you have to edit your build.gradle file
+you have to edit your build.gradle file
 ```java
 buildTypes {
 
@@ -263,13 +216,13 @@ mngBannerAdsFactory.setTimeOut(3);
 ```
 
 ### isBusy
-Before making a request if you want to check that factory not busy (handling old request).
+Before making a request if you want to check that factory is not busy (handling an old request).
 
 Ads factory is busy means that it has not finished the previous request yet.
 
-isBusy will be setted to true when factory start handling request.
+isBusy will be set to true when factory starts handling request.
 
-isBusy will be setted to false when factory finish handling request.
+isBusy will be set to false when factory finishes handling request.
 **example**:
 ```java
 if (!mngAdsBannerAdsFactory.isBusy()) {
@@ -716,7 +669,6 @@ Log.d(TAG, "refresh failed");
 }
 ...
 ```
-
 ### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
@@ -807,144 +759,14 @@ MNGAdsFactory.setDebugModeEnabled(true);
 
 ### Configure your Manifest
 
-To make ad request we need to add the following permission to AndroidManifest.xml file :
+You need to add the following to AndroidManifest.xml file :
 
 ```xml
-
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-...
-
-
-<!--Grants the SDK permission to access information about Wi-Fi networks. -->
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-<!--Grants the SDK permission to check for a live internet connection. -->
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-<!--Grants the SDK permission to access the internet. -->
-<uses-permission android:name="android.permission.INTERNET"/>
-<!--Grants the SDK permission to access approximate location based on cell tower. -->
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<!--Grants the SDK permission to access a more accurate location based on GPS. -->
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>	
-<!-- External storage is used for pre-caching features if available -->
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
-<!--this permission is required for Debug Mode with Gyroscope Sensor.-->
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-...
-
-<application
-android:name=".DemoApp"
-android:allowBackup="true"
-android:icon="@drawable/ic_launcher"
-android:label="@string/app_name"
-android:largeHeap="true" <!-- use this if only you feel that your app might need it  -->  
->
-
-...
-<!--Grants the SDK permission to start mng analytics service -->
-<service android:name="com.mngads.service.MNGAnalyticsService"/>
-...
-
 
 <!--This embeds the version of Google Play services that the app was compiled with.. -->
 <meta-data
 android:name="com.google.android.gms.version"
 android:value="@integer/google_play_services_version" />
-...
-
-
-<!--MNG Ad server activity -->
-<activity
-android:name="com.mngads.sdk.MNGInAppWebView"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-<activity
-android:name="com.mngads.sdk.interstitial.MNGInterstitialAdActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-<activity
-android:name="com.mngads.sdk.MNGVideoPlayerActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-<activity
-android:name="com.mngads.sdk.nativead.MNGNativeAdActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-
-<!--DFP SDK Ad activity  -->
-<activity
-android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-<!--Facebook SDK Ad activity  -->
-<activity
-android:name="com.facebook.ads.InterstitialAdActivity"
-android:configChanges="keyboardHidden|orientation" />
-<!-- Apps targeting api v13 and higher should add '|screenSize' to the InterstitialAdActivity configChanges to support  	  video rotation -->
-
-<!--Retency SDK Ad activitys  -->
-<activity
-android:name="com.retency.sdk.android.video.RichMediaActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-android:hardwareAccelerated="false" />
-
-<activity
-android:name="com.retency.sdk.android.mraid.MraidBrowser"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
-
-<!--Amazon SDK Ad activity  -->
-<activity
-android:name="com.amazon.device.ads.AdActivity"
-android:configChanges="keyboardHidden|orientation|screenSize"/>
-
-<!--Flurry SDK Ad activity  -->
-<activity
-android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-
-<!-- PRESAGE LIBRARY -->
-<!-- !!!!!! An API Key will be assigned to your application by mngads support team for Ogury library . !!!!!!-->
-<meta-data android:name="presage_key" android:value="presage_key"/>
-<service
-android:name="io.presage.PresageService"
-android:enabled="true"
-android:exported="true"
-android:process=":remote">
-<intent-filter>
-<action android:name="io.presage.PresageService.PIVOT" />
-</intent-filter>
-</service>
-<activity
-android:name="io.presage.activities.PresageActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-android:hardwareAccelerated="true"
-android:label="@string/app_name"
-android:theme="@style/Presage.Theme.Transparent" >
-<intent-filter>
-<action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
-<category android:name="android.intent.category.DEFAULT" />
-</intent-filter>
-</activity>
-
-<receiver android:name="io.presage.receiver.NetworkChangeReceiver">
-<intent-filter>
-<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-<action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
-</intent-filter>
-</receiver>
-<receiver android:name="io.presage.receiver.AlarmReceiver" />
-<provider
-android:name="io.presage.provider.PresageProvider"
-android:authorities="${applicationId}.PresageProvider"
-android:enabled="true"
-android:exported="true" />
-```
-### Styles
-If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
-```xml
-<style name="Presage.Theme.Transparent" parent="android:Theme">
-<item name="android:windowIsTranslucent">true</item>
-<item name="android:windowBackground">@android:color/transparent</item>
-<item name="android:windowContentOverlay">@null</item>
-<item name="android:windowNoTitle">true</item>
-<item name="android:backgroundDimEnabled">false</item>
-</style>
 ```
 ### Ogury integration
 Ogury integration is different from others Ad network .
@@ -952,45 +774,17 @@ Ogury integration is different from others Ad network .
 Ogury ad network returns interstitial only with autoDisplay true.
 
 
- * Step 1 : Contact mngads support to get presage API key.
- 
- * Step 2 : Add presage-lib.jar to your libs folder
- *
- * Step 3 : Copy the following lines in your AndroidManifest.xml inside <application> tag.Don't forget your API Key: presage_key.
+* Step 1 : Contact mngads support to get presage API key.
+
+* Step 2 : Add presage-lib.jar to your libs folder
+
+* Step 3 : Copy the following lines in your AndroidManifest.xml inside <application> tag.Don't forget your API Key: presage_key.
 
 
 ```xml
 <!-- PRESAGE LIBRARY -->
 <meta-data android:name="presage_key" android:value="presage_key"/>
 
-<activity android:name="io.presage.activities.PresageActivity" 
-android:label="@string/app_name" 
-android:theme="@style/Presage.Theme.Transparent" 
-android:configChanges="keyboard|keyboardHidden|orientation|screenSize" 
-android:hardwareAccelerated="true" >
-<intent-filter>
-<action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
-<category android:name="android.intent.category.DEFAULT" />
-</intent-filter>
-</activity>
-<service
-android:name="io.presage.PresageService"
-android:enabled="true"
-android:exported="true"
-android:process=":remote">
-<intent-filter>
-<action android:name="io.presage.PresageService.PIVOT" />
-</intent-filter>
-</service>
-
-<receiver android:name="io.presage.receiver.NetworkChangeReceiver">
-<intent-filter>
-<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-<action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
-</intent-filter>
-</receiver>
-<receiver android:name="io.presage.receiver.AlarmReceiver" />
 <provider
 android:name="io.presage.provider.PresageProvider"
 android:authorities="${applicationId}.PresageProvider"
@@ -998,27 +792,7 @@ android:enabled="true"
 android:exported="true" />
 
 ```
-* Step 4 : Add the following permissions that will be grouped together
-Placed just before the opening <application> tag:
-
-```xml
-Default internet permissions
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-```
-
-* Step 5 : If you have styles.xml inside res/values folder, copy the following lines inside else, create styles.xml inside res/values folder with these lines inside:
-
-```xml
-<style name="Presage.Theme.Transparent" parent="android:Theme">
-<item name="android:windowIsTranslucent">true</item>
-<item name="android:windowBackground">@android:color/transparent</item>
-<item name="android:windowContentOverlay">@null</item>
-<item name="android:windowNoTitle">true</item>
-<item name="android:backgroundDimEnabled">false</item>
-</style>
-```
-* Step 6 : If you use okhhtp in your project or in an other dependency, try to add these lines in your build.gradle to avoid build error :
+* Step 4 : If you use okhhtp in your project or in an other dependency, try to add these lines in your build.gradle to avoid build error :
 ```java
 buildTypes 
 {
@@ -1030,10 +804,10 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 }
 }
 ```
-### Eyes tracking
+### Face tracking
 >available v2.6
 
-- the Eyes tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
+- the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
 - download umoove library and place it in the /libs folder in your project.
 - edit your build.gradle, add the library : 
 ```
@@ -1069,7 +843,6 @@ abiFilters "armeabi-v7a","x86"
 ```
 android.useDeprecatedNdk=true
 ```
-
 ### Troubleshooting
 
 * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
@@ -1080,7 +853,7 @@ android.useDeprecatedNdk=true
 [Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
 [Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
 [Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
-[mng-ads.jar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mng-ads-sdk.jar?at=master
+[mngads-sdk-2.7.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
 [MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
 [Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
 [Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
@@ -1114,4 +887,3 @@ android.useDeprecatedNdk=true
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [umoove]:https://developers.google.com/mobile-ads-sdk/download#download
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
-[umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
