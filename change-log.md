@@ -28,7 +28,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
   - DFP, version 11.2.0
 
 - Updated dependencies :
-```java
+```
+java
   //madvertise mediation+adserving
   compile(name: 'mngads-sdk-2.7', ext: 'aar')
   //mediation - Audience Network (Facebook)
@@ -45,7 +46,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
   //Google Play Services with Google Mobile Ads
   compile 'com.google.android.gms:play-services-ads:11.2.0'
   compile 'com.google.android.gms:play-services-location:11.2.0'
-  ```
+ 
+```
 
 
 ## Version 2.6
