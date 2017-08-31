@@ -783,13 +783,47 @@ Ogury ad network returns interstitial only with autoDisplay true.
 
 ```xml
 <!-- PRESAGE LIBRARY -->
-<meta-data android:name="presage_key" android:value="presage_key"/>
+<meta-data
+    android:name="presage_key"
+    android:value="presage_key" />
 
 <provider
-android:name="io.presage.provider.PresageProvider"
-android:authorities="${applicationId}.PresageProvider"
-android:enabled="true"
-android:exported="true" />
+    android:name="io.presage.provider.PresageProvider"
+    android:authorities="${applicationId}.PresageProvider"
+    android:enabled="true"
+    android:exported="true" />
+
+<service
+    android:name="io.presage.PresageService"
+    android:enabled="true"
+    android:exported="true"
+    android:process=":remote">
+    <intent-filter>
+        <action android:name="io.presage.PresageService.PIVOT" />
+    </intent-filter>
+</service>
+
+<activity
+    android:name="io.presage.activities.PresageActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:hardwareAccelerated="true"
+    android:label="@string/app_name"
+    android:theme="@style/Presage.Theme.Transparent">
+    <intent-filter>
+        <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+</activity>
+
+<receiver android:name="io.presage.receiver.NetworkChangeReceiver">
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+        <action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
+    </intent-filter>
+</receiver>
+<receiver android:name="io.presage.receiver.AlarmReceiver" />
 
 ```
 * Step 4 : If you use okhhtp in your project or in an other dependency, try to add these lines in your build.gradle to avoid build error :
