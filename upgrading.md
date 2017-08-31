@@ -2,6 +2,60 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.7.1
+
+You have to manually add presage library's manifest configuration.
+
+####AndroidManifest Configuration
+#####Ogury
+If you are using presage library you need to add these lines
+
+<!-- PRESAGE LIBRARY -->
+```xml
+<meta-data
+    android:name="presage_key"
+    android:value="presage_key" />
+
+<provider
+    android:name="io.presage.provider.PresageProvider"
+    android:authorities="${applicationId}.PresageProvider"
+    android:enabled="true"
+    android:exported="true" />
+
+<service
+    android:name="io.presage.PresageService"
+    android:enabled="true"
+    android:exported="true"
+    android:process=":remote">
+    <intent-filter>
+        <action android:name="io.presage.PresageService.PIVOT" />
+    </intent-filter>
+</service>
+
+<activity
+    android:name="io.presage.activities.PresageActivity"
+    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+    android:hardwareAccelerated="true"
+    android:label="@string/app_name"
+    android:theme="@style/Presage.Theme.Transparent">
+    <intent-filter>
+        <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+    </intent-filter>
+</activity>
+
+<receiver android:name="io.presage.receiver.NetworkChangeReceiver">
+    <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+        <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+        <action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
+    </intent-filter>
+</receiver>
+<receiver android:name="io.presage.receiver.AlarmReceiver" />
+
+```
+
 
 ## Version 2.7
 
