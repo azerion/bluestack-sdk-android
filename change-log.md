@@ -10,10 +10,11 @@ Changed Presage library configuration in manifest.
 You have to manually add presage library's manifest configuration according to [Ogury Integration].
 
 - Updated dependencies :
+
 ```groovy
   //madvertise mediation+adserving
   compile(name: 'mngads-sdk-2.7.1', ext: 'aar')
-  ```
+```
 
 
 
