@@ -4,6 +4,19 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 2.7.1
+#### Release date: August 31th, 2017
+Changed Presage library configuration in manifest.
+You have to manually add presage library's manifest configuration according to [MNG's documentation].
+
+- Updated dependencies :
+```groovy
+  //madvertise mediation+adserving
+  compile(name: 'mngads-sdk-2.7.1', ext: 'aar')
+  ```
+[MNG's documentation]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-ogury-integration
+
+
 ## Version 2.7
 #### Release date: August 29th, 2017
 - Major configuration change:
