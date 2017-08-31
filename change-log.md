@@ -7,14 +7,14 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 ## Version 2.7.1
 #### Release date: August 31th, 2017
 Changed Presage library configuration in manifest.
-You have to manually add presage library's manifest configuration according to [MNG's documentation].
+You have to manually add presage library's manifest configuration according to [Ogury Integration].
 
 - Updated dependencies :
 ```groovy
   //madvertise mediation+adserving
   compile(name: 'mngads-sdk-2.7.1', ext: 'aar')
   ```
-[MNG's documentation]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-ogury-integration
+
 
 
 ## Version 2.7
@@ -754,3 +754,4 @@ You must check [Upgrade Guide]
 [debug-mode-gyro]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/debug-mode-gyro
 [umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
 [mngads-sdk-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
+[Ogury Integration]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-ogury-integration
