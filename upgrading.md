@@ -2,6 +2,28 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.7.2
+
+- Updated dependencies :
+
+```groovy
+//Smart AdServer SDK
+compile(name: 'SmartAdServer-Android-SDK-6.7.1', ext: 'aar')
+
+
+//madvertise mediation+adserving
+compile(name: 'mngads-sdk-2.7.2', ext: 'aar')
+
+//mediation - Audience Network (Facebook)
+compile 'com.facebook.android:audience-network-sdk:4.26.0'
+
+
+//Google Play Services with Google Mobile Ads
+compile 'com.google.android.gms:play-services-ads:11.2.2'
+compile 'com.google.android.gms:play-services-location:11.2.2'
+```
+
 ## Version 2.7.1
 
 You have to manually add presage library's manifest configuration.
