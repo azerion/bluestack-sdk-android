@@ -5,7 +5,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 ## Version 2.7.2
 
-- Updated dependencies :
+Updated dependencies :
 
 ```groovy
 //Smart AdServer SDK
