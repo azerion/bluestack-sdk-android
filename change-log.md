@@ -4,6 +4,36 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 2.7.2
+#### Release date: September 18th, 2017
+
+- New feature: Implementing the new eyes detection feature in Mraid ads.
+- Fix blank screen after appsfire click.
+- Edit Vast ads selecting mediaUrl algorithm to prioritize videos(mp4/3gpp) over vpaid ads.
+- use new com.facebook.android:audience-network-sdk:4.26.0
+- use new com.google.android.gms:play-services-ads:11.2.2
+- use new [mngads-sdk-x.aar], version 2.7.2
+- use new [SmartAdServer-Android-SDK-x.aar], version 6.7.1
+- Updated dependencies :
+
+```groovy
+//Smart AdServer SDK
+compile(name: 'SmartAdServer-Android-SDK-6.7.1', ext: 'aar')
+
+
+//madvertise mediation+adserving
+compile(name: 'mngads-sdk-2.7.2', ext: 'aar')
+
+//mediation - Audience Network (Facebook)
+compile 'com.facebook.android:audience-network-sdk:4.26.0'
+
+
+//Google Play Services with Google Mobile Ads
+compile 'com.google.android.gms:play-services-ads:11.2.2'
+compile 'com.google.android.gms:play-services-location:11.2.2'
+```
+
+
 ## Version 2.7.1
 #### Release date: August 31th, 2017
 Changed Presage library configuration in manifest.
