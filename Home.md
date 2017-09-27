@@ -908,7 +908,7 @@ android.useDeprecatedNdk=true
 [Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
 [Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
 [Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
-[mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
+[mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
 [Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
 [Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
