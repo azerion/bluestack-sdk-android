@@ -3,6 +3,20 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 2.7.3
+
+Updated dependencies :
+
+
+```groovy
+
+//madvertise mediation+adserving
+compile(name: 'mngads-sdk-2.7.3', ext: 'aar')
+
+```
+
+ - please [configure-your-manifest] according libs in used in your application or if your app uses the GPS.
+
 ## Version 2.7.2
 
 Updated dependencies :
@@ -870,3 +884,4 @@ No special steps are required to upgrade to v1.1.
 [In-Feed Ad format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-infeed
 [umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
 [Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
+[configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
