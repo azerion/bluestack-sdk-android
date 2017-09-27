@@ -4,6 +4,13 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 2.7.3
+#### Release date: September 27th, 2017
+
+ - clean permissions on aar [mngads-sdk-x.aar], version 2.7.3
+ - please [configure-your-manifest] according libs in used in your application or if your app uses the GPS.
+
+
 ## Version 2.7.2
 #### Release date: September 18th, 2017
 
@@ -786,3 +793,4 @@ You must check [Upgrade Guide]
 [umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
 [mngads-sdk-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
 [Ogury Integration]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-ogury-integration
+[configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
