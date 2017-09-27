@@ -763,6 +763,27 @@ You need to add the following to AndroidManifest.xml file :
 
 ```xml
 
+ <!--Grants the SDK permission to access approximate location based on cell tower. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--Grants the SDK permission to access a more accurate location based on GPS. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- External storage is used for pre-caching features if available -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
+    <!--this permission is required for Debug Mode with Gyroscope Sensor.-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+
+
+    <!-- b4s -->
+    <uses-sdk tools:overrideLibrary="com.ezeeworld.b4s.android.sdk.playservices" />
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
 <!--This embeds the version of Google Play services that the app was compiled with.. -->
 <meta-data
 android:name="com.google.android.gms.version"
