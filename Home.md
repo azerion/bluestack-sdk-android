@@ -59,7 +59,7 @@ include JCenter/Maven repository and add the following lines to your app's build
 - [com.squareup.retrofit2:converter-jackson:2.0.0] (for beacon)
 - [b4s-android-sdk] (for beacon)
 - [b4s-android-sdk-playservices830] (for beacon)
-- [umoove] (for face detection)
+- [umooveV2.aar] (for face detection)
 
 ```groovy
 dependencies { 
@@ -864,11 +864,11 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 >available v2.6
 
 - the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
-- download umoove library and place it in the /libs folder in your project.
+- download [umooveV2.aar] library and place it in the /libs folder in your project.
 - edit your build.gradle, add the library : 
 ```
-//face detection umoove
-compile(name: 'umooveV2-20170518', ext: 'aar')
+ //face detection umoove
+    compile(name: 'umooveV2', ext: 'aar')
 ```
 - you need to declare your flat file repository.
 ```
@@ -941,5 +941,5 @@ android.useDeprecatedNdk=true
 [com.squareup.retrofit2:converter-jackson:2.0.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[umoove]:https://developers.google.com/mobile-ads-sdk/download#download
+[umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
