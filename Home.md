@@ -859,7 +859,8 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 }
 }
 ```
-### Face tracking
+### Eyes tracking
+
 >available v2.6
 
 - the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
