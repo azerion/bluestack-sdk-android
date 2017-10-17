@@ -38,8 +38,8 @@ mavenCentral()
 
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:11.2.0) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.25.0) (**recommended**)
+- Google-play-services_lib (com.google.android.gms:play-services:11.2.2) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.26.0) (**recommended**)
 - Support-v4 (com.android.support:support-v4:26.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
 - com.flurry.android:analytics:7.2.3 and com.flurry.android:ads:7.2.3 (**recommended**)
@@ -63,8 +63,8 @@ include JCenter/Maven repository and add the following lines to your app's build
 
 ```groovy
 dependencies { 
-compile(name: 'mngads-sdk-2.7', ext: 'aar')
-compile files('libs/SmartAdServer-Android-SDK-6.6.6.jar')
+compile(name: 'mngads-sdk-2.7.3', ext: 'aar')
+compile(name: 'SmartAdServer-Android-SDK-6.7.1', ext: 'aar')
 compile files('libs/retency-sdk.jar')
 compile files('libs/presage-lib-2.1.14-obfuscated.jar')
 }
