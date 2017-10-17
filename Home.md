@@ -49,7 +49,7 @@ include JCenter/Maven repository and add the following lines to your app's build
 
 **download and extract following files and place them in the /libs folder in your project**
 
-- [mngads-sdk-x.aar Android SDK](**mandatory**)
+- [mngads-sdk-x.aar Android SDK] (**mandatory**)
 - [SmartAdServer-Android-SDK.aar] (**recommended**)
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
