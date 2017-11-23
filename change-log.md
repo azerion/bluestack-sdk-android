@@ -26,7 +26,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - new [SmartAdServer-Android-SDK-x.aar], version 6.7.2
     - new [Presage-lib.jar], version 2.1.17
     - new com.flurry.android:ads:8.1.0@aar
-    - new Eyes Tracking  [umooveVx.aar]
+    - new Eyes Tracking  [umooveVx.aar], see [eyes-tracking doc]
 
     - Updated dependencies :
 
@@ -143,7 +143,7 @@ java
 ## Version 2.6
 #### Release date: June 23th, 2017
 
-- Implemented new feature in MAdvertiseAdserver (MAS) that tracks the user's face to determine if he is really watching the ad or not , and for how long. You must add [umooveV2.aar]
+- Implemented new feature in MAdvertiseAdserver (MAS) that tracks the user's face to determine if he is really watching the ad or not , and for how long. You must add [umooveVx.aar]
 - New infeed ad format in mngadserver (MAS).
 - Fix possible bug where the cascade would be blocked without returning a valid ad, no a fail error.
 - Fix click issue with deeplink 
@@ -829,9 +829,9 @@ You must check [Upgrade Guide]
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [debug-mode-gyro]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/debug-mode-gyro
-[umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
 [mngads-sdk-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Ogury Integration]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-ogury-integration
 [configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
 [Rewarded Video for Android]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/rewarded-video
 [umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[eyes-tracking doc]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-eyes-tracking
