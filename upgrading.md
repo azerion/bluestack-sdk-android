@@ -16,6 +16,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
     compile 'com.facebook.android:audience-network-sdk:4.26.1'
     compile 'com.flurry.android:analytics:8.1.0@aar'
     compile 'com.flurry.android:ads:8.1.0@aar'
+    compile(name: 'umooveV2.12.1', ext: 'aar')
 ```
 
 
