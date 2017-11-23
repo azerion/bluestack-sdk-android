@@ -38,18 +38,18 @@ mavenCentral()
 
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:11.2.2) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.26.0) (**recommended**)
+- Google-play-services_lib (com.google.android.gms:play-services:11.6.0) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.26.1) (**recommended**)
 - Support-v4 (com.android.support:support-v4:26.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:7.2.3 and com.flurry.android:ads:7.2.3 (**recommended**)
+- com.flurry.android:analytics:8.1.0 and com.flurry.android:ads:8.1.0 (**recommended**)
 
 **See our [build.gradle] sample**
 
 
 **download and extract following files and place them in the /libs folder in your project**
 
-- [mngads-sdk-x.aar Android SDK] (**mandatory**)
+- [mngads-sdk-x.aar Android SDK](**mandatory**)
 - [SmartAdServer-Android-SDK.aar] (**recommended**)
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
@@ -59,14 +59,14 @@ include JCenter/Maven repository and add the following lines to your app's build
 - [com.squareup.retrofit2:converter-jackson:2.0.0] (for beacon)
 - [b4s-android-sdk] (for beacon)
 - [b4s-android-sdk-playservices830] (for beacon)
-- [umooveV2.aar] (for face detection)
+- [umooveVx.aar] (for face detection)
 
 ```groovy
 dependencies { 
-compile(name: 'mngads-sdk-2.7.3', ext: 'aar')
-compile(name: 'SmartAdServer-Android-SDK-6.7.1', ext: 'aar')
+compile(name: 'mngads-sdk-2.8', ext: 'aar')
+compile files('libs/SmartAdServer-Android-SDK-6.7.2.jar')
 compile files('libs/retency-sdk.jar')
-compile files('libs/presage-lib-2.1.14-obfuscated.jar')
+compile files('libs/presage-lib-2.1.17-obfuscated.jar')
 }
 ```
 
@@ -103,7 +103,7 @@ Get Ebeacon technology to propose to the advertisers to target the users inside 
 ### Initializing Beacons
 
 You have to init becon in your application class
-MAdvertiseBeaconAdapter.initBeacons(this) should be called before         MNGAdsFactory.initialize(this,"YOUR_APP_ID");
+MAdvertiseBeaconAdapter.initBeacons(this) should be called before MNGAdsFactory.initialize(this,"YOUR_APP_ID");
 
 
 ```java
@@ -864,11 +864,11 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 >available v2.6
 
 - the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
-- download [umooveV2.aar] library and place it in the /libs folder in your project.
+- download [umooveVx.aar] library and place it in the /libs folder in your project.
 - edit your build.gradle, add the library : 
 ```
  //face detection umoove
-    compile(name: 'umooveV2', ext: 'aar')
+    compile(name: 'umooveV2.12.1', ext: 'aar')
 ```
 - you need to declare your flat file repository.
 ```
@@ -893,7 +893,6 @@ ndk {
 abiFilters "armeabi-v7a","x86"
 }
 }
-
 ```
 - and you need to allow deprecated ndk in your gradle.properties file.
 ```
@@ -941,5 +940,5 @@ android.useDeprecatedNdk=true
 [com.squareup.retrofit2:converter-jackson:2.0.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
+[umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
