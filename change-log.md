@@ -7,11 +7,11 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 #### Release date: November 23th, 2017
 
 - **Features**
+
+    - use targetSdkVersion to 26.
     - Implemented new preferredHeight logic for banner ads and MAS.
     - New [Rewarded Video for Android].
     - New reset SDK button in debug gyro.
-    - Fix minor bugs.
-    - manage WKWebView or UIWebView server side.
     - now MAS support video and vast format for infeed, interstitial and medium rectangle
     - New blurry background for video ads (multiple formats).
     - Proguard compliant
