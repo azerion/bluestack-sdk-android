@@ -2,6 +2,22 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.8
+
+- Update your targetSdkVersion to 26.
+
+- Don't forget to update your dependencies as following :
+```groovy
+    provided files('libs/presage-lib-2.1.17-obfuscated.jar')
+    compile(name: 'SmartAdServer-Android-SDK-6.7.2', ext: 'aar')
+    compile 'com.google.android.gms:play-services-ads:11.6.0'
+    compile 'com.google.android.gms:play-services-location:11.6.0'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.facebook.android:audience-network-sdk:4.26.1'
+    compile 'com.flurry.android:analytics:8.1.0@aar'
+    compile 'com.flurry.android:ads:8.1.0@aar'
+```
+
 
 ## Version 2.7.3
 
