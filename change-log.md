@@ -26,7 +26,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - new [SmartAdServer-Android-SDK-x.aar], version 6.7.2
     - new [Presage-lib.jar], version 2.1.17
     - new com.flurry.android:ads:8.1.0@aar
-
+    - new Eyes Tracking  [umooveVx.aar]
 
     - Updated dependencies :
 
@@ -39,6 +39,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     compile 'com.facebook.android:audience-network-sdk:4.26.1'
     compile 'com.flurry.android:analytics:8.1.0@aar'
     compile 'com.flurry.android:ads:8.1.0@aar'
+    compile(name: 'umooveV2.12.1', ext: 'aar')
 ```
 
 
@@ -833,3 +834,4 @@ You must check [Upgrade Guide]
 [Ogury Integration]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-ogury-integration
 [configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
 [Rewarded Video for Android]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/rewarded-video
+[umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
