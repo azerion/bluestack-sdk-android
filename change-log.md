@@ -3,6 +3,44 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.8
+#### Release date: November 23th, 2017
+
+- **Features**
+    - Implemented new preferredHeight logic for banner ads and MAS.
+    - New [Rewarded Video for Android].
+    - New reset SDK button in debug gyro.
+    - Fix minor bugs.
+    - manage WKWebView or UIWebView server side.
+    - now MAS support video and vast format for infeed, interstitial and medium rectangle
+    - New blurry background for video ads (multiple formats).
+    - Proguard compliant
+
+- **Bug Fixes**
+	- Eyes Tracking issues
+
+- **Ad Network Mediation Updates**
+    - new com.facebook.android:audience-network-sdk:4.26.1
+    - new com.google.android.gms:play-services-ads:11.6.0
+    - new [mngads-sdk-x.aar], version 2.8
+    - new [SmartAdServer-Android-SDK-x.aar], version 6.7.2
+    - new [Presage-lib.jar], version 2.1.17
+    - new com.flurry.android:ads:8.1.0@aar
+
+
+    - Updated dependencies :
+
+```groovy
+    provided files('libs/presage-lib-2.1.17-obfuscated.jar')
+    compile(name: 'SmartAdServer-Android-SDK-6.7.2', ext: 'aar')
+    compile 'com.google.android.gms:play-services-ads:11.6.0'
+    compile 'com.google.android.gms:play-services-location:11.6.0'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.facebook.android:audience-network-sdk:4.26.1'
+    compile 'com.flurry.android:analytics:8.1.0@aar'
+    compile 'com.flurry.android:ads:8.1.0@aar'
+```
+
 
 ## Version 2.7.3
 #### Release date: September 27th, 2017
@@ -794,3 +832,4 @@ You must check [Upgrade Guide]
 [mngads-sdk-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Ogury Integration]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-ogury-integration
 [configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
+[Rewarded Video for Android]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/rewarded-video
