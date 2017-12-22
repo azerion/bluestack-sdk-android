@@ -39,34 +39,28 @@ mavenCentral()
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
 - Google-play-services_lib (com.google.android.gms:play-services:11.6.0) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.26.1) (**recommended**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.27.0) (**recommended**)
 - Support-v4 (com.android.support:support-v4:26.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:8.1.0 and com.flurry.android:ads:8.1.0 (**recommended**)
+- com.flurry.android:analytics:8.2.0@aar and com.flurry.android:ads:8.2.0@aar (**recommended**)
 
 **See our [build.gradle] sample**
 
 
 **download and extract following files and place them in the /libs folder in your project**
 
-- [mngads-sdk-x.aar Android SDK](**mandatory**)
+- [mngads-sdk-x.aar Android SDK] (**mandatory**)
 - [SmartAdServer-Android-SDK.aar] (**recommended**)
 - [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
-
-- [nl.qbusict:cupboard:2.1.4] (for beacon)
-- [de.greenrobot:eventbus:2.4.0] (for beacon)
-- [com.squareup.retrofit2:converter-jackson:2.0.0] (for beacon)
-- [b4s-android-sdk] (for beacon)
-- [b4s-android-sdk-playservices830] (for beacon)
 - [umooveVx.aar] (for face detection)
 
 ```groovy
 dependencies { 
-compile(name: 'mngads-sdk-2.8', ext: 'aar')
+compile(name: 'mngads-sdk-2.8.1', ext: 'aar')
 compile files('libs/SmartAdServer-Android-SDK-6.7.2.jar')
 compile files('libs/retency-sdk.jar')
-compile files('libs/presage-lib-2.1.17-obfuscated.jar')
+compile files('libs/presage-lib-2.2.7-obfuscated.jar')
 }
 ```
 
@@ -94,65 +88,7 @@ MNGAdsFactory.initialize(this,"YOUR_APP_ID");
 }
 }
 ```
-### MAdvertiseBeacon
 
-Get Ebeacon technology to propose to the advertisers to target the users inside the point of sale. 
-- An installation base of 12,500 ebeacons ready to track the users.
-- An exclusive format in Push notification to the users inside a tabacco shop, press shop, pharmay or mall.
-
-### Initializing Beacons
-
-You have to init becon in your application class
-MAdvertiseBeaconAdapter.initBeacons(this) should be called before MNGAdsFactory.initialize(this,"YOUR_APP_ID");
-
-
-```java
-public class DemoApp extends Application{
-
-@Override
-public void onCreate() {
-super.onCreate();
-MAdvertiseBeaconAdapter.initBeacons(this);
-MNGAdsFactory.initialize(this,"YOUR_APP_ID");
-}
-}
-```
-you have to edit your build.gradle file
-```java
-buildTypes {
-
-packagingOptions {
-exclude 'META-INF/ASL2.0'
-exclude 'META-INF/LICENSE'
-exclude 'META-INF/NOTICE'
-}
-
-}
-
-
-
-dependencies {
-
-compile 'nl.qbusict:cupboard:2.1.4'
-compile 'de.greenrobot:eventbus:2.4.0'
-compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
-compile (name:'b4s-android-sdk', ext:'aar')
-compile (name:'b4s-android-sdk-playservices830', ext:'aar')
-
-}
-```
-and you need to declare your flat file repository.
-```
-allprojects {
-repositories {
-jcenter()
-flatDir{
-dirs 'libs'
-}
-}
-
-}
-```
 ### Initialize Check
 
 To verify if the SDK is fully initialized you have to call isInitialized():
@@ -546,6 +482,8 @@ Log.e(TAG, "nativeObject Did Fail :" + adsException.toString());
 ```
 #####Build Native Ad UI
 MNGNativeObject have all required metadata to build your customized native UI.
+Your native ad layout should have MAdvertiseNativeContainer as it's root viewGroup container.
+
 ```java
 @Override
 public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
@@ -559,8 +497,8 @@ Bitmap badge=nativeObject.getBadge();
 String iconUrl=nativeObject.getAdIconUrl();
 String coverImageUrl=nativeObject.getAdCoverImageUrl();
 
-//to handle impression and user interaction you have to call 
-nativeObject.registerViewForInteraction(nativeAdCallToActionView);
+//to handle impressions and user interactions you have to register your MAdvertiseNativeContainer as your root layout container and your callToActionView view as following
+nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToActionView);
 ...
 }
 ```
@@ -599,8 +537,8 @@ String iconUrl=nativeObject.getAdIconUrl();
 //  there is no need to use coverurl
 nativeObject.setMediaContainer(mediaViewGroup);
 
-//to handle impression and user interaction you have to call 
-nativeObject.registerViewForInteraction(nativeAdCallToActionView);
+//to handle impressions and user interactions you have to register your MAdvertiseNativeContainer as your root layout container and your callToActionView view as following
+nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToActionView);
 ...
 }
 ```
@@ -763,26 +701,26 @@ You need to add the following to AndroidManifest.xml file :
 
 ```xml
 
- <!--Grants the SDK permission to access approximate location based on cell tower. -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--Grants the SDK permission to access a more accurate location based on GPS. -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- External storage is used for pre-caching features if available -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
-    <!--this permission is required for Debug Mode with Gyroscope Sensor.-->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+<!--Grants the SDK permission to access approximate location based on cell tower. -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<!--Grants the SDK permission to access a more accurate location based on GPS. -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!-- External storage is used for pre-caching features if available -->
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps.-->
+<!--this permission is required for Debug Mode with Gyroscope Sensor.-->
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 
 
-    <!-- b4s -->
-    <uses-sdk tools:overrideLibrary="com.ezeeworld.b4s.android.sdk.playservices" />
-    <uses-feature
-        android:name="android.hardware.bluetooth_le"
-        android:required="true" />
+<!-- b4s -->
+<uses-sdk tools:overrideLibrary="com.ezeeworld.b4s.android.sdk.playservices" />
+<uses-feature
+android:name="android.hardware.bluetooth_le"
+android:required="true" />
 
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+<uses-permission android:name="android.permission.BLUETOOTH" />
+<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
 <!--This embeds the version of Google Play services that the app was compiled with.. -->
 <meta-data
@@ -805,44 +743,44 @@ Ogury ad network returns interstitial only with autoDisplay true.
 ```xml
 <!-- PRESAGE LIBRARY -->
 <meta-data
-    android:name="presage_key"
-    android:value="presage_key" />
+android:name="presage_key"
+android:value="presage_key" />
 
 <provider
-    android:name="io.presage.provider.PresageProvider"
-    android:authorities="${applicationId}.PresageProvider"
-    android:enabled="true"
-    android:exported="true" />
+android:name="io.presage.provider.PresageProvider"
+android:authorities="${applicationId}.PresageProvider"
+android:enabled="true"
+android:exported="true" />
 
 <service
-    android:name="io.presage.PresageService"
-    android:enabled="true"
-    android:exported="true"
-    android:process=":remote">
-    <intent-filter>
-        <action android:name="io.presage.PresageService.PIVOT" />
-    </intent-filter>
+android:name="io.presage.PresageService"
+android:enabled="true"
+android:exported="true"
+android:process=":remote">
+<intent-filter>
+<action android:name="io.presage.PresageService.PIVOT" />
+</intent-filter>
 </service>
 
 <activity
-    android:name="io.presage.activities.PresageActivity"
-    android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-    android:hardwareAccelerated="true"
-    android:label="@string/app_name"
-    android:theme="@style/Presage.Theme.Transparent">
-    <intent-filter>
-        <action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
+android:name="io.presage.activities.PresageActivity"
+android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+android:hardwareAccelerated="true"
+android:label="@string/app_name"
+android:theme="@style/Presage.Theme.Transparent">
+<intent-filter>
+<action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
 
-        <category android:name="android.intent.category.DEFAULT" />
-    </intent-filter>
+<category android:name="android.intent.category.DEFAULT" />
+</intent-filter>
 </activity>
 
 <receiver android:name="io.presage.receiver.NetworkChangeReceiver">
-    <intent-filter>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-        <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-        <action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
-    </intent-filter>
+<intent-filter>
+<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+<action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
+</intent-filter>
 </receiver>
 <receiver android:name="io.presage.receiver.AlarmReceiver" />
 
@@ -867,8 +805,8 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 - download [umooveVx.aar] library and place it in the /libs folder in your project.
 - edit your build.gradle, add the library : 
 ```
- //face detection umoove
-    compile(name: 'umooveV2.12.1', ext: 'aar')
+//face detection umoove
+compile(name: 'umooveV2.12.1', ext: 'aar')
 ```
 - you need to declare your flat file repository.
 ```
@@ -916,10 +854,10 @@ android.useDeprecatedNdk=true
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/AudienceNetwork.jar?at=master&fileviewer=file-view-default
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[SmartAdServer-Android-SDK.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[SmartAdServer-Android-SDK.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [Retency]:http://www.retency.com/public/
-[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/retency-sdk.jar?at=master
+[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
 [Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Flurry]:https://developer.yahoo.com/flurry/
@@ -928,17 +866,12 @@ android.useDeprecatedNdk=true
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Ogury]:http://www.ogury.co/
-[presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/presage-lib-1.8.1.jar?at=master&fileviewer=file-view-default
+[presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Native Ads guidelines]:./nativead
 [ApplicationManager.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.java?at=master&fileviewer=file-view-default
 [BaseActivity.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.java?at=master&fileviewer=file-view-default
 [Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
 [see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
-[nl.qbusict:cupboard:2.1.4]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[de.greenrobot:eventbus:2.4.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[com.squareup.retrofit2:converter-jackson:2.0.0]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[b4s-android-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[b4s-android-sdk-playservices830]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
