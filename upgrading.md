@@ -2,6 +2,21 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.8.1
+
+- Change your native Ad container layout to MAdvertiseNativeContainer which is a custom viewGroup that extends FrameLayout.
+- registerViewForInteraction now has two arguments: your MAdvertiseNativeContainer and your callToAction view instead of only the callToAction view.
+
+- Don't forget to update your dependencies as following :
+```groovy
+    compile(name: 'mngads-sdk-2.8.1', ext: 'aar')
+    provided files('libs/presage-lib-2.2.7-obfuscated.jar')
+    compile 'com.facebook.android:audience-network-sdk:4.27.0'
+    compile 'com.flurry.android:analytics:8.2.0@aar'
+    compile 'com.flurry.android:ads:8.2.0@aar'
+    compile(name: 'umooveV2.12.5', ext: 'aar')
+```
+
 ## Version 2.8
 
 - Update your targetSdkVersion to 26.
