@@ -3,6 +3,41 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.8.1
+#### Release date: December 22th, 2017
+
+- **Features**
+
+        - Banners optimizations
+        - Change your native Ad container layout to MAdvertiseNativeContainer which is a custom viewGroup that extends FrameLayout.
+        - registerViewForInteraction now has two arguments: your MAdvertiseNativeContainer and your callToAction view instead of only the callToAction view.
+
+- **Bug Fixes**
+	- Eyes Tracking issues
+        - Fix DFP's adchoice misposition issue on [nativead format].
+        - Fix mraid rendering and click on MAS ads.
+        - Fix appsfire.MNGAFUtils.scaleBitmap crash
+
+
+- **Ad Network Mediation Updates**
+    - new com.facebook.android:audience-network-sdk:4.27.0
+    - new [mngads-sdk-x.aar], version 2.8.1
+    - new [Presage-lib.jar], version 2.2.7
+    - new com.flurry.android:ads:8.2.0@aar
+    - new Eyes Tracking  [umooveVx.aar], see [eyes-tracking doc]
+
+    - Updated dependencies :
+
+```groovy
+    compile(name: 'mngads-sdk-2.8.1', ext: 'aar')
+    provided files('libs/presage-lib-2.2.7-obfuscated.jar')
+    compile 'com.facebook.android:audience-network-sdk:4.27.0'
+    compile 'com.flurry.android:analytics:8.2.0@aar'
+    compile 'com.flurry.android:ads:8.2.0@aar'
+    compile(name: 'umooveV2.12.5', ext: 'aar')
+```
+
 ## Version 2.8
 #### Release date: November 23th, 2017
 
@@ -31,6 +66,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - Updated dependencies :
 
 ```groovy
+    compile(name: 'mngads-sdk-2.8', ext: 'aar')
     provided files('libs/presage-lib-2.1.17-obfuscated.jar')
     compile(name: 'SmartAdServer-Android-SDK-6.7.2', ext: 'aar')
     compile 'com.google.android.gms:play-services-ads:11.6.0'
@@ -835,3 +871,4 @@ You must check [Upgrade Guide]
 [Rewarded Video for Android]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/rewarded-video
 [umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [eyes-tracking doc]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-eyes-tracking
+[nativead format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead
