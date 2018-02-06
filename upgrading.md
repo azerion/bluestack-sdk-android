@@ -2,6 +2,31 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.9
+
+- Make sure that your MNGAdsSDKFactoryListener implements the following methods:
+```java
+	onMNGAdsSDKFactoryDidFinishInitializing();
+	onMNGAdsSDKFactoryDidFailInitialization(Exception e);
+	onMNGAdsSDKFactoryDidResetConfig();
+```
+
+ - check [Native Ad Choice position] for this placement
+
+ - Add new dependency for Mopub Marketplace
+
+```groovy
+compile('com.mopub:mopub-sdk:4.19.0@aar')
+```
+
+- Don't forget to update your dependencies as following :
+
+```groovy
+compile(name: 'mngads-sdk-2.9', ext: 'aar')
+compile 'com.google.android.gms:play-services-ads:11.8.0'
+compile files('libs/presage-lib-2.2.8-obfuscated.jar')
+```
+
 ## Version 2.8.1
 
 - Change your native Ad container layout to MAdvertiseNativeContainer which is a custom viewGroup that extends FrameLayout.
@@ -917,3 +942,4 @@ No special steps are required to upgrade to v1.1.
 [umooveV2.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/umooveV2.aar?at=master&fileviewer=file-view-default
 [Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
 [configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
+[Native Ad Choice position]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-customize-native-ad-adchoice
