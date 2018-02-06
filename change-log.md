@@ -4,6 +4,29 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 2.9
+#### Release date: February 6th, 2018
+
+- **Features**
+
+     - The SDK can now handle multiple App_IDs in the same app without causing any issues.
+     - Eyes tracking feature extended to include native ads as well.
+     - New delegate method to notify the publisher if the sdk fails its initialization.
+     - Improve dispatcher Ad Network tracking for MAT (adrequest-adn).
+     - [Native Ad Choice position].
+     - Support native video ads provided by smartAdserver.
+
+- **Bug Fixes**
+
+    - Fix Eyes tracking issue for html without mraid
+
+- **Ad Network Mediation Updates**
+    - Use new [mngads-sdk-x.aar], version 2.9
+    - **Add com.mopub:mopub-sdk:4.19.0@aar]**
+    - Use new com.google.android.gms:play-services-ads:11.8.0
+    - Use new [Presage-lib.jar], version 2.2.8
+
+
 ## Version 2.8.1
 #### Release date: December 22th, 2017
 
