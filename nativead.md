@@ -211,8 +211,21 @@ We provide method to download assets.
    ...
 }
 ```
+## Customize Native Ad AdChoice
 
-
+The adChoice is automatically added to the top right corner of your native ad layout but you can change that position by using the MNGPreference.setAdChoicePosition(int position) before loading your ad.
+The position argument can be one of these:
+```java
+TOP_RIGHT
+TOP_LEFT
+BOTTOM_RIGHT
+BOTTOM_LEFT
+```
+For example:
+```java
+mngPreferences.setAdChoicePosition(MNGPreferences.TOP_LEFT);
+mngAdsNativeAdsFactory.loadNative(mngPreference)
+```
 
 ## Customize Native Ad Badge
 
