@@ -4,7 +4,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 ## Version 2.9
 
-- Make sure that your MNGAdsSDKFactoryListener implements the following methods:
+- We added more callbacks to our MNGAdsSDKFactoryListener so you can handle the intialisation success, failure or reload properly. So if you are using this callback make sure that your MNGAdsSDKFactoryListener implements all the following methods:
 ```java
 	onMNGAdsSDKFactoryDidFinishInitializing();
 	onMNGAdsSDKFactoryDidFailInitialization(Exception e);
@@ -12,8 +12,8 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 ```
 
  - check [Native Ad Choice position] for this placement
-
  - Add new dependency for Mopub Marketplace
+ - If you are using proguard you have to update your settings as described in our [proguard rules].
 
 ```groovy
 compile('com.mopub:mopub-sdk:4.19.0@aar')
@@ -943,3 +943,4 @@ No special steps are required to upgrade to v1.1.
 [Wiki]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
 [configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
 [Native Ad Choice position]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-customize-native-ad-adchoice
+[proguard rules]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
