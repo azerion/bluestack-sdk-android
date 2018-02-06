@@ -12,6 +12,7 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Flurry]
 - [Retency]
 - [Ogury] Note : An API Key will be assigned to your application by mngads support team for Ogury library.
+- [Mopub Marketplace]
 
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
@@ -38,11 +39,13 @@ mavenCentral()
 
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:11.6.0) (**mandatory**)
+- Google-play-services_lib (com.google.android.gms:play-services:11.8.0) (**mandatory**)
 - AudienceNetwork (com.facebook.android:audience-network-sdk:4.27.0) (**recommended**)
 - Support-v4 (com.android.support:support-v4:26.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
 - com.flurry.android:analytics:8.2.0@aar and com.flurry.android:ads:8.2.0@aar (**recommended**)
+
+- Mopub Marketplace (com.mopub:mopub-sdk:4.19.0@aar) (**recommended**)
 
 **See our [build.gradle] sample**
 
@@ -57,10 +60,16 @@ include JCenter/Maven repository and add the following lines to your app's build
 
 ```groovy
 dependencies { 
-compile(name: 'mngads-sdk-2.8.1', ext: 'aar')
+compile(name: 'mngads-sdk-2.9', ext: 'aar')
 compile files('libs/SmartAdServer-Android-SDK-6.7.2.jar')
 compile files('libs/retency-sdk.jar')
-compile files('libs/presage-lib-2.2.7-obfuscated.jar')
+compile files('libs/presage-lib-2.2.8-obfuscated.jar')
+
+compile('com.mopub:mopub-sdk:4.19.0@aar') {
+        transitive = true
+        exclude module: 'libAvid-mopub' // To exclude AVID
+        exclude module: 'moat-mobile-app-kit' // To exclude Moat
+    }
 }
 ```
 
@@ -99,7 +108,7 @@ import com.mngads.MNGAdsFactory;
 import com.mngads.listener.MNGAdsSDKFactoryListener;
 ...
 public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
-...	
+... 
 if(MNGAdsFactory.isInitialized()){
 //The SDK is initialized
 Toast.makeText(this, "MNGAdsFactory is initialized", Toast.LENGTH_SHORT).show();
@@ -107,7 +116,7 @@ Toast.makeText(this, "MNGAdsFactory is initialized", Toast.LENGTH_SHORT).show();
 }else {
 
 //The SDK is initializing
-//set up a callback	that will be called when is fully initialized
+//set up a callback that will be called when is fully initialized
 MNGAdsFactory.setMNGAdsSDKFactoryListener(this);
 
 Toast.makeText(this, "MNGAdsFactory is not initialized", Toast.LENGTH_SHORT).show();
@@ -117,19 +126,36 @@ Toast.makeText(this, "MNGAdsFactory is not initialized", Toast.LENGTH_SHORT).sho
 
 ...
 @Override
-public void onMNGAdsSDKFactoryDidFinishInitializing() {
+    public void onMNGAdsSDKFactoryDidFinishInitializing() {
 
+        Toast.makeText(this, "MNGAds SDK Factory Did Finish Initializing", Toast.LENGTH_SHORT).show();
 
-Toast.makeText(MainActivity.this, "MNGAds SDK Factory Did Finish Initializing", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
+    }
 
-Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
-}
+    @Override
+    public void onMNGAdsSDKFactoryDidFailInitialization(Exception e) {
+        
+        Toast.makeText(this, "MNGAds SDK Factory failed to initialize", Toast.LENGTH_SHORT).show();
+        
+        Log.d(TAG, "MNGAdsSDKFactoryDidFailInitialization: " + e);
+    }
+
+    @Override
+    public void onMNGAdsSDKFactoryDidResetConfig() {
+        Toast.makeText(this, "MNGAds SDK Factory Did Finish Initializing", Toast.LENGTH_SHORT).show();
+
+        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
+    }
 
 ...
 
 ```
 
-`Note`: onMNGAdsSDKFactoryDidFinishInitializing(): this method is called at any time when the initialize(...) method of MNG gets called
+`Note`
+ onMNGAdsSDKFactoryDidFinishInitializing() is called when the the first initialisation finished.
+ onMNGAdsSDKFactoryDidResetConfig() is called when the sdk configuraiton has been updated and finished reinitialisation.
+ onMNGAdsSDKFactoryDidFailInitialization() is called when an error occurs during initialisation or configuration update.
 
 ### Timeout
 The time given to the ad view to download the ad data. After this time, the dispacher stops the ad server running (with failure) and move to the next.
@@ -144,7 +170,7 @@ import com.mngads.MNGAdsFactory;
 public class MainActivity extends Activity{
 
 private MNGAdsFactory mngAdsBannerAdsFactory;
-...	
+... 
 // init banner factory
 mngAdsBannerAdsFactory = new MNGAdsFactory(this);
 mngBannerAdsFactory.setTimeOut(3);
@@ -503,7 +529,7 @@ nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToAct
 }
 ```
 
-#####Customize Native Ad Badge 
+##### Customize Native Ad Badge 
 You can use a custom badge for the native ad.
 
 ```java
@@ -875,3 +901,4 @@ android.useDeprecatedNdk=true
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
 [umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
+[Mopub Marketplace]:https://www.mopub.com/
