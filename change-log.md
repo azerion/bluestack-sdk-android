@@ -8,6 +8,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 #### Release date: February 6th, 2018
 
 - **Features**
+     - We added more callbacks to our MNGAdsSDKFactoryListener 
      - The SDK can now handle multiple App_IDs in the same app without causing any issues.
      - Eyes tracking feature extended to include native ads as well.
      - Improve dispatcher Ad Network tracking for MAT (adrequest-adn).
