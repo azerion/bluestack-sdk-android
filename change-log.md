@@ -895,3 +895,4 @@ You must check [Upgrade Guide]
 [umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [eyes-tracking doc]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-eyes-tracking
 [nativead format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead
+[Native Ad Choice position]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-customize-native-ad-adchoice
