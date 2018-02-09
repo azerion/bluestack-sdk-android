@@ -2,6 +2,16 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.9.1
+
+- Don't forget to update your dependencies as following :
+
+```groovy
+
+compile(name: 'mngads-sdk-2.9.1', ext: 'aar')
+
+```
+
 ## Version 2.9
 
 - We added more callbacks to our MNGAdsSDKFactoryListener so you can handle the intialisation success, failure or reload properly. So if you are using this callback make sure that your MNGAdsSDKFactoryListener implements all the following methods:
