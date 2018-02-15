@@ -2,6 +2,16 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.9.2
+
+- Don't forget to update your dependencies as following :
+
+```groovy
+
+compile(name: 'mngads-sdk-2.9.2', ext: 'aar')
+
+```
+
 ## Version 2.9.1
 
 - Don't forget to update your dependencies as following :
