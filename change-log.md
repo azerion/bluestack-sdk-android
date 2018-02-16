@@ -3,6 +3,17 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.9.3
+#### Release date: February 16th, 2018
+
+- **Bug Fixes**
+
+   - Fix synchronization issue on MNGAdsFactory.isInitialized for some case + background for dispatcher update
+
+- **Ad Network Mediation Updates**
+
+    - Use new [mngads-sdk-x.aar], version 2.9.3
+
 
 ## Version 2.9.2
 #### Release date: February 15th, 2018
