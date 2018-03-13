@@ -754,8 +754,6 @@ android:value="@integer/google_play_services_version" />
 ### Ogury integration
 Ogury integration is different from others Ad network .
 
-Ogury ad network returns interstitial only with autoDisplay true.
-
 
 * Step 1 : Contact mngads support to get presage API key.
 
