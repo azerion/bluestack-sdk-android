@@ -444,8 +444,6 @@ Log.d(TAG, "Interstitial not ready ");
 ######info 
 To try out auto-displaying disabled on demo, you can check interstitial page. Others interstitials (background returns, overlay) run with auto-displaying.
 
-Ogury ad network returns interstitial only with autoDisplay true.
-
 ###Show Interstitial after return from background
 
 You can see [Interstitial Guideline] and our demo app with following files
