@@ -24,6 +24,11 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - **Ad Network Mediation Updates**
 
     - Use new [mngads-sdk-x.aar], version 2.9.4
+    - Use new com.facebook.android:audience-network-sdk:4.28.0
+    - Use new com.flurry.android:analytics:9.0.0@aar
+    - Use new com.flurry.android:ads:9.0.0@aar
+    - Use new com.mopub:mopub-sdk:4.20.0@aar
+
 
 ## Version 2.9.3
 #### Release date: February 16th, 2018
@@ -47,10 +52,6 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - **Ad Network Mediation Updates**
 
     - Use new [mngads-sdk-x.aar], version 2.9.2
-    - Use new com.facebook.android:audience-network-sdk:4.28.0
-    - Use new com.flurry.android:analytics:9.0.0@aar
-    - Use new com.flurry.android:ads:9.0.0@aar
-    - Use new com.mopub:mopub-sdk:4.20.0@aar
 
 ## Version 2.9.1
 #### Release date: February 9th, 2018
