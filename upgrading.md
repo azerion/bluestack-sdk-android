@@ -12,7 +12,8 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
     compile 'com.flurry.android:analytics:9.0.0@aar'
     compile 'com.flurry.android:ads:9.0.0@aar'
     compile('com.mopub:mopub-sdk:4.20.0@aar')
- ```
+
+```
 
 ## Version 2.9.3
 
