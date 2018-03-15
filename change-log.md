@@ -3,6 +3,28 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.9.4
+#### Release date: March 15th, 2018
+
+- **Features**
+
+     - Support transparent interstitials (smartAdserver + MAS).
+     - Removed retency library.
+     - Edit c_facedetection = 0 if the user refuses to grant permission to use the camera (Eyes Tracking).
+     - Support native ad video and vast (MAS).
+
+- **Bug Fixes**
+
+    - Mopub version in debug gyro popup
+    - Vast tracking events (MAS).
+    - Mraid close button visibility.
+    - Date change errors for mediation dispatcher.
+
+- **Ad Network Mediation Updates**
+
+    - Use new [mngads-sdk-x.aar], version 2.9.4
+
 ## Version 2.9.3
 #### Release date: February 16th, 2018
 
@@ -25,8 +47,10 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - **Ad Network Mediation Updates**
 
     - Use new [mngads-sdk-x.aar], version 2.9.2
-
-
+    - Use new com.facebook.android:audience-network-sdk:4.28.0
+    - Use new com.flurry.android:analytics:9.0.0@aar
+    - Use new com.flurry.android:ads:9.0.0@aar
+    - Use new com.mopub:mopub-sdk:4.20.0@aar
 
 ## Version 2.9.1
 #### Release date: February 9th, 2018
