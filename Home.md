@@ -10,7 +10,6 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Facebook Audience Network]
 - [Amazon]
 - [Flurry]
-- [Retency]
 - [Ogury] Note : An API Key will be assigned to your application by mngads support team for Ogury library.
 - [Mopub Marketplace]
 
@@ -40,12 +39,12 @@ mavenCentral()
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
 - Google-play-services_lib (com.google.android.gms:play-services:11.8.0) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.27.0) (**recommended**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.28.0) (**recommended**)
 - Support-v4 (com.android.support:support-v4:26.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:8.2.0@aar and com.flurry.android:ads:8.2.0@aar (**recommended**)
+- com.flurry.android:analytics:9.0.0@aar and com.flurry.android:ads:9.0.0@aar (**recommended**)
 
-- Mopub Marketplace (com.mopub:mopub-sdk:4.19.0@aar) (**recommended**)
+- Mopub Marketplace (com.mopub:mopub-sdk:4.20.0@aar) (**recommended**)
 
 **See our [build.gradle] sample**
 
@@ -54,18 +53,16 @@ include JCenter/Maven repository and add the following lines to your app's build
 
 - [mngads-sdk-x.aar Android SDK] (**mandatory**)
 - [SmartAdServer-Android-SDK.aar] (**recommended**)
-- [Retency-sdk] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
 - [umooveVx.aar] (for face detection)
 
 ```groovy
 dependencies { 
-compile(name: 'mngads-sdk-2.9', ext: 'aar')
+compile(name: 'mngads-sdk-2.9.4', ext: 'aar')
 compile files('libs/SmartAdServer-Android-SDK-6.7.2.jar')
-compile files('libs/retency-sdk.jar')
 compile files('libs/presage-lib-2.2.8-obfuscated.jar')
 
-compile('com.mopub:mopub-sdk:4.19.0@aar') {
+compile('com.mopub:mopub-sdk:4.20.0@aar') {
         transitive = true
         exclude module: 'libAvid-mopub' // To exclude AVID
         exclude module: 'moat-mobile-app-kit' // To exclude Moat
@@ -75,7 +72,7 @@ compile('com.mopub:mopub-sdk:4.19.0@aar') {
 
 ## Sample Application
 
-Included is a [MngAds sample app] to use as example and for help on MngAds integration. This basic application allows users to test our differents formats.
+You will find the [MngAds sample app] that was created as an example on how MngAds would be integrated. This basic application allows users to test our differents formats.
 
 ## Start Integrating
 
@@ -754,7 +751,6 @@ android:value="@integer/google_play_services_version" />
 ### Ogury integration
 Ogury integration is different from others Ad network .
 
-
 * Step 1 : Contact mngads support to get presage API key.
 
 * Step 2 : Add presage-lib.jar to your libs folder
@@ -878,8 +874,6 @@ android.useDeprecatedNdk=true
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
 [SmartAdServer-Android-SDK.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
-[Retency]:http://www.retency.com/public/
-[Retency-sdk]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
 [Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Flurry]:https://developer.yahoo.com/flurry/
