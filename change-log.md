@@ -15,6 +15,10 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
     - Appsfire NativeAd bug fix
 
+- **Ad Network Mediation Updates**
+
+    - Use new [mngads-sdk-x.aar], version 2.9.5
+
 ## Version 2.9.4
 #### Release date: March 15th, 2018
 
