@@ -3,6 +3,17 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.9.5
+#### Release date: March 29th, 2018
+
+- **Features**
+
+    - Mopub native ad support.
+    - Appsfire templates changes (background, icon position)
+
+- **Bug Fixes**
+
+    - Appsfire NativeAd bug fix
 
 ## Version 2.9.4
 #### Release date: March 15th, 2018
