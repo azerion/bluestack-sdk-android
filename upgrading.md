@@ -10,6 +10,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 compile(name: 'mngads-sdk-2.9.5', ext: 'aar')
 
+```
 
 ## Version 2.9.4
 
