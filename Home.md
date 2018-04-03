@@ -58,7 +58,7 @@ include JCenter/Maven repository and add the following lines to your app's build
 
 ```groovy
 dependencies { 
-compile(name: 'mngads-sdk-2.9.4', ext: 'aar')
+compile(name: 'mngads-sdk-2.9.5', ext: 'aar')
 compile files('libs/SmartAdServer-Android-SDK-6.7.2.jar')
 compile files('libs/presage-lib-2.2.8-obfuscated.jar')
 
