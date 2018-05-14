@@ -12,6 +12,8 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Flurry]
 - [Ogury] Note : An API Key will be assigned to your application by mngads support team for Ogury library.
 - [Mopub Marketplace]
+- [AdColony]
+- [Vectaury]
 
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
@@ -19,7 +21,7 @@ It contains a dispacher that will select an ads server according to the priority
 ## Version
 See [Change Log] and [Upgrade Guide].
 
-NOTE :MNG Ads requires minimum Android API level 16 and a compileSdkVersion of at least 26
+NOTE :MNG Ads requires minimum Android API level 16 and a compileSdkVersion of at least 27
 
 ## Ad Examples and inspiration
 
@@ -32,19 +34,32 @@ You can see [Best practice Mngads and Design ad units to fit your app], an optim
 If using Gradle,Add this to Module-level /app/build.gradle before dependencies
 ```groovy
 repositories {
-mavenCentral() 
+    mavenCentral() 
+
+    //For AdColony configuration, ignore otherwise.
+    maven {  
+        url  "https://adcolony.bintray.com/AdColony"  
+    }
+    
+	//For Vectaury configuration, ignore otherwise.
+    maven {  
+        url  "https://nexus.vectaury.io/repository/sdk/"
+    }
 }
 ```
 
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:11.8.0) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.28.0) (**recommended**)
-- Support-v4 (com.android.support:support-v4:26.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
+- Google-play-services_lib (com.google.android.gms:play-services:15.0.0) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:4.28.1) (**recommended**)
+- Support-v4 (com.android.support:support-v4:27.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:9.0.0@aar and com.flurry.android:ads:9.0.0@aar (**recommended**)
+- com.flurry.android:analytics:10.0.0@aar and com.flurry.android:ads:10.0.0@aar (**recommended**)
 
 - Mopub Marketplace (com.mopub:mopub-sdk:4.20.0@aar) (**recommended**)
+
+- AdColony (com.adcolony:sdk:3.3.3) (**recommended**)
+- Vectaury (io.vectaury.android:sdk:1.2.0) (**recommended**)
 
 **See our [build.gradle] sample**
 
@@ -54,15 +69,18 @@ include JCenter/Maven repository and add the following lines to your app's build
 - [mngads-sdk-x.aar Android SDK] (**mandatory**)
 - [SmartAdServer-Android-SDK.aar] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
-- [umooveVx.aar] (for face detection)
+- [umooveVx.aar] (**recommended**)
 
 ```groovy
 dependencies { 
-compile(name: 'mngads-sdk-2.9.5', ext: 'aar')
-compile files('libs/SmartAdServer-Android-SDK-6.7.2.jar')
-compile files('libs/presage-lib-2.2.8-obfuscated.jar')
+implementation(name: 'mngads-sdk-2.10', ext: 'aar')
+implementation(name: 'SmartAdServer-Android-SDK-6.9', ext: 'aar')
 
-compile('com.mopub:mopub-sdk:4.20.0@aar') {
+implementation(name: 'presage-3.0.13-3.0.8', ext: 'aar')
+
+implementation(name: 'umooveV2.14.5d', ext: 'aar')
+
+implementation('com.mopub:mopub-sdk:4.20.0@aar') {
         transitive = true
         exclude module: 'libAvid-mopub' // To exclude AVID
         exclude module: 'moat-mobile-app-kit' // To exclude Moat
@@ -233,7 +251,7 @@ mngAdsBannerAdsFactory.loadBanner(mFrame)
 
 ```
 
-####Handle callBack from BannerListener
+#### Handle callBack from BannerListener
 **v1.5.1 or above**
 bannerDidLoad(View adView) changed to bannerDidLoad(View adView,int preferredHeightDP).
 bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
@@ -334,7 +352,7 @@ mngAdsInfeedAdsFactory.loadInfeed(new MNGFrame(300, 250))
 
 ```
 
-####Handle callBack from InfeedListener
+#### Handle callBack from InfeedListener
 
 infeedDidLoad(View infeedView): will be called by the SDK when your infeedView is ready. now you can add your infeedView to your view.
 ```java
@@ -359,7 +377,7 @@ Log.e(TAG, "infeed did fail :" + adsException.toString());
 - 5:3 (called also 15:9).
 
 ### Interstitial
-#####Init factory
+##### Init factory
 
 To create a interstitial you must init an object with type MNGAdsSDKFactory and set the interstitalListener and the context (Activity)  [more details about instance on our FAQ].
 
@@ -388,13 +406,13 @@ You have also to set placementId (minimum one time)
 mngAdsInterstitialAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
-#####Make a request 
+##### Make a request 
 To make a request you must call 'loadInterstitial()'. This is a void method, result will be returned in the callback.
 
 ```java
 mngAdsInterstitialAdsFactory.loadInterstitial()
 ```
-#####Handle callBack from InterstitialListener
+##### Handle callBack from InterstitialListener
 InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
 ```java
 @Override
@@ -419,7 +437,7 @@ Log.d(TAG, "interstitial disappear")
 }
 ```
 
-#####Disable auto-displaying
+##### Disable auto-displaying
 With v2.0.8 and above, you can disable auto-displaying.
 ```java
 ...
@@ -438,10 +456,10 @@ Log.d(TAG, "Interstitial not ready ");
 }
 ...
 ```
-######info 
+###### info 
 To try out auto-displaying disabled on demo, you can check interstitial page. Others interstitials (background returns, overlay) run with auto-displaying.
 
-###Show Interstitial after return from background
+### Show Interstitial after return from background
 
 You can see [Interstitial Guideline] and our demo app with following files
 
@@ -450,7 +468,7 @@ You can see [Interstitial Guideline] and our demo app with following files
 
 ### Native Ads
 Native ads give you the control to design the perfect ad units for your app. With our Native Ad API, you can determine the look and feel, size and location of your ads. Because you decide how the ads are formatted, ads can fit seamlessly in your application.
-#####Init factory
+##### Init factory
 
 To create a nativeAd  you have to init an object with type MNGAdsSDKFactory and set the nativeListener.
 
@@ -477,13 +495,13 @@ You have also to set placementId (minimum one time)
 ```java
 mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
-#####Make a request for native ad
+##### Make a request for native ad
 To make a request you have to call 'loadNative()'. This is a void method, result will be returned in the callback.
 
 ```java
 mngAdsNativeAdsFactory.loadNative()
 ```
-#####Handle callBack from NativeListener
+##### Handle callBack from NativeListener
 nativeObjectDidLoad()  will be called by the SDK when your nativeObject is ready. now you can create your own view.
 ```java
 @Override
@@ -501,7 +519,7 @@ Log.e(TAG, "nativeObject Did Fail :" + adsException.toString());
 }
 
 ```
-#####Build Native Ad UI
+##### Build Native Ad UI
 MNGNativeObject have all required metadata to build your customized native UI.
 Your native ad layout should have MAdvertiseNativeContainer as it's root viewGroup container.
 
@@ -732,6 +750,10 @@ You need to add the following to AndroidManifest.xml file :
 <!--this permission is required for Debug Mode with Gyroscope Sensor.-->
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+<!--Used by AdColony-->
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<!--Used by AdColony-->
+<uses-permission android:name="android.permission.VIBRATE" />
 
 
 <!-- b4s -->
@@ -755,55 +777,7 @@ Ogury integration is different from others Ad network .
 
 * Step 2 : Add presage-lib.jar to your libs folder
 
-* Step 3 : Copy the following lines in your AndroidManifest.xml inside <application> tag.Don't forget your API Key: presage_key.
-
-
-```xml
-<!-- PRESAGE LIBRARY -->
-<meta-data
-android:name="presage_key"
-android:value="presage_key" />
-
-<provider
-android:name="io.presage.provider.PresageProvider"
-android:authorities="${applicationId}.PresageProvider"
-android:enabled="true"
-android:exported="true" />
-
-<service
-android:name="io.presage.PresageService"
-android:enabled="true"
-android:exported="true"
-android:process=":remote">
-<intent-filter>
-<action android:name="io.presage.PresageService.PIVOT" />
-</intent-filter>
-</service>
-
-<activity
-android:name="io.presage.activities.PresageActivity"
-android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-android:hardwareAccelerated="true"
-android:label="@string/app_name"
-android:theme="@style/Presage.Theme.Transparent">
-<intent-filter>
-<action android:name="io.presage.intent.action.LAUNCH_WEBVIEW" />
-
-<category android:name="android.intent.category.DEFAULT" />
-</intent-filter>
-</activity>
-
-<receiver android:name="io.presage.receiver.NetworkChangeReceiver">
-<intent-filter>
-<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
-<action android:name="io.presage.receiver.NetworkChangeReceiver.ONDESTROY" />
-</intent-filter>
-</receiver>
-<receiver android:name="io.presage.receiver.AlarmReceiver" />
-
-```
-* Step 4 : If you use okhhtp in your project or in an other dependency, try to add these lines in your build.gradle to avoid build error :
+* Step 3 : If you use okhhtp in your project or in an other dependency, add these lines in your build.gradle to avoid build error :
 ```java
 buildTypes 
 {
@@ -815,6 +789,7 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 }
 }
 ```
+
 ### Eyes tracking
 
 >available v2.6
@@ -824,7 +799,7 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 - edit your build.gradle, add the library : 
 ```
 //face detection umoove
-compile(name: 'umooveV2.12.1', ext: 'aar')
+implementation(name: 'umooveV2.12.1', ext: 'aar')
 ```
 - you need to declare your flat file repository.
 ```
@@ -854,6 +829,7 @@ abiFilters "armeabi-v7a","x86"
 ```
 android.useDeprecatedNdk=true
 ```
+
 ### Troubleshooting
 
 * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
@@ -892,3 +868,5 @@ android.useDeprecatedNdk=true
 [umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
 [Mopub Marketplace]:https://www.mopub.com/
+[AdColony]:https://www.adcolony.com/
+[Vectaury]:https://cdn.vectaury.io/
