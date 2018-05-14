@@ -42,3 +42,7 @@ Therefore, do not use
 ```java
 android:noHistory="true"
 ```
+
+## Fatal signal 11 (SIGSEGV)
+
+Do not serialize location object for https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-preferences-object
