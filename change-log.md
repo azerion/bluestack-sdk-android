@@ -3,6 +3,33 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.10
+#### Release date: May 11th, 2018
+
+
+- **Features**
+    - According to the General Data Protection Regulation, we now have the option to provide the consent strings to MAdvertise. See [GDPR] doc.
+    - targetSdkVersion has changed to 27.
+    - Added AdColony sdk for mediation (com.adcolony:sdk:3.3.3)
+    - Vectaury tracking is now supported by our sdk. See [Vectaury]
+    - Added a custom close button for mngperf interstitial ads.
+    - You don't have to configure your proguard for our sdk anymore, you should keep the configurations that are specific to your app though.
+
+- **Bug Fixes**
+    - Fixed umoove engine unavailable 
+    - Interstitial close process optimisation.
+
+
+- **Ad Network Mediation Updates**
+    - Use new [mngads-sdk-x.aar], version 2.10
+    - Use new [SmartAdServer-Android-SDK-x.aar], version 6.9
+    - Use new [presage-x.aar], version 3.0.13-3.0.8 (with MOAT)
+    - Use new com.google.android.gms:play-services-ads:15.0.0
+    - Use new com.facebook.android:audience-network-sdk:4.28.1
+    - Use new com.flurry.android:analytics:10.0.0@aar and com.flurry.android:ads:10.0.0@aar
+    - Use new com.adcolony:sdk:3.3.3
+    
+
 ## Version 2.9.5
 #### Release date: March 29th, 2018
 
@@ -975,3 +1002,5 @@ You must check [Upgrade Guide]
 [eyes-tracking doc]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-eyes-tracking
 [nativead format]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead
 [Native Ad Choice position]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-customize-native-ad-adchoice
+[presage-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[GDPR]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/gdpr
