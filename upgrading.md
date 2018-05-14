@@ -2,6 +2,27 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.10
+
+- You can remove the proguard configuration previously made for mngads
+- Update targetSdkVersion to 27, compileSdkVersion to 27
+- Use MAdvertiseConsent to provide the user's concent relative to the new General Data Protection Regulation [GDPR].
+- In your dependency section of your build.gradle file, change the keyword compile to implementation.
+
+- Don't forget to update your dependencies as following :
+```groovy
+   implementation(name: 'mngads-sdk-2.10', ext: 'aar')
+   implementation(name: 'presage-3.0.13-3.0.8', ext: 'aar')
+   implementation 'com.google.android.gms:play-services-ads:15.0.0'
+   implementation(name: 'SmartAdServer-Android-SDK-6.9', ext: 'aar')
+   implementation 'com.facebook.android:audience-network-sdk:4.28.1'
+   implementation 'com.flurry.android:analytics:10.0.0@aar'
+   implementation 'com.flurry.android:ads:10.0.0@aar'
+   implementation 'com.adcolony:sdk:3.3.3'
+   implementation 'io.vectaury.android:sdk:1.2.0'
+```
+
 ## Version 2.9.5
 
 - Don't forget to update your dependencies as following :
@@ -997,3 +1018,4 @@ No special steps are required to upgrade to v1.1.
 [configure-your-manifest]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-configure-your-manifest
 [Native Ad Choice position]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-customize-native-ad-adchoice
 [proguard rules]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
+[GDPR]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/gdpr
