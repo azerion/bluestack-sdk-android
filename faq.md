@@ -43,6 +43,6 @@ Therefore, do not use
 android:noHistory="true"
 ```
 
-## Fatal signal 11 (SIGSEGV)
+## Fatal signal 11 (SIGSEGV) gson
 
-Do not serialize location object for https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-preferences-object
+Do not serialize Location object (like transforming it into a string using gson library), this may lead to a fatal runtime error when that instance is reused.
