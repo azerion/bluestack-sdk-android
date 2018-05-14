@@ -674,6 +674,7 @@ mngPreference.setContentUrl("put your content url here")
 
 ```
 `Note`: this [link] can help you to get device location.
+`Note`:  Do not serialize location object to avoid Fatal signal 11 (SIGSEGV) crash
 ### Exceptions
 |Exception|Error code|Message|Meaning|
 | --- | --- | --- | --- |
