@@ -41,7 +41,7 @@ repositories {
         url  "https://adcolony.bintray.com/AdColony"  
     }
     
-	//For Vectaury configuration, ignore otherwise.
+    //For Vectaury configuration, ignore otherwise.
     maven {  
         url  "https://nexus.vectaury.io/repository/sdk/"
     }
@@ -674,7 +674,7 @@ mngPreference.setContentUrl("put your content url here")
 
 ```
 `Note`: this [link] can help you to get device location.
-`Note`:  Do not serialize location object to avoid Fatal signal 11 (SIGSEGV) crash
+`Note`:  Do not serialize Location object (like transforming it into a string using gson library), this may lead to a fatal runtime error when that instance is reused.
 ### Exceptions
 |Exception|Error code|Message|Meaning|
 | --- | --- | --- | --- |
@@ -772,13 +772,7 @@ android:name="com.google.android.gms.version"
 android:value="@integer/google_play_services_version" />
 ```
 ### Ogury integration
-Ogury integration is different from others Ad network .
-
-* Step 1 : Contact mngads support to get presage API key.
-
-* Step 2 : Add presage-lib.jar to your libs folder
-
-* Step 3 : If you use okhhtp in your project or in an other dependency, add these lines in your build.gradle to avoid build error :
+If you use okhhtp in your project or in an other dependency, add these lines in your build.gradle to avoid build error :
 ```java
 buildTypes 
 {
