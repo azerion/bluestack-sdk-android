@@ -11,7 +11,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - According to the General Data Protection Regulation, we now have the option to provide the consent strings to MAdvertise. See [GDPR] doc.
     - targetSdkVersion has changed to 27.
     - Added AdColony sdk for mediation (com.adcolony:sdk:3.3.3)
-    - Vectaury tracking is now supported by our sdk. See [Vectaury]
+    - Vectaury tracking is now supported by our sdk. See [MAdvertiseVectaury]
     - Added a custom close button for mngperf interstitial ads.
     - You don't have to configure your proguard for our sdk anymore, you should keep the configurations that are specific to your app though.
 
@@ -1004,3 +1004,4 @@ You must check [Upgrade Guide]
 [Native Ad Choice position]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-customize-native-ad-adchoice
 [presage-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [GDPR]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/gdpr
+[MAdvertiseVectaury]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/MAdvertiseVectaury
