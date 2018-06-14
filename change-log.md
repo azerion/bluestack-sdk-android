@@ -3,6 +3,26 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.11
+#### Release date: June 14th, 2018
+
+- **Features**
+
+    - Retency tracking is now supported by our sdk. See [Retency]
+    - [MAdvertiseVectaury] is now GDPR compliant
+    - Our Demo implements [GDPR Madvertise CMP for Android]
+
+- **Bug Fixes**
+
+  - Fix CalledFromWrongThreadException crash from Appsfire
+
+- **Ad Network Mediation Updates**
+    - Use new [mngads-sdk-x.aar], version 2.11
+    - Use new [presage-x.aar], version 3.0.17-3.0.10 (with MOAT)
+    - Use new com.mopub:mopub-sdk:5.1.0@aar
+    - Use new [retency-sdk-x.jar], version 1.0.1
+    - Use new io.vectaury.android:sdk:1.3.1
+
 ## Version 2.10
 #### Release date: May 11th, 2018
 
@@ -1005,3 +1025,6 @@ You must check [Upgrade Guide]
 [presage-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [GDPR]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/gdpr
 [MAdvertiseVectaury]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/MAdvertiseVectaury
+[retency-sdk-x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[Retency]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Retency
+[GDPR Madvertise CMP for Android]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
