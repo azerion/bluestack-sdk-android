@@ -2,6 +2,19 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.11
+
+ - You can implement our [GDPR Madvertise CMP for Android].
+
+ - Don't forget to update your dependencies as following :
+```groovy
+   implementation(name: 'mngads-sdk-2.11', ext: 'aar')
+   implementation(name: 'presage-3.0.17-3.0.10', ext: 'aar')
+   implementation 'io.vectaury.android:sdk:1.3.1'
+   implementation 'com.mopub:mopub-sdk:5.1.0@aar'
+   implementation 'com.google.android.gms:play-services-base:15.0.0'
+   implementation files('libs/retency-sdk-1.0.1.jar')
+```
 
 ## Version 2.10
 
@@ -1019,3 +1032,4 @@ No special steps are required to upgrade to v1.1.
 [Native Ad Choice position]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead#markdown-header-customize-native-ad-adchoice
 [proguard rules]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [GDPR]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/gdpr
+[GDPR Madvertise CMP for Android]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
