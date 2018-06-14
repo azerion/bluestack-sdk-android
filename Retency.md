@@ -8,3 +8,7 @@ Add this dependency to your build.gradle file
     implementation "com.google.android.gms:play-services-base:15.0.1" 
     implementation "com.google.android.gms:play-services-ads:15.0.1"
 ```
+
+Retency jar available on 
+
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/
