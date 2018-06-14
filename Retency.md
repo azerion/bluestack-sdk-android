@@ -1,5 +1,9 @@
 #Retency
 
+## Description
+
+ - http://www.retency.com/public/
+
 ## Installation
 Add this dependency to your build.gradle file 
 
