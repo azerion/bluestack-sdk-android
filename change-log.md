@@ -3,6 +3,19 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.11.1
+#### Release date: August 3rd, 2018
+
+- **Bug Fixes**
+    - Fixed gif images not being animated
+    - Fixed an umoove crash
+    - Fixed an image loading error
+
+
+- **Ad Network Mediation Updates**
+    - Use new mngads-sdk-x.aar, version 2.11.1
+    - use new com.adcolony:sdk:3.3.4
+
 ## Version 2.11
 #### Release date: June 14th, 2018
 
