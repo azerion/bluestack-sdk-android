@@ -7,6 +7,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 - Don't forget to update your dependencies as following :
 ```groovy
+   implementation(name: 'mngads-sdk-2.11.1', ext: 'aar')
    implementation 'com.adcolony:sdk:3.3.4'
 ```
 
