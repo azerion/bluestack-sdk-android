@@ -2,6 +2,14 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.11.1
+#### Release date: August 3rd, 2018
+
+- Don't forget to update your dependencies as following :
+```groovy
+   implementation 'com.adcolony:sdk:3.3.4'
+```
+
 ## Version 2.11
 
  - You can implement our [GDPR Madvertise CMP for Android].
