@@ -27,20 +27,20 @@ NOTE :MNG Ads requires minimum Android API level 16 and a compileSdkVersion of a
 
 You can see [Best practice Mngads and Design ad units to fit your app], an optimized use case for several ad formats on one page.
 
-## Set up the SDK 
+## Set up the SDK
 
 ### Using Gradle
 
 If using Gradle,Add this to Module-level /app/build.gradle before dependencies
 ```groovy
 repositories {
-    mavenCentral() 
+    mavenCentral()
 
     //For AdColony configuration, ignore otherwise.
     maven {  
         url  "https://adcolony.bintray.com/AdColony"  
     }
-    
+
     //For Vectaury configuration, ignore otherwise.
     maven {  
         url  "https://nexus.vectaury.io/repository/sdk/"
@@ -56,9 +56,9 @@ include JCenter/Maven repository and add the following lines to your app's build
 - Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
 - com.flurry.android:analytics:10.0.0@aar and com.flurry.android:ads:10.0.0@aar (**recommended**)
 
-- Mopub Marketplace (com.mopub:mopub-sdk:4.20.0@aar) (**recommended**)
+- Mopub Marketplace (com.mopub:mopub-sdk:5.1.0@aar) (**recommended**)
 
-- AdColony (com.adcolony:sdk:3.3.3) (**recommended**)
+- AdColony (com.adcolony:sdk:3.3.4) (**recommended**)
 - Vectaury (io.vectaury.android:sdk:1.2.0) (**recommended**)
 
 **See our [build.gradle] sample**
@@ -72,15 +72,15 @@ include JCenter/Maven repository and add the following lines to your app's build
 - [umooveVx.aar] (**recommended**)
 
 ```groovy
-dependencies { 
-implementation(name: 'mngads-sdk-2.10', ext: 'aar')
+dependencies {
+implementation(name: 'mngads-sdk-2.11.1', ext: 'aar')
 implementation(name: 'SmartAdServer-Android-SDK-6.9', ext: 'aar')
 
 implementation(name: 'presage-3.0.13-3.0.8', ext: 'aar')
 
 implementation(name: 'umooveV2.14.5d', ext: 'aar')
 
-implementation('com.mopub:mopub-sdk:4.20.0@aar') {
+implementation('com.mopub:mopub-sdk:5.1.0@aar') {
         transitive = true
         exclude module: 'libAvid-mopub' // To exclude AVID
         exclude module: 'moat-mobile-app-kit' // To exclude Moat
@@ -123,7 +123,7 @@ import com.mngads.MNGAdsFactory;
 import com.mngads.listener.MNGAdsSDKFactoryListener;
 ...
 public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
-... 
+...
 if(MNGAdsFactory.isInitialized()){
 //The SDK is initialized
 Toast.makeText(this, "MNGAdsFactory is initialized", Toast.LENGTH_SHORT).show();
@@ -150,9 +150,9 @@ Toast.makeText(this, "MNGAdsFactory is not initialized", Toast.LENGTH_SHORT).sho
 
     @Override
     public void onMNGAdsSDKFactoryDidFailInitialization(Exception e) {
-        
+
         Toast.makeText(this, "MNGAds SDK Factory failed to initialize", Toast.LENGTH_SHORT).show();
-        
+
         Log.d(TAG, "MNGAdsSDKFactoryDidFailInitialization: " + e);
     }
 
@@ -185,7 +185,7 @@ import com.mngads.MNGAdsFactory;
 public class MainActivity extends Activity{
 
 private MNGAdsFactory mngAdsBannerAdsFactory;
-... 
+...
 // init banner factory
 mngAdsBannerAdsFactory = new MNGAdsFactory(this);
 mngBannerAdsFactory.setTimeOut(3);
@@ -273,7 +273,7 @@ public void bannerDidFail(Exception adsException) {
 Log.e(TAG, "banner did fail :" + adsException.toString());
 }
 ```
-**v1.5.1 or above** 
+**v1.5.1 or above**
 bannerResize(MNGFrame frame) : will be called when the banner has changed size
 ```java
 @Override
@@ -302,7 +302,7 @@ Example:
 
 MNGFrame mFrame;
 
-if (isSquare) 
+if (isSquare)
 {
 mFrame=MNGAdSize.MNG_MEDIUM_RECTANGLE;
 }
@@ -345,7 +345,7 @@ You have also to set placementId (minimum one time)
 mngAdsInfeedAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 #### Make a request
-To make a request you have to call 'loadInfeed'. This is a void method, result will be returned in the callback. 
+To make a request you have to call 'loadInfeed'. This is a void method, result will be returned in the callback.
 
 ```java
 mngAdsInfeedAdsFactory.loadInfeed(new MNGFrame(300, 250))
@@ -406,7 +406,7 @@ You have also to set placementId (minimum one time)
 mngAdsInterstitialAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
-##### Make a request 
+##### Make a request
 To make a request you must call 'loadInterstitial()'. This is a void method, result will be returned in the callback.
 
 ```java
@@ -456,7 +456,7 @@ Log.d(TAG, "Interstitial not ready ");
 }
 ...
 ```
-###### info 
+###### info
 To try out auto-displaying disabled on demo, you can check interstitial page. Others interstitials (background returns, overlay) run with auto-displaying.
 
 ### Show Interstitial after return from background
@@ -542,7 +542,7 @@ nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToAct
 }
 ```
 
-##### Customize Native Ad Badge 
+##### Customize Native Ad Badge
 You can use a custom badge for the native ad.
 
 ```java
@@ -654,8 +654,8 @@ informations that you can set are:
 - location : geographical position of the user.
 - language : language of user (ISO code)
 - gender : gender of user
-- keyWord : Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**. 
-- content url : URL for content related to your app (url must be a string which length not exceed 512 caracters). 
+- keyWord : Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**.
+- content url : URL for content related to your app (url must be a string which length not exceed 512 caracters).
 
 ```java
 import com.mngads.util.MNGPreference;
@@ -692,7 +692,7 @@ mngPreference.setContentUrl("put your content url here")
 #### Handle Exception
 If you want to check which exception was invoked, in the didFail callback you have to cast the exception to MAdvertiseException and then use getErrorCode() to get exception code.
 Also you can get exception message by calling getMessage().
-In the example below we use interstitialDidFail, even you can use this logic in all our didFail callBack(bannerDidFail, infeedDidFail,nativeAdCollectionDidFail and nativeObjectDidFail) 
+In the example below we use interstitialDidFail, even you can use this logic in all our didFail callBack(bannerDidFail, infeedDidFail,nativeAdCollectionDidFail and nativeObjectDidFail)
 ```java
 @Override
 public void interstitialDidFail(Exception e) {
@@ -702,7 +702,7 @@ MAdvertiseException adException=(MAdvertiseException)e;
 switch (adException.getErrorCode())
 {
 case MAdvertiseException.BUSY_FACTORY_ERROR :
-case MAdvertiseException.INTERSTITIAL_ALREADY_SHOWN_ERROR : 
+case MAdvertiseException.INTERSTITIAL_ALREADY_SHOWN_ERROR :
 .
 .
 .
@@ -774,7 +774,7 @@ android:value="@integer/google_play_services_version" />
 ### Ogury integration
 If you use okhhtp in your project or in an other dependency, add these lines in your build.gradle to avoid build error :
 ```java
-buildTypes 
+buildTypes
 {
 packagingOptions {
 exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
@@ -791,7 +791,7 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 
 - the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
 - download [umooveVx.aar] library and place it in the /libs folder in your project.
-- edit your build.gradle, add the library : 
+- edit your build.gradle, add the library :
 ```
 //face detection umoove
 implementation(name: 'umooveV2.12.1', ext: 'aar')
@@ -810,7 +810,7 @@ dirs 'libs'
 ```
 - and you have to specify abiFilters to avoid some problems with arm64-v8a devices : add abiFilters to your build.gradle like this
 ```
-defaultConfig 
+defaultConfig
 {
 .
 .
