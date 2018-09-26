@@ -3,8 +3,19 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.11.2
+#### Release date: September 26th, 2018
+
+- **Bug Fixes**
+    - Fixed timeout/lag for infeed format
+
+- **Ad Network Mediation Updates**
+    - Use new mngads-sdk-x.aar, version 2.11.2
+    - Use [amazon-ads-x.jar], version 5.9.0 (instead of compile 'com.amazon.android:mobile-ads:5.8.1.1' we are waiting an upgrade on Jcenter from Amazon team), this version is GDPR compliant
+
+
 ## Version 2.11.1
-#### Release date: August 3rd, 2018
+#### Release date: August 3th, 2018
 
 - **Bug Fixes**
     - Fixed gif images not being animated
@@ -1041,3 +1052,4 @@ You must check [Upgrade Guide]
 [retency-sdk-x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [Retency]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Retency
 [GDPR Madvertise CMP for Android]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
+[amazon-ads-x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
