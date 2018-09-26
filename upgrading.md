@@ -2,13 +2,24 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.11.2
+- Don't forget to update your dependencies as following :
+```groovy
+   implementation(name: 'mngads-sdk-2.11.2', ext: 'aar')
+   implementation 'com.adcolony:sdk:3.3.4'
+```
+
+    - Use new mngads-sdk-x.aar, version 2.11.2
+    - Use [amazon-ads-x.jar], version 5.9.0 (instead of compile 'com.amazon.android:mobile-ads:5.8.1.1' we are waiting an upgrade on Jcenter from Amazon team), this version is GDPR compliant
+
+
 ## Version 2.11.1
 #### Release date: August 3rd, 2018
 
 - Don't forget to update your dependencies as following :
 ```groovy
    implementation(name: 'mngads-sdk-2.11.1', ext: 'aar')
-   implementation 'com.adcolony:sdk:3.3.4'
+   implementation files('libs/amazon-ads-5.9.0.jar')
 ```
 
 ## Version 2.11
