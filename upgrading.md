@@ -2,6 +2,29 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.12
+
+- Add implementation files('libs/omsdk-android-1.2.4-Madvertise.jar') for IAB Viewability
+- Update infeed load callback to include preferredHeight:
+```java
+ infeedDidLoad(View view, int preferredHeightDP)
+ ```
+- You can remove the MAdvertiseConsent class usage, the consent will be automatically passed to the sdk after been saved properly in cache by the CMP.
+
+- Don't forget to update your dependencies as following :
+```groovy
+implementation(name: 'mngads-sdk-x', ext: 'aar')
+implementation 'com.google.android.gms:play-services-ads:15.0.1'
+implementation 'com.smartadserver.android:displaylibrary:6.10.0@aar'
+implementation files('libs/amazon-ads-5.9.0.jar')
+implementation 'com.flurry.android:analytics:11.3.0@aar'
+implementation 'com.flurry.android:ads:11.3.0@aar'
+implementation('com.mopub:mopub-sdk:5.3.0@aar')
+implementation(name: 'presage-moat-3.0.26-3.0.14', ext: 'aar')
+implementation 'com.adcolony:sdk:3.3.5'
+
+```
+
 ## Version 2.11.2
 - Don't forget to update your dependencies as following :
 ```groovy
@@ -1053,3 +1076,4 @@ No special steps are required to upgrade to v1.1.
 [proguard rules]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [GDPR]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/gdpr
 [GDPR Madvertise CMP for Android]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
+[omsdk-android-x-Madvertise.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
