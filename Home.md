@@ -8,7 +8,7 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Smart ads server]
 - [Google DFP]
 - [Facebook Audience Network]
-- [Amazon]
+- [Amazon.jar]
 - [Flurry]
 - [Ogury] Note : An API Key will be assigned to your application by mngads support team for Ogury library.
 - [Mopub Marketplace]
@@ -45,21 +45,27 @@ repositories {
     maven {  
         url  "https://nexus.vectaury.io/repository/sdk/"
     }
+
+    //For SmartAdServer configuration, ignore otherwise.
+    maven {  
+        url 'https://packagecloud.io/smartadserver/android/maven2'
+
+    }
 }
 ```
 
 include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
-- Google-play-services_lib (com.google.android.gms:play-services:15.0.0) (**mandatory**)
+- Google-play-services_lib (com.google.android.gms:play-services:15.0.1) (**mandatory**)
 - AudienceNetwork (com.facebook.android:audience-network-sdk:4.28.1) (**recommended**)
-- Support-v4 (com.android.support:support-v4:27.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
-- Amazon (com.amazon.android:mobile-ads:5.8.1.1) (**recommended**)
-- com.flurry.android:analytics:10.0.0@aar and com.flurry.android:ads:10.0.0@aar (**recommended**)
+- Support-v4 (com.android.support:support-v4:28.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
+- com.flurry.android:analytics:11.3.0@aar and com.flurry.android:ads:10.0.0@aar (**recommended**)
 
-- Mopub Marketplace (com.mopub:mopub-sdk:5.1.0@aar) (**recommended**)
+- Mopub Marketplace (com.mopub:mopub-sdk:5.3.0@aar) (**recommended**)
 
-- AdColony (com.adcolony:sdk:3.3.4) (**recommended**)
-- Vectaury (io.vectaury.android:sdk:1.2.0) (**recommended**)
+- AdColony (com.adcolony:sdk:3.3.5) (**recommended**)
+- Vectaury (io.vectaury.android:sdk:1.3.1) (**recommended**)
+- SmartAdServer (com.smartadserver.android:displaylibrary:6.10.0@aar) (**recommended**)
 
 **See our [build.gradle] sample**
 
@@ -67,16 +73,16 @@ include JCenter/Maven repository and add the following lines to your app's build
 **download and extract following files and place them in the /libs folder in your project**
 
 - [mngads-sdk-x.aar Android SDK] (**mandatory**)
-- [SmartAdServer-Android-SDK.aar] (**recommended**)
 - [Presage-lib.jar] (**recommended**)
 - [umooveVx.aar] (**recommended**)
+- [Amazon.jar] (**recommended**)
 
 ```groovy
 dependencies {
-implementation(name: 'mngads-sdk-2.11.1', ext: 'aar')
-implementation(name: 'SmartAdServer-Android-SDK-6.9', ext: 'aar')
+implementation(name: 'mngads-sdk-xx', ext: 'aar')
+implementation 'com.smartadserver.android:displaylibrary:6.10.0@aar'
 
-implementation(name: 'presage-3.0.13-3.0.8', ext: 'aar')
+implementation(name: 'presage-moat-3.0.26-3.0.14', ext: 'aar')
 
 implementation(name: 'umooveV2.14.5d', ext: 'aar')
 
@@ -85,6 +91,9 @@ implementation('com.mopub:mopub-sdk:5.1.0@aar') {
         exclude module: 'libAvid-mopub' // To exclude AVID
         exclude module: 'moat-mobile-app-kit' // To exclude Moat
     }
+
+
+implementation files('libs/amazon-ads-5.9.0.jar')
 }
 ```
 
@@ -357,7 +366,7 @@ mngAdsInfeedAdsFactory.loadInfeed(new MNGFrame(300, 250))
 infeedDidLoad(View infeedView): will be called by the SDK when your infeedView is ready. now you can add your infeedView to your view.
 ```java
 @Override
-public void infeedDidLoad(View infeedView) {
+public void infeedDidLoad(View infeedView, int preferredHeightDP) {
 Log.d(TAG, "your infeed view is ready")
 ...
 adLayout.addView(infeedView);
