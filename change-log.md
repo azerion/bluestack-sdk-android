@@ -7,7 +7,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 #### Release date: October 14th, 2018
 
 - **Features**
-    - IAB Open Measurement compliant (viewability https://iabtechlab.com/technology-compliant-companies/#)
+    - ![omsdk.png](https://bitbucket.org/repo/GyRXRR/images/3400517277-omsdk.png) IAB Open Measurement compliant (viewability https://iabtechlab.com/technology-compliant-companies/#) 
     - GDPR : Automatic consent management so you don't have to export it manually to the sdk, MAdvertiseConsent is now deprecated.
     - Added preferredHeight argument to the infeed ad's load callback.
     - You can now request MAS banners / squares with a height of more then 250 dp.
