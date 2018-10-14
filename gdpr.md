@@ -11,15 +11,6 @@ Publishers are free to implement or develop the CMP of their choice as long as t
 
 We have developed our [Madvertise CMP]
 
-Usage example of MAdvertiseConsent
-```java
-if (isInGdprScope){
-	MAdvertiseConsent.setConsentInformation(context, true, consents);
-} else {
-	MAdvertiseConsent.setConsentInformation(context, false, null);
-}
-```
-`Notes`:  For now, end user consent string must be passed with key name IAB. Anything else will be ignored.
 
 [GDPR Consent Demo]:https://quantcast.mgr.consensu.org/index.html](https://quantcast.mgr.consensu.org/index.html
 [IAB EU Transparency Consent Framework]: http://advertisingconsent.eu/
