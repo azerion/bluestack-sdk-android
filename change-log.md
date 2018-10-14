@@ -3,6 +3,36 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.12
+#### Release date: October 14th, 2018
+
+- **Features**
+    - IAB Open Measurement compliant (viewability https://iabtechlab.com/technology-compliant-companies/#)
+    - GDPR : Automatic consent management so you don't have to export it manually to the sdk, MAdvertiseConsent is now deprecated.
+    - Added preferredHeight argument to the infeed ad's load callback.
+    - You can now request MAS banners / squares with a height of more then 250 dp.
+    - Upgraded target sdk version to 28, buildToolVersion to 28.0.2
+    - Upgraded Gradle version to 4.4
+    - Upgraded Android Plugin dependency to 3.2.0
+    - Changed Amazon ads dependency to a .jar file to support the latest version.
+
+- **Bug Fixes**
+    - Fixed gif ads not animated.
+    - Updated sound management on video ads.
+    - Fix MNGAnalyticsService issue on android 8
+
+- **Ad Network Mediation Updates**
+    - Add new [omsdk-android-x-Madvertise.jar] for IAB Viewability
+    - Use new [mngads-sdk-x.aar], version 2.12
+    - Use new amazon-ads-5.9.0.jar
+    - Use new com.google.android.gms:play-services-ads:15.0.1
+    - Use new com.smartadserver.android:displaylibrary:6.10.0@aar
+    - Use new com.flurry.android:analytics:11.3.0@aar', 'com.flurry.android:ads:11.3.0@aar
+    - Use new com.mopub:mopub-sdk:5.3.0@aar
+    - Use new com.adcolony:sdk:3.3.5
+    - Use new presage-moat-3.0.26-3.0.14.aar
+    - Use new Support-v4: com.android.support:support-v4:28.0.0
+
 ## Version 2.11.2
 #### Release date: September 26th, 2018
 
@@ -10,7 +40,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - Fixed timeout/lag for infeed format
 
 - **Ad Network Mediation Updates**
-    - Use new mngads-sdk-x.aar, version 2.11.2
+    - Use new [mngads-sdk-x.aar], version 2.11.2
     - Use [amazon-ads-x.jar], version 5.9.0 (instead of compile 'com.amazon.android:mobile-ads:5.8.1.1' we are waiting an upgrade on Jcenter from Amazon team), this version is GDPR compliant
 
 
@@ -24,7 +54,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 
 - **Ad Network Mediation Updates**
-    - Use new mngads-sdk-x.aar, version 2.11.1
+    - Use new [mngads-sdk-x.aar], version 2.11.1
     - use new com.adcolony:sdk:3.3.4
 
 ## Version 2.11
@@ -1053,3 +1083,4 @@ You must check [Upgrade Guide]
 [Retency]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Retency
 [GDPR Madvertise CMP for Android]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
 [amazon-ads-x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[omsdk-android-x-Madvertise.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
