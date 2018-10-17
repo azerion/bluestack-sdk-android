@@ -6,15 +6,21 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 - Add implementation files('libs/omsdk-android-1.2.4-Madvertise.jar') for IAB Viewability
 - Update infeed load callback to include preferredHeight:
+
 ```java
+
  infeedDidLoad(View view, int preferredHeightDP)
- ```
+```
+
 - You can remove the MAdvertiseConsent class usage, the consent will be automatically passed to the sdk after been saved properly in cache by the CMP.
 
 - Don't forget to update your dependencies as following :
+
 ```groovy
+
 implementation(name: 'mngads-sdk-x', ext: 'aar')
-implementation 'com.google.android.gms:play-services-ads:15.0.1'
+implement
+ation 'com.google.android.gms:play-services-ads:15.0.1'
 implementation 'com.smartadserver.android:displaylibrary:6.10.0@aar'
 implementation files('libs/amazon-ads-5.9.0.jar')
 implementation 'com.flurry.android:analytics:11.3.0@aar'
