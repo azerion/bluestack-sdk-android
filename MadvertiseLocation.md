@@ -43,6 +43,8 @@ dependencies {
 }
 ```
 
+[madvertiselocation-x.aar] available on https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
+
 Note : 
 
  The aar file doesn't contain nested (or transitive) dependecies and doesn't have a pom file which describes the dependencies used by the library.
@@ -69,3 +71,6 @@ Note:
 Since Android 6.0 (API level 23), this permission is belongs to the "dangerous permissions" and must be requested at run time.
 
 The library does not implement this mechanism as it could interfere with your application's behavior.
+
+
+[madvertiselocation-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
