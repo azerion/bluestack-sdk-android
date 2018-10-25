@@ -12,8 +12,7 @@ Publishers are free to implement or develop the CMP of their choice as long as t
 We have developed our [Madvertise CMP]
 
 
-[GDPR Consent Demo]:https://quantcast.mgr.consensu.org/index.html](https://quantcast.mgr.consensu.org/index.html
 [IAB EU Transparency Consent Framework]: http://advertisingconsent.eu/
-[Here]: http://advertisingconsent.eu/iab-europe-transparency-consent-framework-list-of-registered-cmps/
-[IAB Europe’s Transparency & Consent Framework.]:http://advertisingconsent.eu/transparency-consent-framework-global-vendor-list/
+[Here]: https://advertisingconsent.eu/cmp-list/
+[IAB Europe’s Transparency & Consent Framework.]:https://advertisingconsent.eu/vendors-list/
 [Madvertise CMP]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/src
