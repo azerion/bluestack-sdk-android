@@ -4,7 +4,7 @@ MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP**
 
 ## Prerequisites
 
- - The latest versions of the Android SDK.
+ - The latest versions of the Android SDK, [madvertiselocation-x.aar].
  - Android Studio to manage your project.
  - Android 4.0 (API 14) or above
 
