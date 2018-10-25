@@ -1,6 +1,6 @@
 #Madvertise Location SDK
 
-MadvertiseLocation SDK is and android library.
+MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
 
 ## Version
 
@@ -74,3 +74,4 @@ The library does not implement this mechanism as it could interfere with your ap
 
 
 [madvertiselocation-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
+[Madvertise CMP]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
