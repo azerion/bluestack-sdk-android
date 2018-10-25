@@ -2,12 +2,11 @@
 
 MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
 
-## Version
+## Prerequisites
 
-```groovy
-versionCode 1
-versionName "1.0" 
-```
+ - The latest versions of the Android SDK.
+ - Android Studio to manage your project.
+ - Android 4.0 (API 14) or above
 
 ## Set up the SDK
 
