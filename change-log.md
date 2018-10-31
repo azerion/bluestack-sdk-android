@@ -3,6 +3,23 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.12.1
+#### Release October 31th, 2018
+
+- **Features**
+    - Changed mopub adChoice's size.
+
+- **Bug Fixes**
+    - Fixed recycled bitmap error.
+    - Fixed OnAdClicked not been called for smartAdserver.
+
+- **Ad Network Mediation Updates**
+    - Use new mngads-sdk-x.aar, version 2.12.1
+    - Use new com.google.android.gms:play-services-ads:16.0.0
+    - Use new com.mopub:mopub-sdk:5.4.0@aar
+    - Use new io.vectaury.android:sdk:1.3.3
+
+
 ## Version 2.12
 #### Release date: October 14th, 2018
 
