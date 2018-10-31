@@ -2,6 +2,16 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.12.1
+
+- Don't forget to update your dependencies as following :
+```groovy
+implementation(name: 'mngads-sdk-2.12.1', ext: 'aar')
+implementation 'com.google.android.gms:play-services-ads:16.0.0'
+implementation 'io.vectaury.android:sdk:1.3.3'
+implementation 'com.mopub:mopub-sdk:5.4.0@aar'
+```
+
 ## Version 2.12
 
 - Add implementation files('libs/omsdk-android-1.2.4-Madvertise.jar') for IAB Viewability
@@ -18,7 +28,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 ```groovy
 
-implementation(name: 'mngads-sdk-x', ext: 'aar')
+implementation(name: 'mngads-sdk-2.12', ext: 'aar')
 implement
 ation 'com.google.android.gms:play-services-ads:15.0.1'
 implementation 'com.smartadserver.android:displaylibrary:6.10.0@aar'
