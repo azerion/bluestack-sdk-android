@@ -17,7 +17,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 - **Ad Network Mediation Updates**
     - Use new mngads-sdk-x.aar, version 2.12.2
-    - Use new com.smartadserver.android:displaylibrary:6.10.0@aar
+    - Use new com.smartadserver.android:displaylibrary:6.10.1@aar
 
 
 ## Version 2.12.1
