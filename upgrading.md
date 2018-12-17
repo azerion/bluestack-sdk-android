@@ -6,6 +6,14 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 - Don't forget to update your dependencies as following :
 ```groovy
+implementation(name: 'mngads-sdk-2.12.2', ext: 'aar')
+implementation 'com.smartadserver.android:displaylibrary:6.10.1@aar'
+```
+
+## Version 2.12.1
+
+- Don't forget to update your dependencies as following :
+```groovy
 implementation(name: 'mngads-sdk-2.12.1', ext: 'aar')
 implementation 'com.google.android.gms:play-services-ads:16.0.0'
 implementation 'io.vectaury.android:sdk:1.3.3'
