@@ -3,8 +3,25 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.12.2
+#### Release date: December 17th, 2018
+
+- **Features**
+    - Updated tracking events' management.
+
+- **Bug Fixes**
+    - Fixed recycled bitmap error.
+    - Fixed OnAdClicked not been called for certain adServers.
+    - Fixed Smart AdServer SDK Vulnerability
+
+
+- **Ad Network Mediation Updates**
+    - Use new mngads-sdk-x.aar, version 2.12.2
+    - Use new com.smartadserver.android:displaylibrary:6.10.0@aar
+
+
 ## Version 2.12.1
-#### Release October 31th, 2018
+#### Release date: October 31th, 2018
 
 - **Features**
     - Changed mopub adChoice's size.
