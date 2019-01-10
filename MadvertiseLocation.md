@@ -1,5 +1,7 @@
 #Madvertise Location SDK
 
+[TOC]
+
 MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
 
 ## Prerequisites
@@ -70,6 +72,29 @@ Note:
 Since Android 6.0 (API level 23), this permission is belongs to the "dangerous permissions" and must be requested at run time.
 
 The library does not implement this mechanism as it could interfere with your application's behavior.
+
+## That for use in standalone without the mngads SDK
+
+Madvertise is built based on Builder creational design pattern.
+In order to initialize the MadvertiseLocation SDK, you must have an APP_ID value. 
+
+```java
+
+private static final String APP_ID = "XXXXXX";
+
+@Override
+private void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	
+	MadvertiseLocation madvertiseLocation = new MadvertiseLocationBuilder(getApplicationContext())
+                .appId(APP_ID)
+                .build();
+
+   MadvertiseLocation.with(madvertiseLocation);
+}
+```
+        
+
 
 
 [madvertiselocation-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
