@@ -5,7 +5,7 @@
 
 MNG Ads provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK is a library that allow you to handle the following Ads servers with the easy way :
 
-- [Smart ads server]
+- [SmartAdServer]
 - [Google DFP]
 - [Facebook Audience Network]
 - [Amazon.jar]
@@ -45,12 +45,6 @@ repositories {
     maven {  
         url  "https://nexus.vectaury.io/repository/sdk/"
     }
-
-    //For SmartAdServer configuration, ignore otherwise.
-    maven {  
-        url 'https://packagecloud.io/smartadserver/android/maven2'
-
-    }
 }
 ```
 
@@ -59,13 +53,13 @@ include JCenter/Maven repository and add the following lines to your app's build
 - Google-play-services_lib (com.google.android.gms:play-services:15.0.1) (**mandatory**)
 - AudienceNetwork (com.facebook.android:audience-network-sdk:4.28.1) (**recommended**)
 - Support-v4 (com.android.support:support-v4:28.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
-- com.flurry.android:analytics:11.3.0@aar and com.flurry.android:ads:10.0.0@aar (**recommended**)
+- com.flurry.android:analytics:11.4.0@aar and com.flurry.android:ads:11.4.0@aar (**recommended**)
 
 - Mopub Marketplace (com.mopub:mopub-sdk:5.3.0@aar) (**recommended**)
 
 - AdColony (com.adcolony:sdk:3.3.5) (**recommended**)
 - Vectaury (io.vectaury.android:sdk:1.3.1) (**recommended**)
-- SmartAdServer (com.smartadserver.android:displaylibrary:6.10.0@aar) (**recommended**)
+- SmartAdServer (See SmartAdServer integration below) (**recommended**)
 
 **See our [build.gradle] sample**
 
@@ -80,7 +74,6 @@ include JCenter/Maven repository and add the following lines to your app's build
 ```groovy
 dependencies {
 implementation(name: 'mngads-sdk-xx', ext: 'aar')
-implementation 'com.smartadserver.android:displaylibrary:6.10.0@aar'
 
 implementation(name: 'presage-moat-3.0.26-3.0.14', ext: 'aar')
 
@@ -298,13 +291,15 @@ Mng ads provides variant pre-defined sizes ( example below).
 ```java
 
 public final static MNGFrame MNG_BANNER = new MNGFrame(320, 50);
-public final static MNGFrame MNG_DYNAMIC_BANNER = new MNGFrame(MNGConstants.UNDEFINED_WIDTH, 50);
+public final static MNGFrame MNG_DYNAMIC_BANNER = new MNGFrame(MNGAdSize.UNDEFINED_WIDTH, 50);
 public final static MNGFrame MNG_LARGE_BANNER = new MNGFrame(320, 100);
 public final static MNGFrame MNG_FULL_BANNER = new MNGFrame(468, 60);
 public final static MNGFrame MNG_LEADERBOARD = new MNGFrame(728, 90);
-public final static MNGFrame MNG_DYNAMIC_LEADERBOARD = new MNGFrame(MNGConstants.UNDEFINED_WIDTH, 90);
+public final static MNGFrame MNG_DYNAMIC_LEADERBOARD = new MNGFrame(MNGAdSize.UNDEFINED_WIDTH, 90);
 public final static MNGFrame MNG_MEDIUM_RECTANGLE = new MNGFrame(300, 250);
 ```
+And you can create your preferred Frame size, or an undefined size using MNGAdSize.UNDEFINED_WIDTH and MNGAdSize.UNDEFINED_HEIGHT
+
 Example:
 
 ```java
@@ -794,6 +789,24 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 }
 ```
 
+### SmartAdServer integration
+```
+You will need to add these lines to your repositories section
+
+```groovy
+maven {
+    url 'https://packagecloud.io/smartadserver/android/maven2'
+}
+```
+
+And you will also need to add the following dependencies
+```groovy
+implementation 'com.smartadserver.android:smart-display-sdk:7.0.2@aar'
+implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+```
+
+
 ### Eyes tracking
 
 >available v2.6
@@ -840,7 +853,7 @@ android.useDeprecatedNdk=true
 * Android multidex issue [AndroidMultidex]
 
 [link]:https://developer.android.com/training/location/retrieve-current.html
-[Smart ads server]:http://help.smartadserver.com/fr/Default.htm#../../../../specifications/Content/MobileSpecifications/Apps.htm
+[SmartAdServer]:http://documentation.smartadserver.com/displaySDK
 [Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
 [Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
 [Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
@@ -852,7 +865,6 @@ android.useDeprecatedNdk=true
 [AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/AudienceNetwork.jar?at=master&fileviewer=file-view-default
 [Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
 [Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[SmartAdServer-Android-SDK.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
 [Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
