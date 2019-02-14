@@ -3,6 +3,23 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.13
+#### Release date: February 14th, 2019
+
+- **Features**
+    - Management of the banner's undefined height error.
+
+- **Bug Fixes**
+    - Fixed flurry native ad error.
+    - Fixed the banner's undefined height error.
+
+- **Ad Network Mediation Updates**
+    - Use new mngads-sdk-x.aar, version 2.13
+    - Use new com.smartadserver.android:smart-display-sdk:7.0.3@aar (check upgradind guide)
+    - Use new com.flurry.android:analytics:11.4.0@aar
+    - com.flurry.android:ads:11.4.0@aar
+
+
 ## Version 2.12.2
 #### Release date: December 17th, 2018
 
