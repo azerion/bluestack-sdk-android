@@ -2,6 +2,29 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.13
+
+- Don't forget to update your dependencies as following :
+```groovy
+implementation(name: 'mngads-sdk-2.13', ext: 'aar')
+implementation 'com.smartadserver.android:smart-display-sdk:7.0.3@aar'
+```
+
+Add the following dependencies that goes along with the smart ad server
+
+```groovy
+implementation 'com.google.android.gms:play-services-ads-identifier:+'
+implementation 'com.google.android.gms:play-services-location:+'
+implementation 'com.squareup.okhttp3:okhttp:+' 
+```
+Update Flurry's dependency
+
+```groovy
+implementation 'com.flurry.android:analytics:11.4.0@aar'
+implementation 'com.flurry.android:ads:11.4.0@aar'
+```
+
 ## Version 2.12.1
 
 - Don't forget to update your dependencies as following :
