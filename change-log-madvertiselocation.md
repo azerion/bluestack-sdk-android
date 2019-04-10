@@ -1,7 +1,7 @@
 Change log and release notes for MadvertiseLocation for Android.
 
 ### Version 2.2
-#### Release date: April 2th, 2019
+#### Release date: April 10th, 2019
 
  - Manage MadvertiseConsent_ConsentString (specific purposes for GPS data) from CMP that replace IABConsent_LocationPurpose
  - Allow debug Mode
