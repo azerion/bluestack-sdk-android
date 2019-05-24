@@ -3,6 +3,18 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.13.1
+#### Release date: May 24th, 2019
+
+- **Bug Fixes**
+
+  - Fix potential application crash when migrating to 7.x from 6.x due to obsolete cache files for smartAdserver SDK
+  - Fix potential Native crash for smartAdserver
+
+- **Ad Network Mediation Updates**
+    - Use new mngads-sdk-x.aar, version 2.13.1
+    - Use new com.smartadserver.android:smart-display-sdk:7.0.5@aar
+
 ## Version 2.13
 #### Release date: February 14th, 2019
 
