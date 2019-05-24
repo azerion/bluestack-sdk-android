@@ -2,6 +2,12 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.13.1
+- Don't forget to update your dependencies as following :
+```groovy
+implementation(name: 'mngads-sdk-2.13.1', ext: 'aar')
+implementation 'com.smartadserver.android:smart-display-sdk:7.0.5@aar'
+```
 
 ## Version 2.13
 
