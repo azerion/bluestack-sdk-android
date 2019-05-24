@@ -8,8 +8,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 - **Bug Fixes**
 
-  - Fix potential application crash when migrating to 7.x from 6.x due to obsolete cache files for smartAdserver SDK
-  - Fix potential Native crash for smartAdserver
+     - Fix potential application crash when migrating to 7.x from 6.x due to obsolete cache files for smartAdserver SDK
+     - Fix potential Native crash for smartAdserver
 
 - **Ad Network Mediation Updates**
     - Use new mngads-sdk-x.aar, version 2.13.1
