@@ -14,6 +14,29 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - **Ad Network Mediation Updates**
     - Use new mngads-sdk-x.aar, version 2.13.1
     - Use new com.smartadserver.android:smart-display-sdk:7.0.5@aar
+    - Use new com.google.android.gms:play-services-ads:17.2.0
+
+**Important :You should note that it is mandatory that you add to your AndroidManifest.xml file:**
+
+
+```
+#!xml
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
+```
+
+and remove
+
+
+```
+#!xml
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+```
 
 ## Version 2.13
 #### Release date: February 14th, 2019
