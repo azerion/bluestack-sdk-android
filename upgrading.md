@@ -7,7 +7,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 ```groovy
 implementation(name: 'mngads-sdk-2.13.1', ext: 'aar')
 implementation 'com.smartadserver.android:smart-display-sdk:7.0.5@aar'
-implementation 'com.google.android.gms:play-services-ads:17.2.0
+implementation 'com.google.android.gms:play-services-ads:17.2.0'
 ```
 
 **Important :You should note that it is mandatory that you add to your AndroidManifest.xml file:
