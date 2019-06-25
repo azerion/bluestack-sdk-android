@@ -29,6 +29,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - Use new "com.adcolony:sdk:3.3.10"
     - Use new [madvertiselocation-x.aar], version 2.3
     - Use new [MAdvertiseCmp-xx.aar], version 18
+    - Use new [Amazon-APS], version 7.4.3
 
 
 ## Version 2.13.1
@@ -1200,3 +1201,4 @@ You must check [Upgrade Guide]
 [omsdk-android-x-Madvertise.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
 [madvertiselocation-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
 [MAdvertiseCmp-xx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
+[Amazon-APS]:https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/DTBAndroidSDK-7.4.3.aar
