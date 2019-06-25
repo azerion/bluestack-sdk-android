@@ -81,7 +81,11 @@ In order to initialize the MadvertiseLocation SDK, you must have an APP_ID value
 ```java
 
 private static final String APP_ID = "XXXXXX";
+//new implementation since v2.3
+MadvertiseLocation.configure(getApplicationContext(), APP_ID).start();
 
+
+//deprecated implementation (v1.0 to v2.2)
 @Override
 private void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
