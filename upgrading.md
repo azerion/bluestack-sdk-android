@@ -2,6 +2,33 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.14
+
+- Infeed has fixed ratio when loading, it can be either 16:9 (MAdvertiseInfeedFrame.INFEED_RATIO_16_9) or 4:3 (INFEED_RATIO_4_3)
+ you have to update your loading method to:
+```java
+loadInfeed(new MAdvertiseInfeedFrame(widthDP, ratio));
+```
+
+or you can use the 16:9 ratio by default:
+```java
+loadInfeed(new MAdvertiseInfeedFrame(widthDP));
+```
+ratio is 
+
+- Don't forget to update your dependencies as following :
+```groovy
+implementation(name: 'mngads-sdk-2.14', ext: 'aar')
+implementation 'com.smartadserver.android:smart-display-sdk:7.0.5@aar'
+implementation 'com.adcolony:sdk:3.3.10'
+
+//For GDPR Madvertise CMP
+implementation(name: 'MAdvertiseCmp-18', ext: 'aar')
+
+//For GPS data
+implementation(name: 'madvertiselocation-2.3', ext: 'aar')
+```
+
 ## Version 2.13.1
 - Don't forget to update your dependencies as following :
 ```groovy
@@ -1154,3 +1181,5 @@ No special steps are required to upgrade to v1.1.
 [GDPR]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/gdpr
 [GDPR Madvertise CMP for Android]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
 [omsdk-android-x-Madvertise.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/
+[madvertiselocation-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
+[MAdvertiseCmp-xx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
