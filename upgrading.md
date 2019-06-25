@@ -36,10 +36,22 @@ or you can use the 16:9 ratio by default:
 ```java
 loadInfeed(new MAdvertiseInfeedFrame(widthDP));
 ```
-ratio is 
+
+replace
+```groovy
+implementation files('libs/amazon-ads-5.9.0.jar')
+```
+
+by
+
+```groovy
+implementation(name: 'DTBAndroidSDK-7.4.3', ext: 'aar')
+```
 
 - Don't forget to update your dependencies as following :
+
 ```groovy
+implementation(name: 'DTBAndroidSDK-7.4.3', ext: 'aar')
 implementation(name: 'mngads-sdk-2.14', ext: 'aar')
 implementation 'com.smartadserver.android:smart-display-sdk:7.0.5@aar'
 implementation 'com.adcolony:sdk:3.3.10'
