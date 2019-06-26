@@ -110,6 +110,7 @@ private void onCreate(Bundle savedInstanceState) {
 the implementation of this method allows to stop the tracking service
 
 ```java
+
     public static void stop() {
         if (mContext != null && !TextUtils.isEmpty(mAppId)) {
             DebugLog.i(TAG, "stopped");
@@ -117,7 +118,7 @@ the implementation of this method allows to stop the tracking service
             MadvertiseAlarmReceiver.stop(mContext);
         }
     }
-...
+```
         
 
 
