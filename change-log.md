@@ -13,7 +13,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - Infeed is available for dfp ads.
     - Infeed's ad view ratio is fixed to 16:9 or 4:3
     - Viewability feature to track how much of the ad had been seen.
-    - Enabling MAdvertiseLocation sdk along with the MAdvertise SDK.
+    - Enabling debug MAdvertiseLocation sdk along with the MAdvertise SDK.
 
 - **Bug Fixes**
     - Fixed returning to forground after opening external url.
