@@ -109,8 +109,7 @@ private void onCreate(Bundle savedInstanceState) {
 ### Stop service (since 2.3 version)
 the implementation of this method allows to stop the tracking service
 
-~~~java
-...
+```java
     public static void stop() {
         if (mContext != null && !TextUtils.isEmpty(mAppId)) {
             DebugLog.i(TAG, "stopped");
