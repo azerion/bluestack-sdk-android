@@ -3,6 +3,16 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.14.1
+#### Release date: July 23th, 2019
+
+- **Features**
+	- Blocked the following ad networks when they are disabled by cmp: Facebook Audience, Amazon Publisher Service.
+    - Blocked retency when it is disabled by cmp.
+
+- **Ad Network Mediation Updates**
+    - Use new [mngads-sdk-x.aar], version 2.14.1
+
 ## Version 2.14
 #### Release date: June 25th, 2019
 
