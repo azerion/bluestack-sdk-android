@@ -2,6 +2,19 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.14.1
+
+- Don't forget to update your dependencies as following :
+
+```groovy
+
+implementation(name: 'mngads-sdk-2.14.1', ext: 'aar')
+//For GDPR Madvertise CMP
+implementation(name: 'MAdvertiseCmp-19', ext: 'aar')
+
+```
+
 ## Version 2.14
 
 **Important :You should note that it is mandatory that you add to your AndroidManifest.xml file:
