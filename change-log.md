@@ -7,8 +7,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 #### Release date: July 23th, 2019
 
 - **Features**
-	- Blocked the following ad networks when they are disabled by cmp: Facebook Audience, Amazon Publisher Service.
-    - Blocked retency when it is disabled by cmp.
+	- Blocked the following ad networks when they are disabled by cmp: Facebook Audience, Amazon Publisher Service (require [MadvertiseCMP v19](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/) ).
+    - Blocked retency when it is disabled by cmp (require [MadvertiseCMP v19](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/) ).
 
 - **Ad Network Mediation Updates**
     - Use new [mngads-sdk-x.aar], version 2.14.1
@@ -39,7 +39,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - Use new "com.adcolony:sdk:3.3.10"
     - Use new [madvertiselocation-x.aar], version 2.3
     - Use new [MAdvertiseCmp-xx.aar], version 18
-    - Use new [Amazon-APS], version 7.4.3
+    - Use new [Amazon-APS], version 7.4.3, [AmazonPublisherService](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/AmazonPublisherService)
 
 
 ## Version 2.13.1
