@@ -1,5 +1,12 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 2.4
+#### Release date: September 2th, 2019
+
+ - Date management optimizations
+ - Battery life optimizations
+ - fix dequeueWork() crash on JobIntentService
+
 ### Version 2.3
 #### Release date: June 25th, 2019
 
