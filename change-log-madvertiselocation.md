@@ -1,5 +1,10 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 2.5
+#### Release date: September 5th, 2019
+
+ - jobId optimization
+
 ### Version 2.4
 #### Release date: September 2th, 2019
 
