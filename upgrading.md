@@ -4,6 +4,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 
 ## Version 2.15
+- remove implementation files('libs/omsdk-android-1.2.4-Madvertise.jar') now include on mngads-sdk-2.15
 
 -   **Update minSdkVersion to 19 (If it's less) and targetSdkVersion / compileSdkVersion to 28**
 
