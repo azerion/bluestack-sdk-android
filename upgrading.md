@@ -3,6 +3,84 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 2.15
+
+-   **Update minSdkVersion to 19 (If it's less) and targetSdkVersion / compileSdkVersion to 28**
+
+- **Support ImageView for NativeAd's ad for Facebook Audience Network**
+
+replace 
+```java
+String iconUrl=nativeObject.getAdIconUrl();
+String coverImageUrl=nativeObject.getAdCoverImageUrl();
+
+//to handle impressions and user interactions you have to register your MAdvertiseNativeContainer as your root layout container and your callToActionView view as following
+nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToActionView);
+```
+by
+```java
+//to handle impressions, user interactions and to display icon, image cover or the media video 
+nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,iconImageView,nativeAdCallToActionView);
+```
+`Note : `
+##### iconImageView = ImageView for NativeAd's ad Icon
+##### mediaContainer = viewGroup, the sdk will handle the rendering process ( displaying) the image cover or the media video inside the view group that depends on the ad network result.
+
+- **Added AppLovin SDK  (This guide is intended for publishers who want to load and display ads from AppLovin )**
+ 
+ Add new dependency :
+
+```groovy
+implementation 'com.applovin:applovin-sdk:9.8.4'
+```
+ Add your AppLovin SDK key to the app’s AndroidManifest as a child of the `<application></application>` tag, like so: 
+```java
+<meta-data android:name="applovin.sdk.key"
+          android:value="YOUR_SDK_KEY" />
+```
+
+
+- **Don't forget to update your dependencies as following :**
+
+```groovy
+
+implementation(name: 'mngads-sdk-2.15', ext: 'aar')
+//For GDPR Madvertise CMP
+implementation(name: 'MAdvertiseCmp-22', ext: 'aar')
+//For GPS data 
+ implementation(name:  'madvertiselocation-2.5', ext:  'aar')
+ 
+/* Updated Network Adapters */
+
+// MoPub Display SDK  
+implementation('com.mopub:mopub-sdk:5.8.0@aar') {  
+    transitive = true  
+  exclude module: 'libAvid-mopub' // To exclude AVID  
+  exclude module: 'moat-mobile-app-kit' // To exclude Moat  
+}  
+// Smart SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.2.0@aar'  
+implementation 'com.smartadserver.android:smart-core-sdk:7.2.0@aar'
+//FaceBook SDK  
+implementation 'com.facebook.android:audience-network-sdk:5.5.0'
+// Adcolony SDK  
+implementation 'com.adcolony:sdk:3.3.11'
+// Amazon  
+implementation(name: 'DTBAndroidSDK-8.0.0', ext: 'aar')
+```
+
+- **Ogury SDK , You must replace : (This guide is intended for publishers who used Ogury SDK )**
+
+replace
+```groovy
+implementation(name: 'presage-moat-3.0.26-3.0.14', ext: 'aar')
+```
+by
+```groovy
+implementation(name: 'ogury-4.1.4', ext: 'aar')
+```
+
+
 ## Version 2.14.1
 
 - Don't forget to update your dependencies as following :
