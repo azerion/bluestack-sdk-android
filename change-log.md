@@ -6,8 +6,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 ## Version 2.15
 #### Release date: September 25th, 2019
 - **Features**
-    - Upgrade version 1.2.19 of Open Measurement SDK (Viewability)
-	- Support Android 10.
+    - Upgrade version 1.2.19 of Open Measurement SDK (Viewability), include by default on mngads-sdk-x.aar
+    - Support Android 10.
     - Added AppLovin SDK for mediation.
     - Added support for VAST 4.2.
     - Support ImageView for NativeAd's ad for Facebook Audience Network .
