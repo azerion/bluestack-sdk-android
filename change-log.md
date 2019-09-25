@@ -3,6 +3,33 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.15
+#### Release date: September 25th, 2019
+- **Features**
+    - Upgrade version 1.2.19 of Open Measurement SDK (Viewability)
+	- Support Android 10.
+    - Added AppLovin SDK for mediation.
+    - Added support for VAST 4.2.
+    - Support ImageView for NativeAd's ad for Facebook Audience Network .
+	- Upgraded min sdk version to 19, buildToolVersion to 28.0.3.
+    - New Demo BlueStack Demo app
+- **Bug Fixes**
+	- Appsfire templates changes (button background color, square icon position).
+	- Fixed auto refresh issue for amazon APS.
+	- Improving capping functionality.
+    - Open Measurement SDK version in debug gyro popup.
+
+- **Ad Network Mediation Updates**
+    - Use new [mngads-sdk-x.aar], version 2.15
+    - Use new  [madvertiselocation-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/), version 2.5
+    - Use new [MAdvertiseCmp-xx.aar], version 22
+    - Use new “com.smartadserver.android:smart-display-sdk:7.2.0@aar”
+    - Use new "com.mopub:mopub-sdk:5.8.0@aar" 
+    - Use new "com.adcolony:sdk:4.1.0" 
+    - Use new "com.facebook.android:audience-network-sdk:5.5.0"
+    - Use new "ogury-4.1.4.aar"
+    - Use new "DTBAndroidSDK-8.0.0.aar" (Amazon)
+
 ## Version 2.14.1
 #### Release date: July 23th, 2019
 
