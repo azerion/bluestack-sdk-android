@@ -9,11 +9,11 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 - [Google DFP]
 - [Facebook Audience Network]
 - [Amazon.jar]
+- [DTBAndroidSDK-x.x.x.aar]
 - [Flurry]
 - [Ogury] Note : An API Key will be assigned to your application by mngads support team for Ogury library.
 - [Mopub Marketplace]
 - [AdColony]
-- [Vectaury]
 
 
 It contains a dispacher that will select an ads server according to the priority and state ([mngAds state diagram]).
@@ -21,7 +21,7 @@ It contains a dispacher that will select an ads server according to the priority
 ## Version
 See [Change Log] and [Upgrade Guide].
 
-NOTE :MNG Ads requires minimum Android API level 16 and a compileSdkVersion of at least 27
+NOTE :MNG Ads requires minimum Android API level 18 and a compileSdkVersion of at least 28
 
 ## Ad Examples and inspiration
 
@@ -40,54 +40,58 @@ repositories {
     maven {  
         url  "https://adcolony.bintray.com/AdColony"  
     }
-
-    //For Vectaury configuration, ignore otherwise.
     maven {  
-        url  "https://nexus.vectaury.io/repository/sdk/"
-    }
+    url 'https://packagecloud.io/smartadserver/android/maven2'  
+	}
 }
 ```
 
-include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
+**include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:**
 
-- Google-play-services_lib (com.google.android.gms:play-services:15.0.1) (**mandatory**)
-- AudienceNetwork (com.facebook.android:audience-network-sdk:4.28.1) (**recommended**)
-- Support-v4 (com.android.support:support-v4:28.+ or http://developer.android.com/intl/ko/tools/support-library/setup.html#choosing) (**mandatory**)
-- com.flurry.android:analytics:11.4.0@aar and com.flurry.android:ads:11.4.0@aar (**recommended**)
-
-- Mopub Marketplace (com.mopub:mopub-sdk:5.3.0@aar) (**recommended**)
-
-- AdColony (com.adcolony:sdk:3.3.5) (**recommended**)
-- Vectaury (io.vectaury.android:sdk:1.3.1) (**recommended**)
+- Google-play-services_lib (com.google.android.gms:play-services:16.0.0) (**mandatory**)
+- Support-v4 (com.android.support:support-v4:28.+) (**mandatory**)
+- AudienceNetwork (com.facebook.android:audience-network-sdk:5.5.0) (**recommended**)
+- Mopub Marketplace (com.mopub:mopub-sdk:5.8.0@aar) (**recommended**)
+- Flurry (com.flurry.android:analytics:11.4.0@aar and com.flurry.android:ads:11.4.0@aar) (**recommended**)
+- AdColony (com.adcolony:sdk:3.3.11) (**recommended**)
 - SmartAdServer (See SmartAdServer integration below) (**recommended**)
-
-**See our [build.gradle] sample**
-
+- AppLovin (com.applovin:applovin-sdk:9.8.4)(See AppLovin SDK integration below)(**recommended**)
 
 **download and extract following files and place them in the /libs folder in your project**
 
 - [mngads-sdk-x.aar Android SDK] (**mandatory**)
-- [Presage-lib.jar] (**recommended**)
+- [ogury-x.x.x.jar] (**recommended**) (See Ogury integration below) 
 - [umooveVx.aar] (**recommended**)
-- [Amazon.jar] (**recommended**)
+- [DTBAndroidSDK-x.x.x.aar] (**recommended**) 
+
 
 ```groovy
 dependencies {
 implementation(name: 'mngads-sdk-xx', ext: 'aar')
 
-implementation(name: 'presage-moat-3.0.26-3.0.14', ext: 'aar')
+implementation(name: 'ogury-4.1.4', ext: 'aar')
 
 implementation(name: 'umooveV2.14.5d', ext: 'aar')
 
-implementation('com.mopub:mopub-sdk:5.1.0@aar') {
-        transitive = true
-        exclude module: 'libAvid-mopub' // To exclude AVID
-        exclude module: 'moat-mobile-app-kit' // To exclude Moat
-    }
-
-
-implementation files('libs/amazon-ads-5.9.0.jar')
+implementation('com.mopub:mopub-sdk:5.8.0@aar') {  
+    transitive = true  
+  exclude module: 'libAvid-mopub' // To exclude AVID  
+  exclude module: 'moat-mobile-app-kit' // To exclude Moat  
 }
+implementation(name: 'DTBAndroidSDK-8.0.0', ext: 'aar')
+}
+```
+
+**See our [build.gradle] sample**
+
+### Note
+To use DTBAndroidSDK you have to add compileOptions to your module's gradle file like so:
+
+```groovy
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 ```
 
 ## Sample Application
@@ -275,7 +279,7 @@ public void bannerDidFail(Exception adsException) {
 Log.e(TAG, "banner did fail :" + adsException.toString());
 }
 ```
-**v1.5.1 or above**
+
 bannerResize(MNGFrame frame) : will be called when the banner has changed size
 ```java
 @Override
@@ -285,6 +289,14 @@ public void bannerResize(MNGFrame frame) {
 Log.d(TAG, "Banner did resize w dp " + frame.getWidth() + " h dp " + frame.getHeight());
 ...
 }
+```
+##### Note :
+If you like to delete banner from the view, you can use this code : 
+```java
+...  
+adLayout.removeView(adView);  
+adLayout.requestLayout();
+...
 ```
 ### MNGAdSize
 Mng ads provides variant pre-defined sizes ( example below).
@@ -324,6 +336,14 @@ mngAdsBannerAdsFactory.loadBanner(mFrame);
 
 To create an **In-Feed** Ad format ( the ads that show up in the middle of the stream as you scroll through your content Parallax or Video) you must init an object with type MNGAdsSDKFactory and set the infeedListener, context.
 
+You have to choose the convenient frame for your infeed when loading the ad by using the MAdvertiseInfeedFrame class.
+Add the width (in dp) of your frame and the desired ratio.
+Choose one of the following ratios for the ad:
+- MAdvertiseInfeedFrame.**INFEED_RATIO_16_9** for **16:9**
+- MAdvertiseInfeedFrame.**INFEED_RATIO_4_3** for **4:3**
+
+The default ratio is 16:9
+
 ```java
 ...
 import com.mngads.MNGAdsFactory;
@@ -352,7 +372,7 @@ mngAdsInfeedAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 To make a request you have to call 'loadInfeed'. This is a void method, result will be returned in the callback.
 
 ```java
-mngAdsInfeedAdsFactory.loadInfeed(new MNGFrame(300, 250))
+mngAdsInfeedAdsFactory.loadInfeed(new MAdvertiseInfeedFrame(300, MAdvertiseInfeedFrame.INFEED_RATIO_16_9)
 
 ```
 
@@ -537,14 +557,18 @@ String callToAction=nativeObject.getCallToAction();
 String price=nativeObject.getPriceText();
 Bitmap badge=nativeObject.getBadge();
 
-String iconUrl=nativeObject.getAdIconUrl();
-String coverImageUrl=nativeObject.getAdCoverImageUrl();
+//to handle impressions, user interactions and to display icon, image cover or the media video 
 
-//to handle impressions and user interactions you have to register your MAdvertiseNativeContainer as your root layout container and your callToActionView view as following
-nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToActionView);
+nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,iconImageView,nativeAdCallToActionView);
 ...
 }
 ```
+##### Note :
+
+- iconImageView = ImageView for NativeAd's ad Icon
+- mediaContainer = viewGroup, the sdk will handle the rendering process ( displaying) the image cover or the media video inside the view group that depends on the ad network result.
+ 
+ 
 
 ##### Customize Native Ad Badge
 You can use a custom badge for the native ad.
@@ -558,33 +582,6 @@ Bitmap badge=nativeObject.getBadge(getActivity(),"String to be displayed in the 
 }
 ```
 
-
-##### v2.0 or above
-You can also integrate video ads into your Native Ad experience. To enable video you must complete the following steps:
-
-- Have SDK version 2.0 or later
-- You have to call setMediaContainer(viewGroup) then the sdk will handle the rendering process ( displaying)  the image cover or the media video inside the view group that depends on the ad network result
-
-```java
-@Override
-public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
-...
-String title=nativeObject.getTitle();
-String body=nativeObject.getBody();
-String callToAction=nativeObject.getCallToAction();
-String price=nativeObject.getPriceText();
-Bitmap badge=nativeObject.getBadge();
-
-String iconUrl=nativeObject.getAdIconUrl();
-// String coverImageUrl=nativeObject.getAdCoverImageUrl();
-//  there is no need to use coverurl
-nativeObject.setMediaContainer(mediaViewGroup);
-
-//to handle impressions and user interactions you have to register your MAdvertiseNativeContainer as your root layout container and your callToActionView view as following
-nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToActionView);
-...
-}
-```
 
 See [Native Ads guidelines]
 
@@ -790,7 +787,7 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 ```
 
 ### SmartAdServer integration
-```
+
 You will need to add these lines to your repositories section
 
 ```groovy
@@ -801,25 +798,39 @@ maven {
 
 And you will also need to add the following dependencies
 ```groovy
-implementation 'com.smartadserver.android:smart-display-sdk:7.0.2@aar'
-implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+implementation 'com.smartadserver.android:smart-display-sdk:7.2.0@aar'  
+implementation 'com.smartadserver.android:smart-core-sdk:7.2.0@aar'
+// Add dependencies required by Smart Display SDK  
+implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'  
+implementation 'com.squareup.okhttp3:okhttp:3.12.1'  
+implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 ```
 
+### AppLovin integration
+ 
+ Add new dependency :
+
+```groovy
+implementation 'com.applovin:applovin-sdk:9.8.4'
+```
+ Add your AppLovin SDK key to the app’s AndroidManifest as a child of the `<application></application>` tag, like so: 
+```java
+<meta-data android:name="applovin.sdk.key"
+          android:value="YOUR_SDK_KEY" />
+```
 
 ### Eyes tracking
 
->available v2.6
 
 - the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
 - download [umooveVx.aar] library and place it in the /libs folder in your project.
 - edit your build.gradle, add the library :
-```
+```groovy
 //face detection umoove
 implementation(name: 'umooveV2.12.1', ext: 'aar')
 ```
 - you need to declare your flat file repository.
-```
+```groovy
 allprojects {
 repositories {
 jcenter()
@@ -827,11 +838,10 @@ flatDir{
 dirs 'libs'
 }
 }
-
 }
 ```
 - and you have to specify abiFilters to avoid some problems with arm64-v8a devices : add abiFilters to your build.gradle like this
-```
+```groovy
 defaultConfig
 {
 .
@@ -843,7 +853,7 @@ abiFilters "armeabi-v7a","x86"
 }
 ```
 - and you need to allow deprecated ndk in your gradle.properties file.
-```
+```groovy
 android.useDeprecatedNdk=true
 ```
 
@@ -852,6 +862,10 @@ android.useDeprecatedNdk=true
 * android:noHistory="true" : This may remove your acivity when interstitial Ad is displayed
 * Android multidex issue [AndroidMultidex]
 
+
+
+
+[omsdk-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [SmartAdServer]:http://documentation.smartadserver.com/displaySDK
 [Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
@@ -868,13 +882,14 @@ android.useDeprecatedNdk=true
 [mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
 [Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
 [Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[DTBAndroidSDK-x.x.x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Flurry]:https://developer.yahoo.com/flurry/
 [FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
 [AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
 [Ogury]:http://www.ogury.co/
-[presage-lib.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
+[ogury-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Native Ads guidelines]:./nativead
 [ApplicationManager.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.java?at=master&fileviewer=file-view-default
 [BaseActivity.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.java?at=master&fileviewer=file-view-default
@@ -885,4 +900,3 @@ android.useDeprecatedNdk=true
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
 [Mopub Marketplace]:https://www.mopub.com/
 [AdColony]:https://www.adcolony.com/
-[Vectaury]:https://cdn.vectaury.io/
