@@ -27,9 +27,11 @@ This guide is intended for publishers who want to use the Google Mobile Ads SDK 
 
 ![screenshot-admanager.google.com-2019.10.02-22_33_13.jpg](https://bitbucket.org/repo/GyRXRR/images/1642703664-screenshot-admanager.google.com-2019.10.02-22_33_13.jpg)
 
+![screenshot-admanager.google.com-2019.10.02-22_36_16.jpg](https://bitbucket.org/repo/GyRXRR/images/4019010383-screenshot-admanager.google.com-2019.10.02-22_36_16.jpg)
+
 ![l.png](https://bitbucket.org/repo/GyRXRR/images/3601965291-l.png)
 
-![screenshot-admanager.google.com-2019.10.02-22_36_16.jpg](https://bitbucket.org/repo/GyRXRR/images/4019010383-screenshot-admanager.google.com-2019.10.02-22_36_16.jpg)
+
 
 
 - Set the following class name for :
