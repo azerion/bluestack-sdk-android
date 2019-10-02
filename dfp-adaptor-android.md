@@ -14,9 +14,22 @@ This guide is intended for publishers who want to use the Google Mobile Ads SDK 
 
 ## 1. Define a custom event
 
+- Create an Ad Network (optional)
+![screenshot-admanager.google.com-2019.10.02-22_36_16 (1).jpg](https://bitbucket.org/repo/GyRXRR/images/2101314984-screenshot-admanager.google.com-2019.10.02-22_36_16%20%281%29.jpg)
+
+1. use Madvertise Ad-Network name
+2. Choose Appsfire network
+3. Allow mediation
+
 - On your Google Ad Manager UI, create a custom event 
 
+![screenshot-admanager.google.com-2019.10.02-22_32_42.jpg](https://bitbucket.org/repo/GyRXRR/images/3231118223-screenshot-admanager.google.com-2019.10.02-22_32_42.jpg)
+
+![screenshot-admanager.google.com-2019.10.02-22_33_13.jpg](https://bitbucket.org/repo/GyRXRR/images/1642703664-screenshot-admanager.google.com-2019.10.02-22_33_13.jpg)
+
 ![l.png](https://bitbucket.org/repo/GyRXRR/images/3601965291-l.png)
+
+![screenshot-admanager.google.com-2019.10.02-22_36_16.jpg](https://bitbucket.org/repo/GyRXRR/images/4019010383-screenshot-admanager.google.com-2019.10.02-22_36_16.jpg)
 
 
 - Set the following class name for :
