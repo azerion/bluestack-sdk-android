@@ -1,4 +1,4 @@
-# Android DFP Adaptor
+# Android DFP Adapter
 [TOC]
 
 This guide shows you how to integrate [MNGAds] mediation adapter of Google Mobile Ads SDK with your current Android app and set up additional request parameters.
