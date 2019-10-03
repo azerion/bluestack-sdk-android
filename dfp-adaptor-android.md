@@ -1,4 +1,5 @@
 # Android DFP Adaptor
+[TOC]
 
 This guide is intended for publishers who want to use the Google Mobile Ads SDK to load and display ads from MNG Ads via mediation. It covers how to add MNG Ads to an ad unit's mediation configuration and how to integrate the MNG Ads SDK and adapter into an Android app.
 
@@ -11,17 +12,18 @@ This guide is intended for publishers who want to use the Google Mobile Ads SDK 
 - Android SDK 4.4 (API level 19) or later
 - Google Play services 17.2.0 or later
 
+## 1. Create a Yield groups
 
-## 1. Define a custom event
-
-- Create an Ad Network (optional)
+- Create an Ad Network
 ![screenshot-admanager.google.com-2019.10.02-22_36_16 (1).jpg](https://bitbucket.org/repo/GyRXRR/images/2101314984-screenshot-admanager.google.com-2019.10.02-22_36_16%20%281%29.jpg)
 
-1. use Madvertise Ad-Network name
-2. Choose Appsfire network
+1. Create a Company with **Madvertise Ad-Network** name
+2. Choose **Appsfire** network
 3. Allow mediation
 
-- On your Google Ad Manager UI, create a custom event 
+## 2. Define a custom event
+
+On your Google Ad Manager UI, create a custom event 
 
 ![screenshot-admanager.google.com-2019.10.02-22_32_42.jpg](https://bitbucket.org/repo/GyRXRR/images/3231118223-screenshot-admanager.google.com-2019.10.02-22_32_42.jpg)
 
