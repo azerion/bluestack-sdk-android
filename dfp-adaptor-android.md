@@ -48,9 +48,10 @@ On your Google Ad Manager UI, create a custom event
  
 
 
-## 2. Integrate MNG in your application project
+## 2. Integrate MNGAds in your application project
 
-Add the mngads Mopub adapter [mngads-dfp-adapter-1.0.0.aar] and MNG SDK [mngads-sdk-x.aar Android SDK]  to the libs folder of your application project.
+* Add the mngads Mopub adapter [mngads-dfp-adapter-1.0.0.aar]
+* MNGAds SDK [mngads-sdk-x.aar Android SDK] and other mediation libs describe on [set up sdk section] to the libs folder of your application project.
 
 
 
