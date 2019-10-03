@@ -1,7 +1,7 @@
 # Android DFP Adaptor
 [TOC]
 
-This guide is intended for publishers who want to use the Google Mobile Ads SDK to load and display ads from MNG Ads via mediation. It covers how to add MNG Ads to an ad unit's mediation configuration and how to integrate the MNG Ads SDK and adapter into an Android app.
+This guide shows you how to integrate [MNGAds] mediation adapter of Google Mobile Ads SDK with your current Android app and set up additional request parameters.
 
 ## Supported ad formats
 - Banners
@@ -54,8 +54,8 @@ On your Google Ad Manager UI, create a custom event
 
 ### 1. Set Up
 
-* Add the mngads Mopub adapter [mngads-dfp-adapter-1.0.0.aar]
-* MNGAds SDK [mngads-sdk-x.aar Android SDK] and other mediation libs describe on [set up sdk section] to the libs folder of your application project.
+* Add our adapter [mngads-dfp-adapter-1.0.0.aar]
+* [set up sdk section] MNGAds on your application project.
 
 
 
@@ -73,3 +73,4 @@ The adapter code and the setup you did on your Google Ad Manager UI will allow M
 [mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
 [Google Ad Manager UI]:https://admanager.google.com/
+[MNGAds]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
