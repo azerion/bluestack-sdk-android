@@ -21,11 +21,12 @@ This guide is intended for publishers who want to use the Google Mobile Ads SDK 
 2. Choose **Appsfire** network
 3. Allow mediation
 
+
+![screenshot-admanager.google.com-2019.10.02-22_32_42.jpg](https://bitbucket.org/repo/GyRXRR/images/3231118223-screenshot-admanager.google.com-2019.10.02-22_32_42.jpg)
+
 ## 2. Define a custom event
 
 On your Google Ad Manager UI, create a custom event 
-
-![screenshot-admanager.google.com-2019.10.02-22_32_42.jpg](https://bitbucket.org/repo/GyRXRR/images/3231118223-screenshot-admanager.google.com-2019.10.02-22_32_42.jpg)
 
 ![screenshot-admanager.google.com-2019.10.02-22_33_13.jpg](https://bitbucket.org/repo/GyRXRR/images/1642703664-screenshot-admanager.google.com-2019.10.02-22_33_13.jpg)
 
