@@ -3,16 +3,20 @@
 
 This guide is intended for publishers who want to use the Google Mobile Ads SDK to load and display ads from MNG Ads via mediation. It covers how to add MNG Ads to an ad unit's mediation configuration and how to integrate the MNG Ads SDK and adapter into an Android app.
 
-### Supported ad formats
+## Supported ad formats
 - Banners
 - Interstitials
 - Native Ads
 
-### Requirements
+## Requirements
 - Android SDK 4.4 (API level 19) or later
 - Google Play services 17.2.0 or later
 
-## 1. Create a Yield groups
+## Google Ad Manager UI 
+
+The custom event must be defined in the [Google Ad Manager UI].
+
+### 1. Create a Yield groups
 
 - Create an Ad Network
 ![screenshot-admanager.google.com-2019.10.02-22_36_16 (1).jpg](https://bitbucket.org/repo/GyRXRR/images/2101314984-screenshot-admanager.google.com-2019.10.02-22_36_16%20%281%29.jpg)
@@ -24,7 +28,7 @@ This guide is intended for publishers who want to use the Google Mobile Ads SDK 
 
 ![screenshot-admanager.google.com-2019.10.02-22_32_42.jpg](https://bitbucket.org/repo/GyRXRR/images/3231118223-screenshot-admanager.google.com-2019.10.02-22_32_42.jpg)
 
-## 2. Define a custom event
+### 2. Define a custom event
 
 On your Google Ad Manager UI, create a custom event 
 
@@ -33,8 +37,6 @@ On your Google Ad Manager UI, create a custom event
 ![screenshot-admanager.google.com-2019.10.02-22_36_16.jpg](https://bitbucket.org/repo/GyRXRR/images/4019010383-screenshot-admanager.google.com-2019.10.02-22_36_16.jpg)
 
 ![l.png](https://bitbucket.org/repo/GyRXRR/images/3601965291-l.png)
-
-
 
 
 - Set the following class name for :
@@ -48,23 +50,26 @@ On your Google Ad Manager UI, create a custom event
  
 
 
-## 2. Integrate MNGAds in your application project
+## Integrate MNGAds in your application project
+
+### 1. Set Up
 
 * Add the mngads Mopub adapter [mngads-dfp-adapter-1.0.0.aar]
 * MNGAds SDK [mngads-sdk-x.aar Android SDK] and other mediation libs describe on [set up sdk section] to the libs folder of your application project.
 
 
 
-## 3. Initialize your ads
+### 2. Initialize your ads
 
-### Interstitials and Banners
+#### Interstitials and Banners
 You may now use MNG DFP Adaptor to show interstitials and banners ads the same way it's described in the [DFP Documentation]. 
 The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
 
-### Native Ads 
+#### Native Ads 
 // TBD
 
 [set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-set-up-the-sdk
 [mngads-dfp-adapter-1.0.0.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MopubDemo/app/libs/mngads-mopub-adapter.aar?at=master&fileviewer=file-view-default
 [mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
+[Google Ad Manager UI]:https://admanager.google.com/
