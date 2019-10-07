@@ -12,7 +12,7 @@ This guide shows you how to integrate [MNGAds] mediation adapter of Google Mobil
 - Android SDK 4.4 (API level 19) or later
 - Google Play services 17.2.0 or later
 
-## Google Ad Manager UI 
+## I. Google Ad Manager UI 
 
 The custom event must be defined in the [Google Ad Manager UI].
 
@@ -50,7 +50,7 @@ On your Google Ad Manager UI, create a custom event
  
 
 
-## Integrate MNGAds in your application project
+## II. Integrate MNGAds in your application project
 
 ### 1. Set Up
 
@@ -62,11 +62,38 @@ On your Google Ad Manager UI, create a custom event
 ### 2. Initialize your ads
 
 #### Interstitials and Banners
+##### *Implementation Guides*
+
 You may now use MNG DFP Adaptor to show interstitials and banners ads the same way it's described in the [DFP Documentation]. 
 The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
 
-#### Native Ads 
-// TBD
+##### *Targeting*
+If you need to send your preferences (Age, Location, Keyword, Content URL) use the addCustomEventExtrasBundle() method.
+
+```java
+PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
+.addCustomEventExtrasBundle(MadvertiseCustomEventInterstitial.class,getExtrasData())
+.build();
+```
+You must pass custom event adapter class name for :
+
+ * **Banner :** MadvertiseCustomEventBanner.class 
+ 
+ * **Interstitial :** MadvertiseCustomEventInterstitial.class
+
+and a bundle of the extras :
+
+```java
+Bundle extras = new Bundle();
+Location location = Utils.getCurrentLocation(getActivity());
+if (location != null) {
+extras.putDouble("LATITUDE", location.getLatitude());
+ extras.putDouble("LONGITUDE", location.getLongitude());
+ }
+extras.putInt("AGE", 25);
+extras.putString("KEYWORD", Constants.MNGADS_KEYWORD);
+extras.putString("CONTENT_URL", Constants.MNGADS_CONTENT_URL);
+```
 
 [set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-set-up-the-sdk
 [mngads-dfp-adapter-1.0.0.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-1.0.0.aar
