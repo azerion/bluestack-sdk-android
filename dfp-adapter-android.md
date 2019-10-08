@@ -25,18 +25,24 @@ The custom event must be defined in the [Google Ad Manager UI].
 2. Choose **Appsfire** network
 3. Allow mediation
 
+### 2. Add a Yield Group
 
-![screenshot-admanager.google.com-2019.10.02-22_32_42.jpg](https://bitbucket.org/repo/GyRXRR/images/3231118223-screenshot-admanager.google.com-2019.10.02-22_32_42.jpg)
+1. Choose a name
+2. Choose a format (You must create a Yield Group by format)
+3. Choose at least one size according format
+4. Target a specific placement
 
-### 2. Define a custom event
+![screenshot-admanager.google.com-2019.10.08-23_09_28.jpg](https://bitbucket.org/repo/GyRXRR/images/3042937156-screenshot-admanager.google.com-2019.10.08-23_09_28.jpg)
+
+### 3. Add A Yield Partner and Define a custom event
 
 On your Google Ad Manager UI, create a custom event 
+![screenshot-admanager.google.com-2019.10.08-23_09_54.jpg](https://bitbucket.org/repo/GyRXRR/images/2980010623-screenshot-admanager.google.com-2019.10.08-23_09_54.jpg)
 
-![screenshot-admanager.google.com-2019.10.02-22_33_13.jpg](https://bitbucket.org/repo/GyRXRR/images/1642703664-screenshot-admanager.google.com-2019.10.02-22_33_13.jpg)
-
-![screenshot-admanager.google.com-2019.10.02-22_36_16.jpg](https://bitbucket.org/repo/GyRXRR/images/4019010383-screenshot-admanager.google.com-2019.10.02-22_36_16.jpg)
-
-![l.png](https://bitbucket.org/repo/GyRXRR/images/3601965291-l.png)
+1. Select **Madvertise Ad-Network** created on [Step 1]
+2. Choose **Custom Event** for Integration type
+3. Choose your platform iOS or Android
+4. Set the following **Label**, **class Name**  and **Parameter** according your format :
 
 
 - Set the following class name for :
