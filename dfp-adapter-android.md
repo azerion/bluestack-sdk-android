@@ -12,7 +12,7 @@ This guide shows you how to integrate [MNGAds] mediation adapter of Google Mobil
 - Android SDK 4.4 (API level 19) or later
 - Google Play services 17.2.0 or later
 
-## I. Google Ad Manager UI 
+## Google Ad Manager UI 
 
 The custom event must be defined in the [Google Ad Manager UI].
 
@@ -62,8 +62,7 @@ On your Google Ad Manager UI, create a custom event
 
 ### 2. Initialize your ads
 
-#### Interstitials and Banners
-##### *Implementation Guides*
+#### Init Preference
 
 You may now use MNG DFP Adaptor to show interstitials and banners ads the same way it's described in the [DFP Documentation]. 
 The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
