@@ -67,7 +67,7 @@ On your Google Ad Manager UI, create a custom event
 You may now use MNG DFP Adaptor to show interstitials and banners ads the same way it's described in the [DFP Documentation]. 
 The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
 
-##### *Targeting*
+#### Targeting
 If you need to send your preferences (Age, Location, Keyword, Content URL) use the addCustomEventExtrasBundle() method.
 
 ```java
