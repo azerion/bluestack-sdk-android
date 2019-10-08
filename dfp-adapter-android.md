@@ -45,18 +45,13 @@ On your Google Ad Manager UI, create a custom event
 4. Set the following **Label**, **class Name**  and **Parameter** according your format :
 
 
-- Set the following class name for :
- * **Banner :** *Custom Name* : com.madvertise.MadvertiseCustomEventBanner and *Parameter* : /YOUR APP ID/PLACEMENT ID BANNER
- 
- 
- * **Interstitial :** *Custom Name* : com.madvertise.MadvertiseCustomEventInterstitial and *Parameter* : /YOUR APP ID/PLACEMENT ID INTERSTITIAL
-
- 
- * **Native :** *Custom Name* : com.madvertise.MadvertiseCustomEventNativead and *Parameter* : /YOUR APP ID/PLACEMENT ID NATIVE
+* Banner : Label= **MadvertiseCustomEventBanner**, class Name= **com.madvertise.MadvertiseCustomEventBanner** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_BANNER
+* Banner : Label= **MadvertiseCustomEventInterstitial**, class Name= **com.madvertise.MadvertiseCustomEventInterstitial** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_INTER
+* Banner : Label= **MadvertiseCustomEventNativead**, class Name= **com.madvertise.MadvertiseCustomEventNativead** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_NATIVEAD
  
 
 
-## II. Integrate MNGAds in your application project
+## Integrate MNGAds in your application project
 
 ### 1. Set Up
 
@@ -107,3 +102,4 @@ extras.putString("CONTENT_URL", Constants.MNGADS_CONTENT_URL);
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
 [Google Ad Manager UI]:https://admanager.google.com/
 [MNGAds]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
+[Step 1]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/dfp-adapter-android#markdown-header-1-create-a-yield-groups
