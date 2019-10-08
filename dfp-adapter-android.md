@@ -62,6 +62,8 @@ On your Google Ad Manager UI, create a custom event
 
 ### 2. Initialize your ads
 
+You can check our [Demo] page.
+
 #### Init Preference
 
 You may now use MNG DFP Adaptor to show interstitials and banners ads the same way it's described in the [DFP Documentation]. 
@@ -102,3 +104,4 @@ extras.putString("CONTENT_URL", Constants.MNGADS_CONTENT_URL);
 [Google Ad Manager UI]:https://admanager.google.com/
 [MNGAds]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
 [Step 1]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/dfp-adapter-android#markdown-header-1-create-a-yield-groups
+[Demo]:https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/DFPFragment.java
