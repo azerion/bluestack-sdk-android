@@ -64,12 +64,98 @@ On your Google Ad Manager UI, create a custom event
 
 You can check our [Demo] page.
 
-#### Init Preference
+#### Banner and Interstitial
 
-You may now use MNG DFP Adaptor to show interstitials and banners ads the same way it's described in the [DFP Documentation]. 
-The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
+**No additional code is required for integration.** 
 
-#### Targeting
+You may now use MNG DFP Adaptor to show [Interstitial Ads] and [Banner Ads] the same way it's described in the [DFP Documentation].The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
+
+#### Native Ads
+##### Load an Ad
+The following code demonstrates how to build an AdLoader that can load unified native ads:
+
+```java
+AdLoader adLoader = new AdLoader.Builder(context, "YOUR PLACEMENT ID")
+    .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+        @Override
+        public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+        	// Assumes you have a placeholder FrameLayout in your View layout (with id fl_adplaceholder) where the ad is to be placed.
+            FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
+            // Assumes that your ad layout is in a file call ad_unified.xml in the res/layout folder
+            UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater().inflate(R.layout.ad_unified, null);
+            // This method sets the text, images and the native ad, etc into the ad view.
+            populateUnifiedNativeAdView(unifiedNativeAd, adView);
+        }
+    })
+    .withAdListener(new AdListener() {
+        @Override
+        public void onAdFailedToLoad(int errorCode) {
+		// Handle the failure by logging, altering the UI...
+        }
+    })
+
+.withNativeAdOptions(new NativeAdOptions.Builder().build())
+.build();
+adLoader.loadAd(request);
+```
+##### Display a UnifiedNativeAd
+Once you have loaded an ad, all that remains is to display it to your users.
+
+```java
+private void displayUnifiedNativeAd(ViewGroup parent, UnifiedNativeAd ad) {
+
+    // Locate the text view  
+
+	TextView nativeAdTitle = adView.findViewById(R.id.nativeAdTitle);
+	TextView nativeAdContext = adView.findViewById(R.id.nativeAdContext);
+	TextView nativeAdCallToAction = adView.findViewById(R.id.nativeAdCallToAction);
+	
+	 // Set its text
+       
+	nativeAdTitle.setText(unifiedNativeAd.getHeadline());
+	nativeAdContext.setText(unifiedNativeAd.getBody());
+	nativeAdCallToAction.setText(unifiedNativeAd.getCallToAction());
+
+	// Register it
+	
+	adView.setCallToActionView(nativeAdCallToAction);
+	adView.setHeadlineView(nativeAdTitle);
+	adView.setBodyView(nativeAdContext);
+	
+	
+	// Set Icon and MediaView view, the asset is populated automatically
+	
+	adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
+	adView.setImageView(adView.findViewById(R.id.mediaContainer));
+	adView.setStoreView(mMAdvertiseNativeContainer);
+
+
+    // Register the NativeAdObject.
+    adView.setNativeAd(ad);
+
+
+    // Ensure that the parent view doesn't already contain an ad view.
+    parent.removeAllViews();
+    // Place the AdView into the parent.
+    parent.addView(adView);
+}
+```
+
+**Note :**
+The only difference between the [Native Ads Documentation] and our code these three lines responsible for loading image, video and icon and handling click :
+
+```java
+// For loading icon
+adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
+
+// For loading image or video
+adView.setImageView(adView.findViewById(R.id.mediaContainer));
+
+// For handling click
+adView.setStoreView(mMAdvertiseNativeContainer);
+```
+
+### 3. Init Preference
 If you need to send your preferences (Age, Location, Keyword, Content URL) use the addCustomEventExtrasBundle() method.
 
 ```java
@@ -82,6 +168,7 @@ You must pass custom event adapter class name for :
  * **Banner :** MadvertiseCustomEventBanner.class 
  
  * **Interstitial :** MadvertiseCustomEventInterstitial.class
+ *  **Native Ads :** MadvertiseCustomEventNativead.class
 
 and a bundle of the extras :
 
@@ -96,7 +183,9 @@ extras.putInt("AGE", 25);
 extras.putString("KEYWORD", Constants.MNGADS_KEYWORD);
 extras.putString("CONTENT_URL", Constants.MNGADS_CONTENT_URL);
 ```
-
+[Banner Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/banner
+[Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
+[Native Ads Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/native/advanced
 [set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-set-up-the-sdk
 [mngads-dfp-adapter-1.0.0.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-1.0.0.aar
 [mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
