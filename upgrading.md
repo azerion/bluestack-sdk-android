@@ -2,6 +2,15 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.15.1
+
+- Don't forget to update your dependencies as following :
+
+```groovy
+
+implementation(name: 'mngads-sdk-2.15.1', ext: 'aar')
+
+```
 
 ## Version 2.15
 - **remove implementation files('libs/omsdk-android-1.2.4-Madvertise.jar') now include on mngads-sdk-2.15**
