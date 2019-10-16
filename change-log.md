@@ -3,6 +3,17 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.15.1
+#### Release date: October 16th, 2019
+
+- **Bug Fixes**
+
+	- Fixed auto refresh issue for appsfire.
+	- nativeObject.getAdCoverImageUrl is optionel
+- **Ad Network Mediation Updates**
+
+    - Use new [mngads-sdk-x.aar], version 2.15.1
+
 ## Version 2.15
 #### Release date: September 25th, 2019
 - **Features**
