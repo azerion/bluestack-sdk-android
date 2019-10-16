@@ -10,6 +10,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 	- Fixed auto refresh issue for appsfire.
 	- nativeObject.getAdCoverImageUrl is optionel
+
 - **Ad Network Mediation Updates**
 
     - Use new [mngads-sdk-x.aar], version 2.15.1
