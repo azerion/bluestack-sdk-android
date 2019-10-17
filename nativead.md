@@ -24,23 +24,23 @@ public class MainActivity extends Activity implements MNGNativeListener{
     mngAdsNativeAdsFactory.setNativeListener(this);
 
 ```
+##### Set Placement ID
+
 You have also to set placementId (minimum one time)
 
 ```java
   mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 ##### Make a request for native ad
-To make a request you have to call 'createNative()'. this method return a bool value (canHandleRequest) 
+To make a request you have to call 'loadNative()'. This is a void method, result will be returned in the callback.
+
 
 ```java
-    if(mngAdsNativeAdsFactory.createNative()){
-        //Wait callBack from native listener
-    }else{
-        //adsFactory can not handle your request
-    }
+mngAdsNativeAdsFactory.loadNative()
 ```
 ##### Handle callBack from NativeListener
 adsAdapter.nativeObjectDidLoad(): will be called by the SDK when your nativeObject is ready. now you can create your own view.
+
 ```java
 @Override
   public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
@@ -50,6 +50,7 @@ adsAdapter.nativeObjectDidLoad(): will be called by the SDK when your nativeObje
 ```
 
 adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
 ```java
 @Override
   public void nativeObjectDidFail(Exception adsException) {
@@ -62,53 +63,47 @@ adsAdapter.nativeObjectDidFail(Exception adsException): will be called when all 
 
 Once a native ad is loaded, you may retrieve its metadata with the following methods:
 
-###**Main Image**
-
- - 1200x627px image, 
- - Wide aspect ratio main image.
- - asset name : **nativeObject.getAdCoverImageUrl()**
  
- 
-###**Icon Image**
-
- - 128x128 max
- - asset name : **nativeObject.getAdIconUrl()**
- 
- 
-###**Ad Title**
+### **Ad Title**
 
  - 50 maximum character length string of ad headline
  - Provide enough space to display the entire length of the Ad Title
  - asset name : **nativeObject.getTitle()**
  
  
-###**Ad Text**
+### **Ad Text**
 
  - 150 maximum character length string of ad text
  - Provide enough space to display the entire length of the Ad Text
  - asset name : **nativeObject.getBody()**
  
-###**CTA Text**
+### **CTA Text**
 
  - Text for a button
  - 12 characters maximum
  - asset name : **nativeObject.getCallToAction()**
  
  
-###**Sponsored Marker**
+### **Sponsored Marker**
 
  - Badge view (an icon)
  - change according ad network
  - must be inserted on top right
  - this is automatically added to the TOP-RIGHT corner of your native ad layout.
  
-###**Distinguishable Ad**
+### **Distinguishable Ad**
 
  - “Ad” (can be localized)
  - Badge that says “AD” and is at least 15x15px (can be localized)
  - change according ad network
  - must be inserted on top left
  - asset name : **ativeObject.getBadge()**
+
+ 
+## Build Native Ad UI
+
+MNGNativeObject have all required metadata to build your customized native UI. Your native ad layout should have MAdvertiseNativeContainer as it's root viewGroup container.
+
 
 
 ```java
@@ -134,87 +129,42 @@ String price=nativeObject.getPriceText();
 // Get the localized text to print on the call to action button, such as "DOWNLOAD , LEARNE MORE ..."
 String callToAction=nativeObject.getCallToAction();
 
-// Get the URL of the icon image for the app
-// FYI this method return NO_URL_FOUND = "http://" if no cover image found
- String iconUrl=nativeObject.getAdIconUrl();
+// Register your custom ad view to automatically report impressions and clicks, and to display icon, image cover or the media video 
+// This is mandatory
+nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,iconImageView,nativeAdCallToActionView);
 
-// Get ahe URL of the cover image for the app
-// FYI this method return NO_URL_FOUND = "http://" if no cover image found
- String coverImageUrl=nativeObject.getAdCoverImageUrl();
-
-
-// Register your custom ad view to automatically report impressions and clicks, and react to clicks by opening the app in the store. This is mandatory
-public void registerViewForInteraction (MAdvertiseNativeContainer rootView, View monitoredView);
 ```
-## Native Ad Implementation
-
-![nativeAd-min.png](https://bitbucket.org/repo/GyRXRR/images/2587222597-nativeAd-min.png)
+![2587222597-nativeAd-min-min.png](https://bitbucket.org/repo/GyRXRR/images/1684613955-2587222597-nativeAd-min-min.png)
 
 
-## Video
-You can also integrate video ads into your Native Ad experience. To enable video you must complete the following steps:
- - Have the latest SDK version
- - You have to call setMediaContainer(viewGroup) then the sdk will handle the rendering process ( displaying)  the image cover or the media video inside the view group that depends on the ad network result
+## RegisterViewForInteraction
+The registerViewForInteraction method :
 
-```java
-@Override
-  public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
-    ...
-    String title=nativeObject.getTitle();
-    String body=nativeObject.getBody();
-    String callToAction=nativeObject.getCallToAction();
-    String price=nativeObject.getPriceText();
-    Bitmap badge=nativeObject.getBadge();
-    
-    String iconUrl=nativeObject.getAdIconUrl();
-   // String coverImageUrl=nativeObject.getAdCoverImageUrl();
-   //  there is no need to use coverurl
-   nativeObject.setMediaContainer(mediaViewGroup);
-   
-    //to handle impressions and user interactions you have to register your MAdvertiseNativeContainer as your root layout container and your callToActionView view to handle the clicks as following
-nativeObject.registerViewForInteraction(nativeAdContainerView, nativeAdCallToActionView);
-   ...
-}
-```
-![MNGNativeVideoAd2.png](https://bitbucket.org/repo/GyRXRR/images/1851406635-MNGNativeVideoAd2.png)
+- Handles all the user interactions with your custom layout (clicks, impressions ...)
+
+- Display icon, image cover or the media video 
 
 
-## registerViewForInteraction
-The registerViewForInteraction method handles all the user interactions with your custom layout (clicks, impressions ...), it accepts two arguments: 
-The first is the MAdvertiseNativeContainer that should be your custom layout's root view.
-The second is the callToAction View that handles the click event of your ad.
+It accepts four arguments: 
+
+- The first is the MAdvertiseNativeContainer that should be your custom layout's root view.
+- The second is the media Container, the sdk will handle the rendering process ( displaying) the image cover or the media video inside the view group that depends on the ad network result.
+- The third is the image View for NativeAd's ad Icon
+- The fourth is the callToAction View that handles the click event of your ad.
 
 Note: The MAdvertiseNativeContainer is a custom ViewGroup that extends FrameLayout so you can use it as it is or you can put your layout inside of it which is the method we recommend.
 
 
-## cache
+## Cache
 
 Ad metadata that you receive can be cached and re-used for up to 3 hours. If you plan to use the metadata after this time period, make a call to load a new ad.
 
 
-## Assets download
-
-We provide method to download assets.
-```java
-@Override
-  public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
-    ...
-   
-    ImageView nativeAdIcon = (ImageView) adView.findViewById(R.id.nativeAdIcon);
-    //this will download and display icon
-    nativeObject.downloadAssetsForType(MAdvertiseAssetsType.MAdvertiseAssetsIcon,nativeAdIcon);
-
-    ImageView nativeAdCover = (ImageView) adView.findViewById(R.id.nativeAdCover);
-    //this will download and display cover image
-    nativeObject.downloadAssetsForType(MAdvertiseAssetsType.MAdvertiseAssetsCover,nativeAdCover);
-
-   ...
-}
-```
 ## Customize Native Ad AdChoice
 
 The adChoice is automatically added to the top right corner of your native ad layout but you can change that position by using the MNGPreference.setAdChoicePosition(int position) before loading your ad.
 The position argument can be one of these:
+
 ```java
 TOP_RIGHT
 TOP_LEFT
@@ -222,6 +172,7 @@ BOTTOM_RIGHT
 BOTTOM_LEFT
 ```
 For example:
+
 ```java
 mngPreferences.setAdChoicePosition(MNGPreferences.TOP_LEFT);
 mngAdsNativeAdsFactory.loadNative(mngPreference)
@@ -230,6 +181,7 @@ mngAdsNativeAdsFactory.loadNative(mngPreference)
 ## Customize Native Ad Badge
 
 You can use a custom badge for the native ad.
+
 ```java
 @Override
     public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
@@ -240,6 +192,6 @@ You can use a custom badge for the native ad.
 ```
 
 
-## click - registerViewForInteraction
+## Click - registerViewForInteraction
 
 It's **HIGHLY** recommended to only register ONE and ONLY one view for interaction , because some of the AdNetworks only accept one view and if you try to assign more than one then probably none of the views you assign will be responsive.
