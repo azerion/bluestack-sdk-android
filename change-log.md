@@ -5,6 +5,9 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 ## Version 2.15.1
 #### Release date: October 16th, 2019
+- **Features**
+
+     - Support 64-bit architectures.
 
 - **Bug Fixes**
 
