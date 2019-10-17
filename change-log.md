@@ -12,7 +12,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - **Bug Fixes**
 
 	- Fixed auto refresh issue for appsfire.
-	- nativeObject.getAdCoverImageUrl is optionel
+	- Added option to hide icon or image cover in native Ads.
 
 - **Ad Network Mediation Updates**
 
