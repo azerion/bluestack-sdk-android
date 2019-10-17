@@ -134,7 +134,7 @@ String callToAction=nativeObject.getCallToAction();
 nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,iconImageView,nativeAdCallToActionView);
 
 ```
-![2587222597-nativeAd-min-min.png](https://bitbucket.org/repo/GyRXRR/images/1684613955-2587222597-nativeAd-min-min.png)
+![2587222597-nativeAd-min-min (1).png](https://bitbucket.org/repo/GyRXRR/images/165955247-2587222597-nativeAd-min-min%20%281%29.png)
 
 
 ## RegisterViewForInteraction
