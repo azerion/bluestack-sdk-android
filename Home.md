@@ -207,6 +207,7 @@ isBusy will be set to true when factory starts handling request.
 
 isBusy will be set to false when factory finishes handling request.
 **example**:
+
 ```java
 if (!mngAdsBannerAdsFactory.isBusy()) {
 
@@ -261,6 +262,7 @@ mngAdsBannerAdsFactory.loadBanner(mFrame)
 **v1.5.1 or above**
 bannerDidLoad(View adView) changed to bannerDidLoad(View adView,int preferredHeightDP).
 bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
+
 ```java
 @Override
 public void bannerDidLoad(View adView ,int preferredHeightDP);
@@ -273,6 +275,7 @@ adLayout.addView(adView);
 ```
 
 bannerDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
 ```java
 @Override
 public void bannerDidFail(Exception adsException) {
@@ -281,6 +284,7 @@ Log.e(TAG, "banner did fail :" + adsException.toString());
 ```
 
 bannerResize(MNGFrame frame) : will be called when the banner has changed size
+
 ```java
 @Override
 public void bannerResize(MNGFrame frame) {
@@ -292,6 +296,7 @@ Log.d(TAG, "Banner did resize w dp " + frame.getWidth() + " h dp " + frame.getHe
 ```
 ##### Note :
 If you like to delete banner from the view, you can use this code : 
+
 ```java
 ...  
 adLayout.removeView(adView);  
@@ -300,6 +305,7 @@ adLayout.requestLayout();
 ```
 ### MNGAdSize
 Mng ads provides variant pre-defined sizes ( example below).
+
 ```java
 
 public final static MNGFrame MNG_BANNER = new MNGFrame(320, 50);
@@ -379,6 +385,7 @@ mngAdsInfeedAdsFactory.loadInfeed(new MAdvertiseInfeedFrame(300, MAdvertiseInfee
 #### Handle callBack from InfeedListener
 
 infeedDidLoad(View infeedView): will be called by the SDK when your infeedView is ready. now you can add your infeedView to your view.
+
 ```java
 @Override
 public void infeedDidLoad(View infeedView, int preferredHeightDP) {
@@ -389,6 +396,7 @@ adLayout.addView(infeedView);
 ```
 
 infeedDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
 ```java
 @Override
 public void infeedDidFail(Exception adsException) {
@@ -438,6 +446,7 @@ mngAdsInterstitialAdsFactory.loadInterstitial()
 ```
 ##### Handle callBack from InterstitialListener
 InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
+
 ```java
 @Override
 public void interstitialDidLoad() {
@@ -446,6 +455,7 @@ Log.d(TAG, "interstitial did load");
 ```
 
 interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
 ```java
 @Override
 public void interstitialDidFail(Exception adsException) {
@@ -463,6 +473,7 @@ Log.d(TAG, "interstitial disappear")
 
 ##### Disable auto-displaying
 With v2.0.8 and above, you can disable auto-displaying.
+
 ```java
 ...
 mngAdsInterstitialAdsFactory.loadInterstitial(false);
@@ -470,6 +481,7 @@ mngAdsInterstitialAdsFactory.loadInterstitial(false);
 
 ```
 To check if the interstitial is ready to be show, you must call isInterstitialReady() and displayInterstitial() in order to display the ads (in case of success).
+
 ```java
 ...
 if (mngAdsInterstitialAdsFactory.isInterstitialReady()) {
@@ -527,6 +539,7 @@ mngAdsNativeAdsFactory.loadNative()
 ```
 ##### Handle callBack from NativeListener
 nativeObjectDidLoad()  will be called by the SDK when your nativeObject is ready. now you can create your own view.
+
 ```java
 @Override
 public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
@@ -536,6 +549,7 @@ Log.d(TAG, "native Object did load ");
 ```
 
 nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
 ```java
 @Override
 public void nativeObjectDidFail(Exception adsException) {
@@ -547,7 +561,9 @@ Log.e(TAG, "nativeObject Did Fail :" + adsException.toString());
 MNGNativeObject have all required metadata to build your customized native UI.
 Your native ad layout should have MAdvertiseNativeContainer as it's root viewGroup container.
 
+
 ```java
+
 @Override
 public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
 ...
@@ -567,8 +583,17 @@ nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,ico
 
 - iconImageView = ImageView for NativeAd's ad Icon
 - mediaContainer = viewGroup, the sdk will handle the rendering process ( displaying) the image cover or the media video inside the view group that depends on the ad network result.
- 
- 
+
+
+##### Hide Icon or Image Cover
+
+Put **null** to hide icon (instead of iconImageView) or image cover (instead of mediaViewGroup). 
+
+```java
+//to handle impressions, user interactions and to display icon, image cover or the media video 
+
+nativeObject.registerViewForInteraction(nativeAdContainerView,null,null,nativeAdCallToActionView);
+```
 
 ##### Customize Native Ad Badge
 You can use a custom badge for the native ad.
@@ -588,6 +613,7 @@ See [Native Ads guidelines]
 
 ### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
+
 ```java
 ...
 import com.mngads.MNGAdsFactory;
@@ -694,6 +720,7 @@ mngPreference.setContentUrl("put your content url here")
 If you want to check which exception was invoked, in the didFail callback you have to cast the exception to MAdvertiseException and then use getErrorCode() to get exception code.
 Also you can get exception message by calling getMessage().
 In the example below we use interstitialDidFail, even you can use this logic in all our didFail callBack(bannerDidFail, infeedDidFail,nativeAdCollectionDidFail and nativeObjectDidFail)
+
 ```java
 @Override
 public void interstitialDidFail(Exception e) {
@@ -774,6 +801,7 @@ android:value="@integer/google_play_services_version" />
 ```
 ### Ogury integration
 If you use okhhtp in your project or in an other dependency, add these lines in your build.gradle to avoid build error :
+
 ```java
 buildTypes
 {
@@ -797,6 +825,7 @@ maven {
 ```
 
 And you will also need to add the following dependencies
+
 ```groovy
 implementation 'com.smartadserver.android:smart-display-sdk:7.2.0@aar'  
 implementation 'com.smartadserver.android:smart-core-sdk:7.2.0@aar'
@@ -825,11 +854,13 @@ implementation 'com.applovin:applovin-sdk:9.8.4'
 - the face tracking feature was implemented to determine wether the user is watching the ad or not , and for how long (in ms). this feature is optional and disabled by default, to enable it you need to :
 - download [umooveVx.aar] library and place it in the /libs folder in your project.
 - edit your build.gradle, add the library :
+- 
 ```groovy
 //face detection umoove
 implementation(name: 'umooveV2.12.1', ext: 'aar')
 ```
 - you need to declare your flat file repository.
+
 ```groovy
 allprojects {
 repositories {
@@ -841,6 +872,7 @@ dirs 'libs'
 }
 ```
 - and you have to specify abiFilters to avoid some problems with arm64-v8a devices : add abiFilters to your build.gradle like this
+
 ```groovy
 defaultConfig
 {
@@ -853,6 +885,7 @@ abiFilters "armeabi-v7a","x86"
 }
 ```
 - and you need to allow deprecated ndk in your gradle.properties file.
+
 ```groovy
 android.useDeprecatedNdk=true
 ```
