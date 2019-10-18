@@ -178,6 +178,20 @@ mngPreferences.setAdChoicePosition(MNGPreferences.TOP_LEFT);
 mngAdsNativeAdsFactory.loadNative(mngPreference)
 ```
 
+## Hide Icon or Image Cover
+Put null to hide icon (instead of iconImageView) or image cover (instead of mediaViewGroup).
+
+```java
+@Override
+    public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
+   ...
+//to handle impressions, user interactions and to display icon, image cover or the media video 
+
+nativeObject.registerViewForInteraction(nativeAdContainerView,null,null,nativeAdCallToActionView);
+   ...
+}
+```
+
 ## Customize Native Ad Badge
 
 You can use a custom badge for the native ad.
