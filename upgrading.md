@@ -11,6 +11,15 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 implementation(name: 'mngads-sdk-2.15.1', ext: 'aar')
 
 ```
+Don't forget the following dependencies required by Smart Display SDK
+
+```groovy
+/ Add dependencies required by Smart Display SDK
+	implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+	implementation 'com.google.android.gms:play-services-location:16.0.0'
+	implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+	implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
+```
 
 ## Version 2.15
 - **remove implementation files('libs/omsdk-android-1.2.4-Madvertise.jar') now include on mngads-sdk-2.15**
@@ -207,9 +216,11 @@ implementation 'com.smartadserver.android:smart-display-sdk:7.0.3@aar'
 Add the following dependencies that goes along with the smart ad server
 
 ```groovy
-implementation 'com.google.android.gms:play-services-ads-identifier:+'
-implementation 'com.google.android.gms:play-services-location:+'
-implementation 'com.squareup.okhttp3:okhttp:+' 
+/ Add dependencies required by Smart Display SDK
+	implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+	implementation 'com.google.android.gms:play-services-location:16.0.0'
+	implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+	implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 ```
 Update Flurry's dependency
 
