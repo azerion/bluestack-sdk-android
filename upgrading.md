@@ -220,7 +220,6 @@ Add the following dependencies that goes along with the smart ad server
 	implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
 	implementation 'com.google.android.gms:play-services-location:16.0.0'
 	implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-	implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 ```
 Update Flurry's dependency
 
