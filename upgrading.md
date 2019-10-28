@@ -77,9 +77,12 @@ implementation('com.mopub:mopub-sdk:5.8.0@aar') {
   exclude module: 'libAvid-mopub' // To exclude AVID  
   exclude module: 'moat-mobile-app-kit' // To exclude Moat  
 }  
-// Smart SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.2.0@aar'  
-implementation 'com.smartadserver.android:smart-core-sdk:7.2.0@aar'
+    // Add Smart Display SDK
+    implementation 'com.smartadserver.android:smart-display-sdk:7.2.0@aar'
+    implementation 'com.smartadserver.android:smart-core-sdk:7.2.0@aar'
+    // Add dependencies required by Smart Display SDK
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 //FaceBook SDK  
 implementation 'com.facebook.android:audience-network-sdk:5.5.0'
 // Adcolony SDK  
