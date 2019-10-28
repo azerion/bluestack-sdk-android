@@ -154,9 +154,20 @@ adView.setImageView(adView.findViewById(R.id.mediaContainer));
 // For handling click
 adView.setStoreView(mMAdvertiseNativeContainer);
 ```
+### 3. Location
 
-### 3. Init Preference
-If you need to send your preferences (Age, Location, Keyword, Content URL) use the addCustomEventExtrasBundle() method.
+- If a user has granted your app location permissions, Ad Manager automatically passes this location data to the SDK. The SDK uses this data to improve ad targeting without requiring any code changes in your app. 
+- You can specify location-targeting information in the ad request as follows:
+
+```java
+PublisherAdRequest request = new PublisherAdRequest.Builder()
+        .setLocation(location)
+        .build();
+```
+
+### 4. Custom targeting (Optional)
+
+If you need to send your preferences (Age, Keyword, Content URL) use the addCustomEventExtrasBundle() method.
 
 ```java
 PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
@@ -174,14 +185,9 @@ and a bundle of the extras :
 
 ```java
 Bundle extras = new Bundle();
-Location location = Utils.getCurrentLocation(getActivity());
-if (location != null) {
-extras.putDouble("LATITUDE", location.getLatitude());
- extras.putDouble("LONGITUDE", location.getLongitude());
- }
 extras.putInt("AGE", 25);
-extras.putString("KEYWORD", Constants.MNGADS_KEYWORD);
-extras.putString("CONTENT_URL", Constants.MNGADS_CONTENT_URL);
+extras.putString("KEYWORD", "YOUR KEYWORD");
+extras.putString("CONTENT_URL", "https://www.example.com");
 ```
 [Banner Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/banner
 [Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
