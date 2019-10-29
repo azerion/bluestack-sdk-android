@@ -64,13 +64,13 @@ On your Google Ad Manager UI, create a custom event
 
 You can check our [Demo] page.
 
-#### Banner and Interstitial
+#### 2.1 Banner and Interstitial
 
 **No additional code is required for integration.** 
 
 You may now use MNG DFP Adaptor to show [Interstitial Ads] and [Banner Ads] the same way it's described in the [DFP Documentation].The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
 
-#### Native Ads
+#### 2.2 Native Ads
 ##### Load an Ad
 The following code demonstrates how to build an AdLoader that can load unified native ads:
 
@@ -154,10 +154,10 @@ adView.setImageView(adView.findViewById(R.id.mediaContainer));
 // For handling click
 adView.setStoreView(mMAdvertiseNativeContainer);
 ```
+
 ### 3. Location
 
-- If a user has granted your app location permissions, Ad Manager automatically passes this location data to the SDK. The SDK uses this data to improve ad targeting without requiring any code changes in your app. 
-- You can specify location-targeting information in the ad request as follows:
+You can specify location-targeting information in the ad request as follows:
 
 ```java
 PublisherAdRequest request = new PublisherAdRequest.Builder()
@@ -165,9 +165,21 @@ PublisherAdRequest request = new PublisherAdRequest.Builder()
         .build();
 ```
 
-### 4. Custom targeting (Optional)
 
-If you need to send your preferences (Age, Keyword, Content URL) use the addCustomEventExtrasBundle() method.
+### 4. Custom targeting
+
+If you need to send your custom key-value pairs. You can specify key-value-targeting information in the ad request as follows: 
+
+
+```java
+PublisherAdRequest request = new PublisherAdRequest.Builder()
+		.addKeyword("Keyword")
+        .addCustomTargeting("key1", "value1")
+        .addCustomTargeting("key2", "value2")
+        .build();
+```
+
+and you must send your custom key-value pairs also using the addCustomEventExtrasBundle() method.
 
 ```java
 PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
@@ -185,10 +197,10 @@ and a bundle of the extras :
 
 ```java
 Bundle extras = new Bundle();
-extras.putInt("AGE", 25);
-extras.putString("KEYWORD", "YOUR KEYWORD");
-extras.putString("CONTENT_URL", "https://www.example.com");
+extras.putString("customTargeting","key1=value1;key2=value2");
 ```
+
+[Google Ad Targeting page]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/targeting 
 [Banner Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/banner
 [Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
 [Native Ads Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/native/advanced
