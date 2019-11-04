@@ -3,6 +3,18 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 2.15.2
+#### Release date: November 4th, 2019
+
+- **Bug Fixes**
+
+ - fix nativeAd issue (com.google.android.gms.ads.formats.NativeAd$Image.getDrawable())
+
+- **Ad Network Mediation Updates**
+
+    - Use new [mngads-sdk-x.aar], version 2.15.2
+    - Use new  [madvertiselocation-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/), version 2.6
+
 ## Version 2.15.1
 #### Release date: October 16th, 2019
 - **Features**
