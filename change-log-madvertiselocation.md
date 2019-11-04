@@ -1,5 +1,10 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 2.6
+#### Release date: November 4th, 2019
+
+ - implementation onDowngrade for SQLiteOpenHelper
+
 ### Version 2.5
 #### Release date: September 5th, 2019
 
