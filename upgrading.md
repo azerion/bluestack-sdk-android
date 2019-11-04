@@ -8,6 +8,17 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 ```groovy
 
+implementation(name: 'mngads-sdk-2.15.2', ext: 'aar')
+//For GPS data 
+ implementation(name:  'madvertiselocation-2.6', ext:  'aar')
+```
+
+## Version 2.15.1
+
+- Don't forget to update your dependencies as following :
+
+```groovy
+
 implementation(name: 'mngads-sdk-2.15.1', ext: 'aar')
 
 ```
