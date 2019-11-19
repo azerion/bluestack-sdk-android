@@ -125,9 +125,39 @@ private void displayUnifiedNativeAd(ViewGroup parent, UnifiedNativeAd ad) {
 	
 	// Set Icon and MediaView view, the asset is populated automatically
 	
-	adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
-	adView.setImageView(adView.findViewById(R.id.mediaContainer));
-	adView.setStoreView(mMAdvertiseNativeContainer);
+        if(unifiedNativeAd.getIcon()!=null)
+        {
+            if (unifiedNativeAd.getIcon().getUri() != null &&  !unifiedNativeAd.getIcon().getUri().toString().isEmpty()) {
+                Picasso.with(getActivity()).load(unifiedNativeAd.getIcon().getUri())
+                        .into((ImageView) adView.findViewById(R.id.nativeAdIcon));
+            }
+            else
+            {
+                adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
+            }
+
+        }
+        else
+        {
+            adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
+        }
+
+        if(unifiedNativeAd.getImages()!=null)
+        {
+            if (unifiedNativeAd.getImages().size() > 0 && unifiedNativeAd.getImages().get(0) != null ) {
+                Picasso.with(getActivity()).load(unifiedNativeAd.getImages().get(0).getUri())
+                        .into((ImageView) adView.findViewById(R.id.nativeAdImage));
+            }
+            else
+            {
+                adView.setImageView(adView.findViewById(R.id.mediaContainer));
+            }
+        }
+        else
+        {
+            adView.setImageView(adView.findViewById(R.id.mediaContainer));
+        }
+        adView.setStoreView(mMAdvertiseNativeContainer);
 
 
     // Register the NativeAdObject.
