@@ -1,5 +1,10 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 2.7
+#### Release date: November 28th, 2019
+
+ - Loc-CheckConsent - header
+
 ### Version 2.6
 #### Release date: November 4th, 2019
 
