@@ -55,7 +55,7 @@ On your Google Ad Manager UI, create a custom event
 
 ### 1. Set Up
 
-* Add our adapter [mngads-dfp-adapter-1.0.2.aar]
+* Add our adapter [mngads-dfp-adapter-x.aar]
 * [set up sdk section] MNGAds on your application project.
 
 
@@ -235,7 +235,7 @@ extras.putString("customTargeting","key1=value1;key2=value2");
 [Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
 [Native Ads Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/native/advanced
 [set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-set-up-the-sdk
-[mngads-dfp-adapter-1.0.4.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-1.0.4.aar
+[mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-1.0.5.aar
 [mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
 [Google Ad Manager UI]:https://admanager.google.com/
