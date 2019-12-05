@@ -1,5 +1,10 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 2.8
+#### Release date: December 5th, 2019
+
+ - fix restart jobService
+
 ### Version 2.7
 #### Release date: November 28th, 2019
 
