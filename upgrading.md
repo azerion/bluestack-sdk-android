@@ -2,6 +2,19 @@
 See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.16
+
+- Don't forget to update your dependencies as following :
+
+```groovy
+
+implementation(name: 'mngads-sdk-2.16', ext: 'aar')
+
+//FaceBook SDK  
+implementation 'com.facebook.android:audience-network-sdk:5.6.1'
+```
+
 ## Version 2.15.2
 
 - Don't forget to update your dependencies as following :
