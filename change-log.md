@@ -3,6 +3,19 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 2.16
+#### Release date: February 4th, 2020
+
+- **Bug Fixes**
+
+ - Fix Native Ad issue (icon)
+
+- **Ad Network Mediation Updates**
+
+    - Use new [mngads-sdk-x.aar], version 2.16
+    - Use new "com.facebook.android:audience-network-sdk:5.6.1"
+
 ## Version 2.15.2
 #### Release date: November 4th, 2019
 
