@@ -3,6 +3,38 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.0
+#### Release date: February 18th, 2020
+
+**"It’s required that your project migrates from Android Support Libraries to Jetpack Libraries (Android X) if you are using this version."**
+
+**Added**
+
+ - In-App Bidding feature.
+ - Support for Parallax on Infeed format.
+ - Fully compatible with AndroidX.
+
+**Fixed**
+
+- Fixed an issue in VPAID player.
+- Fixed an issue where clicking a close button on MRAID Ad.
+- Fixed an issue related to MNGAnalyticsService.
+
+
+**Updated**
+
+- Updated mediation to support latest SDKs of every network : 
+    - Added Criteo SDK (Version 3.4.0) 
+    - Replace Amazon Ads SDK from "amazon-ads-X.X.X.jar" or "DTBAndroidSDK-X.X.X.aar" to 'com.amazon.android:aps-sdk:8.2.1@aar'
+    - Use new version of MNG Ads SDK (Version : 3.0)
+    - Use new version of Ogury SDK (Version : 4.1.10) 
+    - Use new version of Flurry SDK (Version : 12.1.0) 
+    - Use new version of Smart Ad Server SDK (Version : 7.4.0) 
+    - Use new version of MoPub SDK (Version : 5.11.0) 
+    - Use new version of AppLovin SDK (Version : 9.11.2) 
+    - Use new version of AdColony SDK (Version : 4.1.3) 
+    - Use new version of Google Ads SDK (Version : 18.3.0) 
+
 
 ## Version 2.16
 #### Release date: February 4th, 2020
