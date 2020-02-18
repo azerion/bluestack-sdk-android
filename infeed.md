@@ -221,7 +221,7 @@ Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+
 
 
  - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/InfeedFragment.java
- - https://bitbucket.org/anypli/mng-ads-demo-android/src/staging-v3/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/ParallaxFragment.java
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/ParallaxFragment.java
 
 
 
