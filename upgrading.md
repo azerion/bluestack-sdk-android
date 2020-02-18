@@ -3,6 +3,94 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 3.0
+- **It’s required that your project migrates from Android Support Libraries to Jetpack Libraries (Android X) if you are using this version.**
+
+- **Update targetSdkVersion / compileSdkVersion to 29**
+
+- **Add Criteo SDK :**  
+
+Add Criteo's maven repository into your project-level build.gradle:
+	
+```groovy
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        maven { url "https://pubsdk-bin.criteo.com/publishersdk/android" }
+    }
+}
+```
+
+Then, in your app's build.gradle, add the following line to the "dependencies" section in order to import Criteo SDK and its dependencies :
+  
+```groovy
+implementation 'com.criteo.publisher:criteo-publisher-sdk:3.4.0'
+```
+- **Update Amazon APS SDK :** 
+
+In your app's build.gradle, replace the following line from the "dependencies" :
+  
+```groovy
+implementation files('libs/amazon-ads-5.9.0.jar')
+
+or
+
+implementation(name: 'DTBAndroidSDK-X.X.X', ext: 'aar')
+```
+with the following line :
+
+```groovy
+implementation 'com.amazon.android:aps-sdk:8.2.1@aar'
+```
+
+- **Network Mediation Updates :** 
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+
+```groovy
+
+//MNG Ads SDK  
+implementation(name: 'mngads-sdk-3.0', ext: 'aar')
+
+// Ogury SDK
+implementation(name: 'ogury-4.1.10', ext: 'aar')
+
+// Flurry SDK
+implementation 'com.flurry.android:analytics:12.1.0@aar'
+implementation 'com.flurry.android:ads:12.1.0@aar'
+
+// MoPub Marketplace SDK
+implementation('com.mopub:mopub-sdk:5.11.0@aar') {
+        transitive = true
+ exclude module: 'libAvid-mopub' // To exclude AVID
+ exclude module: 'moat-mobile-app-kit' // To exclude Moat
+    }
+    
+//Google Ads SDK
+implementation 'com.google.android.gms:play-services-ads:18.3.0'
+ 
+//AdColony SDK
+implementation 'com.adcolony:sdk:4.1.3'  
+ 
+// App Lovin SDK
+implementation 'com.applovin:applovin-sdk:9.11.2'
+
+// Smart Display SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.4.0@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.4.0@aar'
+
+// Dependencies required by Smart Display SDK
+implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+implementation 'com.google.android.gms:play-services-location:16.0.0'
+implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
+
+```
+
+
 ## Version 2.16
 
 - Don't forget to update your dependencies as following :
