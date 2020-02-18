@@ -7,7 +7,6 @@
 ## Overview
 Before You Start. Make sure that you have correctly integrated the MNG SDK into your application. Integration is outlined [here](https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/setup).
 
-# Integration for Android
 
 ## Step 1. Init RewardedVideo class
 
