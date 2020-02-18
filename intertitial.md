@@ -4,10 +4,6 @@
 ## Overview
 Before You Start. Make sure that you have correctly integrated the MNG SDK into your application. Integration is outlined [here](https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/setup).
 
-Example | Description| 
-------------- | ------------- |
-![interstitial-appsfire-mngads-android-min-min.png](https://bitbucket.org/repo/GyRXRR/images/15176750-interstitial-appsfire-mngads-android-min-min.png) | An interstitial is a full screen ad that appears at a natural transition point in your app.
-
 # Integration for Android
 
 ## Step 1. Init Interstitial factory
