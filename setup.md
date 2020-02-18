@@ -13,7 +13,7 @@ Before You Start, MNG Ads requires minimum :
 - Android 4.4 (API level 19) or higher.
 - CompileSdkVersion at least 29.
 - Android Studio 3.5 or higher.
-- Since Version 3.0 and later, it’s required that your project migrates from Android Support Libraries to Jetpack Libraries (Android X).
+- Since Version 3.0 and later, it’s required that your project migrates from Android Support Libraries to Jetpack Libraries ([Android X]).
 
 
 ## Step 1. Installation using Gradle
@@ -383,3 +383,4 @@ MNG SDK offers a number of different ad formats :
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
 [umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
+[Android X]:https://developer.android.com/jetpack/androidx/migrate
