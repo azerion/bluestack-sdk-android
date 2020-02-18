@@ -249,7 +249,6 @@ adLayout.requestLayout();
 # Example
 
  - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/BannerFragment.java
- - 
 
 Example | Description| 
 ------------- | ------------- |
