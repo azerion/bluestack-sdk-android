@@ -2,7 +2,7 @@
 
 [TOC]
 
-MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
+MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
 
 ## Prerequisites
 
@@ -12,8 +12,8 @@ MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP**
 
 ## Set up the SDK
 
-### Repository
-In the top level build file. reference the flatDir. 
+### 1.Repository
+In the main build.gradle of your project, reference the flatDir. 
 
 ```groovy
 allprojects {
@@ -27,8 +27,8 @@ allprojects {
 }
 ```
 
-### Dependencies
-add the dependency to the library in the application gradle file
+### 2.Dependencies
+Include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
 
 ```groovy
 dependencies {
@@ -39,23 +39,24 @@ dependencies {
 	implementation 'com.google.android.gms:play-services-ads:16.0.0'
     
     // Madvertise Location SDK
-    implementation(name: 'madvertiselocation', ext: 'aar')
+    implementation(name: 'madvertiselocation-X.X', ext: 'aar')
 
 }
 ```
 
-[madvertiselocation-x.aar] available on https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
+**Note :** 
 
-Note : 
+- madvertiselocation-X.X available on : [https://bitbucket.org/mngcorp/mngads-demo-android/downloads/](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/)
 
- The aar file doesn't contain nested (or transitive) dependecies and doesn't have a pom file which describes the dependencies used by the library.
+
+- The aar file doesn't contain nested (or transitive) dependecies and doesn't have a pom file which describes the dependencies used by the library.
  It means that, if you are importing a aar file using a flatDir repo you have to specify the dependencies alos in the project.
  
- You should use a maven repository (you have to publish the library in a private or public maven repo), you will not have the same issue.
+- You should use a maven repository (you have to publish the library in a private or public maven repo), you will not have the same issue.
 In this case, gradle downloads the dependencies using the pom file which will contains the dependencies list.
 
 
-### Permissions
+### 3.Permissions
 In order to run properly, the library needs the following permissions : 
 
 * android.permission.ACCESS\_FINE_LOCATION : used to get the device last known location
@@ -67,11 +68,11 @@ In order to run properly, the library needs the following permissions :
 * android.permission.INTERNET : used to allow the library to send over the internet the data it has collected
 
 
-Note:
+**Note:**
 
-Since Android 6.0 (API level 23), this permission is belongs to the "dangerous permissions" and must be requested at run time.
+- Since Android 6.0 (API level 23), this permission is belongs to the "dangerous permissions" and must be requested at run time.
 
-The library does not implement this mechanism as it could interfere with your application's behavior.
+- The library does not implement this mechanism as it could interfere with your application's behavior.
 
 ## That for use in standalone without the mngads SDK
 
@@ -79,42 +80,36 @@ Madvertise is built based on Builder creational design pattern.
 In order to initialize the MadvertiseLocation SDK, you must have an APP_ID value. 
 
 ```java
-
 private static final String APP_ID = "XXXXXX";
 
 ```
 
-### new implementation since v2.3
+### 1.Implementation 
+#### New implementation (Since v2.3)
 
 ```java
 MadvertiseLocation.configure(getApplicationContext(), APP_ID).start();
 ```
 
-### deprecated implementation (v1.0 to v2.2)
+#### Deprecated implementation (v1.0 to v2.2)
 
 ```java
-@Override
-private void onCreate(Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-	
-	MadvertiseLocation madvertiseLocation = new MadvertiseLocationBuilder(getApplicationContext())
+MadvertiseLocation madvertiseLocation = new MadvertiseLocationBuilder(getApplicationContext())
                 .appId(APP_ID)
                 .build();
 
-   MadvertiseLocation.with(madvertiseLocation);
-}
+MadvertiseLocation.with(madvertiseLocation);
+
 ```
 
 
-### Stop service (since 2.3 version)
-the implementation of this method allows to stop the tracking service
+### 2.Stop service (Since 2.3 version)
+The implementation of this method allows to stop the tracking service
 
 ```java
-
     public static void stop() {
         if (mContext != null && !TextUtils.isEmpty(mAppId)) {
-            DebugLog.i(TAG, "stopped");
-            MadvertiseLocationReceiver.stop(mContext);
+        MadvertiseLocationReceiver.stop(mContext);
             MadvertiseAlarmReceiver.stop(mContext);
         }
     }
