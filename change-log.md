@@ -12,7 +12,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
  - In-App Bidding feature.
  - Support for Parallax on Infeed format.
- - Fully compatible with AndroidX.
+ - Fully compatible with [Android X].
 
 **Fixed**
 
@@ -1311,3 +1311,4 @@ You must check [Upgrade Guide]
 [madvertiselocation-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
 [MAdvertiseCmp-xx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
 [Amazon-APS]:https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/DTBAndroidSDK-7.4.3.aar
+[Android X]:https://developer.android.com/jetpack/androidx/migrate
