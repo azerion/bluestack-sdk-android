@@ -7,16 +7,6 @@ Before You Start. Make sure that you have correctly integrated the MNG SDK into 
 
 A native ad is a custom designed ad that fits seamlessly with your app. If done well, ads can blend in naturally with your interface.
 
-
-content Ad  | carousel Ad | carousel Ad
-------------- | ------------- | -------------  | -------------
-![nativeAd-1.png](https://bitbucket.org/repo/GyRXRR/images/1430534000-nativeAd-1.png)|![nativeAd-2.png](https://bitbucket.org/repo/GyRXRR/images/2633774569-nativeAd-2.png)|![carousel2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/771135904-carousel2-mngads-android-min.png)
-
-MNG supports native ads, that allow you to retrieve the metadata of ad campaigns and present the ads yourself, within the context of your app, using your own art style. You are fully responsible
-for rendering the ad views using the information we supply. Native ads however offer methods to help you register impressions and clicks on your custom view that has **MAdvertiseNativeContaineras it's root layout** . 
-
-# Integration for Android
-
 ## Step 1. Init nativeAd factory
 
 To create a nativeAd you have to init an object with type MNGAdsSDKFactory.
@@ -357,3 +347,7 @@ Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+
 
  - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeAdFragment.java
  - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeListFragment.java
+
+content Ad  | carousel Ad | carousel Ad
+------------- | ------------- | -------------  | -------------
+![nativeAd-1.png](https://bitbucket.org/repo/GyRXRR/images/1430534000-nativeAd-1.png)|![nativeAd-2.png](https://bitbucket.org/repo/GyRXRR/images/2633774569-nativeAd-2.png)|![carousel2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/771135904-carousel2-mngads-android-min.png)
