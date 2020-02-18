@@ -1,12 +1,10 @@
-# Banner
+# Banner Integration for Android
+
+[TOC]
 
 ## Overview
 Before You Start. Make sure that you have correctly integrated the MNG SDK into your application. Integration is outlined [here](https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/setup).
 
-
-
-
-# Integration for Android
 
 ## Step 1. Init Banner factory
 
@@ -248,16 +246,10 @@ adLayout.requestLayout();
 ...
 ```
 
-### Optimized use case for several ad formats on one page
+# Example
 
-When trying to display several ad formats on one page try to synchronize your requests instead of making multiple ones at the some time. By making the requests at the same time you are decreasing your chance of receving an Ad and you are making your app slow .You can check the number of MNGAdsFactory running a request by calling :
-
-
-```java
-    int mNumberOfRunningFactory=MNGAdsFactory.getNumberOfRunningFactory() ;
-```
-
-You can see an example on [AdsFragment.java].
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/BannerFragment.java
+ - 
 
 Example | Description| 
 ------------- | ------------- |
