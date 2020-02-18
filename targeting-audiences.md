@@ -4,10 +4,8 @@
 
 In order to take advantage of our targeting campaign, you must use our **Preferences object**.
 
-
-```
-#!java
-mngPreference = new MNGPreference();
+```java
+MNGPreference  mngPreference = new MNGPreference();
 ```
 
 
@@ -17,8 +15,7 @@ mngPreference = new MNGPreference();
 **The Madvertise adserver and certain ad can use your user’s location to send more targeted ads by passing Latitude and Longitude.**
 
 
-```
-#!java
+```java
 
     /**
      * get user location
@@ -59,10 +56,7 @@ To add keyword targeting, you will need to pass these keywords up through the ap
  - Characters per key: 20
  - Characters per value: 40
 
-
-```
-#!java
-
+```java
 mngPreference.setKeyword("page=football;category=sport");//Separator in case of multiple entries is ; key=value
 ```
 
@@ -73,12 +67,11 @@ We can use Positive or Negative targeting
 ![screenshot-console.mng-ads.com 2017-02-08 14-17-47.png](https://bitbucket.org/repo/aen579/images/3770499640-screenshot-console.mng-ads.com%202017-02-08%2014-17-47.png)
 
 
-## User demographic Targeting
+## User Demographic Targeting
 
 When people are signed in on your app, can you please share **Demographic informations**  from their settings with following code :
 
-```
-#!java
+```java
 mngPreference.setAge(25);//int
 mngPreference.setGender(MNGGender.MNGGenderFemale); //MNGGender.MNGGenderMale
 
@@ -93,12 +86,11 @@ Target campaigns with following rules can be apply by Madvertise Team.
 
 Audiences can be defined by date of birth, gender, locations, Apple's Advertising Identifier (IDFA), Android's advertising ID or by a combination of rules used to identify users who took specific actions on your app (device, carrier, ...).
 
-# Content mapping for apps
+## Content mapping for apps
 
-since v2.4. https://support.google.com/adxseller/answer/6270563
+**(Since v2.4)** [https://support.google.com/adxseller/answer/6270563](https://support.google.com/adxseller/answer/6270563)
 
-```
-#!java
+```java
  mngPreference.setContentUrl("put your content url here")
 ```
 
