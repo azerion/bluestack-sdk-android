@@ -1,4 +1,4 @@
-# Infeed
+# Infeed Integration for Android
 Ads that show up in the middle of the stream as you scroll through your content Parallax or Video.
 
 [TOC]
@@ -216,6 +216,12 @@ case MAdvertiseException.INTERSTITIAL_ALREADY_SHOWN_ERROR :
 Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+adException.getErrorCode());
 }
 ```
+
+# Example
+
+
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/InfeedFragment.java
+ - https://bitbucket.org/anypli/mng-ads-demo-android/src/staging-v3/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/ParallaxFragment.java
 
 
 
