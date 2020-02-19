@@ -78,14 +78,11 @@ implementation 'com.adcolony:sdk:4.1.3'
 // App Lovin SDK
 implementation 'com.applovin:applovin-sdk:9.11.2'
 
-// Smart Display SDK
+// Add Smart Display SDK
 implementation 'com.smartadserver.android:smart-display-sdk:7.4.0@aar'
 implementation 'com.smartadserver.android:smart-core-sdk:7.4.0@aar'
-
-// Dependencies required by Smart Display SDK
-implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-implementation 'com.google.android.gms:play-services-location:16.0.0'
-implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+// Add dependencies required by Smart Display SDK
+implementation 'com.squareup.okhttp3:okhttp:3.12.1'
 implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 
 ```
