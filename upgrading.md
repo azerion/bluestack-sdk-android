@@ -85,6 +85,12 @@ implementation 'com.smartadserver.android:smart-core-sdk:7.4.0@aar'
 implementation 'com.squareup.okhttp3:okhttp:3.12.1'
 implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 
+//For GPS data 
+ implementation(name:  'madvertiselocation-3.0', ext:  'aar')
+
+//For GDPR Madvertise CMP
+implementation(name: 'MAdvertiseCmp-29.0.0', ext: 'aar')
+
 ```
 
 
