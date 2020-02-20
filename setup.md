@@ -160,11 +160,11 @@ implementation(name: 'ogury-4.1.4', ext: 'aar')
 }
 ```
 
-- MAdvertise Consent Management Provider (CMP) [MAdvertiseCmp-X.X.X.aar](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
+- MAdvertise Consent Management Provider (CMP) [madvertisecmp-X.X.X.aar](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
 
 Make your application comply with the new General Data Protection Regulation (GDPR) law applies in Europe. (for additional information please visit our [website](https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home))
 
-- Madvertise Location SDK [Madvertiselocation-X.X](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
+- Madvertise Location SDK [madvertiselocation-X.X](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
 
 This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional information please visit our [website](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/MadvertiseLocation))
 
