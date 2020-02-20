@@ -234,9 +234,9 @@ extras.putString("customTargeting","key1=value1;key2=value2");
 [Banner Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/banner
 [Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
 [Native Ads Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/native/advanced
-[set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home#markdown-header-set-up-the-sdk
-[mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-1.0.5.aar
-[mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/mngads-sdk-2.7.aar?at=master
+[set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/setup
+[mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-2.0.0.aar
+[mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-sdk-3.0.aar
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
 [Google Ad Manager UI]:https://admanager.google.com/
 [MNGAds]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
