@@ -89,7 +89,7 @@ implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
  implementation(name:  'madvertiselocation-3.0', ext:  'aar')
 
 //For GDPR Madvertise CMP
-implementation(name: 'MAdvertiseCmp-29.0.0', ext: 'aar')
+implementation(name: 'madvertisecmp-29.0.0', ext: 'aar')
 
 ```
 
