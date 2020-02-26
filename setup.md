@@ -64,8 +64,14 @@ implementation 'com.google.android.gms:play-services-base:18.3.0'
 
 ```groovy
 dependencies {
+//Google Advertising Id
+implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+
 //Google Ads SDK
 implementation 'com.google.android.gms:play-services-ads:18.3.0'
+
+//Location, if you app use GPS data only with a CMP
+implementation 'com.google.android.gms:play-services-location:17.0.0'
         
 //Audience Network SDK
 implementation 'com.facebook.android:audience-network-sdk:5.6.1'
@@ -77,8 +83,6 @@ implementation 'com.smartadserver.android:smart-display-sdk:7.4.0@aar'
 implementation 'com.smartadserver.android:smart-core-sdk:7.4.0@aar'
 
 // Dependencies required by Smart Display SDK
-implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
-implementation 'com.google.android.gms:play-services-location:16.0.0'
 implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 
