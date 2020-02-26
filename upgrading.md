@@ -1,5 +1,5 @@
 # upgrading SDK
-See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more detailed informations.
+See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
 
