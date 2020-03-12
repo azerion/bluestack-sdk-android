@@ -17,7 +17,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-    - Use new version of MNG Ads SDK (Version : 3.0.1)
+ - Use new version of MNG Ads SDK (Version : 3.0.1)
 
 ## Version 3.0
 #### Release date: February 18th, 2020
