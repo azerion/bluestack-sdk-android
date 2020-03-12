@@ -8,6 +8,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 #### Release date: March 12th, 2020
 
 **Added**
+
  - Interstitial performances
 
 **Fixed**
