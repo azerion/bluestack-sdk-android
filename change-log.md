@@ -3,6 +3,22 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 3.0.1
+#### Release date: March 12th, 2020
+
+**Added**
+ - Interstitial performances
+
+**Fixed**
+
+ - fix MNGAnalyticsService crash
+ - fix Binder.java - android.os.BinderProxy.transactNative. - TransactionTooLargeException crash
+
+**Updated**
+
+    - Use new version of MNG Ads SDK (Version : 3.0.1)
+
 ## Version 3.0
 #### Release date: February 18th, 2020
 
