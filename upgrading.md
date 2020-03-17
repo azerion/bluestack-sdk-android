@@ -56,7 +56,7 @@ In your app's build.gradle, don't forget to update your dependencies as followin
 implementation(name: 'mngads-sdk-3.0', ext: 'aar')
 
 // Ogury SDK
-implementation(name: 'ogury-4.1.10', ext: 'aar')
+implementation(name: 'ogury-4.3.7', ext: 'aar')
 
 // Flurry SDK
 implementation 'com.flurry.android:analytics:12.1.0@aar'
