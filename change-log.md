@@ -3,6 +3,21 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.0.2
+#### Release date: March 19th, 2020
+
+**Added**
+
+ - Manage placement stack
+
+**Fixed**
+
+ - Fix SASWebView.java line 60 crash onSmartAdserver (android 5 and low cost devices)
+
+**Updated**
+
+ - Use new version of MNG Ads SDK (Version : 3.0.2)
+
 
 ## Version 3.0.1
 #### Release date: March 12th, 2020
