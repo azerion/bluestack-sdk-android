@@ -66,7 +66,7 @@ implementation 'com.google.android.exoplayer:exoplayer:2.11.0'
 implementation 'com.facebook.android:audience-network-sdk:5.8.0'
 
 //For GDPR Madvertise CMP
-implementation(name: 'madvertisecmp-31.0.0', ext: 'aar')
+implementation(name: 'madvertisecmp-33.0.0', ext: 'aar')
 
 ```
 
