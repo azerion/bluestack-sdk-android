@@ -26,7 +26,7 @@ repositories {
     }
 }
 dependencies {
-    implementation 'co.ogury:ogury-sdk:4.+'
+    implementation 'co.ogury:ogury-sdk:4.3.12'
 }
 
 ```
