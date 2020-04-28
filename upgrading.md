@@ -2,6 +2,74 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.1
+
+- It’s required that your project migrates from Android Support Libraries to Jetpack Libraries (Android X) if you are using this version.
+
+- Update targetSdkVersion / compileSdkVersion to 29
+
+
+- **Update Ogury SDK :**  
+
+In your app's build.gradle, **replace** the following line from the "dependencies" and **remove** the ogury-X.X.X.aar file :
+  
+```groovy
+implementation(name: 'ogury-X.X.X', ext: 'aar')
+
+```
+with the following line :
+
+```groovy
+repositories {
+    maven {
+        url 'https://maven.ogury.co'
+    }
+}
+dependencies {
+    implementation 'co.ogury:ogury-sdk:4.+'
+}
+
+```
+
+
+- **Network Mediation Updates :** 
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+
+```groovy
+
+//MNG Ads SDK  
+implementation(name: 'mngads-sdk-3.1', ext: 'aar')
+
+// MoPub Marketplace SDK
+implementation('com.mopub:mopub-sdk:5.11.1@aar') {
+        transitive = true
+ exclude module: 'libAvid-mopub' // To exclude AVID
+ exclude module: 'moat-mobile-app-kit' // To exclude Moat
+    }
+    
+//Google Ads SDK
+implementation 'com.google.android.gms:play-services-ads:19.0.1'
+ 
+//AdColony SDK
+implementation 'com.adcolony:sdk:4.1.4'  
+ 
+// App Lovin SDK
+implementation 'com.applovin:applovin-sdk:9.11.6'
+
+// Add Smart Display SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.4.1@aar' 
+implementation 'com.google.android.exoplayer:exoplayer:2.11.0'
+ 
+// Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:5.8.0'
+
+//For GDPR Madvertise CMP
+implementation(name: 'madvertisecmp-31.0.0', ext: 'aar')
+
+```
+
 
 ## Version 3.0
 - **It’s required that your project migrates from Android Support Libraries to Jetpack Libraries (Android X) if you are using this version.**
