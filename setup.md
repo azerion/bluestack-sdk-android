@@ -38,6 +38,11 @@ repositories {
 	
     //For Criteo configuration 
    maven { url "https://pubsdk-bin.criteo.com/publishersdk/android" }
+   
+    //For Ogury configuration
+      maven {
+        url 'https://maven.ogury.co'
+    }
 }
 ```
 
@@ -46,21 +51,21 @@ repositories {
 
 **Mandatory :**
 
-- Google play services (com.google.android.gms:play-services-base:18.3.0) 
+- Google play services 
 
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:18.3.0'
+implementation 'com.google.android.gms:play-services-base:19.0.1'
 
 ```
 
 
 **Recommended :**
 
-- Google Ads SDK com.google.android.gms:play-services-ads:18.3.0
-- AudienceNetwork (com.facebook.android:audience-network-sdk:5.6.1) 
-- SmartAdServer (com.smartadserver.android:smart-display-sdk:7.4.0@aar) and (com.smartadserver.android:smart-core-sdk:7.4.0@aar), available as in-App Bidding Bidder
+- Google Ads SDK 
+- AudienceNetwork 
+- SmartAdServer (**Note :** It available as in-App Bidding Bidder)
 
 ```groovy
 dependencies {
@@ -68,19 +73,19 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:18.3.0'
+implementation 'com.google.android.gms:play-services-ads:19.0.1'
 
 //Location, if you app use GPS data only with a CMP
 implementation 'com.google.android.gms:play-services-location:17.0.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:5.6.1'
+implementation 'com.facebook.android:audience-network-sdk:5.8.0'
 // Required Dependency by Audience Network SDK
 implementation 'com.android.support:support-annotations:28.0.0' 
 
 // Smart Display SDK
 implementation 'com.smartadserver.android:smart-display-sdk:7.4.0@aar'
-implementation 'com.smartadserver.android:smart-core-sdk:7.4.0@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.4.1@aar'
 
 // Dependencies required by Smart Display SDK
 implementation 'com.squareup.okhttp3:okhttp:3.12.0'
@@ -90,8 +95,8 @@ implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 
 **Recommended in-App Bidding :**
 
-- Amazon APS (com.amazon.android:aps-sdk:8.2.1@aar) 
-- Criteo (com.criteo.publisher:criteo-publisher-sdk:3.4.0)
+- Amazon APS 
+- Criteo
 
 
 ```groovy
@@ -106,16 +111,17 @@ implementation 'com.criteo.publisher:criteo-publisher-sdk:3.4.0'
 
 **Optional :**
 
-- AppLovin (com.applovin:applovin-sdk:9.8.4)
-- Mopub Marketplace (com.mopub:mopub-sdk:5.8.0@aar) 
-- Flurry (com.flurry.android:analytics:12.1.0@aar) and (com.flurry.android:ads:12.1.0@aar) 
-- AdColony (com.adcolony:sdk:4.1.3) 
+- AppLovin
+- Mopub Marketplace 
+- Flurry 
+- AdColony 
+- Ogury (**Note :** An API Key will be assigned to your application by mngads support team for Ogury library.) 
 
 
 ```groovy
 dependencies {
 // AppLovin SDK
-implementation 'com.applovin:applovin-sdk:9.11.2'
+implementation 'com.applovin:applovin-sdk:9.11.6'
 
 // MoPub Marketplace SDK
 implementation('com.mopub:mopub-sdk:5.11.0@aar') {
@@ -129,7 +135,11 @@ implementation 'com.flurry.android:analytics:12.1.0@aar'
 implementation 'com.flurry.android:ads:12.1.0@aar'
         
 // Adcolony SDK
-implementation 'com.adcolony:sdk:4.1.3'
+implementation 'com.adcolony:sdk:4.1.4'
+
+
+//Ogury
+implementation 'co.ogury:ogury-sdk:4.3.12'
 }
 
 ```
@@ -150,19 +160,6 @@ implementation(name: 'mngads-sdk-X.X', ext: 'aar')
 
 ```
 **Recommended :**
-
-- Ogury [ogury-x.x.x.jar] (https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master) 
-
-(**Note :** An API Key will be assigned to your application by mngads support team for Ogury library.) 
-
-```groovy
-dependencies {
-
-//For Ogury SDK
-implementation(name: 'ogury-4.1.4', ext: 'aar')
-
-}
-```
 
 - MAdvertise Consent Management Provider (CMP) [madvertisecmp-X.X.X.aar](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
 
