@@ -4,7 +4,7 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 ## Version 3.1
-#### Release date: April 29th, 2020
+#### Release date: April 28th, 2020
 
 **Added**
 
