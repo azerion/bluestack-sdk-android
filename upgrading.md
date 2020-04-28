@@ -58,9 +58,13 @@ implementation 'com.adcolony:sdk:4.1.4'
 // App Lovin SDK
 implementation 'com.applovin:applovin-sdk:9.11.6'
 
-// Add Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.4.1@aar' 
-implementation 'com.google.android.exoplayer:exoplayer:2.11.0'
+// Smart Display SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.4.0@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.4.1@aar'
+
+// Dependencies required by Smart Display SDK
+implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
  
 // Audience Network SDK
 implementation 'com.facebook.android:audience-network-sdk:5.8.0'
