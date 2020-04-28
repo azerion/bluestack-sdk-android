@@ -3,6 +3,30 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.1
+#### Release date: April 29th, 2020
+
+**Added**
+
+- Add support for the Transparency and Consent Framework V2 (accept TCF v2 consentString https://github.com/InteractiveAdvertisingBureau/GDPR-Transparency-and-Consent-Framework/blob/master/TCFv2/IAB%20Tech%20Lab%20-%20CMP%20API%20v2.md#what-is-the-cmp-in-app-internal-structure-for-the-defined-api).
+- Native Ad performances.
+
+**Updated**
+
+- IAB Open Measurement SDK updated to version 1.3.1.
+
+- Upgarde mediation SDKs : 
+    - Use new version of MNG Ads SDK (Version : 3.1)
+    - Use new version of Ogury SDK (Version : 4.3.12) 
+    - Use new version of Smart Ad Server SDK (Version : 7.4.1) 
+    - Use new version of MoPub SDK (Version : 5.11.1) 
+    - Use new version of AppLovin SDK (Version : 9.11.6) 
+    - Use new version of AdColony SDK (Version : 4.1.4) 
+    - Use new version of Google Ads SDK (Version : 19.0.1) 
+    - Use new version of Audience Network SDK (Version : 5.8.0) 
+
+
+
 ## Version 3.0.2
 #### Release date: March 19th, 2020
 
