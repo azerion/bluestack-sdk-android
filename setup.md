@@ -56,7 +56,7 @@ repositories {
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:19.0.1'
+implementation 'com.google.android.gms:play-services-base:17.2.1'
 
 ```
 
