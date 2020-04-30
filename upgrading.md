@@ -40,7 +40,7 @@ In your app's build.gradle, don't forget to update your dependencies as followin
 ```groovy
 
 //MNG Ads SDK  
-implementation(name: 'mngads-sdk-3.1', ext: 'aar')
+implementation(name: 'mngads-sdk-3.1.0', ext: 'aar')
 
 // MoPub Marketplace SDK
 implementation('com.mopub:mopub-sdk:5.11.1@aar') {
