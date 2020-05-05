@@ -3,6 +3,19 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 3.1.1
+#### Release date: May 5th, 2020
+
+**Added**
+
+ - Change interstitial behavior on click event.
+
+
+- Upgarde mediation SDKs : 
+    - Use new version of MNG Ads SDK (Version : 3.1.1)
+
+
 ## Version 3.1.0
 #### Release date: April 28th, 2020
 
@@ -16,7 +29,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - IAB Open Measurement SDK updated to version 1.3.1.
 
 - Upgarde mediation SDKs : 
-    - Use new version of MNG Ads SDK (Version : 3.1)
+    - Use new version of MNG Ads SDK (Version : 3.1.0)
     - Use new version of Ogury SDK (Version : 4.3.12) 
     - Use new version of Smart Ad Server SDK (Version : 7.4.1) 
     - Use new version of MoPub SDK (Version : 5.11.1) 
