@@ -2,6 +2,16 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 3.1.1
+
+```groovy
+
+//MNG Ads SDK  
+implementation(name: 'mngads-sdk-3.1.1', ext: 'aar')
+
+```
+
 ## Version 3.1.0
 
 - It’s required that your project migrates from Android Support Libraries to Jetpack Libraries (Android X) if you are using this version.
