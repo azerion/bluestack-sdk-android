@@ -65,12 +65,18 @@ In order to run properly, the library needs the following permissions :
 
 ```
 
+You don't need to add those permission to your AndroidManifest.xml unless your application already uses them.
+
+
 
 **Note:**
 
 - Since Android 6.0 (API level 23), this permission is belongs to the "dangerous permissions" and must be requested at run time.
 
 - The library does not implement this mechanism as it could interfere with your application's behavior.
+
+- **It is therefore your job to ask the user to grant the permission.** This is very well described in the official [Android documentation](https://developer.android.com/training/permissions/requesting.html).
+
 
 Here is an example :
 
