@@ -75,6 +75,7 @@ In order to run properly, the library needs the following permissions :
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <!-- Grants the SDK permission to access a more accurate location based on GPS. -->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!-- Grants the SDK permission o access location in the background,since android 10 and target 29. -->
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
 ```
