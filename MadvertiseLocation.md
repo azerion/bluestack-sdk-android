@@ -6,11 +6,10 @@ MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP**
 
 ## Prerequisites
 
- - The latest versions of the Android SDK, [madvertiselocation-x.aar].
  - Android Studio to manage your project.
- - Android 4.0 (API 14) or above
- - for androidx app use 3.x version or above.
- - For apps that support library APIs and not androidx, use 2.x version
+ - Android 4.0 (API 14) or above 
+ - For apps that support Android X, use 3.x version or above. 
+ - If not yet, use 2.x version.
 
 ## Set up the SDK
 
@@ -34,28 +33,14 @@ Include JCenter/Maven repository and add the following lines to your app's build
 
 ```groovy
 dependencies {
-    /* ... */
 
-	implementation 'com.google.android.gms:play-services-location:16.0.0'
-	implementation 'com.loopj.android:android-async-http:1.4.9'
-	implementation 'com.google.android.gms:play-services-ads:16.0.0'
-    
-    // Madvertise Location SDK
     implementation(name: 'madvertiselocation-X.X', ext: 'aar')
 
 }
 ```
 
-**Note :** 
 
-- madvertiselocation-X.X available on : [https://bitbucket.org/mngcorp/mngads-demo-android/downloads/](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/)
-
-
-- The aar file doesn't contain nested (or transitive) dependecies and doesn't have a pom file which describes the dependencies used by the library.
- It means that, if you are importing a aar file using a flatDir repo you have to specify the dependencies alos in the project.
- 
-- You should use a maven repository (you have to publish the library in a private or public maven repo), you will not have the same issue.
-In this case, gradle downloads the dependencies using the pom file which will contains the dependencies list.
+madvertiselocation-X.X available on : [https://bitbucket.org/mngcorp/mngads-demo-android/downloads/](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/)
 
 
 ### 3.Permissions
@@ -67,8 +52,8 @@ In order to run properly, the library needs the following permissions :
 * android.permission.ACCESS_NETWORK_STATE : used to detect if the device has connectivity
 * android.permission.INTERNET : used to allow the library to send over the internet the data it has collected
 
-```
-#!xml
+```xml
+
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <!-- Grants the SDK permission to access approximate location based on cell tower. -->
@@ -87,6 +72,29 @@ In order to run properly, the library needs the following permissions :
 
 - The library does not implement this mechanism as it could interfere with your application's behavior.
 
+Here is an example :
+
+```java
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_BACKGROUND_LOCATION}, LOCATION_REQUEST_CODE);
+			
+            }
+        } else {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    && ActivityCompat.checkSelfPermission(this, ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_REQUEST_CODE);
+                
+            }
+        }
+
+```
+
 ## That for use in standalone without the mngads SDK
 
 Madvertise is built based on Builder creational design pattern.
@@ -98,25 +106,13 @@ private static final String APP_ID = "XXXXXX";
 ```
 
 ### 1.Implementation 
-#### New implementation (Since v2.3)
 
 ```java
 MadvertiseLocation.configure(getApplicationContext(), APP_ID).start();
 ```
 
-#### Deprecated implementation (v1.0 to v2.2)
 
-```java
-MadvertiseLocation madvertiseLocation = new MadvertiseLocationBuilder(getApplicationContext())
-                .appId(APP_ID)
-                .build();
-
-MadvertiseLocation.with(madvertiseLocation);
-
-```
-
-
-### 2.Stop service (Since 2.3 version)
+### 2.Stop Service 
 The implementation of this method allows to stop the tracking service
 
 ```java
