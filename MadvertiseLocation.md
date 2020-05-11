@@ -1,4 +1,4 @@
-#Madvertise Location SDK
+# Madvertise Location SDK
 
 [TOC]
 
@@ -61,13 +61,23 @@ In this case, gradle downloads the dependencies using the pom file which will co
 ### 3.Permissions
 In order to run properly, the library needs the following permissions : 
 
-* android.permission.ACCESS\_FINE_LOCATION : used to get the device last known location
-
-* android.permission.ACCESS\_COARSE_LOCATION : Allows an app to access approximate location.
-
-* android.permission.ACCESS\_NETWORK_STATE : used to detect if the device has connectivity
-
+* android.permission.ACCESS_BACKGROUND_LOCATION : Allows an app to access location in the background for android 10 since target 29
+* android.permission.ACCESS_FINE_LOCATION : used to get the device last known location
+* android.permission.ACCESS_COARSE_LOCATION : Allows an app to access approximate location.
+* android.permission.ACCESS_NETWORK_STATE : used to detect if the device has connectivity
 * android.permission.INTERNET : used to allow the library to send over the internet the data it has collected
+
+```
+#!xml
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<!-- Grants the SDK permission to access approximate location based on cell tower. -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<!-- Grants the SDK permission to access a more accurate location based on GPS. -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+```
 
 
 **Note:**
