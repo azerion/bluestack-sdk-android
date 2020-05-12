@@ -73,7 +73,7 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:19.0.1'
+implementation 'com.google.android.gms:play-services-ads:19.1.0'
 
 //Location, if you app use GPS data only with a CMP
 implementation 'com.google.android.gms:play-services-location:17.0.0'
@@ -84,7 +84,7 @@ implementation 'com.facebook.android:audience-network-sdk:5.8.0'
 implementation 'com.android.support:support-annotations:28.0.0' 
 
 // Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.4.0@aar'
+implementation 'com.smartadserver.android:smart-display-sdk:7.4.1@aar'
 implementation 'com.smartadserver.android:smart-core-sdk:7.4.1@aar'
 
 // Dependencies required by Smart Display SDK
@@ -105,7 +105,7 @@ dependencies {
 implementation 'com.amazon.android:aps-sdk:8.2.1@aar'
 
 // Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:3.4.0'
+implementation 'com.criteo.publisher:criteo-publisher-sdk:3.5.0'
 
 ```
 
