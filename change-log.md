@@ -4,6 +4,24 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 3.1.2
+#### Release date: May 12th, 2020
+
+**Improvements**
+
+ - Improve SDK stability.
+
+**Fixed**
+ - Fix smartAdserver crash SCSUtil.getAdvertisingID
+
+**Updated**
+
+- Upgarde mediation SDKs : 
+    - Use new version of MNG Ads SDK (Version : 3.1.2)
+    - Use new version of Google Ads SDK (Version : 19.1.0) 
+    - Use new version of Smart Ad Server SDK (Version : 7.4.1) 
+    - Use new version of Criteo SDK (Version 3.5.0) 
+
 ## Version 3.1.1
 #### Release date: May 5th, 2020
 
