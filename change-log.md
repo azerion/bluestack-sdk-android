@@ -3,6 +3,22 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.1.3
+#### Release date: May 25th, 2020
+
+**Improvements**
+
+ - Improve SDK stability.
+
+**Updated**
+
+- Upgarde mediation SDKs : 
+    - Use new version of MNG Ads SDK (Version : 3.1.3)
+    - Use new version of Ogury SDK (Version : 4.7.0) 
+    - Use new version of Smart Ad Server SDK (Version : 7.6.0)
+    - Use new version of Audience Network SDK (Version : 5.9.0)
+    - Use new version of Madvertise Location SDK [madvertiselocation-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/), (Version : 3.1)
+
 
 ## Version 3.1.2
 #### Release date: May 12th, 2020
