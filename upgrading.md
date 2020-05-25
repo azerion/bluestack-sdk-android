@@ -2,6 +2,32 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.1.3
+
+**Upgarde mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+
+//MNG Ads SDK  
+implementation(name: 'mngads-sdk-3.1.3', ext: 'aar')
+
+//SmartAdServer SDKs
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.0@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.0@aar'
+
+//Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:5.9.0'
+
+//Ogury SDK
+implementation 'co.ogury:ogury-sdk:4.7.0'
+
+//For Madvertise data 
+implementation(name:  'madvertiselocation-3.1', ext:  'aar')
+
+```
+
 
 ## Version 3.1.2
 
