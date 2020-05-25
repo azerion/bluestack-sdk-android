@@ -43,6 +43,9 @@ repositories {
       maven {
         url 'https://maven.ogury.co'
     }
+    
+    // Huawei services dependencies repository
+    maven { url 'http://developer.huawei.com/repo/' }
 }
 ```
 
@@ -79,13 +82,13 @@ implementation 'com.google.android.gms:play-services-ads:19.1.0'
 implementation 'com.google.android.gms:play-services-location:17.0.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:5.8.0'
+implementation 'com.facebook.android:audience-network-sdk:5.9.0'
 // Required Dependency by Audience Network SDK
 implementation 'com.android.support:support-annotations:28.0.0' 
 
 // Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.4.1@aar'
-implementation 'com.smartadserver.android:smart-core-sdk:7.4.1@aar'
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.0@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.0@aar'
 
 // Dependencies required by Smart Display SDK
 implementation 'com.squareup.okhttp3:okhttp:3.12.0'
@@ -139,7 +142,7 @@ implementation 'com.adcolony:sdk:4.1.4'
 
 
 //Ogury
-implementation 'co.ogury:ogury-sdk:4.3.12'
+implementation 'co.ogury:ogury-sdk:4.7.0'
 }
 
 ```
@@ -169,6 +172,37 @@ Make your application comply with the new General Data Protection Regulation (GD
 
 This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional information please visit our [website](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/MadvertiseLocation))
 
+**3) Huawei devices compatibility :**
+ 
+
+Now that Huawei devices are not able anymore to use the Google APIs, you will have to add the Huawei APIs dependencies if you still want to be fully compatible with all Huawei devices
+
+In the main build.gradle of your project, you must declare the Huawei repository:
+
+
+```groovy
+
+allprojects {
+	repositories {
+		google()
+		jcenter()
+		
+		// Huawei services dependencies repository
+		maven { url 'http://developer.huawei.com/repo/' }
+	}
+}
+```
+
+In the build.gradle of to your application module, you can now import the Huawei SDKs by declaring it in the dependencies section:
+
+```groovy
+
+// Huawei services dependencies
+implementation 'com.huawei.hms:ads-identifier:3.4.28.305'
+implementation 'com.huawei.hms:location:4.0.2.300'
+
+
+```
 
 
 **See our [build.gradle] sample**
