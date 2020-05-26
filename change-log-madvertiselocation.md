@@ -1,5 +1,11 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 3.1
+#### Release date: May 25th, 2020
+
+- JobService Optimization.
+- Request Location Optimization.
+
 ### Version 3.0
 #### Release date: February 18th, 2020
 
