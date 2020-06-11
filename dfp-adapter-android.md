@@ -235,8 +235,8 @@ extras.putString("customTargeting","key1=value1;key2=value2");
 [Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
 [Native Ads Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/native/advanced
 [set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/setup
-[mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-2.0.0.aar
-[mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-sdk-3.0.aar
+[mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-2.1.0.aar
+[mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
 [Google Ad Manager UI]:https://admanager.google.com/
 [MNGAds]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Home
