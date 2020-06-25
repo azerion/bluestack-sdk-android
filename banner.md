@@ -110,6 +110,34 @@ super.onDestroy();
 }
 ```
 
+### Adapt the banner size after loading
+
+You can resize the Banner View height to match the creative's width/height ratio, this is often the case when your Banner View needs to deliver view over 50 dp. (This does not happen when setting your view as wrap_content)
+
+Here's an example:
+
+*XML Code :*
+
+
+```xml
+<LinearLayout
+                android:id="@+id/bannerContainer"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+```
+
+*JAVA Code :*
+
+```java
+@Override
+public void bannerResize(MNGFrame frame) {
+bannerContainer.getLayoutParams().height = frame.getHeight();
+bannerContainer.requestLayout();
+}
+```
+
 ### isBusy
 
 Before making a request if you want to check that factory is not busy (Ads factory is busy means that it has not finished the previous request yet).
