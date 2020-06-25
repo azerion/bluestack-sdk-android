@@ -138,6 +138,16 @@ bannerContainer.requestLayout();
 }
 ```
 
+**OR**
+
+
+```java
+@Override 
+public void bannerDidLoad(final View view, int preferredHeightDP) {
+bannerContainer.getLayoutParams().height = preferredHeightDP;
+bannerContainer.requestLayout();
+}
+```
 ### isBusy
 
 Before making a request if you want to check that factory is not busy (Ads factory is busy means that it has not finished the previous request yet).
