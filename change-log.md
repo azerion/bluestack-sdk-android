@@ -3,6 +3,20 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 3.1.4
+#### Release date: June 26th, 2020
+
+**Fixed**
+
+ - fix issue on com.mngads.sdk.nativead.MNGNativeAd.getAdChoiceView
+ - Fix crash VPAID (wrong method between Bluestack and appLovin)
+
+**Updated**
+
+- Upgarde mediation SDKs : 
+    - Use new version of MNG Ads SDK (Version : 3.1.4)
+
 ## Version 3.1.3
 #### Release date: May 25th, 2020
 
