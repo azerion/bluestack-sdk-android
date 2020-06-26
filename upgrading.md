@@ -2,6 +2,14 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.1.4
+
+```groovy
+
+//MNG Ads SDK  
+implementation(name: 'mngads-sdk-3.1.4', ext: 'aar')
+
+```
 ## Version 3.1.3
 
 **Upgarde mediation SDKs**
