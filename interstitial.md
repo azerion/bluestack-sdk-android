@@ -175,7 +175,7 @@ mngPreference.setLanguage("fr");
 mngPreference.setContentUrl("put your content url here")
 
 
-mngAdsInterstitialAdsFactory.loadInterstitial(false, mngPreference);
+mngAdsInterstitialAdsFactory.loadInterstitial(mngPreference,false);
 
 ```
 **Note :** 
