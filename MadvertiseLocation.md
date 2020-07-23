@@ -2,7 +2,7 @@
 
 [TOC]
 
-MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
+MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
 
 ## Prerequisites
 
@@ -114,9 +114,16 @@ private static final String APP_ID = "XXXXXX";
 ### 1.Implementation 
 
 ```java
-MadvertiseLocation.configure(getApplicationContext(), APP_ID).start();
+MadvertiseLocation.configure(getApplicationContext(), APP_ID, CONSENT_FLAG).start();
 ```
+The configure method takes the following parameters:
 
+- the Application Context instance.
+- the App ID.
+- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+	- 0 = Not allow to send location.
+	- 1 = When you managed location according to consent value.
+	- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
 
 ### 2.Stop Service 
 The implementation of this method allows to stop the tracking service
