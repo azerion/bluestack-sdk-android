@@ -39,20 +39,22 @@ In your app's build.gradle, don't forget to update your dependencies as followin
 
 //MNG Ads SDK  
 implementation(name: 'mngads-sdk-3.2.0', ext: 'aar')
-
-//SmartAdServer SDKs
-implementation 'com.smartadserver.android:smart-display-sdk:7.6.0@aar'
-implementation 'com.smartadserver.android:smart-core-sdk:7.6.0@aar'
-
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:5.9.0'
-
-//Ogury SDK
-implementation 'co.ogury:ogury-sdk:4.7.0'
-
+implementation 'com.facebook.android:audience-network-sdk:5.9.1'
+//Google Ads SDK
+implementation 'com.google.android.gms:play-services-ads:19.2.0'
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:3.7.0'
+//Google Ads SDK
+implementation 'com.google.android.gms:play-services-base:17.3.0'
+// MoPub Marketplace SDK
+implementation('com.mopub:mopub-sdk:5.13.1@aar') {
+        transitive = true
+        exclude module: 'libAvid-mopub' // To exclude AVID
+        exclude module: 'moat-mobile-app-kit' // To exclude Moat
+    }
 //For Madvertise data 
 implementation(name:  'madvertiselocation-3.2', ext:  'aar')
-
 //For Madvertise CMP
 implementation(name: 'madvertisecmp-34.0.0', ext: 'aar')
 
