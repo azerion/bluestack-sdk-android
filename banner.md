@@ -1,153 +1,196 @@
-# Banner Integration for Android
+# Native ads Integration for Android
 
 [TOC]
 
 ## Overview
 Before You Start. Make sure that you have correctly integrated the MNG SDK into your application. Integration is outlined [here](https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/setup).
 
+A native ad is a custom designed ad that fits seamlessly with your app. If done well, ads can blend in naturally with your interface.
 
-## Step 1. Init Banner factory
+## Step 1. Init nativeAd factory
 
-To create a banner you have to init an object with type MNGAdsSDKFactory.
+To create a nativeAd you have to init an object with type MNGAdsSDKFactory.
 
 ```java
-MNGAdsFactory mngAdsBannerAdsFactory = new MNGAdsFactory(this);
+MNGAdsFactory mngAdsNativeAdsFactory = new MNGAdsFactory(this);
 
 ```
+
 ## Step 2. Set Placement ID
 
 You have also to set placement Id :
 
 ```java
-mngAdsBannerAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
 ## Step 3. Implement the Listener
-Next, implement the Banner Listener in your code. 
 
-```java
-mngAdsBannerAdsFactory.setBannerListener(this);
+Next, implement the Native ads Listener in your code. 
+
+```java 
+mngAdsNativeAdsFactory.setNativeListener
 ```
 
 The SDK will notify your Listener of all possible events listed below :
 
-- bannerDidLoad(View adView,int preferredHeightDP): will be called by the SDK when your bannerView is ready. now you can add your bannerView to your view.
+- nativeObjectDidLoad(): will be called by the SDK when your nativeObject is ready. now you can create your own view.
 
 ```java
 @Override
-public void bannerDidLoad(View adView ,int preferredHeightDP);
-Log.d(TAG, "your banner is ready")
-...
-// it's preferable to adjust the ad container view size to match the returned Ad size for a better display
-...
-adLayout.addView(adView);
-}
+  public void nativeObjectDidLoad(MNGNativeObject nativeObject) {
+    Log.d(TAG, "native Object did load ");
+  }
+
 ```
 
-- bannerDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+- nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
 
 ```java
 @Override
-public void bannerDidFail(Exception adsException) {
-Log.e(TAG, "banner did fail :" + adsException.toString());
-}
+  public void nativeObjectDidFail(Exception adsException) {
+    Log.e(TAG, "nativeObject Did Fail :" + adsException.toString());
+  }
+
 ```
 
-- bannerResize(MNGFrame frame) : will be called when the banner has changed size
+
+## Step 4. Loading Native ad
+
+To make a request you have to call 'loadNative()'. This is a void method, result will be returned in the callback.
 
 ```java
-@Override
-public void bannerResize(MNGFrame frame) {
-...
-// it's preferable to adjust the ad container view size to match the returned Ad size for a better display
-Log.d(TAG, "Banner did resize w dp " + frame.getWidth() + " h dp " + frame.getHeight());
-...
-}
-```
-## Step 4. Loading Banner ad
+mngAdsNativeAdsFactory.loadNative()
+``` 
 
-To make a request you have to call 'loadBanner' using the mng banner size. (in this example it’s the BANNER size used):
+
+## Step 5. Rendering the native ad
+
+
+### Build Native Ad UI
+
+Once a native ad is loaded, you may retrieve its metadata with the following methods:
+
 
 ```java
-mngAdsBannerAdsFactory.loadBanner(MNGAdSize.MNG_DYNAMIC_BANNER)
+
+// Get the app name
+String title=nativeObject.getTitle();
+
+// Get the app description (tagline)
+String body=nativeObject.getBody();
+
+// Get the "Ad" badge bitmap. You must show this bitmap on your ad view to denote an ad
+Bitmap badge=nativeObject.getBadge();
+
+// Get the localized text to print on the call to action button, such as "DOWNLOAD , LEARNE MORE ..."
+String callToAction=nativeObject.getCallToAction();
 
 ```
 
-**Note:** if your application support different screen sizes on Tablet and Phone, it is better to use this code :
+ 
+##### **Ad Title**
+
+ - 50 maximum character length string of ad headline
+ - Provide enough space to display the entire length of the Ad Title
+ - asset name : **nativeObject.getTitle()**
+ 
+ 
+##### **Ad Text**
+
+ - 150 maximum character length string of ad text
+ - Provide enough space to display the entire length of the Ad Text
+ - asset name : **nativeObject.getBody()**
+ 
+##### **CTA Text**
+
+ - Text for a button
+ - 12 characters maximum
+ - asset name : **nativeObject.getCallToAction()**
+ 
+ 
+##### **Sponsored Marker**
+
+ - Badge view (an icon)
+ - change according ad network
+ - must be inserted on top right
+ - this is automatically added to the TOP-RIGHT corner of your native ad layout.
+ 
+##### **Distinguishable Ad**
+
+ - “Ad” (can be localized)
+ - Badge that says “AD” and is at least 15x15px (can be localized)
+ - change according ad network
+ - must be inserted on top left
+ - asset name : **nativeObject.getBadge()**
+
+### Registering views used to render the ad 
+
+MNGNativeObject have all required metadata to build your customized native UI. Your native ad layout should have MAdvertiseNativeContainer as it's root viewGroup container.
+
 
 ```java
-MNGFrame  mMNGAdSize = getResources().getBoolean(R.bool.is_tablet) ? MNGAdSize.MNG_DYNAMIC_LEADERBOARD : MNGAdSize.MNG_DYNAMIC_BANNER ;
-mngAdsBannerAdsFactory.loadBanner(mMNGAdSize)
+// Register your custom ad view to automatically report impressions and clicks, and to display icon, image cover or the media video 
+// This is mandatory
+nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,iconImageView,nativeAdCallToActionView);
 
-```
+``` 
 
-### MNGAdSize
-Mng ads provides variant pre-defined sizes, See table below for details about our supported standard banner sizes:
+The registerViewForInteraction method :
+
+- Handles all the user interactions with your custom layout (clicks, impressions ...)
+
+- Display icon, image cover or the media video 
 
 
-| MNGAdSize | Description |Dimensions in dp (WxH)
-| --- | --- | --- |
-| MNG_BANNER	| Standard Banner	 | 320 x 50 |
-| MNG_ LARGE_BANNER  | Large Banner |320 x 100 |
-| MNG_ MEDIUM_RECTANGLE   | Medium Rectangular Banner	 |300 x 250 |
-| DYNAMIC BANNER |Adjusted Banner| Screen width x 50 |
-| MNG_ FULL_BANNER	| Full Banner  | 468 x 60 |
-| LEADERBOARD	| Standard Banner for tablet	 | 728 x 90 |
-| MNG_ DYNAMIC_LEADERBOARD	| Adjusted Banner for tablet	 | Screen width x 90 |
+It accepts four arguments: 
 
+- The first is the MAdvertiseNativeContainer that should be your custom layout's root view.
+- The second is the media Container, the sdk will handle the rendering process ( displaying) the image cover or the media video inside the view group that depends on the ad network result.
+- The third is the image View for NativeAd's ad Icon
+- The fourth is the callToAction View that handles the click event of your ad.
+
+
+**Note :**The MAdvertiseNativeContainer is a custom ViewGroup that extends FrameLayout so you can use it as it is or you can put your layout inside of it which is the method we recommend.
+
+![2587222597-nativeAd-min-min (1).png](https://bitbucket.org/repo/GyRXRR/images/165955247-2587222597-nativeAd-min-min%20%281%29.png)
 
 
 ## Troubleshooting
 
+### Hide Icon or Image Cover
+
+Put **null** to hide icon (instead of iconImageView) or image cover (instead of mediaViewGroup). 
+
+```java
+nativeObject.registerViewForInteraction(nativeAdContainerView,null,null,nativeAdCallToActionView);
+```
+
+### Customize Native Ad Badge Text
+
+You can use a custom badge Text for the native ad.
+
+```java
+nativeObject.getBadge(getActivity(),"String to be displayed in the badge");
+}
+```
+
+### Cache
+
+Ad metadata that you receive can be cached and re-used for up to 3 hours. If you plan to use the metadata after this time period, make a call to load a new ad.
+
 ### Memory managment
+
 When you have finished your ads plant you must free the memory.
 
 ```java
 @Override
 protected void onDestroy() {
-mngAdsBannerAdsFactory.releaseMemory();
+mngAdsNativeAdsFactory.releaseMemory();
 super.onDestroy();
 }
 ```
 
-### Adapt the banner size after loading
-
-You can resize the Banner View height to match the creative's width/height ratio, this is often the case when your Banner View needs to deliver view over 50 dp. (This does not happen when setting your view as wrap_content)
-
-Here's an example:
-
-*XML Code :*
-
-
-```xml
-<LinearLayout
-                android:id="@+id/bannerContainer"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"/>
-```
-
-*JAVA Code :*
-
-```java
-@Override
-public void bannerResize(MNGFrame frame) {
-bannerContainer.getLayoutParams().height = frame.getHeight();
-bannerContainer.requestLayout();
-}
-```
-
-**OR**
-
-
-```java
-@Override 
-public void bannerDidLoad(final View view, int preferredHeightDP) {
-bannerContainer.getLayoutParams().height = preferredHeightDP;
-bannerContainer.requestLayout();
-}
-```
 ### isBusy
 
 Before making a request if you want to check that factory is not busy (Ads factory is busy means that it has not finished the previous request yet).
@@ -161,21 +204,44 @@ isBusy will be set to :
 **Example**:
 
 ```java
-if (!mngAdsBannerAdsFactory.isBusy()) {
+if (!mngAdsNativeAdsFactory.isBusy()) {
 
 Log.d(TAG, "Ads Factory is not busy");
-mngAdsBannerAdsFactory.loadInterstitial(false);
+mngAdsNativeAdsFactory.loadInterstitial(false);
 } else {
 Log.d(TAG, "Ads Factory is busy");
 }
 ```
+
+### Customize Native Ad AdChoice
+
+The adChoice is automatically added to the top right corner of your native ad layout but you can change that position by using the MNGPreference.setAdChoicePosition(int position) before loading your ad.
+The position argument can be one of these:
+
+```java
+TOP_RIGHT
+TOP_LEFT
+BOTTOM_RIGHT
+BOTTOM_LEFT
+```
+For example:
+
+```java
+mngPreferences.setAdChoicePosition(MNGPreferences.TOP_LEFT);
+mngAdsNativeAdsFactory.loadNative(mngPreference)
+```
+
+
+###  Click - registerViewForInteraction
+
+It's **HIGHLY** recommended to only register ONE and ONLY one view for interaction , because some of the AdNetworks only accept one view and if you try to assign more than one then probably none of the views you assign will be responsive.
 
 ### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
 
 ```java
 // set click listener
-mngAdsBannerAdsFactory.setClickListener(this);
+mngAdsNativeAdsFactory.setClickListener(this);
 
 
 ...
@@ -186,12 +252,13 @@ Log.d(TAG, "Ad Clicked");
 ...
 ```
 
+
 ### Ad refresh listener
 You can also implement MNG refresh listener callback to detect when an Ad refreshed
 
 ```java
 // set refresh listener
-mngAdsBannerAdsFactory.setRefreshListener(this);
+mngAdsNativeAdsFactory.setRefreshListener(this);
 
 ...
 @Override
@@ -205,6 +272,8 @@ Log.d(TAG, "refresh failed");
 }
 ...
 ```
+
+
 ### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
@@ -223,7 +292,7 @@ myLocation.setLatitude(35.757866);
 myLocation.setLongitude(10.810547);
 
 mngPreference = new MNGPreference();
-mngPreference.setLocation(myLocation);
+mngPreference.setLocation(location,CONSENT_FLAG,context);
 mngPreference.setAge(28);
 mngPreference.setGender(MNGGender.MNGGenderFemale);
 mngPreference.setKeyword("brand=myBrand;category=sport");
@@ -231,7 +300,7 @@ mngPreference.setLanguage("fr");
 mngPreference.setContentUrl("put your content url here")
 
 
-mngAdsBannerAdsFactory.loadBanner(new MNGFrame(320, 50), mngPreference);
+mngAdsNativeAdsFactory.loadNative(mngPreference);
 
 ```
 **Note :** 
@@ -239,6 +308,16 @@ mngAdsBannerAdsFactory.loadBanner(new MNGFrame(320, 50), mngPreference);
 - This [link] can help you to get device location.
 
 - Do not serialize Location object (like transforming it into a string using gson library), this may lead to a fatal runtime error when that instance is reused.
+
+- The setLocation method takes the following parameters:
+
+	- the Location instance.
+	- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+		- 0 = Not allow to send location.
+		- 1 = When you managed location according to consent value.
+		- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+
+	- the Context instance.
 
 ### Exceptions
 |Exception|Error code|Message|Meaning|
@@ -274,59 +353,11 @@ Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+
 }
 ```
 
-### Remove Banner View
-If you like to Remove banner from the view, you can use this code : 
-
-```java
-...  
-adLayout.removeView(adView);  
-adLayout.requestLayout();
-...
-```
-
 # Example
 
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/BannerFragment.java
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeAdFragment.java
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeListFragment.java
 
-Example | Description| 
-------------- | ------------- |
-![banner50-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/288211594-banner50-mngads-android-min.png) Banner -  (50dp  or 90dp )  | A banner is a small bar ad that appears at the bottom or top of your content. Usually sized 320 x 50. Only include one ad per page or show one ad at a time if scrolling. In all cases, **the banner width is flexible with a minimum of 320px.**. If you are building your app for iPad  consider using 90px and 50px for iphone. 
- ![banner250-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/4181983461-banner250-mngads-android-min.png) Square - Medium rectangle (300 x 250) |Square banner also known as a *medium rectangle* (300 x 250). This format can increase earnings when both text and image ads are enabled. Performs well when embedded within text content or at the end of articles.
-
-
-[AdsFragment.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
-[omsdk-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[link]:https://developer.android.com/training/location/retrieve-current.html
-[SmartAdServer]:http://documentation.smartadserver.com/displaySDK
-[Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
-[Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
-[Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
-[mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
-[Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
-[Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
-[Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
-[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/AudienceNetwork.jar?at=master&fileviewer=file-view-default
-[Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
-[Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
-[Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
-[Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[DTBAndroidSDK-x.x.x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[Flurry]:https://developer.yahoo.com/flurry/
-[FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
-[AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
-[Ogury]:http://www.ogury.co/
-[ogury-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[Native Ads guidelines]:./nativead
-[ApplicationManager.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.java?at=master&fileviewer=file-view-default
-[BaseActivity.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.java?at=master&fileviewer=file-view-default
-[Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
-[see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
-[more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
-[umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
-[Mopub Marketplace]:https://www.mopub.com/
-[AdColony]:https://www.adcolony.com/
+content Ad  | carousel Ad | carousel Ad
+------------- | ------------- | -------------  | -------------
+![nativeAd-1.png](https://bitbucket.org/repo/GyRXRR/images/1430534000-nativeAd-1.png)|![nativeAd-2.png](https://bitbucket.org/repo/GyRXRR/images/2633774569-nativeAd-2.png)|![carousel2-mngads-android-min.png](https://bitbucket.org/repo/GyRXRR/images/771135904-carousel2-mngads-android-min.png)
