@@ -8,7 +8,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 **Update setLocation() method :**  
 
  
-Replace the following line from  :
+Replace (**if you are use location data only**) the following line from  :
 
 ```groovy
 mngPreference.setLocation(location);
