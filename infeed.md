@@ -166,7 +166,7 @@ myLocation.setLatitude(35.757866);
 myLocation.setLongitude(10.810547);
 
 mngPreference = new MNGPreference();
-mngPreference.setLocation(myLocation);
+mngPreference.setLocation(location,CONSENT_FLAG,context);
 mngPreference.setAge(28);
 mngPreference.setGender(MNGGender.MNGGenderFemale);
 mngPreference.setKeyword("brand=myBrand;category=sport");
@@ -182,6 +182,16 @@ mngAdsInfeedAdsFactory.loadInfeed(new MAdvertiseInfeedFrame(300, MAdvertiseInfee
 - This [link] can help you to get device location.
 
 - Do not serialize Location object (like transforming it into a string using gson library), this may lead to a fatal runtime error when that instance is reused.
+
+- The setLocation method takes the following parameters:
+
+	- the Location instance.
+	- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+		- 0 = Not allow to send location.
+		- 1 = When you managed location according to consent value.
+		- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+
+	- the Context instance.
 
 ### Exceptions
 |Exception|Error code|Message|Meaning|
