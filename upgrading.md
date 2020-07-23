@@ -2,6 +2,90 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.2.0
+
+
+**Update setLocation() method :**  
+
+ 
+Replace the following line from  :
+
+```groovy
+mngPreference.setLocation(location);
+            
+```
+with the following line :
+
+```groovy
+mngPreference.setLocation(location,CONSENT_FLAG,context);
+            
+```
+The setLocation method takes the following parameters:
+
+- the Location instance.
+- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+	- 0 = Not allow to send location.
+	- 1 = When you managed location according to consent value.
+	- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+
+- the Context instance.
+
+
+**Upgarde mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+
+//MNG Ads SDK  
+implementation(name: 'mngads-sdk-3.2.0', ext: 'aar')
+
+//SmartAdServer SDKs
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.0@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.0@aar'
+
+//Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:5.9.0'
+
+//Ogury SDK
+implementation 'co.ogury:ogury-sdk:4.7.0'
+
+//For Madvertise data 
+implementation(name:  'madvertiselocation-3.2', ext:  'aar')
+
+//For Madvertise CMP
+implementation(name: 'madvertisecmp-34.0.0', ext: 'aar')
+
+```
+
+**Update Ogury SDK :**  
+ 
+In your project/app build.gradle, **replace** the following line from  :
+  
+```groovy
+repositories {
+maven {
+        url 'https://maven.ogury.co'
+    }
+}
+dependencies {
+    implementation 'co.ogury:ogury-sdk:4.3.12'
+}
+```
+with the following line :
+
+```groovy
+repositories {
+ maven {
+        url 'https://maven.ogury.co/beta'
+    }
+}
+dependencies {
+    implementation 'co.ogury:ogury-sdk:4.8.1'
+}
+
+```
+
 ## Version 3.1.4
 
 ```groovy
