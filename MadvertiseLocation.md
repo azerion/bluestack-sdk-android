@@ -120,7 +120,7 @@ The configure method takes the following parameters:
 
 - the Application Context instance.
 - the App ID.
-- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3). (since 3.2)
 	- 0 = Not allow to send location.
 	- 1 = When you managed location according to consent value.
 	- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
