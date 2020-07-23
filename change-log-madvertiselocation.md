@@ -1,5 +1,34 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 3.2
+#### Release date: July 23th, 2020
+ 
+ TCF v2 support.
+
+**Update configure() method :**  
+
+ 
+Replace the following line from  :
+
+```groovy
+MadvertiseLocation.configure(getApplicationContext(), APP_ID).start()
+            
+```
+with the following line :
+
+```groovy
+MadvertiseLocation.configure(getApplicationContext(), YOUR_APP_ID, CONSENT_FLAG).start();
+            
+```
+The configure method takes the following parameters:
+
+- the Application Context instance.
+- the App ID.
+- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+	- 0 = Not allow to send location.
+	- 1 = When you managed location according to consent value.
+	- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+
 ### Version 3.1
 #### Release date: May 25th, 2020
 
