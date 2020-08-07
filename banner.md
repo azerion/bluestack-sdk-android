@@ -88,12 +88,12 @@ Mng ads provides variant pre-defined sizes, See table below for details about ou
 | MNGAdSize | Description |Dimensions in dp (WxH)
 | --- | --- | --- |
 | MNG_BANNER	| Standard Banner	 | 320 x 50 |
-| MNG_ LARGE_BANNER  | Large Banner |320 x 100 |
-| MNG_ MEDIUM_RECTANGLE   | Medium Rectangular Banner	 |300 x 250 |
-| DYNAMIC BANNER |Adjusted Banner| Screen width x 50 |
-| MNG_ FULL_BANNER	| Full Banner  | 468 x 60 |
+| MNG_LARGE_BANNER  | Large Banner |320 x 100 |
+| MNG_MEDIUM_RECTANGLE   | Medium Rectangular Banner	 |300 x 250 |
+| DYNAMIC_BANNER |Adjusted Banner| Screen width x 50 |
+| MNG_FULL_BANNER	| Full Banner  | 468 x 60 |
 | LEADERBOARD	| Standard Banner for tablet	 | 728 x 90 |
-| MNG_ DYNAMIC_LEADERBOARD	| Adjusted Banner for tablet	 | Screen width x 90 |
+| MNG_DYNAMIC_LEADERBOARD	| Adjusted Banner for tablet	 | Screen width x 90 |
 
 
 
