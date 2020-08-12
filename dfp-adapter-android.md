@@ -204,11 +204,11 @@ Bundle extras = new Bundle();
 extras.putString("consentFlag","CONSENT_FLAG");
 ```
 
-The CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+The CONSENT_FLAG value (corresponds to a string : "0","1","2" or "3").
 
-- 0 = Not allow to send location.
-- 1 = When you managed location according to consent value.
-- 2 or 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+- "0" = Not allow to send location.
+- "1" = When you managed location according to consent value.
+- "2" or "3" = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
 
 2- Add the extras to the addCustomEventExtrasBundle() method as follows: 
 
