@@ -195,6 +195,34 @@ PublisherAdRequest request = new PublisherAdRequest.Builder()
         .build();
 ```
 
+and you must send your **consent flag** value also as follows: 
+
+1- Create a bundle of the extras :
+
+```java
+Bundle extras = new Bundle();
+extras.putString("consentFlag","CONSENT_FLAG");
+```
+
+The CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+
+- 0 = Not allow to send location.
+- 1 = When you managed location according to consent value.
+- 2 or 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+
+2- Add the extras to the addCustomEventExtrasBundle() method as follows: 
+
+```java
+PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
+.addCustomEventExtrasBundle("Madvertise_Custom_Event",extras)
+.build();
+```
+
+The Madvertise_Custom_Event value corresponds to custom event adapter class name : 
+
+ * **MadvertiseCustomEventBanner.class** for Banner Ads  
+ * **MadvertiseCustomEventInterstitial.class** for Interstitial Ads   
+ * **MadvertiseCustomEventNativead.class** for Native Ads  
 
 ### 4. Custom targeting
 
@@ -209,26 +237,31 @@ PublisherAdRequest request = new PublisherAdRequest.Builder()
         .build();
 ```
 
-and you must send your custom key-value pairs also using the addCustomEventExtrasBundle() method.
+and you must send your **custom key-value pairs** also as follows: 
 
-```java
-PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
-.addCustomEventExtrasBundle(MadvertiseCustomEventInterstitial.class,getExtrasData())
-.build();
-```
-You must pass custom event adapter class name for :
-
- * **Banner :** MadvertiseCustomEventBanner.class 
- 
- * **Interstitial :** MadvertiseCustomEventInterstitial.class
- *  **Native Ads :** MadvertiseCustomEventNativead.class
-
-and a bundle of the extras :
+1- Create a bundle of the extras :
 
 ```java
 Bundle extras = new Bundle();
 extras.putString("customTargeting","key1=value1;key2=value2");
 ```
+
+2- Add the extras to the addCustomEventExtrasBundle() method as follows: 
+
+```java
+PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
+.addCustomEventExtrasBundle("Madvertise_Custom_Event",extras)
+.build();
+```
+
+The Madvertise_Custom_Event value corresponds to custom event adapter class name : 
+
+ * **MadvertiseCustomEventBanner.class** for Banner Ads  
+ * **MadvertiseCustomEventInterstitial.class** for Interstitial Ads   
+ * **MadvertiseCustomEventNativead.class** for Native Ads  
+
+ 
+
 
 [Google Ad Targeting page]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/targeting 
 [Banner Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/banner
