@@ -1,424 +1,356 @@
-# Android SDK Integration
+# MAdvertise CMP
 
-[TOC]
+This documentation will go through all the steps required to integrate MAdvertiseCMP on Android platform.
 
-## Overview
-
-MNG Ads provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. 
-
-**You can see :** [Our Sample](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/), [Change Log] and [Upgrade Guide].
 
 ## Prerequisites
 
-Before You Start, MNG Ads requires minimum : 
+Before You Start, MAdvertiseCMP requires minimum : 
 
-- Android 4.4 (API level 19) or higher.
 - CompileSdkVersion at least 29.
-- Android Studio 3.5 or higher.
-- Since Version 3.0 and later, it’s required that your project migrates from Android Support Libraries to Jetpack Libraries ([Android X]).
+- **Android Studio 4.0 or higher**.
+- Android 4.4 (API level 19) or higher (But it work only in Android 7.0 (API level 24) or higher).
+- Since Version 30 and later, it's required that your project migrates from Android Support Libraries to Jetpack Libraries ([Android X]).
 
+## Integration Guide
 
-## Step 1. Installation using Gradle
+### Step 1: Import the MAdvertiseCMP SDK
 
-**1) Add this to Module-level /app/build.gradle before dependencies**
-
-```groovy
-repositories {
-    mavenCentral()
-
-    //For AdColony configuration 
-    maven {  
-        url  "https://adcolony.bintray.com/AdColony"  
-    }
-    
-    //For SmartAdServer configuration 
-    maven {  
-    url 'https://packagecloud.io/smartadserver/android/maven2'  
-	}
-	
-    //For Criteo configuration 
-   maven { url "https://pubsdk-bin.criteo.com/publishersdk/android" }
-   
-    //For Ogury configuration
-      maven {
-        url 'https://maven.ogury.co/beta'
-    }
-    
-    // Huawei services dependencies repository
-    maven { url 'http://developer.huawei.com/repo/' }
-}
-```
-
-**2) Include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:**
-
-
-**Mandatory :**
-
-- Google play services 
-
-```groovy
-dependencies {
-//Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:17.3.0'
-
-```
-
-
-**Recommended :**
-
-- Google Ads SDK 
-- AudienceNetwork 
-- SmartAdServer (**Note :** It available as in-App Bidding Bidder)
-
-```groovy
-dependencies {
-//Google Advertising Id
-implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-
-//Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:19.2.0'
-
-//Location, if you app use GPS data only with a CMP
-implementation 'com.google.android.gms:play-services-location:17.0.0'
-        
-//Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:5.9.1'
-// Required Dependency by Audience Network SDK
-implementation 'com.android.support:support-annotations:28.0.0' 
-
-// Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.6.0@aar'
-implementation 'com.smartadserver.android:smart-core-sdk:7.6.0@aar'
-
-// Dependencies required by Smart Display SDK
-implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
-
-```
-
-**Recommended in-App Bidding :**
-
-- Amazon APS 
-- Criteo
-
-
-```groovy
-dependencies {
-// Amazon APS SDK
-implementation 'com.amazon.android:aps-sdk:8.2.1@aar'
-
-// Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:3.7.0'
-
-```
-
-**Optional :**
-
-- AppLovin
-- Mopub Marketplace 
-- Flurry 
-- AdColony 
-- Ogury (**Note :** An API Key will be assigned to your application by mngads support team for Ogury library.) 
-
-
-```groovy
-dependencies {
-// AppLovin SDK
-implementation 'com.applovin:applovin-sdk:9.11.6'
-
-// MoPub Marketplace SDK
-implementation('com.mopub:mopub-sdk:5.13.1@aar') {
-        transitive = true
-        exclude module: 'libAvid-mopub' // To exclude AVID
-        exclude module: 'moat-mobile-app-kit' // To exclude Moat
-    }
-    
-//Flurry SDK
-implementation 'com.flurry.android:analytics:12.1.0@aar'
-implementation 'com.flurry.android:ads:12.1.0@aar'
-        
-// Adcolony SDK
-implementation 'com.adcolony:sdk:4.1.4'
-
-
-//Ogury
-implementation 'co.ogury:ogury-sdk:4.8.1'
-}
-
-```
-
-
-**3) Download the following files and place them in the /libs folder in your project:**
-
-**Mandatory :**
-
-- MNG SDK [mngads-sdk-x.aar] 
-
-```groovy
-dependencies {
-
-//For MNG SDK
-implementation(name: 'mngads-sdk-X.X', ext: 'aar')
-}
-
-```
-**Recommended :**
-
-- MAdvertise Consent Management Provider (CMP) [madvertisecmp-X.X.X.aar](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
-
-Make your application comply with the new General Data Protection Regulation (GDPR) law applies in Europe. (for additional information please visit our [website](https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home))
-
-- Madvertise Location SDK [madvertiselocation-X.X](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
-
-This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional information please visit our [website](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/MadvertiseLocation))
-
-**3) Huawei devices compatibility :**
- 
-
-Now that Huawei devices are not able anymore to use the Google APIs, you will have to add the Huawei APIs dependencies if you still want to be fully compatible with all Huawei devices
-
-In the main build.gradle of your project, you must declare the Huawei repository:
-
-
-```groovy
-
-allprojects {
-	repositories {
-		google()
-		jcenter()
-		
-		// Huawei services dependencies repository
-		maven { url 'http://developer.huawei.com/repo/' }
-	}
-}
-```
-
-In the build.gradle of to your application module, you can now import the Huawei SDKs by declaring it in the dependencies section:
-
-```groovy
-
-// Huawei services dependencies
-implementation 'com.huawei.hms:ads-identifier:3.4.28.305'
-implementation 'com.huawei.hms:location:4.0.2.300'
-
-
-```
-
-
-**See our [build.gradle] sample**
-
-## Step 2. Update AndroidManifest.xml
-
-**1) Manifest Permissions**
-
-Add the following permissions to your AndroidManifest.xml file inside the manifest tag but outside the <application> tag, if not done already:
- 
-```java
-    <!-- Grants the SDK permission to access approximate location based on cell tower. -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- Grants the SDK permission to access a more accurate location based on GPS. -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- External storage is used for pre-caching features if available -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps. -->
-    <!-- this permission is required for Debug Mode with Gyroscope Sensor. -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <!--Used by AdColony-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--Used by AdColony-->
-    <uses-permission android:name="android.permission.VIBRATE" />
-
-```
-
-**2) Google Play Services** 
-
-Add the following  inside the <application> tag in your AndroidManifest , if not done already:
-
-```xml
-  <meta-data
-            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true"/>
-```
-
-**3) AppLovin SDK key**
-
-
-Add your AppLovin SDK key to the app’s AndroidManifest as a child of the application tag, like so: 
- 
-```java
-<meta-data android:name="applovin.sdk.key"
-          android:value="YOUR_SDK_KEY" />
-```
-
-
-## Step 3. Configuring the SDK
-
-### Init the SDK
-
-You have to init the SDK in your application class
-
+Add the following line to your app's build.gradle, and make sure the latest SDK is used :
 
 ```java
-...
-import com.mngads.MNGAdsFactory;
-...
-public class DemoApp extends Application{
-
-@Override
-public void onCreate() {
-super.onCreate();
-MNGAdsFactory.initialize(this,"YOUR_APP_ID");
-}
+dependencies {
+implementation(name: 'madvertisecmp-X.0.0', ext: 'aar')
 }
 ```
 
-### Verify Your Integration
+**You can find the file here :** [madvertisecmp-X.0.0.aar](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/)
 
-To verify if the SDK is fully initialized you have to call isInitialized():
+### Step 2: Enable support for the new language APIs of Java 1.8 
+
+Add the following line to your app's build.gradle :
 
 ```java
-
-public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
-...
-if(MNGAdsFactory.isInitialized()){
-
-//The SDK is initialized
-
-}else {
-
-//The SDK is initializing
-//set up a callback that will be called when is fully initialized
-MNGAdsFactory.setMNGAdsSDKFactoryListener(this);
-
-}
-...
-
-...
-@Override
-    public void onMNGAdsSDKFactoryDidFinishInitializing() {
-
-        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
-    }
-
-    @Override
-    public void onMNGAdsSDKFactoryDidFailInitialization(Exception e) {
-
-        Log.d(TAG, "MNGAdsSDKFactoryDidFailInitialization: " + e);
-    }
-
-    @Override
-    public void onMNGAdsSDKFactoryDidResetConfig() {
-
-        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
-    }
-
-...
-
-```
-
-**Note:**
-
- - onMNGAdsSDKFactoryDidFinishInitializing() is called when the the first initialisation finished.
- 
- - onMNGAdsSDKFactoryDidResetConfig() is called when the sdk configuraiton has been updated and finished reinitialisation.
- 
- - onMNGAdsSDKFactoryDidFailInitialization() is called when an error occurs during initialisation or configuration update.
-
-## Troubleshooting
-
-### Enabling debug mode
-To enbale debug mode you need to set debug mode to true :
-
-```java
-...
-MNGAdsFactory.setDebugModeEnabled(true);
-...
-
-```
-
-
-### CompileOptions
-
-To use DTBAndroidSDK you have to add compileOptions to your module's gradle file like so:
-
-```groovy
 android {
-    // …
+  defaultConfig {
+    // Required when setting minSdkVersion to 20 or lower
+    multiDexEnabled true
+  }
 
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
+  compileOptions {
+    // Flag to enable support for the new language APIs
+    coreLibraryDesugaringEnabled true
+    // Sets Java compatibility to Java 8
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 }
 
+dependencies {
+ coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.10'
+}
 ```
-### OKHTTP issue
 
-If you use okhhtp in your project or in an other dependency, add these lines in your build.gradle to avoid build error :
+
+
+### Step 3: Prepare the configuration file
+
+**Introduction**
+
+Through this file, you can:
+
+- **Defining Strings :** You can edit the content of text to allow the same field to display different content based on the language of the user.
+
+- **Customizing Appearance :** You can change global properties to alter the look and feel of the default instance interface (Functionality is not affected).
+
+
+For more details on how to prepare the file, you can find it in this link : [MAdvertiseCMP - Configuration File](https://bitbucket.org/anypli/madvertisecmp-android/src/V34/cmp_configuration.md).
+
+**Integration**
+
+- The file should be added to your **main/res/raw** folder.
+
+- The configuration files for the following languages are present in the [main/res/raw] of the demo:
+	- German
+	- Italian
+	- French
+	- English
+
+- Here's an example of how you can use the configuration files depending on the language :
 
 ```java
-buildTypes
-{
-packagingOptions {
-exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
-exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.xml'
-exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
-exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
-}
+int configRes;
+switch (Locale.getDefault().getISO3Language()) {
+                case "fra":
+                    configRes = R.raw.madvertise_config_fr;
+                    break;
+                case "ita":
+                    configRes = R.raw.madvertise_config_it;
+                    break;
+                case "deu":
+                    configRes = R.raw.madvertise_config_de;
+                    break;
+                default:
+                    configRes = R.raw.madvertise_config_en;
+                    break;
+ }
+    
+
+```
+
+
+### Step 4: Initialize the configuration file
+
+You have to init the configuration in your application class :
+
+```java
+ConsentToolConfiguration consentToolConfiguration = new ConsentToolConfiguration(R.raw.madvertise_config_fr);
+```
+
+You can customize appearance :
+
+*Background :*
+
+To change the default background of the consent tool (optional) you'll have to specify the resource id of your background, it can be either a color or a drawable, using the configuration tool method with this signature
+
+```java
+public ConsentToolConfiguration setHomeBackgroundRes(int homeBackgroundRes)
+```
+
+*Size :*
+
+To change the default size of the consent tool (optional) you'll have to add the width and height of the desired tool using the configuration tool method with this signature
+
+```java
+public ConsentToolConfiguration setConsentToolSize(int pxWidth, int pxHeight)
+```
+
+
+### Step 5: Initialize the MAdvertiseCMP SDK
+
+
+You have to init the SDK in your application class :
+
+```java
+ConsentManager.sharedInstance.configure(this,YOUR_APP_ID, new ConsentToolConfiguration(configRes),YOUR_PUBLISHER_CC);
+```
+
+The configure method takes the following parameters:
+
+- the Application context.
+- the App Id of your application.
+- the Consent Tool Configuration object.
+- the publisherCC value (corresponds to the country code (Two-letter) of the country in which the publisher's business entity is established like "FR", "DE", "IT"...).
+
+
+*Integration example :*
+
+Here's an example of how to do that in ```onCreate``` on an application subclass:
+
+```java
+public class YourApp extends Application {
+
+  @Override  
+  public void onCreate() {
+    super.onCreate();
+    
+ConsentManager.sharedInstance.configure(this,1234567,  new ConsentToolConfiguration(configRes),"FR");
+    
+  }
 }
 ```
-### Android multidex issue
 
-For more information, please see this [AndroidMultidex]
+**Enforce a specific language :**
 
-## Select an ad format
+You can enforce your preferred language for the cmp with these init :
 
-MNG SDK offers a number of different ad formats :
+```java
+ConsentManager.sharedInstance.configure(this,YOUR_APP_ID,YOUR_PREFERRED_LANG, new ConsentToolConfiguration(configRes),YOUR_PUBLISHER_CC);
+```
 
-- Banner [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/banner)
+- the language you want to show CMP with it((Two-letter) like "fr","en","it"....) **(Optional)**
 
-- Interstitial [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial)
+*Integration example :*
 
-- Native Ads [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/nativead)
+Here's an example of how to do that in ```onCreate``` on an application subclass:
 
-- Rewarded Video [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/rewarded-video)
+```java
+public class YourApp extends Application {
 
-- Infeed [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/infeed)
+  @Override  
+  public void onCreate() {
+    super.onCreate();
+    
+ConsentManager.sharedInstance.configure(this,1234567, "fr", new ConsentToolConfiguration(configRes),"FR");
+    
+  }
+}
+```
 
 
 
+## Advanced Topics
 
-[omsdk-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[link]:https://developer.android.com/training/location/retrieve-current.html
-[SmartAdServer]:http://documentation.smartadserver.com/displaySDK
-[Appsfire]:http://docs.appsfire.com/sdk/android/integration-reference/Introduction
-[Google DFP]:https://developers.google.com/mobile-ads-sdk/download#download
-[Facebook Audience Network]:https://developers.facebook.com/docs/android?locale=fr_FR
-[mngads-sdk-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[MngAds sample app]:https://bitbucket.org/mngcorp/mngads-demo-android/src
-[Help Center]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq
-[Change Log]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/change-log
-[Upgrade Guide]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/upgrading
-[AudienceNetwork.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsRequiredJars/AudienceNetwork.jar?at=master&fileviewer=file-view-default
-[Android-support-v4.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/android-support-v4.jar?at=master
-[Google-play-services_lib]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/google-play-services_lib/?at=master
-[mngAds state diagram]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/diagram
-[Amazon]:https://developer.amazon.com/public/resources/development-tools/sdk
-[Amazon.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[DTBAndroidSDK-x.x.x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[Flurry]:https://developer.yahoo.com/flurry/
-[FlurryAds.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[FlurryAnalytics.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[Best practice Mngads and Design ad units to fit your app]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/guidelines
-[AndroidMultidex]:http://developer.android.com/intl/ko/tools/building/multidex.html
-[Ogury]:http://www.ogury.co/
-[ogury-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[Native Ads guidelines]:./nativead
-[ApplicationManager.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.java?at=master&fileviewer=file-view-default
-[BaseActivity.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.java?at=master&fileviewer=file-view-default
-[Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
-[see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
-[more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
-[umooveVx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
-[build.gradle]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/build.gradle?at=master&fileviewer=file-view-default
+### Fullscreen Page
+
+You can use a fullscreen page instead of a Popup, you need to the following method to your ConsentToolConfiguration :
+
+
+```java
+setConsentToolSize(ConsentToolConfiguration.MATCH_PARENT,ConsentToolConfiguration.MATCH_PARENT);
+```
+
+
+Here's an example:
+
+```java
+public class YourApp extends Application {
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    ConsentManager.sharedInstance.configure(this, YOUR_APP_ID , Locale.getDefault(), 
+    new ConsentToolConfiguration(R.raw.madvertise_config)
+                .setConsentToolSize(ConsentToolConfiguration.MATCH_PARENT,ConsentToolConfiguration.MATCH_PARENT),"FR");
+  }
+}
+```
+___
+
+### Check the consent tool is shown
+
+
+To check whether the consent tool is shown, you can use the method : 
+
+```java
+ConsentManager.sharedInstance.isConsentToolShown()
+```
+
+
+Here's an example:
+
+```java
+if (!ConsentManager.sharedInstance.isConsentToolShown()){
+    startActivity(new Intent(this, HomeActivity.class))
+}
+```
+
+___
+
+### Check the availability of user consent
+
+
+This listener is called when the user provides his consent by clicking the accept or the save button.
+
+```java
+     ConsentManager.sharedInstance.setOnConsentProvidedListener(() -> {
+            //TODO: Action that you need to do after closing the consent tool.
+        });
+```
+---
+
+### Check if user close CMP Popup with close button
+
+
+To check if user close CMP Popup with close button, you can use the method :
+
+```java
+ConsentManager.sharedInstance.isConsentToolClosed()
+```
+
+Here's an example:
+
+```java
+if (!ConsentManager.sharedInstance.isConsentToolClosed()){
+   .....
+}
+```
+
+
+---
+
+### Collect External Purposes IDs
+
+**Option 1 : **
+
+To collect external purposes IDs, you can use the method :
+
+```java
+ConsentManager.sharedInstance.getExternalPurposesIDs(context)
+```
+
+Here's an example:
+
+```java
+Log.e(TAG,ConsentManager.sharedInstance.getExternalPurposesIDs(mContext))
+```
+
+You will get something like this: : TAG: [3,4,5]
+
+**Option 2 : **
+
+You can get it directly through SharedPreferences with tag **IABTCF_PublisherConsent**.
+
+---
+
+### Manually Displayed
+
+
+Once the consent manager is ready the consent tool will be shown automatically, if you want it to be manually displayed :
+
+1) Add a listener to your consent manager **before adding your configurations**.
+
+```java
+//Before initializing the cmp
+ConsentManager.sharedInstance.setConsentManagerListener(this);
+```
+
+2) This listener requires to implement an callback : 
+
+```java
+@Override
+public void onShowConsentToolRequest() {
+   
+}
+
+``` 
+
+3) Now, you will be able to show the consent tool by calling showLocationConsentTool method as follows:
+
+```java
+@Override
+public void onShowConsentToolRequest(Consent consentString) {
+ConsentManager.sharedInstance.showLocationConsentTool();   
+}
+```
+
+Here's an example:
+
+```java
+
+public class YourApp extends Application {
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
+ConsentManager.sharedInstance.setConsentManagerListener(this);
+ConsentManager.sharedInstance.configure(this, YOUR_APP_ID , Locale.getDefault(), 
+    new ConsentToolConfiguration(R.raw.madvertise_config),"FR");
+  }
+}
+
+// Callback when Consent Tool is ready to show
+@Override
+public void onShowConsentToolRequest() {
+ConsentManager.sharedInstance.showLocationConsentTool();
+
+// Callback when Consent Tool is closed
+@Override
+public void onConsentToolClosed() {
+
+}
+
+``` 
+
 [Android X]:https://developer.android.com/jetpack/androidx/migrate
+[main/res/raw]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/src/master/MAdvertiseCmpDemo/src/main/res/raw/
