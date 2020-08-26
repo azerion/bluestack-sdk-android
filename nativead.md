@@ -296,7 +296,6 @@ mngPreference.setLocation(location,CONSENT_FLAG,context);
 mngPreference.setAge(28);
 mngPreference.setGender(MNGGender.MNGGenderFemale);
 mngPreference.setKeyword("brand=myBrand;category=sport");
-mngPreference.setLanguage("fr");
 mngPreference.setContentUrl("put your content url here")
 
 
