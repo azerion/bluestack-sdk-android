@@ -56,7 +56,7 @@ implementation('com.mopub:mopub-sdk:5.13.1@aar') {
 //For Madvertise data 
 implementation(name:  'madvertiselocation-3.2', ext:  'aar')
 //For Madvertise CMP
-implementation(name: 'madvertisecmp-34.0.0', ext: 'aar')
+implementation(name: 'madvertisecmp-39.0.0', ext: 'aar')
 
 ```
 
