@@ -1,5 +1,12 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+
+### Version 3.2.2
+#### Release date: September 7th, 2020
+
+ - fix TCF v2 issue
+ - fix SQLiteDatabaseLockedException
+
 ### Version 3.2
 #### Release date: July 23th, 2020
  
