@@ -2,6 +2,58 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 3.2.2
+
+**Upgrade mediation SDKs**
+
+Google has made a change in desugar & dex using Gradle artifact tranforms, which allow more parallelism and caching. To avoid any problems you might get, you can add in **gradle.properties** this line below : 
+
+
+```java
+android.enableDexingArtifactTransform=false 
+```
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+
+// MNG Ads SDK  
+implementation(name: 'mngads-sdk-3.2.2', ext: 'aar')
+
+// Google SDK
+implementation 'com.google.android.gms:play-services-ads:19.3.0'
+implementation 'com.google.android.gms:play-services-base:17.4.0'
+
+// Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:5.11.0'
+
+// SmartAdServer SDKs
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.1@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.1@aar'
+
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:3.9.0'
+
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk:4.8.3'
+
+// Amazon APS SDK
+implementation 'com.amazon.android:aps-sdk:8.3.2@aar'
+
+// Madvertise CMP
+implementation(name: 'madvertisecmp-41.0.0', ext: 'aar')
+
+// Madvertise Data
+implementation(name:  'madvertiselocation-3.2.2', ext:  'aar')
+
+// Android SDK
+implementation 'androidx.appcompat:appcompat:1.2.0'
+implementation 'com.google.android.material:material:1.2.0'
+
+
+```
+
 ## Version 3.2.0
 
 
