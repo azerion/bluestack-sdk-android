@@ -59,7 +59,7 @@ repositories {
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:17.3.0'
+implementation 'com.google.android.gms:play-services-base:17.4.0'
 
 ```
 
@@ -76,23 +76,23 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:19.2.0'
+implementation 'com.google.android.gms:play-services-ads:19.3.0'
 
 //Location, if you app use GPS data only with a CMP
 implementation 'com.google.android.gms:play-services-location:17.0.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:5.9.1'
+implementation 'com.facebook.android:audience-network-sdk:5.11.0'
 // Required Dependency by Audience Network SDK
 implementation 'com.android.support:support-annotations:28.0.0' 
 
 // Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.6.0@aar'
-implementation 'com.smartadserver.android:smart-core-sdk:7.6.0@aar'
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.1@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.1@aar'
 
 // Dependencies required by Smart Display SDK
 implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
+implementation 'com.google.android.exoplayer:exoplayer:2.11.0'
 
 ```
 
@@ -105,10 +105,10 @@ implementation 'com.google.android.exoplayer:exoplayer:2.8.3'
 ```groovy
 dependencies {
 // Amazon APS SDK
-implementation 'com.amazon.android:aps-sdk:8.2.1@aar'
+implementation 'com.amazon.android:aps-sdk:8.3.2@aar'
 
 // Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:3.7.0'
+implementation 'com.criteo.publisher:criteo-publisher-sdk:3.9.0'
 
 ```
 
@@ -124,7 +124,7 @@ implementation 'com.criteo.publisher:criteo-publisher-sdk:3.7.0'
 ```groovy
 dependencies {
 // AppLovin SDK
-implementation 'com.applovin:applovin-sdk:9.11.6'
+implementation 'com.applovin:applovin-sdk:9.13.0'
 
 // MoPub Marketplace SDK
 implementation('com.mopub:mopub-sdk:5.13.1@aar') {
@@ -142,7 +142,7 @@ implementation 'com.adcolony:sdk:4.1.4'
 
 
 //Ogury
-implementation 'co.ogury:ogury-sdk:4.8.1'
+implementation 'co.ogury:ogury-sdk:4.8.3'
 }
 
 ```
