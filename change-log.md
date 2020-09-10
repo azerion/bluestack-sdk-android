@@ -4,6 +4,29 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 3.2.2
+#### Release date: September 10th, 2020
+
+**Fixed**
+
+ - Fix ANR issues
+ - Fix TCF v2 issue for GAID
+ 
+**Updated**
+
+- Upgarde mediation SDKs : 
+    - Use new version of MNG Ads SDK (Version : 3.2.2)
+    - Use new version of Google Ads SDK (Version : 19.3.0) 
+    - Use new version of Play Services SDK (Version : 17.4.0) 
+    - Use new version of Audience Network SDK (Version : 5.11.0) 
+    - Use new version of Smart Ad Server SDK (Version : 7.6.1)
+    - Use new version of Criteo SDK (Version 3.9.0) 
+    - Use new version of Ogury SDK (Version : 4.8.3) 
+    - Use new version of Amazon APS SDK (Version : 8.3.2)  
+    - Use new version of Madvertise CMP SDK [madvertisecmp-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/) (Version : 41)
+
+
+
 ## Version 3.2.0
 #### Release date: July 23th, 2020
 
@@ -28,8 +51,8 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
     - Use new version of Google Ads SDK (Version : 19.2.0) 
     - Use new version of Play Services SDK (Version : 17.3.0) 
     - Use new version of Audience Network SDK (Version : 5.9.1)  
-    - Use new version of Madvertise CMP SDK [madvertisecmp-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/) (Version : 34)
-    - Use new version of Madvertise Location SDK [madvertiselocation-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/) (Version : 3.2)
+    - Use new version of Madvertise CMP SDK [madvertisecmp-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/) (Version : 41)
+    - Use new version of Madvertise Location SDK [madvertiselocation-x.aar](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/) (Version : 3.2.2)
 
 
 ## Version 3.1.4
