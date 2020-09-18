@@ -1,5 +1,45 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 3.2.3
+#### Release date: September 18th, 2020
+
+**SDK is now delivered through Maven/Bitbucket repository**
+
+In the main build.gradle of your project, you must declare the Bluestack repository: 
+
+
+```groovy
+
+allprojects {
+	repositories {
+		google()
+		jcenter()
+		
+    // For All Bluestack SDKs (Mediation, CMP, Location)
+    maven 
+    {
+     credentials 
+        {
+         username "madvertise-maven"
+         password "GpdGZ9GE9SK7ByWdM987"
+        } 
+     url "https://api.bitbucket.org/2.0/repositories/mngcorp/deploy-maven-bluestack/src/master"
+     authentication 
+     	{
+        basic(BasicAuthentication)
+    	}
+     }
+	}
+}
+```
+
+In the build.gradle of to your application module, you can now import the Bluestack Location by declaring it in the dependencies section:
+
+```groovy
+implementation 'com.madvertise:location-sdk:3.2.3'
+```
+
+
 
 ### Version 3.2.2
 #### Release date: September 7th, 2020
