@@ -1,47 +1,57 @@
-# Madvertise Location SDK
+# BlueStack Location SDK
 
 [TOC]
 
-MadvertiseLocation SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [Madvertise CMP]
+BlueStack Location SDK is and android library. This SDK **works** with a **CMP** (CONSENT MANAGEMENT PROVIDERS) **only** for The **GDPR** (General Data Protection Regulation) rules. We have developed our [BlueStack CMP]
 
 ## Prerequisites
 
  - Android Studio to manage your project.
- - Android 4.0 (API 14) or above 
- - For apps that support Android X, use 3.x version or above. 
- - If not yet, use 2.x version.
+ - Android 4.4 (API 19) or above 
+ - For apps that support Android X, use 3.x version or above. If not yet, use 2.x version.
 
 ## Set up the SDK
 
 ### 1.Repository
-In the main build.gradle of your project, reference the flatDir. 
+In the main build.gradle of your project, you must declare the Bluestack Location repository: 
 
 ```groovy
 allprojects {
     repositories {
         google()
         jcenter()
-        flatDir {
-            dirs 'libs'
-        }
+     
+    // For All Bluestack SDKs (Mediation, CMP, Location)
+    maven 
+    {
+     credentials 
+        {
+         username "madvertise-maven"
+         password "GpdGZ9GE9SK7ByWdM987"
+        } 
+     url "https://api.bitbucket.org/2.0/repositories/mngcorp/deploy-maven-bluestack/src/master"
+     authentication 
+     	{
+        basic(BasicAuthentication)
+    	}
+     }
+	}
+
     }
 }
 ```
 
 ### 2.Dependencies
-Include JCenter/Maven repository and add the following lines to your app's build.gradle, and make sure the latest SDK is used:
+
+In the build.gradle of to your application module, you can now import the Bluestack Location  SDK by declaring it in the dependencies section:
 
 ```groovy
 dependencies {
 
-    implementation(name: 'madvertiselocation-X.X', ext: 'aar')
+implementation 'com.madvertise:location-sdk:3.2.3'
 
 }
 ```
-
-
-madvertiselocation-X.X available on : [https://bitbucket.org/mngcorp/mngads-demo-android/downloads/](https://bitbucket.org/mngcorp/mngads-demo-android/downloads/)
-
 
 ### 3.Permissions
 In order to run properly, the library needs the following permissions : 
@@ -136,9 +146,6 @@ The implementation of this method allows to stop the tracking service
         }
     }
 ```
-        
+     
 
-
-
-[madvertiselocation-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
-[Madvertise CMP]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
+[BlueStack CMP]:https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home
