@@ -3,6 +3,21 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.2.3
+#### Release date: September 18th, 2020
+
+**Improvements**
+
+ - SDK is now delivered through Maven/Bitbucket repository.
+ - Improve SDK performance and stability.
+ 
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.2.3)
+    - Use new version of BlueStack CMP SDK (Version : 42)
+    - Use new version of BlueStack Location SDK (Version : 3.2.3)
+
 
 ## Version 3.2.2
 #### Release date: September 10th, 2020
