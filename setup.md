@@ -20,7 +20,7 @@ Before You Start, MNG Ads requires minimum :
 
 ## Step 1. Installation using Gradle
 
-**1) Add this to Module-level /app/build.gradle before dependencies**
+**1) In the main build.gradle of your project, you must declare there repositorys :**
 
 ```groovy
 repositories {
@@ -43,9 +43,21 @@ repositories {
       maven {
         url 'https://maven.ogury.co/beta'
     }
-    
-    // Huawei services dependencies repository
-    maven { url 'http://developer.huawei.com/repo/' }
+
+    // For All Bluestack SDKs (Mediation, CMP, Location)
+    maven 
+    {
+     credentials 
+        {
+         username "madvertise-maven"
+         password "GpdGZ9GE9SK7ByWdM987"
+        } 
+     url "https://api.bitbucket.org/2.0/repositories/mngcorp/deploy-maven-bluestack/src/master"
+     authentication 
+     	{
+        basic(BasicAuthentication)
+    	}
+     }
 }
 ```
 
@@ -60,7 +72,16 @@ repositories {
 dependencies {
 //Google Ads SDK
 implementation 'com.google.android.gms:play-services-base:17.4.0'
+}
+```
 
+- Bluestack Mediation SDK
+
+```groovy
+dependencies {
+// Bluestack SDK
+implementation 'com.madvertise:bluestack-core-sdk:3.2.3'
+}
 ```
 
 
@@ -95,6 +116,14 @@ implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 implementation 'com.google.android.exoplayer:exoplayer:2.11.0'
 
 ```
+
+- BlueStack Consent Management Provider (CMP) [BlueStack CMP](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
+
+Make your application comply with the new General Data Protection Regulation (GDPR) law applies in Europe. (for additional information please visit our [website](https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home))
+
+- BlueStack Location SDK [BlueStack Location](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
+
+This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional information please visit our [website](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/MadvertiseLocation))
 
 **Recommended in-App Bidding :**
 
@@ -146,31 +175,6 @@ implementation 'co.ogury:ogury-sdk:4.8.3'
 }
 
 ```
-
-
-**3) Download the following files and place them in the /libs folder in your project:**
-
-**Mandatory :**
-
-- MNG SDK [mngads-sdk-x.aar] 
-
-```groovy
-dependencies {
-
-//For MNG SDK
-implementation(name: 'mngads-sdk-X.X', ext: 'aar')
-}
-
-```
-**Recommended :**
-
-- MAdvertise Consent Management Provider (CMP) [madvertisecmp-X.X.X.aar](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
-
-Make your application comply with the new General Data Protection Regulation (GDPR) law applies in Europe. (for additional information please visit our [website](https://bitbucket.org/mngcorp/madvertise-gdpr-cmp-android/wiki/Home))
-
-- Madvertise Location SDK [madvertiselocation-X.X](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
-
-This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional information please visit our [website](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/MadvertiseLocation))
 
 **3) Huawei devices compatibility :**
  
@@ -339,7 +343,7 @@ MNGAdsFactory.setDebugModeEnabled(true);
 
 ### CompileOptions
 
-To use DTBAndroidSDK you have to add compileOptions to your module's gradle file like so:
+You have to add compileOptions to your module's gradle file like so:
 
 ```groovy
 android {
