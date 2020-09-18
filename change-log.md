@@ -3,6 +3,51 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.2.3
+
+**SDK is now delivered through Maven/Bitbucket repository**
+
+In the main build.gradle of your project, you must declare the Bluestack repository: 
+
+
+```groovy
+
+allprojects {
+	repositories {
+		google()
+		jcenter()
+		
+    // For All Bluestack SDKs (Mediation, CMP, Location)
+    maven 
+    {
+     credentials 
+        {
+         username "madvertise-maven"
+         password "GpdGZ9GE9SK7ByWdM987"
+        } 
+     url "https://api.bitbucket.org/2.0/repositories/mngcorp/deploy-maven-bluestack/src/master"
+     authentication 
+     	{
+        basic(BasicAuthentication)
+    	}
+     }
+	}
+}
+```
+
+In the build.gradle of to your application module, you can now import the Bluestack SDKs by declaring it in the dependencies section:
+
+```groovy
+// For BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.2.3'
+
+// For BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:42.0.0'
+
+// For BlueStack Location SDK
+implementation 'com.madvertise:location-sdk:3.2.3'
+```
+
 
 ## Version 3.2.2
 #### Release date: September 10th, 2020
