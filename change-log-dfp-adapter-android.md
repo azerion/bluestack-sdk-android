@@ -1,5 +1,37 @@
 # Change log and Upgrading SDK for Android DFP Adapter
 
+
+## Version 2.2.2
+### Release date: September 18th, 2020
+
+**SDK is now delivered through Maven/Bitbucket repository**
+
+```groovy
+allprojects {
+    repositories {
+        google()
+        jcenter()
+     
+    // For All Bluestack SDKs (Mediation, CMP, Location, Adapter)
+    maven 
+    {
+     credentials 
+        {
+         username "madvertise-maven"
+         password "GpdGZ9GE9SK7ByWdM987"
+        } 
+     url "https://api.bitbucket.org/2.0/repositories/mngcorp/deploy-maven-bluestack/src/master"
+     authentication 
+     	{
+        basic(BasicAuthentication)
+    	}
+     }
+	}
+
+    }
+}
+```
+
 ## Version 2.2.0 (Release date: August 12th, 2020) 
 
 
