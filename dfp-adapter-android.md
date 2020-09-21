@@ -53,11 +53,51 @@ On your Google Ad Manager UI, create a custom event
 
 ## Integrate MNGAds in your application project
 
-### 1. Set Up
+### 1. Set Up 
+#### a. Our Adapter
 
-* Add our adapter [mngads-dfp-adapter-x.aar]
-* [set up sdk section] MNGAds on your application project.
+In the main build.gradle of your project, you must declare the Bluestack repository: 
 
+```groovy
+allprojects {
+    repositories {
+        google()
+        jcenter()
+     
+    // For All Bluestack SDKs (Mediation, CMP, Location, Adapter)
+    maven 
+    {
+     credentials 
+        {
+         username "madvertise-maven"
+         password "GpdGZ9GE9SK7ByWdM987"
+        } 
+     url "https://api.bitbucket.org/2.0/repositories/mngcorp/deploy-maven-bluestack/src/master"
+     authentication 
+     	{
+        basic(BasicAuthentication)
+    	}
+     }
+	}
+
+    }
+}
+```
+
+
+In the build.gradle of to your application module, you can now import the Bluestack Google Adapter SDK by declaring it in the dependencies section:
+
+```groovy
+dependencies {
+
+implementation 'com.madvertise:bluestack-gam-adapter:2.2.2'
+
+}
+```
+
+#### b. Bluestack Mediation
+
+Show [Set Up Sdk Section] Bluestack Mediation on your application project.
 
 
 ### 2. Initialize your ads
@@ -267,7 +307,7 @@ The Madvertise_Custom_Event value corresponds to custom event adapter class name
 [Banner Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/banner
 [Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
 [Native Ads Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/native/advanced
-[set up sdk section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/setup
+[Set Up Sdk Section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/setup
 [mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-2.1.0.aar
 [mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
