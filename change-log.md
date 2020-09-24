@@ -3,6 +3,15 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.2.4
+#### Release date: September 24th, 2020
+
+**Fixed**
+
+ - Fix AdChoices issue for nativeAd
+
+**Improvements**
+
 ## Version 3.2.3
 #### Release date: September 18th, 2020
 
