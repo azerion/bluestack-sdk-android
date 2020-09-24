@@ -9,6 +9,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 **Fixed**
 
  - Fix AdChoices issue for nativeAd
+ - Fix NativeAd Bitmap issue
 
 **Improvements**
 
