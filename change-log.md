@@ -11,7 +11,10 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
  - Fix AdChoices issue for nativeAd
  - Fix NativeAd Bitmap issue
 
-**Improvements**
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.2.4)
 
 ## Version 3.2.3
 #### Release date: September 18th, 2020
