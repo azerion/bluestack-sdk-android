@@ -1,5 +1,10 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 3.2.4
+#### Release date: October 1, 2020
+
+ - fix ArrayIndexOutOfBoundsException issue on decodedMadvertiseTCFV1
+
 ### Version 3.2.3
 #### Release date: September 18th, 2020
 
