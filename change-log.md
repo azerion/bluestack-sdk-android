@@ -3,6 +3,30 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.0
+#### Release date: October 20th, 2020
+
+**New features**
+
+- New ad format: RewardVideo For BlueStack Ads.
+
+
+**Improvements**
+
+ - Improve SDK performance and stability.
+ - Update Open Measurement SDK to version 1.3.11.
+
+
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.3.0)
+    - Use new version of BlueStack CMP SDK (Version : 46)
+    - Use new version of Google Ads SDK (Version : 19.4.0) 
+    - Use new version of Audience Network SDK (Version : 6.1.0)
+    - Use new version of Ogury SDK (Version : 5.0.2) 
+    - Use new version of Criteo SDK (Version : 3.10.1) 
+
 ## Version 3.2.5
 #### Release date: October 8th, 2020
 
