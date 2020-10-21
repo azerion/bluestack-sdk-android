@@ -2,6 +2,59 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.0
+
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// For BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.2.3'
+
+// For BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:42.0.0'
+
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:3.10.1'
+
+// Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:6.1.0'
+
+// Google SDK
+implementation 'com.google.android.gms:play-services-ads:19.4.0'
+
+```
+
+**Update Ogury SDK :**  
+ 
+In your project/app build.gradle, **replace** the following line from  :
+  
+```groovy
+repositories {
+maven {
+        url 'https://maven.ogury.co/beta'
+    }
+}
+dependencies {
+    implementation 'co.ogury:ogury-sdk:4.8.3'
+}
+```
+with the following line :
+
+```groovy
+repositories {
+ maven {
+        url 'https://maven.ogury.co'
+    }
+}
+dependencies {
+    implementation 'co.ogury:ogury-sdk:5.0.2'
+}
+
+```
+
 
 ## Version 3.2.3
 
