@@ -10,11 +10,15 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 - New ad format: RewardVideo For BlueStack Ads.
 
-
 **Improvements**
 
- - Improve SDK performance and stability.
  - Update Open Measurement SDK to version 1.3.11.
+
+**Fixed**
+
+ - Fix com.mngads.sdk.perf.g.b.a crash (Webview)
+ - Fix com.mngads.sdk.perf.interstitial.MNGInterstitialAdActivity crash
+ - Fix chromium-TrichromeWebViewGoogle crash (Facebook)
 
 
 **Updated**
