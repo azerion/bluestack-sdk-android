@@ -11,7 +11,7 @@ In your app's build.gradle, don't forget to update your dependencies as followin
 
 ```groovy
 // For BlueStack Mediation SDK 
-implementation 'com.madvertise:bluestack-core-sdk:3.2.3'
+implementation 'com.madvertise:bluestack-core-sdk:3.3.0'
 
 // For BlueStack CMP SDK 
 implementation 'com.madvertise:cmp-sdk:42.0.0'
