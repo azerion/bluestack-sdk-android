@@ -41,7 +41,7 @@ repositories {
    
     //For Ogury configuration
       maven {
-        url 'https://maven.ogury.co/beta'
+        url 'https://maven.ogury.co/'
     }
 
     // For All Bluestack SDKs (Mediation, CMP, Location)
@@ -80,7 +80,7 @@ implementation 'com.google.android.gms:play-services-base:17.4.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.2.3'
+implementation 'com.madvertise:bluestack-core-sdk:3.3.0'
 }
 ```
 
@@ -97,13 +97,13 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:19.3.0'
+implementation 'com.google.android.gms:play-services-ads:19.4.0'
 
 //Location, if you app use GPS data only with a CMP
-implementation 'com.google.android.gms:play-services-location:17.0.0'
+implementation 'com.google.android.gms:play-services-location:17.1.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:5.11.0'
+implementation 'com.facebook.android:audience-network-sdk:6.1.0'
 // Required Dependency by Audience Network SDK
 implementation 'com.android.support:support-annotations:28.0.0' 
 
@@ -137,7 +137,7 @@ dependencies {
 implementation 'com.amazon.android:aps-sdk:8.3.2@aar'
 
 // Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:3.9.0'
+implementation 'com.criteo.publisher:criteo-publisher-sdk:3.10.1'
 
 ```
 
@@ -171,7 +171,7 @@ implementation 'com.adcolony:sdk:4.1.4'
 
 
 //Ogury
-implementation 'co.ogury:ogury-sdk:4.8.3'
+implementation 'co.ogury:ogury-sdk:5.0.2'
 }
 
 ```
