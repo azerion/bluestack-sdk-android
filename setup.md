@@ -80,7 +80,7 @@ implementation 'com.google.android.gms:play-services-base:17.4.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.3.0'
+implementation 'com.madvertise:bluestack-core-sdk:3.3.1'
 }
 ```
 
