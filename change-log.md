@@ -3,6 +3,20 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.1
+#### Release date: October 22th, 2020
+
+**Fixed**
+
+ - Fixed an issue with debug mode cause a crash (com.mngads.util.j.a). 
+ - Fixed an issue with MRAID Video cause a crash (com.mngads.sdk.perf.video.util.b.c)
+
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.3.1)
+    - Use new version of BlueStack CMP SDK (Version : 48)
+
 ## Version 3.3.0
 #### Release date: October 20th, 2020
 
