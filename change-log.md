@@ -3,6 +3,13 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.2
+#### Release date: October 26th, 2020
+
+**Fixed**
+
+ - Fixed a crash with video (wrong method between Bluestack and appLovin)
+
 ## Version 3.3.1
 #### Release date: October 22th, 2020
 
