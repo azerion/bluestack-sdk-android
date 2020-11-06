@@ -2,6 +2,41 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.3
+
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// For BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.3.3'
+
+// For BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:49.0.0'
+
+// Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:6.2.0'
+
+// Google SDK
+implementation 'com.google.android.gms:play-services-ads:19.5.0'
+
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk:5.0.3'
+
+// SmartAdServer SDKs
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.2@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.2@aar'
+
+//AdColony SDK
+implementation 'com.adcolony:sdk:4.3.0'  
+
+//Amazon SDK
+implementation 'com.amazon.android:aps-sdk:8.4.1@aar'
+
+```
+
 ## Version 3.3.2
 
 
