@@ -71,7 +71,7 @@ repositories {
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:17.4.0'
+implementation 'com.google.android.gms:play-services-base:17.5.0'
 }
 ```
 
@@ -80,7 +80,7 @@ implementation 'com.google.android.gms:play-services-base:17.4.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.3.1'
+implementation 'com.madvertise:bluestack-core-sdk:3.3.3'
 }
 ```
 
@@ -97,19 +97,19 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:19.4.0'
+implementation 'com.google.android.gms:play-services-ads:19.5.0'
 
 //Location, if you app use GPS data only with a CMP
 implementation 'com.google.android.gms:play-services-location:17.1.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:6.1.0'
+implementation 'com.facebook.android:audience-network-sdk:6.2.0'
 // Required Dependency by Audience Network SDK
 implementation 'com.android.support:support-annotations:28.0.0' 
 
 // Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.6.1@aar'
-implementation 'com.smartadserver.android:smart-core-sdk:7.6.1@aar'
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.2@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.2@aar'
 
 // Dependencies required by Smart Display SDK
 implementation 'com.squareup.okhttp3:okhttp:3.12.0'
@@ -134,7 +134,7 @@ This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional 
 ```groovy
 dependencies {
 // Amazon APS SDK
-implementation 'com.amazon.android:aps-sdk:8.3.2@aar'
+implementation 'com.amazon.android:aps-sdk:8.4.1@aar'
 
 // Criteo SDK
 implementation 'com.criteo.publisher:criteo-publisher-sdk:3.10.1'
@@ -167,11 +167,11 @@ implementation 'com.flurry.android:analytics:12.1.0@aar'
 implementation 'com.flurry.android:ads:12.1.0@aar'
         
 // Adcolony SDK
-implementation 'com.adcolony:sdk:4.1.4'
+implementation 'com.adcolony:sdk:4.3.0'
 
 
 //Ogury
-implementation 'co.ogury:ogury-sdk:5.0.2'
+implementation 'co.ogury:ogury-sdk:5.0.3'
 }
 
 ```
