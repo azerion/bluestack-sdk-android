@@ -3,6 +3,25 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.3
+#### Release date: November 6th, 2020
+
+**Fixed**
+
+ - Fixed an issue with Renderscript. 
+
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.3.3)
+    - Use new version of BlueStack CMP SDK (Version : 49) 
+    - Use new version of Google Ads SDK (Version : 19.5.0) 
+    - Use new version of Audience Network SDK (Version : 6.2.0)
+    - Use new version of Ogury SDK (Version : 5.0.3) 
+    - Use new version of Smart Ad Server SDK (Version : 7.6.2)
+    - Use new version of AdColony SDK (Version : 4.3.0)
+    - Use new version of Amazon APS SDK (Version :  8.4.1)
+
 ## Version 3.3.2
 #### Release date: October 26th, 2020
 
