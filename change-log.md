@@ -9,6 +9,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 **Fixed**
 
  - Fixed an issue with Renderscript. 
+ - Fix smartAdserver crash (SASBiddingManager 7.6.1 on Android 11)
 
 **Updated**
 
