@@ -375,6 +375,14 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 
 For more information, please see this [AndroidMultidex]
 
+### Include Kotlin issue
+
+kotlin-stdlib-jre[7/8] was deprecated a while ago, and has since been removed. Use org.jetbrains.kotlin:kotlin-stdlib-jdk[7/8]:$kotlin_version by declaring it in the dependencies section:
+
+```
+implementation “org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.0”
+```
+
 ## Select an ad format
 
 MNG SDK offers a number of different ad formats :
