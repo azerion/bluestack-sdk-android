@@ -7,8 +7,9 @@
 ## Overview
 Before You Start. Make sure that you have correctly integrated the MNG SDK into your application. Integration is outlined [here](https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/setup).
 
+## Integration
 
-## Step 1. Init RewardedVideo class
+### Step 1. Init RewardedVideo class
 
 In order to use the rewarded video feature you have to instantiate the MNGRewardedVideo class and then you can add the MNGRewardedVideoListener. 
 
@@ -16,7 +17,7 @@ In order to use the rewarded video feature you have to instantiate the MNGReward
 mngAdsBannerAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
-## Step 2. Set Placement ID
+### Step 2. Set Placement ID
 
 You have also to set placement Id :
 
@@ -24,7 +25,7 @@ You have also to set placement Id :
 mngRewardedVideo.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
-## Step 3. Implement the Listener
+### Step 3. Implement the Listener
 Next, implement the RewardedVideo Listener in your code. 
 
 ```java
@@ -67,7 +68,7 @@ The SDK will notify your Listener of all possible events listed below :
 ```
 
 
-## Step 4. Loading Rewarded Video ad
+### Step 4. Loading Rewarded Video ad
 
 Calling the 'loadRewardedVideo()' will result in making a request and having a callback in one of the methods of the rewarded video listener.
 
@@ -75,7 +76,7 @@ Calling the 'loadRewardedVideo()' will result in making a request and having a c
 mngRewardedVideo.loadRewardedVideo()
 ```
 
-## Step 5. Display Rewarded Video ad
+### Step 5. Display Rewarded Video ad
 
 After loading the rewarded video you can request it to be displayed and check it's result as following :
 
@@ -87,6 +88,17 @@ if (validDisplayAction){
 }
 ```
 
-# Example
+## Troubleshooting
 
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/RewardedVideoFragment.java
+### Check if a Rewarded Video Ad is loaded
+
+Call the following method to check if a Rewarded Video Ad is ready to be displayed :
+
+```java
+mRewardedVideo.isRewardedVideoReady()
+```
+
+
+## Example
+
+Here is an example : [RewardedVideoFragment.java](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/RewardedVideoFragment.java)
