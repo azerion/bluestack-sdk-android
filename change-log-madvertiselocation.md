@@ -1,5 +1,35 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 3.2.5
+#### Release date: December 16, 2020
+
+Any occurences of location permission have been removed from sdk, in order to respect the safer and transparent access to user location.
+
+*For Foreground access only :*
+
+You need to add those permission to your AndroidManifest.xml if it does not exist.
+
+```xml
+<!-- Grants the SDK permission to access approximate location based on cell tower. -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<!-- Grants the SDK permission to access a more accurate location based on GPS. -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+```
+
+*For Foreground and background access :*
+
+You need to add those permission to your AndroidManifest.xml if it does not exist.
+
+```xml
+<!-- Grants the SDK permission to access approximate location based on cell tower. -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<!-- Grants the SDK permission to access a more accurate location based on GPS. -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<!-- Grants the SDK permission o access location in the background,since android 10 and target 29. -->
+<uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+```
+
+
 ### Version 3.2.4
 #### Release date: October 1, 2020
 
