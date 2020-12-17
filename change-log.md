@@ -3,6 +3,21 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.4
+#### Release date: December 17th, 2020
+
+**Improvements**
+
+ - All SDK classes are now compiled using AndroidX libraries.
+ - Added isRewardedVideoReady() to check the current status of a rewarded video. 
+
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.3.4)
+    - Use new version of BlueStack CMP SDK (Version : 51.0.0) 
+    - Use new version of BlueStack Location SDK (Version : 3.2.5)
+
 ## Version 3.3.3
 #### Release date: November 6th, 2020
 
