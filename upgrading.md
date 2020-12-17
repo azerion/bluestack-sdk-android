@@ -2,6 +2,40 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 3.3.4
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// For BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.3.4'
+
+// For BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:51.0.0'
+
+// For BlueStack Location SDK
+implementation 'com.madvertise:location-sdk:3.2.5'
+
+```
+
+**Upgrade Retency SDKs**
+
+- Remove retency sdk jar file.
+- In your app's build.gradle, replace the following line from the "dependencies":
+  
+```groovy
+implementation files('libs/retency-sdk-1.0.1.jar')
+```
+
+with the following line :
+
+```groovy
+implementation 'com.retency:sdk:2.0.0'
+```
+
 ## Version 3.3.3
 
 
