@@ -3,6 +3,20 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.5
+#### Release date: December 24th, 2020
+
+**Fixed**
+
+ - rewardVideo: now Timer start on video start event for VAST / VPAID / video
+
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.3.5)
+
+**Improvements**
+
 ## Version 3.3.4
 #### Release date: December 17th, 2020
 
