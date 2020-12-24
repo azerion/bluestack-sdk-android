@@ -2,7 +2,16 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.5
 
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// For BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.3.5'
+```
 ## Version 3.3.4
 
 **Upgrade mediation SDKs**
