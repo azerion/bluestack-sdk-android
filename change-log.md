@@ -15,7 +15,6 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - Upgarde SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.3.5)
 
-**Improvements**
 
 ## Version 3.3.4
 #### Release date: December 17th, 2020
