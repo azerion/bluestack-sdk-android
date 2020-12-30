@@ -14,7 +14,7 @@ Before You Start. Make sure that you have correctly integrated the MNG SDK into 
 In order to use the rewarded video feature you have to instantiate the MNGRewardedVideo class and then you can add the MNGRewardedVideoListener. 
 
 ```java
-mngAdsBannerAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+MAdvertiseRewardedVideo mRewardedVideo = new MAdvertiseRewardedVideo(this);
 ```
 
 ### Step 2. Set Placement ID
