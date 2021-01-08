@@ -9,8 +9,9 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
  - Fixed an issue with Appsfire Badge cause a crash (android.content.res.Resources$NotFoundException).
 
+**Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.3.5)
     - Use new version of BlueStack CMP SDK (Version : 54.0.0)
 
@@ -23,7 +24,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.3.5)
 
 
@@ -37,7 +38,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.3.4)
     - Use new version of BlueStack CMP SDK (Version : 51.0.0) 
     - Use new version of BlueStack Location SDK (Version : 3.2.5)
@@ -52,7 +53,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.3.3)
     - Use new version of BlueStack CMP SDK (Version : 49) 
     - Use new version of Google Ads SDK (Version : 19.5.0) 
@@ -79,7 +80,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.3.1)
     - Use new version of BlueStack CMP SDK (Version : 48)
 
@@ -103,7 +104,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.3.0)
     - Use new version of BlueStack CMP SDK (Version : 46)
     - Use new version of Google Ads SDK (Version : 19.4.0) 
@@ -127,7 +128,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.2.4)
 
 ## Version 3.2.3
@@ -140,7 +141,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
  
 **Updated**
 
-- Upgarde SDKs : 
+- Upgrade SDKs : 
     - Use new version of BlueStack Mediation SDK (Version : 3.2.3)
     - Use new version of BlueStack CMP SDK (Version : 42)
     - Use new version of BlueStack Location SDK (Version : 3.2.3)
@@ -156,7 +157,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
  
 **Updated**
 
-- Upgarde mediation SDKs : 
+- Upgrade mediation SDKs : 
     - Use new version of MNG Ads SDK (Version : 3.2.2)
     - Use new version of Google Ads SDK (Version : 19.3.0) 
     - Use new version of Play Services SDK (Version : 17.4.0) 
@@ -185,7 +186,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
  
 **Updated**
 
-- Upgarde mediation SDKs : 
+- Upgrade mediation SDKs : 
     - Use new version of MNG Ads SDK (Version : 3.2.0)
     - Use new version of Criteo SDK (Version 3.7.0) 
     - Use new version of Ogury SDK (Version : 4.8.1) 
@@ -207,7 +208,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde mediation SDKs : 
+- Upgrade mediation SDKs : 
     - Use new version of MNG Ads SDK (Version : 3.1.4)
 
 ## Version 3.1.3
@@ -219,7 +220,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde mediation SDKs : 
+- Upgrade mediation SDKs : 
     - Use new version of MNG Ads SDK (Version : 3.1.3)
     - Use new version of Ogury SDK (Version : 4.7.0) 
     - Use new version of Smart Ad Server SDK (Version : 7.6.0)
@@ -239,7 +240,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 **Updated**
 
-- Upgarde mediation SDKs : 
+- Upgrade mediation SDKs : 
     - Use new version of MNG Ads SDK (Version : 3.1.2)
     - Use new version of Google Ads SDK (Version : 19.1.0) 
     - Use new version of Smart Ad Server SDK (Version : 7.4.1) 
@@ -253,7 +254,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
  - Change interstitial behavior on click event.
 
 
-- Upgarde mediation SDKs : 
+- Upgrade mediation SDKs : 
     - Use new version of MNG Ads SDK (Version : 3.1.1)
 
 
@@ -269,7 +270,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 
 - IAB Open Measurement SDK updated to version 1.3.1.
 
-- Upgarde mediation SDKs : 
+- Upgrade mediation SDKs : 
     - Use new version of MNG Ads SDK (Version : 3.1.0)
     - Use new version of Ogury SDK (Version : 4.3.12) 
     - Use new version of Smart Ad Server SDK (Version : 7.4.1) 
