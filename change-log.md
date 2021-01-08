@@ -3,6 +3,17 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+#### Release date: January 08th, 2021
+
+**Fixed**
+
+ - Fixed an issue with Appsfire Badge cause a crash (android.content.res.Resources$NotFoundException).
+
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.3.5)
+    - Use new version of BlueStack CMP SDK (Version : 54.0.0)
+
 ## Version 3.3.5
 #### Release date: December 24th, 2020
 
