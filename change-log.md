@@ -3,6 +3,7 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.3.6
 #### Release date: January 08th, 2021
 
 **Fixed**
