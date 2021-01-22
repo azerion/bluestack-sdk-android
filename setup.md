@@ -36,6 +36,9 @@ repositories {
     url 'https://packagecloud.io/smartadserver/android/maven2'  
 	}
 	
+	//For Huawei devices compatibility
+	maven { url 'http://developer.huawei.com/repo/' }
+	
     //For Criteo configuration 
    maven { url "https://pubsdk-bin.criteo.com/publishersdk/android" }
    
@@ -57,6 +60,19 @@ repositories {
      	{
         basic(BasicAuthentication)
     	}
+     }
+     
+     
+      // For Sync SDK 
+    maven {
+             url 'https://api.bitbucket.org/2.0/repositories/sync_tv/maven-sync/src/master'
+            credentials {
+                username "guestsync"
+                password "ELn3qwzMCWmJcawgHdqM"
+            }
+            authentication {
+                basic(BasicAuthentication)
+            }
      }
 }
 ```
@@ -80,7 +96,7 @@ implementation 'com.google.android.gms:play-services-base:17.5.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.3.3'
+implementation 'com.madvertise:bluestack-core-sdk:3.4.0'
 }
 ```
 
@@ -97,23 +113,16 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:19.5.0'
+implementation 'com.google.android.gms:play-services-ads:19.6.0'
 
 //Location, if you app use GPS data only with a CMP
 implementation 'com.google.android.gms:play-services-location:17.1.0'
         
 //Audience Network SDK
 implementation 'com.facebook.android:audience-network-sdk:6.2.0'
-// Required Dependency by Audience Network SDK
-implementation 'com.android.support:support-annotations:28.0.0' 
 
-// Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.6.2@aar'
-implementation 'com.smartadserver.android:smart-core-sdk:7.6.2@aar'
-
-// Dependencies required by Smart Display SDK
-implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-implementation 'com.google.android.exoplayer:exoplayer:2.11.0'
+//Smart Display SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.8.1'
 
 ```
 
@@ -137,7 +146,7 @@ dependencies {
 implementation 'com.amazon.android:aps-sdk:8.4.1@aar'
 
 // Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:3.10.1'
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.2.1'
 
 ```
 
@@ -148,6 +157,7 @@ implementation 'com.criteo.publisher:criteo-publisher-sdk:3.10.1'
 - Flurry 
 - AdColony 
 - Ogury (**Note :** An API Key will be assigned to your application by mngads support team for Ogury library.) 
+- Sync
 
 
 ```groovy
@@ -167,47 +177,16 @@ implementation 'com.flurry.android:analytics:12.1.0@aar'
 implementation 'com.flurry.android:ads:12.1.0@aar'
         
 // Adcolony SDK
-implementation 'com.adcolony:sdk:4.3.0'
+implementation 'com.adcolony:sdk:4.3.1'
 
-
-//Ogury
-implementation 'co.ogury:ogury-sdk:5.0.3'
+//Ogury SDK
+implementation 'co.ogury:ogury-sdk:5.0.5'
 }
 
-```
-
-**3) Huawei devices compatibility :**
- 
-
-Now that Huawei devices are not able anymore to use the Google APIs, you will have to add the Huawei APIs dependencies if you still want to be fully compatible with all Huawei devices
-
-In the main build.gradle of your project, you must declare the Huawei repository:
-
-
-```groovy
-
-allprojects {
-	repositories {
-		google()
-		jcenter()
-		
-		// Huawei services dependencies repository
-		maven { url 'http://developer.huawei.com/repo/' }
-	}
-}
-```
-
-In the build.gradle of to your application module, you can now import the Huawei SDKs by declaring it in the dependencies section:
-
-```groovy
-
-// Huawei services dependencies
-implementation 'com.huawei.hms:ads-identifier:3.4.28.305'
-implementation 'com.huawei.hms:location:4.0.2.300'
-
+//Sync SDK
+implementation 'tv.sync:syncdisplay:3.2.0'
 
 ```
-
 
 **See our [build.gradle] sample**
 
@@ -220,13 +199,20 @@ Add the following permissions to your AndroidManifest.xml file inside the manife
 ```java
     <!-- Grants the SDK permission to access approximate location based on cell tower. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
     <!-- Grants the SDK permission to access a more accurate location based on GPS. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
     <!-- External storage is used for pre-caching features if available -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    
     <!-- Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps. -->
     <!-- this permission is required for Debug Mode with Gyroscope Sensor. -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    
+    <!--Used by Sync-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        
     <!--Used by AdColony-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--Used by AdColony-->
@@ -375,12 +361,33 @@ exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
 
 For more information, please see this [AndroidMultidex]
 
-### Include Kotlin issue
+### Include Kotlin to an existing app
 
-kotlin-stdlib-jre[7/8] was deprecated a while ago, and has since been removed. Use org.jetbrains.kotlin:kotlin-stdlib-jdk[7/8]:$kotlin_version by declaring it in the dependencies section:
+Your build.gradle files should look similar to the examples below:
+
+- Add Kotlin to your project classpath : 
+
+**Project build.gradle file**
 
 ```
-implementation “org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.0”
+dependencies {
+classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.0"
+}
+```
+
+- Applies the Kotlin Android plugin to each module that contains Kotlin files.
+
+**Module build.gradle file**
+
+```
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+```
+
+```
+dependencies {
+   implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.0"
+}
 ```
 
 ## Select an ad format
@@ -397,8 +404,9 @@ MNG SDK offers a number of different ad formats :
 
 - Infeed [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/infeed)
 
+- Thumbnail [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/thumbnail)
 
-
+- Sync [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/sync)
 
 [omsdk-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [link]:https://developer.android.com/training/location/retrieve-current.html
