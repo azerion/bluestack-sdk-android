@@ -16,6 +16,8 @@ Madvertise provides functionalities for monetizing your mobile application: from
 | [Android Infeed Ads] |
 | [Android Native Ads] | 
 | [Android Rewarded Video Ads]| 
+| [Android Thumbnail Ads]| 
+| [Android SyncDisplay Ads]| 
 
 
 
@@ -50,7 +52,7 @@ Madvertise provides functionalities for monetizing your mobile application: from
 
 [Android Banner Ads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/banner
 [Android Interstitial Ads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial
-
+[Android Thumbnail Ads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/thumbnail
 
 
 [Retency]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/Retency
@@ -66,3 +68,4 @@ Madvertise provides functionalities for monetizing your mobile application: from
 [AmazonPublisherService for Android]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/AmazonPublisherService
 [Android Google Mobile Ads Adapter]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/dfp-adapter-android
 [iOS Google Mobile Ads Adapter]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/dfp-adapter-ios
+[Android SyncDisplay Ads]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/syncDisplay
