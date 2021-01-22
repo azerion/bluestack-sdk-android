@@ -2,13 +2,6 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
-# Upgrading SDK
-
-- See [Wiki] and [Help Center]  for more detailed informations.
-
-- You must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
-
-
 ## Version 3.4.0
 
 
