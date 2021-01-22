@@ -2,6 +2,67 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+# Upgrading SDK
+
+- See [Wiki] and [Help Center]  for more detailed informations.
+
+- You must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
+
+
+## Version 3.4.0
+
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// For BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.4.0'
+
+// For BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:55.0.0'
+
+// Google SDK
+implementation 'com.google.android.gms:play-services-ads:19.6.0'
+
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk:5.0.5'
+
+//AdColony SDK
+implementation 'com.adcolony:sdk:4.3.1'  
+
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.2.1'
+
+```
+
+**Update SmartAdServer SDK :**
+
+In your app's build.gradle, replace the following line from the "dependencies" :
+
+```groovy
+// Smartadserver SDKs
+implementation 'com.smartadserver.android:smart-display-sdk:7.6.2@aar'
+implementation 'com.smartadserver.android:smart-core-sdk:7.6.2@aar'
+// Add dependencies required by Smart Display SDK
+implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+implementation 'com.google.android.exoplayer:exoplayer:2.11.0'
+implementation 'com.huawei.hms:ads-identifier:3.4.28.305'
+implementation 'com.huawei.hms:location:4.0.2.300'
+```
+with the following line :
+
+```groovy
+implementation 'com.smartadserver.android:smart-display-sdk:7.8.1'
+```
+
+**Add Thumbnail and Sync format :**
+
+- Thumbnail [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/thumbnail)
+
+- Sync [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/sync)
+
 ## Version 3.3.6
 
 **Upgrade mediation SDKs**
