@@ -3,6 +3,40 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.4.0
+#### Release date: January 22th, 2021
+
+**New features**
+
+- New ad format: 
+     - [Thumbnail Ad] For Ogury SDK.
+      - Added [Sync Display SDK] for mediation 
+- Support of Audience Network bidding for in-app ads.
+
+**Improvements**
+
+ - The SDK is now compatible and certified for IAB Open Measurement SDK  1.3.15.
+ - Improve SDK performance and stability.
+
+**Fixed**
+
+ - Issue with ad choice view cause a crash (com.mngads.sdk.perf.request.L)
+ - Issue with native ad cause a crash (com.mngads.c.e.a) 
+ - Issue with close button cause a crash (com.mngads.sdk.perf.b.c.initCloseableContainer) 
+ - Issue with tracking script cause a crash (com.mngads.MNGAdsFactory.eventEnd)  
+
+**Updated**
+
+- Upgarde SDKs : 
+    - Use new version of BlueStack Mediation SDK (Version : 3.4.0)
+    - Use new version of BlueStack CMP SDK (Version : 55) 
+    - Use new version of Google Ads SDK (Version : 19.6.0) 
+    - Use new version of Ogury SDK (Version : 5.0.5) 
+    - Use new version of Smart Ad Server SDK (Version : 7.8.1)
+    - Use new version of AdColony SDK (Version : 4.3.1)
+    - Use new version of Criteo SDK (Version : 4.2.1)
+    - Use new version of Sync SDK (Version : 3.2.0)
+
 ## Version 3.3.6
 #### Release date: January 08th, 2021
 
@@ -1624,3 +1658,5 @@ You must check [Upgrade Guide]
 [MAdvertiseCmp-xx.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
 [Amazon-APS]:https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/DTBAndroidSDK-7.4.3.aar
 [Android X]:https://developer.android.com/jetpack/androidx/migrate
+[Sync Display SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/syncDisplay
+[Thumbnail Ad]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/thumbnail
