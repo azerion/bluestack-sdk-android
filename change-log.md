@@ -11,7 +11,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 - New ad format: 
      - [Thumbnail Ad] For Ogury SDK.
       - Added [Sync Display SDK] for mediation 
-- Support of Audience Network bidding for in-app ads.
+- Support of Facebook Audience Network bidding for in-app ads.
 
 **Improvements**
 
