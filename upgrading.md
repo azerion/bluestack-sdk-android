@@ -32,7 +32,7 @@ implementation 'com.criteo.publisher:criteo-publisher-sdk:4.2.1'
 
 **Update SmartAdServer SDK :**
 
-In your app's build.gradle, replace the following line from the "dependencies" :
+In your app's build.gradle, replace the following lines from the "dependencies" :
 
 ```groovy
 // Smartadserver SDKs
