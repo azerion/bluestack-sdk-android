@@ -54,7 +54,7 @@ implementation 'com.smartadserver.android:smart-display-sdk:7.8.1'
 
 - Thumbnail [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/thumbnail)
 
-- Sync [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/sync)
+- Sync [Integration guides](https://bitbucket.org/mngcorp/mngads-demo-android/wiki/syncDisplay)
 
 ## Version 3.3.6
 
