@@ -98,6 +98,41 @@ Call the following method to check if a Rewarded Video Ad is ready to be display
 mRewardedVideo.isRewardedVideoReady()
 ```
 
+### Preferences Object
+Preferences object is an optional parameter that allow you select ads by user info.
+informations that you can set are:
+
+- **Location :**  geographical position of the user.
+- **KeyWord :**  Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**.
+- **Content URL :**  URL for content related to your app (url must be a string which length not exceed 512 caracters).
+
+```java
+
+Location  myLocation = new Location("I");
+myLocation.setLatitude(35.757866);
+myLocation.setLongitude(10.810547);
+
+mngPreference = new MNGPreference();
+mngPreference.setLocation(location,CONSENT_FLAG,context);
+mngPreference.setKeyword("brand=myBrand;category=sport");
+mngPreference.setContentUrl("put your content url here")
+
+mRewardedVideo.loadRewardedVideo(mngPreference);
+
+```
+**Note :** 
+
+- The setLocation method takes the following parameters:
+
+	- the Location instance.
+	- the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3).
+		- 0 = Not allow to send location.
+		- 1 = When you managed location according to consent value.
+		- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+
+	- the Context instance.
+
+
 
 ## Example
 
