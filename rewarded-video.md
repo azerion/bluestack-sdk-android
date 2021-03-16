@@ -62,8 +62,27 @@ The SDK will notify your Listener of all possible events listed below :
     }
 
     @Override
-    public void onRewardedVideoCompleted(MNGVideoReward mngVideoReward) {
-		//At the end of a rewarded video, a reward object is usually returned, although if it did not the object mngVideoReward returned will be null.
+    public void onRewardedVideoCompleted(MAdvertiseVideoReward videoReward) {
+        Log.d(TAG, "onRewardedVideoCompleted");
+
+        progressBar.setVisibility(View.GONE);
+
+        if (videoReward != null) {
+
+            Log.d(TAG, "onVideoRewarded, type: " + videoReward.getType() + " , amount: " + videoReward.getAmount());
+
+            mLog.setText("Video rewarded\nType: " + videoReward.getType() + "\namount: " + videoReward.getAmount());
+
+
+        } else {
+
+            Log.d(TAG, "onVideoRewarded with no reward object");
+
+            mLog.setText("Video reward event");
+
+
+        }
+
     }
 ```
 
