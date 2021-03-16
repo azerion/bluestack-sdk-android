@@ -62,7 +62,7 @@ The SDK will notify your Listener of all possible events listed below :
     }
 
     @Override
-    public void onVideoRewarded(MNGVideoReward mngVideoReward) {
+    public void onRewardedVideoCompleted(MNGVideoReward mngVideoReward) {
 		//At the end of a rewarded video, a reward object is usually returned, although if it did not the object mngVideoReward returned will be null.
     }
 ```
