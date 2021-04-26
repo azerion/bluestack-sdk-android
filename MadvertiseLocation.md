@@ -8,7 +8,7 @@ BlueStack Location SDK is and android library. This SDK **works** with a **CMP**
 
  - Android Studio to manage your project.
  - Android 4.4 (API 19) or above 
- - For apps that support Android X, use 3.x version or above. If not yet, use 2.x version.
+ - For apps that support Android X, use 3.x version or above.
 
 ## Set up the SDK
 
@@ -48,7 +48,7 @@ In the build.gradle of to your application module, you can now import the Bluest
 ```groovy
 dependencies {
 
-implementation 'com.madvertise:location-sdk:3.2.5'
+implementation 'com.madvertise:location-sdk:4.0.0'
 
 }
 ```
@@ -76,7 +76,6 @@ In order to run properly, the library needs the following permissions :
 ```
 
 You don't need to add those permission to your AndroidManifest.xml unless your application already uses them.
-
 
 
 **Note:**
@@ -133,18 +132,13 @@ The configure method takes the following parameters:
 - the CONSENT_FLAG value (corresponds to a int : 0,1,2 or 3). (since 3.2)
 	- 0 = Not allow to send location.
 	- 1 = When you managed location according to consent value.
-	- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
+	- 2 and 3 = Allow the SDK to managed location directly in accordance with the consent value use TCF v2, see with the madvertise team it depends on your implementation.
 
 ### 2.Stop Service 
 The implementation of this method allows to stop the tracking service
 
 ```java
-    public static void stop() {
-        if (mContext != null && !TextUtils.isEmpty(mAppId)) {
-        MadvertiseLocationReceiver.stop(mContext);
-            MadvertiseAlarmReceiver.stop(mContext);
-        }
-    }
+MadvertiseLocation.stop(Context);
 ```
      
 
