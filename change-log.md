@@ -7,10 +7,12 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 #### Release date: April 26th, 2021
 
 **New features**
+
  - In order to avoid reference of unused mediation adapter on https://exodus-privacy.eu.org/en/, we are using separate adaptor and Android Reflexion.Do not forget to add com.madvertise:bluestack-mediation-[ADAPTER_NAME] aar on your build.gradle file.
  - Implement new major Google version (v20).
 
 **Improvements**
+
  - Clean TCF v1 management
  - Capping optimization
 
