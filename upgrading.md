@@ -2,6 +2,62 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.5.0
+
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// For BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.5.0'
+
+// For BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:57.0.0'
+
+// For BlueStack Location SDK 
+implementation 'com.madvertise:location-sdk:4.0.0'
+
+// Google SDK
+implementation 'com.google.android.gms:play-services-ads:20.0.0'
+implementation 'com.google.android.gms:play-services-base:17.6.0'
+
+//Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:6.4.0'
+
+//Sync Display SDK
+implementation 'tv.sync:syncdisplay:3.2.1'
+
+//Amazon SDK
+implementation 'com.amazon.android:aps-sdk:8.4.3@aar'
+    
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk:5.0.8'
+implementation 'com.madvertise:bluestack-mediation-ogury:1.0.0'
+
+//AdColony SDK
+implementation 'com.adcolony:sdk:4.4.1'
+implementation 'com.madvertise:bluestack-mediation-adcolony:1.0.0'
+
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.3.0'
+implementation 'com.madvertise:bluestack-mediation-criteo:1.0.0'
+
+// Applovin SDK
+implementation 'com.applovin:applovin-sdk:9.13.0'
+implementation 'com.madvertise:bluestack-mediation-applovin:1.0.0'
+
+// MoPub SDK
+implementation('com.mopub:mopub-sdk:5.13.1@aar') {
+        transitive = true
+        exclude module: 'libAvid-mopub' // To exclude AVID
+        exclude module: 'moat-mobile-app-kit' // To exclude Moat
+    }
+implementation 'com.madvertise:bluestack-mediation-mopub:1.0.0'
+
+```
+
 ## Version 3.4.0
 
 
