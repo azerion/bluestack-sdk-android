@@ -3,6 +3,41 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.5.0
+#### Release date: April 26th, 2021
+
+**New features**
+ - In order to avoid reference of unused mediation adapter on https://exodus-privacy.eu.org/en/, we are using separate adaptor and Android Reflexion.Do not forget to add com.madvertise:bluestack-mediation-[ADAPTER_NAME] aar on your build.gradle file.
+ - Implement new major Google version (v20).
+
+**Improvements**
+ - Clean TCF v1 management
+ - Capping optimization
+
+
+
+**Fixed**
+
+ - Issue with isLimitAdTrackingEnabled.
+ - Issue with some interstitial creatives were not properly displayed.
+ - Issue with interstitial ad cause a crash (com.mngads.sdk.perf.f.c.a).
+ - Issue with native ad cause a crash (android.view.ViewGroup.removeAllViews()).
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 3.5.0)
+- Use new version of BlueStack CMP SDK (Version : 57.0.0) 
+- Use new version of BlueStack Location SDK (Version : 4.0.0) 
+- Use new version of Google Ads SDK (Version : 20.0.0) 
+- Use new version of Sync SDK (Version : 3.2.1)  
+- Use new version of Audience Network SDK (Version : 6.4.0)  
+- Use new version of Amazon APS SDK (Version : 8.4.3)  
+- Use new version of Ogury SDK (Version : 5.0.8) + BlueStack Ogury Mediation SDK (Version : 1.0.0) 
+- Use new version of AdColony SDK (Version : 4.4.1) + BlueStack Adcolony Mediation SDK (Version : 1.0.0) 
+- Use new version of Criteo SDK (Version : 4.3.0) + BlueStack Criteo Mediation SDK (Version : 1.0.0) 
+- Use new version of MoPub SDK (Version : 5.13.1) + BlueStack MoPub Mediation SDK (Version : 1.0.0) 
+- Use new version of Applovin SDK (Version : 9.13.0) + BlueStack Applovin Mediation SDK (Version : 1.0.0) 
+
 ## Version 3.4.0
 #### Release date: January 22th, 2021
 
