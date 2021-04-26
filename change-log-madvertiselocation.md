@@ -1,5 +1,13 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 4.0.0
+#### Release date: April 26, 2021
+
+- Migration Java to Kotlin
+- Improve Android 11 compatibility.
+- Distinguish foreground and background points.
+- rewrite workflow/architecture of Receiver (Detect breakpoint, algo optimisations) and Worker (points storage)
+
 ### Version 3.2.5
 #### Release date: December 16, 2020
 
