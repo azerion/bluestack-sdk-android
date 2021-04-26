@@ -4,6 +4,7 @@ you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 ## Version 3.5.0
 
+In order to avoid reference of unused mediation adapter on https://exodus-privacy.eu.org/en/, we are using separate adaptor and Android Reflexion.Do not forget to add com.madvertise:bluestack-mediation-[ADAPTER_NAME] aar on your build.gradle file
 
 **Upgrade mediation SDKs**
 
