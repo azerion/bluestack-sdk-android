@@ -87,7 +87,7 @@ repositories {
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:17.5.0'
+implementation 'com.google.android.gms:play-services-base:17.6.0'
 }
 ```
 
@@ -96,7 +96,7 @@ implementation 'com.google.android.gms:play-services-base:17.5.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.4.0'
+implementation 'com.madvertise:bluestack-core-sdk:3.5.0'
 }
 ```
 
@@ -113,13 +113,13 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:19.6.0'
+implementation 'com.google.android.gms:play-services-ads:20.0.0'
 
 //Location, if you app use GPS data only with a CMP
-implementation 'com.google.android.gms:play-services-location:17.1.0'
+implementation 'com.google.android.gms:play-services-location:18.0.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:6.2.0'
+implementation 'com.facebook.android:audience-network-sdk:6.4.0'
 
 //Smart Display SDK
 implementation 'com.smartadserver.android:smart-display-sdk:7.8.1'
@@ -143,10 +143,11 @@ This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional 
 ```groovy
 dependencies {
 // Amazon APS SDK
-implementation 'com.amazon.android:aps-sdk:8.4.1@aar'
+implementation 'com.amazon.android:aps-sdk:8.4.3@aar'
 
 // Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:4.2.1'
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.3.0'
+implementation 'com.madvertise:bluestack-mediation-criteo:1.0.0'
 
 ```
 
@@ -164,6 +165,7 @@ implementation 'com.criteo.publisher:criteo-publisher-sdk:4.2.1'
 dependencies {
 // AppLovin SDK
 implementation 'com.applovin:applovin-sdk:9.13.0'
+implementation 'com.madvertise:bluestack-mediation-applovin:1.0.0'
 
 // MoPub Marketplace SDK
 implementation('com.mopub:mopub-sdk:5.13.1@aar') {
@@ -171,20 +173,18 @@ implementation('com.mopub:mopub-sdk:5.13.1@aar') {
         exclude module: 'libAvid-mopub' // To exclude AVID
         exclude module: 'moat-mobile-app-kit' // To exclude Moat
     }
+implementation 'com.madvertise:bluestack-mediation-mopub:1.0.0'
     
-//Flurry SDK
-implementation 'com.flurry.android:analytics:12.1.0@aar'
-implementation 'com.flurry.android:ads:12.1.0@aar'
-        
 // Adcolony SDK
-implementation 'com.adcolony:sdk:4.3.1'
+implementation 'com.adcolony:sdk:4.4.1'
+implementation 'com.madvertise:bluestack-mediation-adcolony:1.0.0'
 
 //Ogury SDK
-implementation 'co.ogury:ogury-sdk:5.0.5'
-}
+implementation 'co.ogury:ogury-sdk:5.0.8'
+implementation 'com.madvertise:bluestack-mediation-ogury:1.0.0'
 
 //Sync SDK
-implementation 'tv.sync:syncdisplay:3.2.0'
+implementation 'tv.sync:syncdisplay:3.2.1'
 
 ```
 
@@ -205,11 +205,7 @@ Add the following permissions to your AndroidManifest.xml file inside the manife
     
     <!-- External storage is used for pre-caching features if available -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    
-    <!-- Grants the SDK permission to create windows using the type TYPE_SYSTEM_ALERT, shown on top of all other apps. -->
-    <!-- this permission is required for Debug Mode with Gyroscope Sensor. -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    
+     
     <!--Used by Sync-->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
         
