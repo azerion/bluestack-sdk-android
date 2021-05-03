@@ -3,14 +3,14 @@
 Madvertise provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK (BlueStack) is a library that allow you to handle Ads servers with the easy way.
 
 | **SDK Integration** | 
-| -------- | -------- 
+| -------- |
 | [Setup the Android SDK] | 
 |[Android Change Log] 
 |[Android Upgrade Guide] 
 
 
 | **Ad Formats** | 
-| -------- | -------- 
+| -------- |
 | [Android Banner Ads] | 
 | [Android Interstitial Ads] |
 | [Android Infeed Ads] |
@@ -22,14 +22,14 @@ Madvertise provides functionalities for monetizing your mobile application: from
 
 
 | **Advanced Settings** | 
-| -------- | -------- 
+| -------- |
 |[Android FAQ and Troubleshooting]
 |[Android Debug Mode with Gyroscope Sensor]
 |[Android Targeting Audiences] 
 
 
 | **Mediation Adapters** | 
-| -------- | -------- 
+| -------- |
 | [Android Google Mobile Ads Adapter]
 | [Android Mopub Adapter]
 
