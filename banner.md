@@ -293,6 +293,33 @@ adLayout.requestLayout();
 ...
 ```
 
+
+### How to adapt the banner size after loading
+
+- In the example below we use preferredHeightDP  parameter to adapt the banner size after loading
+- The best place to add the resizing code is in your bannerDidLoad listener.
+- This is often the case when your Banner Ad needs to deliver 300x50, 300x250 formats or even 16/9 video,...
+ 
+
+```java
+@Override
+public void bannerDidLoad(final View view, int preferredHeightDP) {
+
+// convert Dp To Pixel 
+
+Resources resources = context.getResources();
+DisplayMetrics metrics = resources.getDisplayMetrics();
+float bannerPreferredHeightPx = preferredHeightDP * (metrics.densityDpi / 160f);
+
+// adapt the banner size
+              
+bannerContainer.getLayoutParams().height = bannerPreferredHeightPx;
+bannerContainer.requestLayout();
+
+}
+```
+
+
 # Example
 
  - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/BannerFragment.java
