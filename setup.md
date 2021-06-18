@@ -26,11 +26,7 @@ Before You Start, MNG Ads requires minimum :
 repositories {
     mavenCentral()
 
-    //For AdColony configuration 
-    maven {  
-        url  "https://adcolony.bintray.com/AdColony"  
-    }
-    
+
     //For SmartAdServer configuration 
     maven {  
     url 'https://packagecloud.io/smartadserver/android/maven2'  
@@ -39,9 +35,6 @@ repositories {
 	//For Huawei devices compatibility
 	maven { url 'http://developer.huawei.com/repo/' }
 	
-    //For Criteo configuration 
-   maven { url "https://pubsdk-bin.criteo.com/publishersdk/android" }
-   
     //For Ogury configuration
       maven {
         url 'https://maven.ogury.co/'
@@ -96,7 +89,7 @@ implementation 'com.google.android.gms:play-services-base:17.6.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.5.0'
+implementation 'com.madvertise:bluestack-core-sdk:3.6.0'
 }
 ```
 
@@ -110,19 +103,19 @@ implementation 'com.madvertise:bluestack-core-sdk:3.5.0'
 ```groovy
 dependencies {
 //Google Advertising Id
-implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:20.0.0'
+implementation 'com.google.android.gms:play-services-ads:20.2.0'
 
 //Location, if you app use GPS data only with a CMP
 implementation 'com.google.android.gms:play-services-location:18.0.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:6.4.0'
+implementation 'com.facebook.android:audience-network-sdk:6.5.0'
 
 //Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.8.1'
+implementation 'com.smartadserver.android:smart-display-sdk:7.12.0'
 
 ```
 
@@ -136,18 +129,18 @@ This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional 
 
 **Recommended in-App Bidding :**
 
-- Amazon APS 
+- Amazon APS [AAR file is available here](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/)
 - Criteo
 
 
 ```groovy
 dependencies {
 // Amazon APS SDK
-implementation 'com.amazon.android:aps-sdk:8.4.3@aar'
+implementation(name: 'amazon-aps-sdk-9.0.0', ext: 'aar')
 
 // Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:4.3.0'
-implementation 'com.madvertise:bluestack-mediation-criteo:1.0.0'
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
+implementation 'com.madvertise:bluestack-mediation-criteo:1.1.0'
 
 ```
 
@@ -176,12 +169,12 @@ implementation('com.mopub:mopub-sdk:5.13.1@aar') {
 implementation 'com.madvertise:bluestack-mediation-mopub:1.0.0'
     
 // Adcolony SDK
-implementation 'com.adcolony:sdk:4.4.1'
-implementation 'com.madvertise:bluestack-mediation-adcolony:1.0.0'
+implementation 'com.adcolony:sdk:4.5.0'
+implementation 'com.madvertise:bluestack-mediation-adcolony:1.1.0'
 
 //Ogury SDK
-implementation 'co.ogury:ogury-sdk:5.0.8'
-implementation 'com.madvertise:bluestack-mediation-ogury:1.0.0'
+implementation 'co.ogury:ogury-sdk:5.0.9'
+implementation 'com.madvertise:bluestack-mediation-ogury:1.1.0'
 
 //Sync SDK
 implementation 'tv.sync:syncdisplay:3.2.1'
