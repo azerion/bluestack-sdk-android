@@ -3,6 +3,93 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.6.0
+
+
+**Upgrade mediation SDKs**
+
+
+In your project build.gradle, Add the following line from  :
+
+```groovy
+mavenCentral()
+```
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.6.0'
+
+// BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:59.0.0'
+
+// Google SDK
+implementation 'com.google.android.gms:play-services-ads:20.2.0'
+implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
+
+// Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:6.5.0'
+    
+// Smartadserver SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.12.0'
+
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk:5.0.9'
+implementation 'com.madvertise:bluestack-mediation-ogury:1.1.0'
+```
+
+- **Update Amazon SDK :** 
+
+In your app's build.gradle, replace the following line from the "dependencies" :
+
+```groovy 
+//Amazon SDK
+implementation 'com.amazon.android:aps-sdk:8.4.3@aar'
+```
+with the following line [AAR file is available here](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/) :
+  
+```groovy
+implementation(name: 'amazon-aps-sdk-9.0.0', ext: 'aar')
+```
+
+- **Update Criteo SDK :** 
+
+In your project build.gradle, **remove** the following line from  :
+
+```groovy 
+maven { 
+url "https://pubsdk-bin.criteo.com/publishersdk/android" 
+}
+```
+In your app's build.gradle, **update** the following line from the "dependencies" :
+  
+```groovy
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
+implementation 'com.madvertise:bluestack-mediation-criteo:1.1.0'
+```
+
+- **Update AdColony SDK :** 
+
+In your project build.gradle, **remove** the following line from  :
+
+```groovy 
+maven {  
+	url  "https://adcolony.bintray.com/AdColony"  
+}
+```
+
+In your app's build.gradle, **update** the following line from the "dependencies" :
+  
+```groovy
+// AdColony SDK
+implementation 'com.adcolony:sdk:4.5.0'
+implementation 'com.madvertise:bluestack-mediation-adcolony:1.1.0'
+```
+
+ 
+
 ## Version 3.5.0
 #### Release date: April 26th, 2021
 
