@@ -3,6 +3,17 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.6.1
+#### Release date: June 25th, 2021
+
+**Fixed**
+
+ - crash WebView cannot be initialized on a thread that has no Looper. at com.mngads.sdk.perf.g.b.a(:49)
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 3.6.1)
+
 ## Version 3.6.0
 #### Release date: June 18th, 2021
 
