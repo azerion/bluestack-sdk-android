@@ -89,7 +89,7 @@ implementation 'com.google.android.gms:play-services-base:17.6.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.6.0'
+implementation 'com.madvertise:bluestack-core-sdk:3.6.2'
 }
 ```
 
@@ -112,7 +112,7 @@ implementation 'com.google.android.gms:play-services-ads:20.2.0'
 implementation 'com.google.android.gms:play-services-location:18.0.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:6.5.0'
+implementation 'com.facebook.android:audience-network-sdk:6.5.1'
 
 //Smart Display SDK
 implementation 'com.smartadserver.android:smart-display-sdk:7.12.0'
