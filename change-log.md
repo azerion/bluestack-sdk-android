@@ -3,6 +3,18 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.6.2
+#### Release date: July 2th, 2021
+
+**Fixed**
+
+ - Fixed a crash occurring with a non-Activity Context.
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 3.6.2)
+- Use new version of Audience Network SDK (Version : 6.5.1)  
+
 ## Version 3.6.1
 #### Release date: June 25th, 2021
 
