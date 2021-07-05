@@ -1,6 +1,18 @@
 # Change log and Upgrading SDK for Android DFP Adapter
 
 
+## Version 2.3.0
+### Release date: June 30th, 2020
+
+**New features :**
+
+- Added support of Google SDK v20.0.0 
+
+**Updated SDKs :**
+
+- Use new version of BlueStack Mediation SDK (Version : 3.6.2)
+- Use new version of Google Ads SDK (Version : 20.2.0)
+
 ## Version 2.2.2
 ### Release date: September 18th, 2020
 
