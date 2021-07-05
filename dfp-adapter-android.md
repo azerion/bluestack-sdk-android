@@ -90,7 +90,7 @@ In the build.gradle of to your application module, you can now import the Bluest
 ```groovy
 dependencies {
 
-implementation 'com.madvertise:bluestack-gam-adapter:2.2.2'
+implementation 'com.madvertise:bluestack-gam-adapter:2.3.0'
 
 }
 ```
@@ -112,10 +112,10 @@ You may now use MNG DFP Adaptor to show [Interstitial Ads] and [Banner Ads] the 
 
 #### 2.2 Native Ads
 ##### Load an Ad
-The following code demonstrates how to build an AdLoader that can load unified native ads:
+The following code demonstrates how to build an AdLoader that can load native ads:
 
 ```java
-AdLoader adLoader = new AdLoader.Builder(context, "YOUR PLACEMENT ID")
+AdLoader adLoader = new AdLoader.Builder
     .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
         @Override
         public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -130,84 +130,112 @@ AdLoader adLoader = new AdLoader.Builder(context, "YOUR PLACEMENT ID")
     .withAdListener(new AdListener() {
         @Override
         public void onAdFailedToLoad(int errorCode) {
-		// Handle the failure by logging, altering the UI...
         }
     })
 
 .withNativeAdOptions(new NativeAdOptions.Builder().build())
 .build();
 adLoader.loadAd(request);
+
+AdLoader adLoader = new AdLoader.Builder(context, "YOUR PLACEMENT ID")
+.forNativeAd(nativeAd -> {
+                       
+  			// Assumes you have a placeholder FrameLayout in your View layout (with id fl_adplaceholder) where the ad is to be placed.
+            FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
+            
+            // Assumes that your ad layout is in a file call ad_unified.xml in the res/layout folder
+            UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater().inflate(R.layout.ad_unified, null);
+            
+            // This method sets the text, images and the native ad, etc into the ad view.
+			displayNativeAd(nativeAd, nativeAdView);
+            
+                   
+                    })
+.withAdListener(new AdListener() {
+                        @Override
+                        public void onAdFailedToLoad(@NotNull LoadAdError errorCode) {
+                            
+						// Handle the failure by logging, altering the UI...
+		
+                        }
+                    })
+                    
+.withNativeAdOptions(new NativeAdOptions.Builder().build())
+.build();
+
+AdManagerAdRequest.Builder adRequestBuilder = new AdManagerAdRequest.Builder();
+adLoader.loadAd(adRequestBuilder.build());
+
+
 ```
-##### Display a UnifiedNativeAd
+##### Display a NativeAd
 Once you have loaded an ad, all that remains is to display it to your users.
 
 ```java
-private void displayUnifiedNativeAd(ViewGroup parent, UnifiedNativeAd ad) {
+private void displayNativeAd(NativeAd nativeAd, NativeAdView nativeAdView) {
 
-    // Locate the text view  
-
-	TextView nativeAdTitle = adView.findViewById(R.id.nativeAdTitle);
-	TextView nativeAdContext = adView.findViewById(R.id.nativeAdContext);
-	TextView nativeAdCallToAction = adView.findViewById(R.id.nativeAdCallToAction);
+	/* Display Texts Ad */ 
+		// Locate the text view  
+        TextView nativeAdTitle = nativeAdView.findViewById(R.id.nativeAdTitle);
+        TextView nativeAdContext = nativeAdView.findViewById(R.id.nativeAdContext);
+        TextView nativeAdCallToAction = nativeAdView.findViewById(R.id.nativeAdCallToAction);
 	
-	 // Set its text
-       
-	nativeAdTitle.setText(unifiedNativeAd.getHeadline());
-	nativeAdContext.setText(unifiedNativeAd.getBody());
-	nativeAdCallToAction.setText(unifiedNativeAd.getCallToAction());
-
-	// Register it
-	
-	adView.setCallToActionView(nativeAdCallToAction);
-	adView.setHeadlineView(nativeAdTitle);
-	adView.setBodyView(nativeAdContext);
+		 // Set its text
+        nativeAdTitle.setText(nativeAd.getHeadline());
+        nativeAdContext.setText(nativeAd.getBody());
+        nativeAdCallToAction.setText(nativeAd.getCallToAction());
+        
+		// Register it
+	    nativeAdView.setCallToActionView(nativeAdCallToAction);
+        nativeAdView.setHeadlineView(nativeAdTitle);
+        nativeAdView.setBodyView(nativeAdContext);
 	
 	
-	// Set Icon and MediaView view, the asset is populated automatically
+	/* Display Icon Ad */ 
 	
-        if(unifiedNativeAd.getIcon()!=null)
+        if(nativeAd.getIcon()!=null)
         {
-            if (unifiedNativeAd.getIcon().getUri() != null &&  !unifiedNativeAd.getIcon().getUri().toString().isEmpty()) {
-                Picasso.with(getActivity()).load(unifiedNativeAd.getIcon().getUri())
-                        .into((ImageView) adView.findViewById(R.id.nativeAdIcon));
+            if (nativeAd.getIcon().getUri() != null &&  !nativeAd.getIcon().getUri().toString().isEmpty()) {
+                Picasso.get().load(nativeAd.getIcon().getUri())
+                        .into((ImageView) nativeAdView.findViewById(R.id.nativeAdIcon));
             }
             else
             {
-                adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
+                nativeAdView.setIconView(nativeAdView.findViewById(R.id.nativeAdIcon));
             }
 
         }
         else
         {
-            adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
+            nativeAdView.setIconView(nativeAdView.findViewById(R.id.nativeAdIcon));
         }
-
-        if(unifiedNativeAd.getImages()!=null)
+        
+	/* Display Media Ad */
+        
+        if(nativeAd.getImages()!=null)
         {
-            if (unifiedNativeAd.getImages().size() > 0 && unifiedNativeAd.getImages().get(0) != null ) {
-                Picasso.with(getActivity()).load(unifiedNativeAd.getImages().get(0).getUri())
-                        .into((ImageView) adView.findViewById(R.id.nativeAdImage));
+            if (nativeAd.getImages().size() > 0 && nativeAd.getImages().get(0) != null ) {
+                Picasso.get().load(nativeAd.getImages().get(0).getUri())
+                        .into((ImageView) nativeAdView.findViewById(R.id.nativeAdImage));
             }
             else
             {
-                adView.setImageView(adView.findViewById(R.id.mediaContainer));
+                nativeAdView.setImageView(nativeAdView.findViewById(R.id.mediaContainer));
             }
         }
         else
         {
-            adView.setImageView(adView.findViewById(R.id.mediaContainer));
+            nativeAdView.setImageView(nativeAdView.findViewById(R.id.mediaContainer));
         }
-        adView.setStoreView(mMAdvertiseNativeContainer);
-
-
+        
+        
     // Register the NativeAdObject.
-    adView.setNativeAd(ad);
+    nativeAdView.setStoreView(frameLayout);
+    nativeAdView.setNativeAd(nativeAd);
 
-
-    // Ensure that the parent view doesn't already contain an ad view.
-    parent.removeAllViews();
-    // Place the AdView into the parent.
-    parent.addView(adView);
+    // Ensure that the parent view doesn't already contain an ad view and place the AdView into the parent.
+    frameLayout.removeAllViews();
+    frameLayout.addView(nativeAdView);
 }
 ```
 
