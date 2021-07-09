@@ -1,5 +1,10 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 4.0.1
+#### Release date: July 9, 2021
+
+- issue with proguard-rules and Kotlin
+
 ### Version 4.0.0
 #### Release date: April 26, 2021
 
