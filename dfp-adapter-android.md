@@ -111,65 +111,52 @@ You can check our [Demo] page.
 You may now use MNG DFP Adaptor to show [Interstitial Ads] and [Banner Ads] the same way it's described in the [DFP Documentation].The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
 
 #### 2.2 Native Ads
-##### Load an Ad
-The following code demonstrates how to build an AdLoader that can load native ads:
+
+
+1) Assumes that your ad layout is in a file call **ad_unit_dfp.xml** for exemple in the res/layout folder.
+
+2) Assumes you have a MAdvertiseNativeContainer in your View layout where the ad is to be placed.
 
 ```java
-AdLoader adLoader = new AdLoader.Builder
-    .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-        @Override
-        public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-        	// Assumes you have a placeholder FrameLayout in your View layout (with id fl_adplaceholder) where the ad is to be placed.
-            FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
-            // Assumes that your ad layout is in a file call ad_unified.xml in the res/layout folder
-            UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater().inflate(R.layout.ad_unified, null);
-            // This method sets the text, images and the native ad, etc into the ad view.
-            populateUnifiedNativeAdView(unifiedNativeAd, adView);
-        }
-    })
-    .withAdListener(new AdListener() {
-        @Override
-        public void onAdFailedToLoad(int errorCode) {
-        }
-    })
+    <com.mngads.views.MAdvertiseNativeContainer
+            android:id="@+id/native_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-.withNativeAdOptions(new NativeAdOptions.Builder().build())
-.build();
-adLoader.loadAd(request);
+```
 
-AdLoader adLoader = new AdLoader.Builder(context, "YOUR PLACEMENT ID")
-.forNativeAd(nativeAd -> {
-                       
-  			// Assumes you have a placeholder FrameLayout in your View layout (with id fl_adplaceholder) where the ad is to be placed.
-            FrameLayout frameLayout = findViewById(R.id.fl_adplaceholder);
-            
-            // Assumes that your ad layout is in a file call ad_unified.xml in the res/layout folder
-            UnifiedNativeAdView adView = (UnifiedNativeAdView) getLayoutInflater().inflate(R.layout.ad_unified, null);
-            
-            // This method sets the text, images and the native ad, etc into the ad view.
-			displayNativeAd(nativeAd, nativeAdView);
-            
-                   
+3) The following code demonstrates how to build an AdLoader that can load native ads:
+
+```java
+AdLoader adLoader = new AdLoader.Builder(context, "YOUR PLACEMENT ID") 
+                    .forNativeAd(nativeAd -> {
+                      					
+  					// This method sets the text, images and the native ad, etc into the ad view.
+                    
+                        NativeAdView mAdView = (NativeAdView) getLayoutInflater()
+                                .inflate(R.layout.ad_native, null);
+                        displayNativeAd(nativeAd, mAdView);
+         
+                             
                     })
-.withAdListener(new AdListener() {
+                    .withAdListener(new AdListener() {
                         @Override
                         public void onAdFailedToLoad(@NotNull LoadAdError errorCode) {
-                            
-						// Handle the failure by logging, altering the UI...
-		
+                          	
+                        // Handle the failure by logging, altering the UI...
+
                         }
                     })
-                    
-.withNativeAdOptions(new NativeAdOptions.Builder().build())
-.build();
+                    .withNativeAdOptions(adOptions)
+                    .build();
 
-AdManagerAdRequest.Builder adRequestBuilder = new AdManagerAdRequest.Builder();
-adLoader.loadAd(adRequestBuilder.build());
+            AdManagerAdRequest.Builder adRequestBuilder = new AdManagerAdRequest.Builder();
+            adRequestBuilder.addCustomEventExtrasBundle(MadvertiseCustomEventNativead.class, getExtrasData());
+            adLoader.loadAd(adRequestBuilder.build());
 
 
 ```
-##### Display a NativeAd
-Once you have loaded an ad, all that remains is to display it to your users.
+4) Once you have loaded an ad, all that remains is to display it to your users.
 
 ```java
 private void displayNativeAd(NativeAd nativeAd, NativeAdView nativeAdView) {
@@ -230,27 +217,13 @@ private void displayNativeAd(NativeAd nativeAd, NativeAdView nativeAdView) {
         
         
     // Register the NativeAdObject.
-    nativeAdView.setStoreView(frameLayout);
+    nativeAdView.setStoreView(mMAdvertiseNativeContainer);
     nativeAdView.setNativeAd(nativeAd);
 
     // Ensure that the parent view doesn't already contain an ad view and place the AdView into the parent.
     frameLayout.removeAllViews();
     frameLayout.addView(nativeAdView);
 }
-```
-
-**Note :**
-The only difference between the [Native Ads Documentation] and our code these three lines responsible for loading image, video and icon and handling click :
-
-```java
-// For loading icon
-adView.setIconView(adView.findViewById(R.id.nativeAdIcon));
-
-// For loading image or video
-adView.setImageView(adView.findViewById(R.id.mediaContainer));
-
-// For handling click
-adView.setStoreView(mMAdvertiseNativeContainer);
 ```
 
 ### 3. Location
