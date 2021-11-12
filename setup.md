@@ -13,8 +13,8 @@ MNG Ads provides functionalities for monetizing your mobile application: from pr
 Before You Start, MNG Ads requires minimum : 
 
 - Android 4.4 (API level 19) or higher.
-- CompileSdkVersion at least 29.
-- Android Studio 3.5 or higher.
+- CompileSdkVersion at least 31.
+- Android Studio 4.0 or higher.
 - Since Version 3.0 and later, it’s required that your project migrates from Android Support Libraries to Jetpack Libraries ([Android X]).
 
 
@@ -26,13 +26,12 @@ Before You Start, MNG Ads requires minimum :
 repositories {
     mavenCentral()
 
-
     //For SmartAdServer configuration 
     maven {  
     url 'https://packagecloud.io/smartadserver/android/maven2'  
 	}
 	
-	//For Huawei devices compatibility
+	// Optional: Huawei services dependencies repository
 	maven { url 'http://developer.huawei.com/repo/' }
 	
     //For Ogury configuration
@@ -89,7 +88,7 @@ implementation 'com.google.android.gms:play-services-base:17.6.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.6.2'
+implementation 'com.madvertise:bluestack-core-sdk:3.6.3'
 }
 ```
 
@@ -103,20 +102,21 @@ implementation 'com.madvertise:bluestack-core-sdk:3.6.2'
 ```groovy
 dependencies {
 //Google Advertising Id
-implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
+implementation 'com.google.android.gms:play-services-ads-identifier:17.1.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:20.2.0'
+implementation 'com.google.android.gms:play-services-ads:20.4.0'
 
 //Location, if you app use GPS data only with a CMP
 implementation 'com.google.android.gms:play-services-location:18.0.0'
         
 //Audience Network SDK
-implementation 'com.facebook.android:audience-network-sdk:6.5.1'
+implementation 'com.facebook.android:audience-network-sdk:6.8.0'
 
 //Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.12.0'
-
+implementation 'com.smartadserver.android:smart-display-sdk:7.14.0'
+// Optional : add Smart support library for Huawei devices
+implementation 'com.smartadserver.android:smart-core-sdk-huawei-support:1.0.0'
 ```
 
 - BlueStack Consent Management Provider (CMP) [BlueStack CMP](https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master)
@@ -145,36 +145,20 @@ implementation 'com.madvertise:bluestack-mediation-criteo:1.1.0'
 ```
 
 **Optional :**
-
-- AppLovin
-- Mopub Marketplace 
-- Flurry 
 - AdColony 
 - Ogury (**Note :** An API Key will be assigned to your application by mngads support team for Ogury library.) 
 - Sync
 
 
 ```groovy
-dependencies {
-// AppLovin SDK
-implementation 'com.applovin:applovin-sdk:9.13.0'
-implementation 'com.madvertise:bluestack-mediation-applovin:1.0.0'
-
-// MoPub Marketplace SDK
-implementation('com.mopub:mopub-sdk:5.13.1@aar') {
-        transitive = true
-        exclude module: 'libAvid-mopub' // To exclude AVID
-        exclude module: 'moat-mobile-app-kit' // To exclude Moat
-    }
-implementation 'com.madvertise:bluestack-mediation-mopub:1.0.0'
-    
+dependencies {  
 // Adcolony SDK
-implementation 'com.adcolony:sdk:4.5.0'
-implementation 'com.madvertise:bluestack-mediation-adcolony:1.1.0'
+implementation 'com.adcolony:sdk:4.6.4'
+implementation 'com.madvertise:bluestack-mediation-adcolony:4.6.4'
 
 //Ogury SDK
-implementation 'co.ogury:ogury-sdk:5.0.9'
-implementation 'com.madvertise:bluestack-mediation-ogury:1.1.0'
+implementation 'co.ogury:ogury-sdk:5.1.0'
+implementation 'com.madvertise:bluestack-mediation-ogury:5.1.0'
 
 //Sync SDK
 implementation 'tv.sync:syncdisplay:3.2.1'
@@ -217,16 +201,6 @@ Add the following  inside the <application> tag in your AndroidManifest , if not
   <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true"/>
-```
-
-**3) AppLovin SDK key**
-
-
-Add your AppLovin SDK key to the app’s AndroidManifest as a child of the application tag, like so: 
- 
-```java
-<meta-data android:name="applovin.sdk.key"
-          android:value="YOUR_SDK_KEY" />
 ```
 
 
