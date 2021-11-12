@@ -3,6 +3,25 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 3.6.3
+#### Release date: November 12th, 2021
+
+**Improvements**
+
+ - Compatibility with Android 12 (targetSdkVersion 31).
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 3.6.3)
+- Use new version of BlueStack CMP SDK (Version : 62.0.0) 
+- Use new version of BlueStack Location SDK (Version : 4.0.1) 
+- Use new version of Google Ads SDK (Version : 20.4.0) 
+- Use new version of Audience Network SDK (Version : 6.8.0)  
+- Use new version of Smart Ad Server SDK (Version : 7.14.0) 
+- Use new version of Ogury SDK + BlueStack Ogury Mediation SDK (Version : 5.1.0) 
+- Use new version of AdColony SDK + BlueStack Adcolony Mediation SDK (Version : 4.6.4) 
+
+
 ## Version 3.6.2
 #### Release date: July 2th, 2021
 
