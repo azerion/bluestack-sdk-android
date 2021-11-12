@@ -1,6 +1,43 @@
 # upgrading SDK
 See [Wiki] and [Help Center]  for more detailed informations.
-you must check [Change Log]. You need to keep all Ad Network jars/aar up to date. 
+you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
+
+## Version 3.6.3
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.6.3'
+
+// BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:62.0.0'
+
+// For BlueStack Location SDK 
+implementation 'com.madvertise:location-sdk:4.0.1'
+
+// DFP SDK
+implementation 'com.google.android.gms:play-services-ads:20.4.0'
+implementation 'com.google.android.gms:play-services-ads-identifier:17.1.0'
+
+// Audience Network SDK
+implementation 'com.facebook.android:audience-network-sdk:6.8.0'
+    
+// SmartAdServer SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.14.0'
+// Optional : add Smart support library for Huawei devices
+implementation 'com.smartadserver.android:smart-core-sdk-huawei-support:1.0.0'
+
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk:5.1.0'
+implementation 'com.madvertise:bluestack-mediation-ogury:5.1.0'
+
+// AdColony SDK
+implementation 'com.adcolony:sdk:4.6.4'
+implementation 'com.madvertise:bluestack-mediation-adcolony:4.6.4'
+```
 
 ## Version 3.6.2
 
