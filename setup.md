@@ -88,7 +88,7 @@ implementation 'com.google.android.gms:play-services-base:17.6.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.6.3'
+implementation 'com.madvertise:bluestack-core-sdk:3.6.4'
 }
 ```
 
@@ -129,14 +129,14 @@ This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional 
 
 **Recommended in-App Bidding :**
 
-- Amazon APS [AAR file is available here](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/libs/)
+- Amazon APS 
 - Criteo
 
 
 ```groovy
 dependencies {
-// Amazon APS SDK
-implementation(name: 'amazon-aps-sdk-9.0.0', ext: 'aar')
+// Amazon SDK
+implementation ("com.amazon.android:aps-sdk:9.2.2")
 
 // Criteo SDK
 implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
@@ -145,6 +145,7 @@ implementation 'com.madvertise:bluestack-mediation-criteo:1.1.0'
 ```
 
 **Optional :**
+
 - AdColony 
 - Ogury (**Note :** An API Key will be assigned to your application by mngads support team for Ogury library.) 
 - Sync
