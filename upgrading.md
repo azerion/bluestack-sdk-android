@@ -2,6 +2,37 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
+## Version 3.6.4
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:3.6.4'
+
+```
+
+**Update Amazon SDK :** 
+
+
+In your app's build.gradle, replace the following line from the "dependencies" :
+  
+```groovy
+implementation(name: 'amazon-aps-sdk-9.0.0', ext: 'aar')
+```
+with the following line :
+
+```groovy
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation ("com.amazon.android:aps-sdk:9.2.2")
+}
+```
+
 ## Version 3.6.3
 
 **Upgrade mediation SDKs**
