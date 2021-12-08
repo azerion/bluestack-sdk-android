@@ -3,6 +3,18 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 3.6.5
+#### Release date: December 8th, 2021
+
+**Fixed**
+
+ - Fixed a crash void android.view.View.getLocationOnScreen(int[]) for mraid ads.
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 3.6.5
+
 ## Version 3.6.4
 #### Release date: November 23th, 2021
 
