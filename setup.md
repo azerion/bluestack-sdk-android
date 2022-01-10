@@ -15,12 +15,11 @@ Before You Start, MNG Ads requires minimum :
 - Android 4.4 (API level 19) or higher.
 - CompileSdkVersion at least 31.
 - Android Studio 4.0 or higher.
-- Since Version 3.0 and later, it’s required that your project migrates from Android Support Libraries to Jetpack Libraries ([Android X]).
 
 
 ## Step 1. Installation using Gradle
 
-**1) In the main build.gradle of your project, you must declare there repositorys :**
+**1) In the main build.gradle of your project, you must declare there repositories :**
 
 ```groovy
 repositories {
@@ -32,7 +31,7 @@ repositories {
 	}
 	
 	// Optional: Huawei services dependencies repository
-	maven { url 'http://developer.huawei.com/repo/' }
+	maven { url 'https://developer.huawei.com/repo/' }
 	
     //For Ogury configuration
       maven {
@@ -79,7 +78,7 @@ repositories {
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:17.6.0'
+implementation 'com.google.android.gms:play-services-base:18.0.0'
 }
 ```
 
@@ -88,7 +87,7 @@ implementation 'com.google.android.gms:play-services-base:17.6.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:3.6.4'
+implementation 'com.madvertise:bluestack-core-sdk:4.0.0'
 }
 ```
 
@@ -102,19 +101,20 @@ implementation 'com.madvertise:bluestack-core-sdk:3.6.4'
 ```groovy
 dependencies {
 //Google Advertising Id
-implementation 'com.google.android.gms:play-services-ads-identifier:17.1.0'
+implementation 'com.google.android.gms:play-services-ads-identifier:18.0.0'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:20.4.0'
+implementation 'com.google.android.gms:play-services-ads:20.5.0'
+implementation 'androidx.work:work-runtime-ktx:2.7.1'
 
 //Location, if you app use GPS data only with a CMP
-implementation 'com.google.android.gms:play-services-location:18.0.0'
+implementation 'com.google.android.gms:play-services-location:19.0.0'
         
 //Audience Network SDK
 implementation 'com.facebook.android:audience-network-sdk:6.8.0'
 
 //Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.14.0'
+implementation 'com.smartadserver.android:smart-display-sdk:7.15.0'
 // Optional : add Smart support library for Huawei devices
 implementation 'com.smartadserver.android:smart-core-sdk-huawei-support:1.0.0'
 ```
@@ -151,6 +151,7 @@ implementation 'com.madvertise:bluestack-mediation-criteo:1.1.0'
 - Sync
 
 
+
 ```groovy
 dependencies {  
 // Adcolony SDK
@@ -158,12 +159,21 @@ implementation 'com.adcolony:sdk:4.6.4'
 implementation 'com.madvertise:bluestack-mediation-adcolony:4.6.4'
 
 //Ogury SDK
-implementation 'co.ogury:ogury-sdk:5.1.0'
-implementation 'com.madvertise:bluestack-mediation-ogury:5.1.0'
+implementation 'co.ogury:ogury-sdk-no-data:5.1.0'
+implementation 'com.madvertise:bluestack-mediation-ogury:5.1.1'
 
 //Sync SDK
 implementation 'tv.sync:syncdisplay:3.2.1'
 
+```
+**Support library for Huawei devices :**
+
+In the dependencies section of your application module build.gradle file, declare the BlueStack huawei support library dependency and the Huawei library:
+
+```groovy
+//Huawei devices
+implementation 'com.huawei.hms:ads-identifier:3.4.39.302'
+implementation 'com.madvertise:bluestack-mediation-huawei:1.0.0'
 ```
 
 **See our [build.gradle] sample**
@@ -228,55 +238,28 @@ MNGAdsFactory.initialize(this,"YOUR_APP_ID");
 
 ### Verify Your Integration
 
-To verify if the SDK is fully initialized you have to call isInitialized():
+To verify if the SDK is fully initialized, you have to implement the Factory Listener in your code:  
 
 ```java
+MNGAdsFactory.setMNGAdsSDKFactoryListener(new MNGAdsSDKFactoryListener() {
+            @Override
+            public void onMNGAdsSDKFactoryDidFinishInitializing() {
+                Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
+            }
 
-public class MainActivity extends Activity implements MNGAdsSDKFactoryListener{
-...
-if(MNGAdsFactory.isInitialized()){
-
-//The SDK is initialized
-
-}else {
-
-//The SDK is initializing
-//set up a callback that will be called when is fully initialized
-MNGAdsFactory.setMNGAdsSDKFactoryListener(this);
-
-}
-...
-
-...
-@Override
-    public void onMNGAdsSDKFactoryDidFinishInitializing() {
-
-        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
-    }
-
-    @Override
-    public void onMNGAdsSDKFactoryDidFailInitialization(Exception e) {
-
-        Log.d(TAG, "MNGAdsSDKFactoryDidFailInitialization: " + e);
-    }
-
-    @Override
-    public void onMNGAdsSDKFactoryDidResetConfig() {
-
-        Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
-    }
-
-...
+            @Override
+            public void onMNGAdsSDKFactoryDidFailInitialization(Exception e) {
+                Log.d(TAG, "MNGAdsSDKFactoryDidFailInitialization: " + e);
+            }
+        });
 
 ```
 
-**Note:**
+The SDK will notify your Listener of all possible events listed below :
 
- - onMNGAdsSDKFactoryDidFinishInitializing() is called when the the first initialisation finished.
+ - onMNGAdsSDKFactoryDidFinishInitializing() is called when the initialisation finished or is already installed.
  
- - onMNGAdsSDKFactoryDidResetConfig() is called when the sdk configuraiton has been updated and finished reinitialisation.
- 
- - onMNGAdsSDKFactoryDidFailInitialization() is called when an error occurs during initialisation or configuration update.
+ - onMNGAdsSDKFactoryDidFailInitialization() is called when an error occurs during initialisation.
 
 ## Troubleshooting
 
@@ -352,6 +335,38 @@ apply plugin: 'kotlin-android-extensions'
 dependencies {
    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.0"
 }
+```
+
+### Network Security Configuration
+Since Android 9 (API level 28), all network requests must use HTTPS protocol, basic HTTP requests will be blocked by default.
+To avoid your ads being blocked by the default network security configuration, you should create your own network security configuration XML file.
+
+In your **res** folder, create the folder **xml** (if not created yet) then create a file named **network-security-configuration.xml**.
+
+Your file must be formatted like this:
+
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+```
+
+Once the file created, make sure to add **android:networkSecurityConfig="@xml/network_security_config"** in the application tag of your AndroidManifest.xml file. For instance:
+
+```
+<application
+  android:name=".MyApplication"
+  android:icon="@mipmap/ic_launcher"
+  android:label="@string/app_name"
+  android:networkSecurityConfig="@xml/network_security_config">
+</application>
 ```
 
 ## Select an ad format
