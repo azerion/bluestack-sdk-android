@@ -140,7 +140,7 @@ implementation ("com.amazon.android:aps-sdk:9.2.2")
 
 // Criteo SDK
 implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
-implementation 'com.madvertise:bluestack-mediation-criteo:1.1.0'
+implementation 'com.madvertise:bluestack-mediation-criteo:4.4.0'
 
 ```
 
