@@ -48,12 +48,21 @@ public void interstitialDidFail(Exception adsException) {
 Log.e(TAG, "interstitial did fail :" + adsException.toString());
 }
 ```
-- InterstitialDisappear(): will be called when intertisialView did disappear. now you can update your UI for example.
+- InterstitialDisappear(): will be called when interstitial was dismissed.
 
 ```java
 @Override
 public void interstitialDisappear() {
 Log.d(TAG, "interstitial disappear")
+}
+```
+
+- interstitialDidShown(): will be called when interstitial was shown.
+
+```java
+@Override
+public void interstitialDidShown() {
+Log.d(TAG, "interstitial Did Shown")
 }
 ```
 
