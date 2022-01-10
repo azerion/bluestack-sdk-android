@@ -134,3 +134,12 @@ The show method takes the following parameters:
 	- MNGPreference.BOTTOM_RIGHT
 - xMargin: distance on the x axis from the gravity corner to thumbnail. Value must be in dp.
 - yMargin: distance on the y axis from the gravity corner to thumbnail. Value must be in dp.
+
+
+### Disposing of Thumbnail Ad 
+
+Once you are done using an Thumbnail Ad, you can call the hideThumbnail(Activity activity) method to release the resources it was using.
+
+```java
+mThumbnailFactory.hideThumbnail(activity)
+```
