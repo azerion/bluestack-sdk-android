@@ -2,6 +2,122 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
+## Version 4.0.0
+
+**Prerequisites**
+Update targetSdkVersion / compileSdkVersion to 31
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:4.0.0'
+
+// BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:63.0.0'
+
+// DFP SDK
+implementation 'com.google.android.gms:play-services-ads:20.5.0'
+implementation 'com.google.android.gms:play-services-ads-identifier:18.0.0'
+implementation 'com.google.android.gms:play-services-base:18.0.0'
+// Starting from version 20.4.0, Google Mobile Ads SDK require an explicit dependency :
+implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+// SmartAdServer SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.15.0'
+// Optional : add Smart support library for Huawei devices
+implementation 'com.smartadserver.android:smart-core-sdk-huawei-support:1.0.0'
+
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk-no-data:5.1.0'
+implementation 'com.madvertise:bluestack-mediation-ogury:5.1.1'
+
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
+implementation 'com.madvertise:bluestack-mediation-criteo:4.4.0'
+
+```
+
+**Interstitial Listener**
+
+Add the interstitialDidShown new callback to better count impressions of Interstitial Ad formats: 
+
+```java
+@Override
+public void interstitialDidShown() {
+Log.d(TAG, "interstitial Did Shown")
+}
+```
+**Support library for Huawei devices :**
+
+ In the main build.gradle of your project, declare the huawei repository:
+
+```groovy
+maven { url 'https://developer.huawei.com/repo/' }
+```
+
+In the dependencies section of your application module build.gradle file, declare the BlueStack huawei support library dependency and the Huawei library:
+
+```groovy
+implementation 'com.huawei.hms:ads-identifier:3.4.39.302'
+implementation 'com.madvertise:bluestack-mediation-huawei:1.0.0'
+```
+
+	
+**Initialized Listener**
+
+The onMNGAdsSDKFactoryDidResetConfig() method has been removed from setMNGAdsSDKFactoryListener.  
+
+```java
+MNGAdsFactory.setMNGAdsSDKFactoryListener(new MNGAdsSDKFactoryListener() {
+            @Override
+            public void onMNGAdsSDKFactoryDidFinishInitializing() {
+                Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing");
+            }
+
+            @Override
+            public void onMNGAdsSDKFactoryDidFailInitialization(Exception e) {
+                Log.d(TAG, "MNGAdsSDKFactoryDidFailInitialization: " + e);
+            }
+        });
+
+```
+
+### Network Security Configuration
+Since Android 9 (API level 28), all network requests must use HTTPS protocol, basic HTTP requests will be blocked by default.
+To avoid your ads being blocked by the default network security configuration, you should create your own network security configuration XML file.
+
+In your **res** folder, create the folder **xml** (if not created yet) then create a file named **network-security-configuration.xml**.
+
+Your file must be formatted like this:
+
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
+```
+
+Once the file created, make sure to add **android:networkSecurityConfig="@xml/network_security_config"** in the application tag of your AndroidManifest.xml file. For instance:
+
+```
+<application
+  android:name=".MyApplication"
+  android:icon="@mipmap/ic_launcher"
+  android:label="@string/app_name"
+  android:networkSecurityConfig="@xml/network_security_config">
+</application>
+```
+
+
 ## Version 3.6.5
 
 **Upgrade mediation SDKs**
