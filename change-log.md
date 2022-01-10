@@ -3,6 +3,41 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 4.0.0
+#### Release date: January 10th, 2022
+
+**Added**
+
+- New ad format [Thumbnail Ad] For Ogury SDK and BlueStack SDK.
+- The SDK is now certified for IAB Open Measurement SDK 1.3.23.
+- Add the interstitialDidShown new callback to better count impressions of Interstitial Ad formats.
+- Support of Open Advertising ID (OAID) for Huawei devices (The support is not included by defaut).
+
+**Fixed**
+
+ - Fix uncaught exception crash.
+ - Fixed a rare crash occurring when the configuration method is called (com.mngads.h.a.a(), 	com.mngads.sdk.perf.g.b.a(), com.mngads.sdk.perf.f.c.a()).
+ - Fix a memory leak related to analytics service.
+ 
+
+**Removed**
+
+ - The onMNGAdsSDKFactoryDidResetConfig() method has been removed from setMNGAdsSDKFactoryListener.
+
+**Updated**
+
+- Improve Android 12 compatibility.
+- Improve SDK performance.
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.0.0)
+- Use new version of BlueStack CMP SDK (Version : 63.0.0) 
+- Use new version of Google Ads SDK (Version : 20.5.0)  
+- Use new version of Smart Ad Server SDK (Version : 7.15.1) 
+- Use new version of Ogury No Data SDK  + BlueStack Ogury Mediation SDK (Version : 5.1.0)  
+- Use new version of Criteo SDK  + BlueStack Criteo Mediation SDK (Version : 4.4.0) 
+
 
 ## Version 3.6.5
 #### Release date: December 8th, 2021
