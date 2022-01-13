@@ -1,5 +1,23 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 4.1.0
+#### Release date: January 13, 2022
+
+**Release notes :**
+
+- Support Android 12.
+- Fixed a rare crash occurring in LocationFusedReceiver.
+
+**Upgrading :**
+
+- Update targetSdkVersion / compileSdkVersion to 31
+- Update kotlin version to 1.6.0 or above
+- Added new permission (Apps that target Android SDK 31 or higher should declare com.google.android.gms.permission.AD_ID in the app manifest to access Ad Id).
+
+```xml
+<uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+```
+
 ### Version 4.0.1
 #### Release date: July 9, 2021
 
