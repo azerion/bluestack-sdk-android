@@ -9,6 +9,14 @@ Change log and release notes for MadvertiseLocation for Android.
 - Fixed a rare crash occurring in LocationFusedReceiver.
 
 **Upgrading :**
+ - Use:
+
+```
+// For BlueStack Location SDK 
+implementation 'com.madvertise:location-sdk:4.1.0'
+
+```
+
 
 - Update targetSdkVersion / compileSdkVersion to 31
 - Update kotlin version to 1.6.0 or above
