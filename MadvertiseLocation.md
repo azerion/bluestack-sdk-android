@@ -8,6 +8,8 @@ BlueStack Location SDK is and android library. This SDK **works** with a **CMP**
 
  - Android Studio to manage your project.
  - Android 4.4 (API 19) or above 
+ - TargetSdkVersion / compileSdkVersion 31 or above
+ - Kotlin version 1.6.0 or above
  - For apps that support Android X, use 3.x version or above.
 
 ## Set up the SDK
@@ -48,7 +50,7 @@ In the build.gradle of to your application module, you can now import the Bluest
 ```groovy
 dependencies {
 
-implementation 'com.madvertise:location-sdk:4.0.0'
+implementation 'com.madvertise:location-sdk:4.1.0'
 
 }
 ```
@@ -61,6 +63,8 @@ In order to run properly, the library needs the following permissions :
 * android.permission.ACCESS_COARSE_LOCATION : Allows an app to access approximate location.
 * android.permission.ACCESS_NETWORK_STATE : used to detect if the device has connectivity
 * android.permission.INTERNET : used to allow the library to send over the internet the data it has collected
+* com.google.android.gms.permission.AD_ID : Allows to access the Ad Id,since android 12 and target 31
+
 
 ```xml
 
@@ -70,8 +74,10 @@ In order to run properly, the library needs the following permissions :
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <!-- Grants the SDK permission to access a more accurate location based on GPS. -->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<!-- Grants the SDK permission o access location in the background,since android 10 and target 29. -->
+<!-- Grants the SDK permission to access location in the background,since android 10 and target 29. -->
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+<!-- Grants the SDK permission to access the Ad Id,since android 12 and target 31. -->
+<uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
 ```
 
@@ -109,6 +115,8 @@ Here is an example :
         }
 
 ```
+
+
 
 ## That for use in standalone without the mngads SDK
 
