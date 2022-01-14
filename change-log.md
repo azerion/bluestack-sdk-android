@@ -7,6 +7,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 #### Release date: January 14th, 2022
 
 **Fixed**
+
  - Fix crash android 7 and 8 (com.mngads.sdk.perf.g.b.a)
 
 **Updated SDKs**
