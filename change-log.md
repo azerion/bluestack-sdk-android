@@ -3,6 +3,17 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 4.0.1
+#### Release date: January 14th, 2022
+
+**Fixed**
+ - Fix crash android 7 and 8 (com.mngads.sdk.perf.g.b.a)
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.0.1)
+- Use new version of BlueStack Location SDK (Version : 4.1.0) 
+
 ## Version 4.0.0
 #### Release date: January 10th, 2022
 
