@@ -3,6 +3,15 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 4.0.2
+#### Release date: January 17th, 2022
+
+ - MadvertiseLocation manage ACCESS_COARSE_LOCATION for android 12
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.0.2)
+
 ## Version 4.0.1
 #### Release date: January 14th, 2022
 
