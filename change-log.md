@@ -3,6 +3,16 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+
+## Version 4.0.3
+#### Release date: January 21th, 2022
+
+ - **IMPORTANT** Fixed the fail process and callbacks in interstitial format
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.0.3)
+
 ## Version 4.0.2
 #### Release date: January 17th, 2022
 
