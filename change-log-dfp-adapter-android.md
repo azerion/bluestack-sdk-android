@@ -1,5 +1,17 @@
 # Change log and Upgrading SDK for Android DFP Adapter
 
+## Version 2.4.0
+### Release date: February 3rd, 2022
+
+**New features :**
+
+- Added implementation of interstitialDidShown callback of MNGInterstitialListener in **MadvertiseCustomEventInterstitial.class**.
+
+**Updated SDKs :**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.0.3)
+- Use new version of Google Ads SDK (Version : 20.4.0)
+
 
 ## Version 2.3.0
 ### Release date: June 30th, 2020
