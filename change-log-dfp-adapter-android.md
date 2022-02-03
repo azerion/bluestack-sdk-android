@@ -13,6 +13,13 @@
 - Use new version of Google Ads SDK (Version : 20.4.0)
 
 
+```java
+
+implementation 'com.madvertise:bluestack-gam-adapter:2.4.0'
+```
+
+
+
 ## Version 2.3.0
 ### Release date: June 30th, 2020
 
