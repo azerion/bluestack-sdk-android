@@ -90,7 +90,7 @@ In the build.gradle of to your application module, you can now import the Bluest
 ```groovy
 dependencies {
 
-implementation 'com.madvertise:bluestack-gam-adapter:2.3.0'
+implementation 'com.madvertise:bluestack-gam-adapter:2.4.0'
 
 }
 ```
