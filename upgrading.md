@@ -2,6 +2,14 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
+## Version 4.0.4
+
+```groovy
+// BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:4.0.4'
+```
+
+
 ## Version 4.0.3
 
 ```groovy
