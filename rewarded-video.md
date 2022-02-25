@@ -13,27 +13,54 @@ Before You Start. Make sure that you have correctly integrated the MNG SDK into 
 
 In order to use the rewarded video feature you have to instantiate the MNGRewardedVideo class and then you can add the MNGRewardedVideoListener. 
 
+**Java :**
+
 ```java
-MAdvertiseRewardedVideo mRewardedVideo = new MAdvertiseRewardedVideo(this);
+MAdvertiseRewardedVideo rewardedVideo = new MAdvertiseRewardedVideo(this);
+```
+
+**Kotlin :**
+
+```kotlin
+MAdvertiseRewardedVideo rewardedVideo = MAdvertiseRewardedVideo(this)
 ```
 
 ### Step 2. Set Placement ID
 
 You have also to set placement Id :
 
+**Java :**
+
 ```java
-mngRewardedVideo.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+rewardedVideo.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+```
+
+**Kotlin :**
+
+```kotlin
+rewardedVideo.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID")
 ```
 
 ### Step 3. Implement the Listener
 Next, implement the RewardedVideo Listener in your code. 
 
+**Java :**
+
 ```java
 // set a rewarded video listener
-mngRewardedVideo.setRewardedVideoListener(this);
+rewardedVideo.setRewardedVideoListener(this);
+```
+
+**Kotlin :**
+
+```kotlin
+// set a rewarded video listener
+rewardedVideo.setRewardedVideoListener(this)
 ```
 
 The SDK will notify your Listener of all possible events listed below :
+
+**Java :**
 
 ```java
     @Override
@@ -41,30 +68,30 @@ The SDK will notify your Listener of all possible events listed below :
 	    //This is called when an error is occurred while loading the reward video.
     }
 
-    @Override
+	@Override
     public void onRewardedVideoLoaded() {
 		//This is called when a rewarded video is loaded and ready to be displayed
     }
 
-    @Override
-    public void onRewardedVideoClicked() {
+	@Override
+   public void onRewardedVideoClicked() {
 		//This is called when the video is clicked, this can be ignored if the adNetwork doesn't respond to a click event.
     }
 
-    @Override
-    public void onRewardedVideoClosed() {
+	@Override
+   public void onRewardedVideoClosed() {
 		//This is called when a displayed video is closed.
     }
 
-    @Override
+	@Override
     public void onRewardedVideoAppeared() {
 	    //This is called wen a loaded rewarded video appears on the screen.
     }
 
-    @Override
-    public void onRewardedVideoCompleted(MAdvertiseVideoReward videoReward) {
+	@Override
+   public void onRewardedVideoCompleted(MAdvertiseVideoReward videoReward) {
+    
         Log.d(TAG, "onRewardedVideoCompleted");
-
         progressBar.setVisibility(View.GONE);
 
         if (videoReward != null) {
@@ -73,37 +100,96 @@ The SDK will notify your Listener of all possible events listed below :
 
             mLog.setText("Video rewarded\nType: " + videoReward.getType() + "\namount: " + videoReward.getAmount());
 
-
         } else {
 
             Log.d(TAG, "onVideoRewarded with no reward object");
 
             mLog.setText("Video reward event");
-
-
         }
 
     }
 ```
 
+**Kotlin :**
+
+```kotlin
+    override fun onRewardedVideoError(e: Exception) {
+	    //This is called when an error is occurred while loading the reward video.
+    }
+
+    override fun onRewardedVideoLoaded() {
+		//This is called when a rewarded video is loaded and ready to be displayed
+    }
+
+    override fun onRewardedVideoClicked() {
+		//This is called when the video is clicked, this can be ignored if the adNetwork doesn't respond to a click event.
+    }
+
+    override fun onRewardedVideoClosed() {
+		//This is called when a displayed video is closed.
+    }
+
+    override fun onRewardedVideoAppeared() {
+	    //This is called wen a loaded rewarded video appears on the screen.
+    }
+
+    override fun onRewardedVideoCompleted(videoReward: MAdvertiseVideoReward?) {
+    
+        Log.d(TAG, "onRewardedVideoCompleted")
+        progressBar.visibility = View.GONE
+
+        videoReward?.let {
+            Log.d(
+                TAG,
+                "onVideoRewarded, type: ${videoReward.type}, amount: ${videoReward.amount}"
+            )
+            rewardedVideoLog.text =
+                ("Video rewarded \n Type: " + videoReward.type + " \n amount: " + videoReward.amount).trimIndent()
+        } ?: run {
+            Log.d(TAG, "onVideoRewarded with no reward object")
+            rewardedVideoLog.text = "Video reward event"
+        }
+
+    }
+```
 
 ### Step 4. Loading Rewarded Video ad
 
 Calling the 'loadRewardedVideo()' will result in making a request and having a callback in one of the methods of the rewarded video listener.
 
+**Java :**
+
 ```java
-mngRewardedVideo.loadRewardedVideo()
+rewardedVideo.loadRewardedVideo();
+```
+
+**Kotlin :**
+
+```kotlin
+rewardedVideo.loadRewardedVideo()
 ```
 
 ### Step 5. Display Rewarded Video ad
 
 After loading the rewarded video you can request it to be displayed and check it's result as following :
 
+**Java :**
+
 ```java
-boolean validDisplayAction = mRewardedVideo.showRewardedVideo()
+boolean validDisplayAction = rewardedVideo.showRewardedVideo();
 
 if (validDisplayAction){
     Log.d(TAG, "rewarded video will be displayed");
+}
+```
+
+**Kotlin :**
+
+```kotlin
+boolean validDisplayAction = rewardedVideo.showRewardedVideo()
+
+if (validDisplayAction){
+    Log.d(TAG, "rewarded video will be displayed")
 }
 ```
 
@@ -113,8 +199,16 @@ if (validDisplayAction){
 
 Call the following method to check if a Rewarded Video Ad is ready to be displayed :
 
+**Java :**
+
 ```java
-mRewardedVideo.isRewardedVideoReady()
+rewardedVideo.isRewardedVideoReady();
+```
+
+**Kotlin :**
+
+```kotlin
+rewardedVideo.isRewardedVideoReady()
 ```
 
 ### Preferences Object
@@ -125,6 +219,8 @@ informations that you can set are:
 - **KeyWord :**  Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**.
 - **Content URL :**  URL for content related to your app (url must be a string which length not exceed 512 caracters).
 
+**Java :**
+
 ```java
 
 Location  myLocation = new Location("I");
@@ -132,11 +228,28 @@ myLocation.setLatitude(35.757866);
 myLocation.setLongitude(10.810547);
 
 mngPreference = new MNGPreference();
-mngPreference.setLocation(location,CONSENT_FLAG,context);
+mngPreference.setLocation(location, CONSENT_FLAG, context);
 mngPreference.setKeyword("brand=myBrand;category=sport");
-mngPreference.setContentUrl("put your content url here")
+mngPreference.setContentUrl("put your content url here");
 
 mRewardedVideo.loadRewardedVideo(mngPreference);
+
+```
+
+**Kotlin :**
+
+```kotlin
+
+Location  myLocation = Location("I")
+myLocation.latitude = 35.757866
+myLocation.longitude = 10.810547
+
+mngPreference = MNGPreference()
+mngPreference.setLocation(location, CONSENT_FLAG, context)
+mngPreference.setKeyword("brand=myBrand;category=sport")
+mngPreference.setContentUrl("put your content url here")
+
+mRewardedVideo.loadRewardedVideo(mngPreference)
 
 ```
 **Note :** 
@@ -155,4 +268,4 @@ mRewardedVideo.loadRewardedVideo(mngPreference);
 
 ## Example
 
-Here is an example : [RewardedVideoFragment.java](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/RewardedVideoFragment.java)
+Here is an example : [RewardedVideoFragment.kt](https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/RewardedVideoFragment.kt)
