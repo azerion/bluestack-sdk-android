@@ -7,10 +7,11 @@ This guide shows you how to integrate [MNGAds] mediation adapter of Google Mobil
 - Banners
 - Interstitials
 - Native Ads
+- Rewarded Ads
 
 ## Requirements
 - Android SDK 4.4 (API level 19) or later
-- Google Play services 17.2.0 or later
+- Google Play services 20.6.0 or later
 
 ## Google Ad Manager UI 
 
@@ -37,7 +38,7 @@ The custom event must be defined in the [Google Ad Manager UI].
 ### 3. Add A Yield Partner and Define a custom event
 
 On your Google Ad Manager UI, create a custom event 
-![screenshot-admanager.google.com-2019.10.08-23_09_54.jpg](https://bitbucket.org/repo/GyRXRR/images/2980010623-screenshot-admanager.google.com-2019.10.08-23_09_54.jpg)
+![2022-04-20_15-10.png](https://bitbucket.org/repo/GyRXRR/images/3594004058-2022-04-20_15-10.png)
 
 1. Select **Madvertise Ad-Network** created on [Step 1]
 2. Choose **Custom Event** for Integration type
@@ -45,9 +46,10 @@ On your Google Ad Manager UI, create a custom event
 4. Set the following **Label**, **class Name**  and **Parameter** according your format :
 
 
-* Banner : Label= **MadvertiseCustomEventBanner**, class Name= **com.madvertise.MadvertiseCustomEventBanner** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_BANNER
-* Banner : Label= **MadvertiseCustomEventInterstitial**, class Name= **com.madvertise.MadvertiseCustomEventInterstitial** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_INTER
-* Banner : Label= **MadvertiseCustomEventNativead**, class Name= **com.madvertise.MadvertiseCustomEventNativead** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_NATIVEAD
+* Banner : Label= **GADBlueStackMediationAdapter**, class Name= **com.madvertise.GADBlueStackMediationAdapter** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_BANNER
+* Interstitial : Label= **GADBlueStackMediationAdapter**, class Name= **com.madvertise.GADBlueStackMediationAdapter** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_INTER
+* Native Ad : Label= **GADBlueStackMediationAdapter**, class Name= **com.madvertise.GADBlueStackMediationAdapter** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_NATIVEAD
+* Rewarded Ad : Label= **GADBlueStackMediationAdapter**, class Name= **com.madvertise.GADBlueStackMediationAdapter** and Parameter= /YOUR_APP_ID/PLACEMENT_ID_REWARDEDAD
  
 
 
@@ -90,7 +92,7 @@ In the build.gradle of to your application module, you can now import the Bluest
 ```groovy
 dependencies {
 
-implementation 'com.madvertise:bluestack-gam-adapter:2.4.0'
+implementation 'com.madvertise:bluestack-gam-adapter:4.1.0'
 
 }
 ```
@@ -108,7 +110,7 @@ You can check our [Demo] page.
 
 **No additional code is required for integration.** 
 
-You may now use MNG DFP Adaptor to show [Interstitial Ads] and [Banner Ads] the same way it's described in the [DFP Documentation].The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
+You may now use MNG DFP Adapter to show [Interstitial Ads] and [Banner Ads] the same way it's described in the [DFP Documentation].The adapter code and the setup you did on your Google Ad Manager UI will allow MNG Ads to deliver ads.
 
 #### 2.2 Native Ads
 
@@ -151,7 +153,7 @@ AdLoader adLoader = new AdLoader.Builder(context, "YOUR PLACEMENT ID")
                     .build();
 
             AdManagerAdRequest.Builder adRequestBuilder = new AdManagerAdRequest.Builder();
-            adRequestBuilder.addCustomEventExtrasBundle(MadvertiseCustomEventNativead.class, getExtrasData());
+            adRequestBuilder.addNetworkExtrasBundle(GADBlueStackMediationAdapter.class, getExtrasData());
             adLoader.loadAd(adRequestBuilder.build());
 
 
@@ -183,7 +185,7 @@ private void displayNativeAd(NativeAd nativeAd, NativeAdView nativeAdView) {
         if(nativeAd.getIcon()!=null)
         {
             if (nativeAd.getIcon().getUri() != null &&  !nativeAd.getIcon().getUri().toString().isEmpty()) {
-                Picasso.get().load(nativeAd.getIcon().getUri())
+                Glide.with(this).load(nativeAd.getIcon().getUri())
                         .into((ImageView) nativeAdView.findViewById(R.id.nativeAdIcon));
             }
             else
@@ -202,7 +204,7 @@ private void displayNativeAd(NativeAd nativeAd, NativeAdView nativeAdView) {
         if(nativeAd.getImages()!=null)
         {
             if (nativeAd.getImages().size() > 0 && nativeAd.getImages().get(0) != null ) {
-                Picasso.get().load(nativeAd.getImages().get(0).getUri())
+                Glide.with(this).load(nativeAd.getImages().get(0).getUri())
                         .into((ImageView) nativeAdView.findViewById(R.id.nativeAdImage));
             }
             else
@@ -226,52 +228,58 @@ private void displayNativeAd(NativeAd nativeAd, NativeAdView nativeAdView) {
 }
 ```
 
-### 3. Location
+#### 2.3 Rewarded Ads
 
-You can specify location-targeting information in the ad request as follows:
+1) The following code demonstrates how to load a rewarded ad:
 
 ```java
-PublisherAdRequest request = new PublisherAdRequest.Builder()
-        .setLocation(location)
-        .build();
+
+AdManagerAdRequest.Builder adRequestBuilder = new AdManagerAdRequest.Builder();
+            adRequestBuilder.addNetworkExtrasBundle(GADBlueStackMediationAdapter.class, getExtrasData());
+            
+RewardedAd.load(context, DFP_REWARDED_AD_UNIT,
+                adRequestBuilder.build(), new RewardedAdLoadCallback() {
+    
+@Override                
+void onAdLoaded(RewardedAd rewarded) {
+  rewarded.fullScreenContentCallback = new FullScreenContentCallback(){
+  
+@Override
+void onAdFailedToShowFullScreenContent(AdError adError) {
+   // Handle the failure by logging, altering the UI...
+ }
+                        }
+                    };
+@Override
+void onAdFailedToLoad(LoadAdError error) {
+// Handle the failure by logging, altering the UI...
+ }
+                }
+            );
+
+
 ```
 
-and you must send your **consent flag** value also as follows: 
-
-1- Create a bundle of the extras :
+2) Once you have loaded an ad, all that remains is to display it to your users.
 
 ```java
-Bundle extras = new Bundle();
-extras.putString("consentFlag","CONSENT_FLAG");
+private void displayRewardedAd(){
+	mRewardedAd.show(activity, new OnUserEarnedRewardListener(){
+	@Override
+	void onUserEarnedReward(RewardItem var1){
+	...
+	}
+	});
+}
 ```
 
-The CONSENT_FLAG value (corresponds to a string : "0","1","2" or "3").
+### 3. Custom targeting / Keywords
 
-- "0" = Not allow to send location.
-- "1" = When you managed location according to consent value.
-- "2" or "3" = Allow the SDK to managed location directly in accordance with the consent value use TCF v1 or TCF v2, see with the madvertise team it depends on your implementation.
-
-2- Add the extras to the addCustomEventExtrasBundle() method as follows: 
-
-```java
-PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
-.addCustomEventExtrasBundle("Madvertise_Custom_Event",extras)
-.build();
-```
-
-The Madvertise_Custom_Event value corresponds to custom event adapter class name : 
-
- * **MadvertiseCustomEventBanner.class** for Banner Ads  
- * **MadvertiseCustomEventInterstitial.class** for Interstitial Ads   
- * **MadvertiseCustomEventNativead.class** for Native Ads  
-
-### 4. Custom targeting
-
-If you need to send your custom key-value pairs. You can specify key-value-targeting information in the ad request as follows: 
+If you need to send your custom key-value pairs. You can specify key-value-targeting and keywords information in the ad request as follows: 
 
 
 ```java
-PublisherAdRequest request = new PublisherAdRequest.Builder()
+AdManagerAdRequest request = new AdManagerAdRequest.Builder()
 		.addKeyword("Keyword")
         .addCustomTargeting("key1", "value1")
         .addCustomTargeting("key2", "value2")
@@ -285,21 +293,18 @@ and you must send your **custom key-value pairs** also as follows:
 ```java
 Bundle extras = new Bundle();
 extras.putString("customTargeting","key1=value1;key2=value2");
+extras.putString("keywords","key1=value1;key2=value2");
 ```
 
-2- Add the extras to the addCustomEventExtrasBundle() method as follows: 
+2- Add the extras to the addNetworkExtrasBundle() method as follows: 
 
 ```java
-PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
-.addCustomEventExtrasBundle("Madvertise_Custom_Event",extras)
+AdManagerAdRequest adRequest = new AdManagerAdRequest.Builder();
+adRequest.addNetworkExtrasBundle(GADBlueStackMediationAdapter.class,extras)
 .build();
 ```
 
-The Madvertise_Custom_Event value corresponds to custom event adapter class name : 
-
- * **MadvertiseCustomEventBanner.class** for Banner Ads  
- * **MadvertiseCustomEventInterstitial.class** for Interstitial Ads   
- * **MadvertiseCustomEventNativead.class** for Native Ads  
+The GADBlueStackMediationAdapter value corresponds to custom event adapter class name. 
 
  
 
@@ -309,7 +314,7 @@ The Madvertise_Custom_Event value corresponds to custom event adapter class name
 [Interstitial Ads]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/interstitial
 [Native Ads Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/native/advanced
 [Set Up Sdk Section]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/setup
-[mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-2.1.0.aar
+[mngads-dfp-adapter-x.aar]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/mngads-dfp-adapter-2.4.0.aar
 [mngads-sdk-x.aar Android SDK]:https://bitbucket.org/mngcorp/mngads-demo-android/downloads/
 [DFP Documentation]:https://developers.google.com/ad-manager/mobile-ads-sdk/android/quick-start
 [Google Ad Manager UI]:https://admanager.google.com/
