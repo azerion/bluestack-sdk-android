@@ -4,6 +4,26 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 4.1.0
+#### Release date: April 21th, 2022
+
+ **Updated**
+
+- Improve Android 12 compatibility.
+- Improve SDK performance.
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.1.0)
+- Use new version of Google Ads SDK (Version : 20.6.0)
+- Use new version of Smart Ad Server SDK (Version : 7.17.0) 
+- Use new version of Ogury No Data SDK  + BlueStack Ogury Mediation SDK (Version : 5.2.0)  
+- Use new version of Amazon SDK (Version : 9.4.2) 
+- The SDK is now certified for IAB Open Measurement SDK 1.3.31.
+ 
+
+
+
 ## Version 4.0.4
 #### Release date: February 7th, 2022
 
