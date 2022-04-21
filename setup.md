@@ -78,7 +78,7 @@ repositories {
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:18.0.0'
+implementation 'com.google.android.gms:play-services-base:18.0.1'
 }
 ```
 
@@ -87,7 +87,7 @@ implementation 'com.google.android.gms:play-services-base:18.0.0'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:4.0.0'
+implementation 'com.madvertise:bluestack-core-sdk:4.1.0'
 }
 ```
 
@@ -101,20 +101,20 @@ implementation 'com.madvertise:bluestack-core-sdk:4.0.0'
 ```groovy
 dependencies {
 //Google Advertising Id
-implementation 'com.google.android.gms:play-services-ads-identifier:18.0.0'
+implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:20.5.0'
+implementation 'com.google.android.gms:play-services-ads:20.6.0'
 implementation 'androidx.work:work-runtime-ktx:2.7.1'
 
 //Location, if you app use GPS data only with a CMP
-implementation 'com.google.android.gms:play-services-location:19.0.0'
+implementation 'com.google.android.gms:play-services-location:19.0.1'
         
 //Audience Network SDK
 implementation 'com.facebook.android:audience-network-sdk:6.8.0'
 
 //Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.15.0'
+implementation 'com.smartadserver.android:smart-display-sdk:7.17.0'
 // Optional : add Smart support library for Huawei devices
 implementation 'com.smartadserver.android:smart-core-sdk-huawei-support:1.0.0'
 ```
@@ -136,7 +136,7 @@ This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional 
 ```groovy
 dependencies {
 // Amazon SDK
-implementation ("com.amazon.android:aps-sdk:9.2.2")
+implementation ("com.amazon.android:aps-sdk:9.4.2")
 
 // Criteo SDK
 implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
@@ -159,8 +159,8 @@ implementation 'com.adcolony:sdk:4.6.4'
 implementation 'com.madvertise:bluestack-mediation-adcolony:4.6.4'
 
 //Ogury SDK
-implementation 'co.ogury:ogury-sdk-no-data:5.1.0'
-implementation 'com.madvertise:bluestack-mediation-ogury:5.1.1'
+implementation 'co.ogury:ogury-sdk-no-data:5.2.0'
+implementation 'com.madvertise:bluestack-mediation-ogury:5.2.0'
 
 //Sync SDK
 implementation 'tv.sync:syncdisplay:3.2.1'
@@ -200,7 +200,9 @@ Add the following permissions to your AndroidManifest.xml file inside the manife
     <!--Used by AdColony-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--Used by AdColony-->
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.VIBRATE"
+    <!--Grants the SDK permission to access the Ad Id,since android 12 and target 31-->
+    <uses-permission android:name=""com.google.android.gms.permission.AD_ID" />
 
 ```
 
@@ -318,7 +320,7 @@ Your build.gradle files should look similar to the examples below:
 
 ```
 dependencies {
-classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.0"
+classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20"
 }
 ```
 
@@ -333,7 +335,7 @@ apply plugin: 'kotlin-android-extensions'
 
 ```
 dependencies {
-   implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.0"
+   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.20"
 }
 ```
 
