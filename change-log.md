@@ -4,6 +4,18 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
 
+## Version 4.1.1
+#### Release date: June 15th, 2022
+
+**Fixed**
+
+ - Fix IABTCF_SpecialFeaturesOptIns check when using a cmp other than Bluestack CMP.
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.1.1)
+- - Use new version of BlueStack Location SDK (Version : 4.1.1)
+
 ## Version 4.1.0
 #### Release date: April 21th, 2022
 
@@ -27,7 +39,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 ## Version 4.0.4
 #### Release date: February 7th, 2022
 
- - Fixed the periodic capping issue and persitent capping
+ - Fixed the periodic capping issue and persistent capping
 
 **Updated SDKs**
 

@@ -1,5 +1,21 @@
 Change log and release notes for MadvertiseLocation for Android.
 
+### Version 4.1.1
+#### Release date: June 15th, 2022
+
+**Release notes :**
+
+- Fixed an IABTCF_SpecialFeaturesOptIns check when using a cmp other than Bluestack CMP.
+
+**Upgrading :**
+ - Use:
+
+```
+// For BlueStack Location SDK 
+implementation 'com.madvertise:location-sdk:4.1.1'
+
+```
+
 ### Version 4.1.0
 #### Release date: January 13, 2022
 

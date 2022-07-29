@@ -3,6 +3,17 @@ See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
 
+## Version 4.1.1
+
+```groovy
+// BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:4.1.1'
+
+// For BlueStack Location SDK 
+implementation 'com.madvertise:location-sdk:4.1.1'
+
+```
+
 ## Version 4.1.0
 
 **Upgrade mediation SDKs**
