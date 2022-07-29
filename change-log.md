@@ -27,7 +27,7 @@ you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to d
 **Updated SDKs**
 
 - Use new version of BlueStack Mediation SDK (Version : 4.1.1)
-- - Use new version of BlueStack Location SDK (Version : 4.1.1)
+- Use new version of BlueStack Location SDK (Version : 4.1.1)
 
 ## Version 4.1.0
 #### Release date: April 21th, 2022
