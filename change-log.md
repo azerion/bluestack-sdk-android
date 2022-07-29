@@ -3,6 +3,19 @@ See [Wiki], [Design Guidelines and Best practices] and [Help Center]  for more d
 
 you must check [Upgrade Guide]. You need to keep all Ad Network jars/aar up to date. 
 
+## Version 4.1.2
+#### Release date: July 29th, 2022
+
+**Fixed**
+
+ - Fixed capping shift issue when killing app
+ - Fixed changing APP_ID dynamically issue
+
+**Updated SDKs**
+
+- Use new version of BlueStack Mediation SDK (Version : 4.1.2)
+- Use new version of Ogury No Data SDK  + BlueStack Ogury Mediation SDK (Version : 5.3.0) 
+- Use new version of BlueStack Huawei Mediation SDK (Version : 1.0.1)
 
 ## Version 4.1.1
 #### Release date: June 15th, 2022

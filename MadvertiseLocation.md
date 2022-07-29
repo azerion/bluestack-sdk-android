@@ -50,7 +50,7 @@ In the build.gradle of to your application module, you can now import the Bluest
 ```groovy
 dependencies {
 
-implementation 'com.madvertise:location-sdk:4.1.0'
+implementation 'com.madvertise:location-sdk:4.1.1'
 
 }
 ```

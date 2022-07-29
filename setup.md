@@ -87,7 +87,7 @@ implementation 'com.google.android.gms:play-services-base:18.0.1'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:4.1.1'
+implementation 'com.madvertise:bluestack-core-sdk:4.1.2'
 }
 ```
 
@@ -159,8 +159,8 @@ implementation 'com.adcolony:sdk:4.6.4'
 implementation 'com.madvertise:bluestack-mediation-adcolony:4.6.4'
 
 //Ogury SDK
-implementation 'co.ogury:ogury-sdk-no-data:5.2.0'
-implementation 'com.madvertise:bluestack-mediation-ogury:5.2.0'
+implementation 'co.ogury:ogury-sdk-no-data:5.3.0'
+implementation 'com.madvertise:bluestack-mediation-ogury:5.3.0'
 
 //Sync SDK
 implementation 'tv.sync:syncdisplay:3.2.1'
@@ -173,7 +173,7 @@ In the dependencies section of your application module build.gradle file, declar
 ```groovy
 //Huawei devices
 implementation 'com.huawei.hms:ads-identifier:3.4.39.302'
-implementation 'com.madvertise:bluestack-mediation-huawei:1.0.0'
+implementation 'com.madvertise:bluestack-mediation-huawei:1.0.1'
 ```
 
 **See our [build.gradle] sample**
