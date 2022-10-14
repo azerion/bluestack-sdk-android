@@ -10,28 +10,58 @@ Before You Start. Make sure that you have correctly integrated the MNG SDK into 
 
 To create a interstitial you must init an object with type MNGAdsSDKFactory :
 
+* **Java**
+
 ```java
 MNGAdsFactory mngAdsInterstitialAdsFactory = new MNGAdsFactory(this);
 
 ```
+
+* **Kotlin**
+
+```java
+val mngAdsInterstitialAdsFactory = MNGAdsFactory(this)
+
+```
+
 ## Step 2. Set Placement ID
 
 You have also to set placement Id :
+
+* **Java**
 
 ```java
 mngAdsInterstitialAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
+* **Kotlin**
+
+```java
+mngAdsInterstitialAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID")
+```
+
 ## Step 3. Implement the Listener
 Next, implement the Interstitial Listener in your code. 
+
+* **Java**
 
 ```java
 // set intertitial listener
 mngAdsInterstitialAdsFactory.setInterstitialListener(this);
 ```
+
+* **Kotlin**
+
+```java
+// set intertitial listener
+mngAdsInterstitialAdsFactory.setInterstitialListener(this)
+```
+
 The SDK will notify your Listener of all possible events listed below :
 
 - InterstitialDidLoad(): will be called by the SDK when your Interstitial is ready.
+
+* **Java**
 
 ```java
 @Override
@@ -40,7 +70,17 @@ Log.d(TAG, "interstitial did load");
 }
 ```
 
+* **Kotlin**
+
+```java
+override fun interstitialDidLoad() {
+Log.d(TAG, "interstitial did load")
+}
+```
+
 - interstitialDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
+* **Java**
 
 ```java
 @Override
@@ -48,20 +88,49 @@ public void interstitialDidFail(Exception adsException) {
 Log.e(TAG, "interstitial did fail :" + adsException.toString());
 }
 ```
+
+* **Kotlin**
+
+```java
+override fun interstitialDidFail(adsException: Exception) {
+Log.e(TAG, "interstitial did fail :" + adsException.toString())
+}
+```
+
 - InterstitialDisappear(): will be called when interstitial was dismissed.
+
+* **Java**
 
 ```java
 @Override
 public void interstitialDisappear() {
+Log.d(TAG, "interstitial disappear");
+}
+```
+
+* **Kotlin**
+
+```java
+override fun interstitialDisappear() {
 Log.d(TAG, "interstitial disappear")
 }
 ```
 
 - interstitialDidShown(): will be called when interstitial was shown.
 
+* **Java**
+
 ```java
 @Override
 public void interstitialDidShown() {
+Log.d(TAG, "interstitial Did Shown");
+}
+```
+
+* **Kotlin**
+
+```java
+override fun interstitialDidShown() {
 Log.d(TAG, "interstitial Did Shown")
 }
 ```
@@ -72,6 +141,14 @@ Log.d(TAG, "interstitial Did Shown")
 
 To request and display an interstitial ad, call the following method: 
 
+* **Java**
+
+```java
+mngAdsInterstitialAdsFactory.loadInterstitial();
+```
+
+* **Kotlin**
+
 ```java
 mngAdsInterstitialAdsFactory.loadInterstitial()
 ```
@@ -80,11 +157,23 @@ mngAdsInterstitialAdsFactory.loadInterstitial()
 
 To request **without displaying** an interstitial ad, call the following method: 
 
+* **Java**
+
 ```java
 mngAdsInterstitialAdsFactory.loadInterstitial(false);
 
 ```
+
+* **Kotlin**
+
+```java
+mngAdsInterstitialAdsFactory.loadInterstitial(false)
+
+```
+
 To check if the interstitial is ready to be show, you must call isInterstitialReady() and displayInterstitial() in order to display the ads (in case of success) :
+
+* **Java**
 
 ```java
 ...
@@ -95,6 +184,19 @@ Log.d(TAG, "Interstitial not ready ");
 }
 ...
 ```
+
+* **Kotlin**
+
+```java
+...
+if (mngAdsInterstitialAdsFactory.isInterstitialReady()) {
+mngAdsInterstitialAdsFactory.displayInterstitial()
+} else {
+Log.d(TAG, "Interstitial not ready")
+}
+...
+```
+
 **Note:**
 
  - To try out auto-displaying disabled on demo, you can check interstitial page. Others interstitials (background returns, overlay) run with auto-displaying.
@@ -111,11 +213,22 @@ Log.d(TAG, "Interstitial not ready ");
 ### Memory managment
 When you have finished your ads plant you must free the memory.
 
+* **Java**
+
 ```java
 @Override
 protected void onDestroy() {
 mngAdsInterstitialAdsFactory.releaseMemory();
 super.onDestroy();
+}
+```
+
+* **Kotlin**
+
+```java
+override fun onDestroy() {
+mngAdsInterstitialAdsFactory.releaseMemory()
+super.onDestroy()
 }
 ```
 
@@ -131,6 +244,8 @@ isBusy will be set to :
 
 **Example**:
 
+* **Java**
+
 ```java
 if (!mngAdsInterstitialAdsFactory.isBusy()) {
 
@@ -141,18 +256,43 @@ Log.d(TAG, "Ads Factory is busy");
 }
 ```
 
+* **Kotlin**
+
+```java
+if (!mngAdsInterstitialAdsFactory.isBusy()) {
+Log.d(TAG, "Ads Factory is not busy")
+mngAdsInterstitialAdsFactory.loadInterstitial(false)
+} else {
+Log.d(TAG, "Ads Factory is busy")
+}
+```
+
 ### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
+
+* **Java**
 
 ```java
 // set click listener
 mngAdsInterstitialAdsFactory.setClickListener(this);
 
-
 ...
 @Override
 public void onAdClicked() {
 Log.d(TAG, "Ad Clicked");
+}
+...
+```
+
+* **Kotlin**
+
+```java
+// set click listener
+mngAdsInterstitialAdsFactory.setClickListener(this)
+
+...
+override fun onAdClicked() {
+Log.d(TAG, "Ad Clicked")
 }
 ...
 ```
@@ -169,13 +309,15 @@ informations that you can set are:
 - **KeyWord :**  Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**.
 - **Content URL :**  URL for content related to your app (url must be a string which length not exceed 512 caracters).
 
+* **Java**
+
 ```java
 
 Location  myLocation = new Location("I");
 myLocation.setLatitude(35.757866);
 myLocation.setLongitude(10.810547);
 
-mngPreference = new MNGPreference();
+MNGPreference mngPreference = new MNGPreference();
 mngPreference.setLocation(location,CONSENT_FLAG,context);
 mngPreference.setAge(28);
 mngPreference.setGender(MNGGender.MNGGenderFemale);
@@ -186,6 +328,27 @@ mngPreference.setContentUrl("put your content url here")
 mngAdsInterstitialAdsFactory.loadInterstitial(mngPreference,false);
 
 ```
+
+* **Kotlin**
+
+```java
+
+val myLocation = Location("I")
+myLocation.setLatitude(35.757866)
+myLocation.setLongitude(10.810547)
+
+val mngPreference = MNGPreference()
+mngPreference.setLocation(location,CONSENT_FLAG,context)
+mngPreference.setAge(28)
+mngPreference.setGender(MNGGender.MNGGenderFemale)
+mngPreference.setKeyword("brand=myBrand;category=sport")
+mngPreference.setContentUrl("put your content url here")
+
+
+mngAdsInterstitialAdsFactory.loadInterstitial(mngPreference,false)
+
+```
+
 **Note :** 
 
 - This [link] can help you to get device location.
@@ -222,6 +385,8 @@ If you want to check which exception was invoked, in the didFail callback you ha
 Also you can get exception message by calling getMessage().
 In the example below we use interstitialDidFail, even you can use this logic in all our didFail callBack(bannerDidFail, infeedDidFail,nativeAdCollectionDidFail and nativeObjectDidFail)
 
+* **Java**
+
 ```java
 @Override
 public void interstitialDidFail(Exception e) {
@@ -241,6 +406,25 @@ Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+
 }
 ```
 
+* **Kotlin**
+
+```java
+override fun interstitialDidFail(e: Exception) {
+
+val adException: MAdvertiseException = e as MAdvertiseException
+
+when (adException.errorCode){
+MAdvertiseException.BUSY_FACTORY_ERROR -> {...}
+MAdvertiseException.INTERSTITIAL_ALREADY_SHOWN_ERROR -> {...}
+.
+.
+.
+
+}
+Log.e(TAG, "Interstitial did fail : ${adException.message} error code: ${adException.errorCode}")
+}
+```
+
 ## Show Interstitial after return from background
 
 Unlike iOS with applicationdidenterbackgroundwith, on Android we don’t have the option to directly detect whether the app is in  background. But There are few workarounds. 
@@ -248,6 +432,8 @@ Unlike iOS with applicationdidenterbackgroundwith, on Android we don’t have th
    - If your application has only one activity , you can make interstitial request from the [onStart()] method .This will enable you to make a request when the app starts and every time the app goes through [onStop()] method. Even though the [onStart()] method will be called after an interstitial is closed the create intertitial will be ignored due to the 5s delay lock.
 
    - If your application has more than one activity then you have to handle things differently. The solution used in mngads demo depends on tracking every [onStart()] and [onStop()] of the application by the singleton (ApplicationManager). The key of the solution is the understanding that if we have Activity_1 and Activity_2, and we call Activity_2 from Activity_1, then Activity_2's [onStart()] will be called before Activity_1 [onStop()]. You must use a BaseActivity to override [onStart()]and [onStop()] or you can use [ActivityLifecycleCallbacks] API 14 , in order to increment/decrement a variable used for counting.
+
+* **Java**
 
 ```
 #!java
@@ -296,9 +482,49 @@ public class BaseActivity extends AppCompatActivity implements ApplicationManage
 
 ....
 ```
+
+* **Kotlin**
+
+```
+#!kotlin
+
+class BaseActivity: AppCompatActivity(), ApplicationManager.ForegroundListener, MNGInterstitialListener, MNGAdsSDKFactoryListener, MNGClickListener {
+
+	private val TAG = BaseActivity::class.java.simpleName
+    private lateinit var applicationManager: ApplicationManager
+    private lateinit var mngAdsInterstitialFactory: MNGAdsFactory
+    private lateinit var mngPreference: MNGPreference
+
+
+    protected override fun onCreate(savedInstanceState: Bundle) {
+        super.onCreate(savedInstanceState)
+        applicationManager = ApplicationManager.getInstance()
+
+        initializeMNGFactory()
+
+    }
+....
+
+
+    protected override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart")
+        applicationManager.onActivityStarted(this, this)
+    }
+
+    
+    protected override fun onStop() {
+        Log.d(TAG, "onStop")
+        applicationManager.onActivityStopped(this, this)
+        super.onStop()
+    }
+
+....
+```
+
   With this Solution, you will end up with two cases when applicationManager.onActivityStopped(activity,forgroundListener) is called:
 *  stateCounter > 0 : There is a transition between activities .
-*  stateCounter ==0 : There is a transition to background.  
+*  stateCounter = 0 : There is a transition to background.  
     *  Now we can change the variable to wasInBackground to true and call onBecameBackground Listener (There is no need to this listener for mngads but to follow the app state for debuging ) 
     *  Since the app is in Background in this case the next [onStart()] the will  be back to foreground.
     *  There other cases we have to take into account for example : orientation change. During orientation change, [onStop()] of the old instance of the activity is called before [onStart()] of the new instance. For this onActivityStopped accepts activity as a first parameter to ignore this case by checking [isChangingConfigurations()]
@@ -307,6 +533,7 @@ Even though the onBecameForeground listener will be called after an interstitial
     
 >Note : This workaround covers most of the scenarios but you need to handle more specific cases in your application.
 
+* **Java**
 
 ```
 #!java
@@ -413,15 +640,116 @@ public class ApplicationManager {
 
 ```
 
+* **Kotlin**
+
+```
+#!kotlin
+package com.example.mngadsdemo.utils
+
+import android.app.Activity
+import android.util.Log
+
+class ApplicationManager {
+
+    val TAG = ApplicationManager::class.java.simpleName
+
+    interface ForegroundListener {
+
+        fun onBecameForeground()
+
+        fun onBecameBackground()
+
+    }
+
+    private var instance: ApplicationManager? = null
+    private var stateCounter: Int = 0
+    private var wasInBackground = true
+
+  companion object {
+    fun getInstance(): ApplicationManager {
+        if (instance == null) {
+            instance = ApplicationManager()
+        }
+        return instance
+    }
+   }
+
+
+    fun isForeground(): Boolean {
+        return !isBackground()
+    }
+
+    fun isBackground(): Boolean {
+        return stateCounter == 0
+    }
+
+
+   fun onActivityStarted(activity: Activity, listener: ForegroundListener) {
+
+        stateCounter++
+
+        if (wasInBackground) {
+
+            wasInBackground = false
+
+            Log.i(TAG, "went foreground")
+
+            try {
+
+                listener.onBecameForeground()
+
+            } catch (ex: Exception) {
+                Log.e(TAG, "Listener threw exception!", ex)
+            }
+
+        } else {
+            Log.d(TAG, "still foreground")
+        }
+    }
+
+    fun onActivityStopped(activity: Activity, listener: ForegroundListener) {
+
+        stateCounter--
+
+        if (!activity.isChangingConfigurations()) {
+
+            if (isBackground()) {
+
+                wasInBackground = true
+
+                Log.i(TAG, "went background")
+
+                try {
+
+                    listener.onBecameBackground()
+
+                } catch (ex: Exception) {
+
+                    Log.e(TAG, "Listener threw exception!", ex)
+                }
+            } else {
+                Log.d(TAG, "still foreground")
+            }
+
+        } else {
+            Log.d(TAG, "isChangingConfigurations")
+        }
+    }
+
+}
+
+
+```
+
 You can see our demo app with following files
 
-- [ApplicationManager.java]
-- [BaseActivity.java]
+- [ApplicationManager.kt]
+- [BaseActivity.kt]
 
 # Example
 
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/InterstitialFragment.java
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/SplashActivity.java
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/InterstitialFragment.kt
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/SplashActivity.kt
 
 
 
@@ -430,7 +758,7 @@ You can see our demo app with following files
 [onStop()]:http://developer.android.com/reference/android/app/Activity.html
 [ActivityLifecycleCallbacks]:http://developer.android.com/reference/android/app/Application.ActivityLifecycleCallbacks.html
 [isChangingConfigurations()]:http://developer.android.com/reference/android/app/Activity.html#isChangingConfigurations()
-[AdsFragment.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
+[AdsFragment.kt]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.kt?at=master
 [omsdk-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [SmartAdServer]:http://documentation.smartadserver.com/displaySDK
@@ -457,8 +785,8 @@ You can see our demo app with following files
 [Ogury]:http://www.ogury.co/
 [ogury-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Native Ads guidelines]:./nativead
-[ApplicationManager.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.java?at=master&fileviewer=file-view-default
-[BaseActivity.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.java?at=master&fileviewer=file-view-default
+[ApplicationManager.kt]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.kt?at=master&fileviewer=file-view-default
+[BaseActivity.kt]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.kt?at=master&fileviewer=file-view-default
 [Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
 [see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display

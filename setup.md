@@ -78,7 +78,7 @@ repositories {
 ```groovy
 dependencies {
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-base:18.0.1'
+implementation 'com.google.android.gms:play-services-base:18.1.0'
 }
 ```
 
@@ -87,7 +87,7 @@ implementation 'com.google.android.gms:play-services-base:18.0.1'
 ```groovy
 dependencies {
 // Bluestack SDK
-implementation 'com.madvertise:bluestack-core-sdk:4.1.2'
+implementation 'com.madvertise:bluestack-core-sdk:4.1.3'
 }
 ```
 
@@ -104,17 +104,17 @@ dependencies {
 implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
 
 //Google Ads SDK
-implementation 'com.google.android.gms:play-services-ads:20.6.0'
+implementation 'com.google.android.gms:play-services-ads:21.1.0'
 implementation 'androidx.work:work-runtime-ktx:2.7.1'
 
 //Location, if you app use GPS data only with a CMP
-implementation 'com.google.android.gms:play-services-location:19.0.1'
+implementation 'com.google.android.gms:play-services-location:20.0.0'
         
 //Audience Network SDK
 implementation 'com.facebook.android:audience-network-sdk:6.8.0'
 
 //Smart Display SDK
-implementation 'com.smartadserver.android:smart-display-sdk:7.17.0'
+implementation 'com.smartadserver.android:smart-display-sdk:7.19.0'
 // Optional : add Smart support library for Huawei devices
 implementation 'com.smartadserver.android:smart-core-sdk-huawei-support:1.0.0'
 ```
@@ -136,11 +136,11 @@ This SDK works with our MAdvertise CMP only for The GDPR rules. (for additional 
 ```groovy
 dependencies {
 // Amazon SDK
-implementation ("com.amazon.android:aps-sdk:9.4.2")
+implementation ("com.amazon.android:aps-sdk:9.5.7")
 
 // Criteo SDK
-implementation 'com.criteo.publisher:criteo-publisher-sdk:4.4.0'
-implementation 'com.madvertise:bluestack-mediation-criteo:4.4.0'
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.6.1'
+implementation 'com.madvertise:bluestack-mediation-criteo:4.6.2'
 
 ```
 
@@ -224,6 +224,8 @@ Add the following  inside the <application> tag in your AndroidManifest , if not
 You have to init the SDK in your application class
 
 
+* **Java** 
+
 ```java
 ...
 import com.mngads.MNGAdsFactory;
@@ -238,9 +240,28 @@ MNGAdsFactory.initialize(this,"YOUR_APP_ID");
 }
 ```
 
+* **Kotlin** 
+
+```java
+...
+import com.mngads.MNGAdsFactory
+...
+class DemoApp: Application{
+
+override fun onCreate() {
+super.onCreate()
+MNGAdsFactory.initialize(this,"YOUR_APP_ID")
+}
+}
+```
+
 ### Verify Your Integration
 
 To verify if the SDK is fully initialized, you have to implement the Factory Listener in your code:  
+
+
+* **Java** 
+
 
 ```java
 MNGAdsFactory.setMNGAdsSDKFactoryListener(new MNGAdsSDKFactoryListener() {
@@ -257,6 +278,22 @@ MNGAdsFactory.setMNGAdsSDKFactoryListener(new MNGAdsSDKFactoryListener() {
 
 ```
 
+* **Kotlin** 
+
+
+```java
+MNGAdsFactory.setMNGAdsSDKFactoryListener(object : MNGAdsSDKFactoryListener {
+            override fun onMNGAdsSDKFactoryDidFinishInitializing() {
+                Log.d(TAG, "MNGAds SDK Factory Did Finish Initializing")
+            }
+
+            override fun onMNGAdsSDKFactoryDidFailInitialization(e: Exception) {
+                Log.d(TAG, "MNGAdsSDKFactoryDidFailInitialization: $e")
+            }
+        })
+
+```
+
 The SDK will notify your Listener of all possible events listed below :
 
  - onMNGAdsSDKFactoryDidFinishInitializing() is called when the initialisation finished or is already installed.
@@ -268,9 +305,20 @@ The SDK will notify your Listener of all possible events listed below :
 ### Enabling debug mode
 To enbale debug mode you need to set debug mode to true :
 
+* **Java** 
+
 ```java
 ...
 MNGAdsFactory.setDebugModeEnabled(true);
+...
+
+```
+
+* **Kotlin** 
+
+```java
+...
+MNGAdsFactory.setDebugModeEnabled(true)
 ...
 
 ```

@@ -2,6 +2,44 @@
 See [Wiki] and [Help Center]  for more detailed informations.
 you must check [Change Log]. You need to keep all Ad Network jars/aar up to date
 
+## Version 4.1.3
+
+**Upgrade mediation SDKs**
+
+In your app's build.gradle, don't forget to update your dependencies as following:
+
+```groovy
+// BlueStack Mediation SDK 
+implementation 'com.madvertise:bluestack-core-sdk:4.1.3'
+
+// BlueStack CMP SDK 
+implementation 'com.madvertise:cmp-sdk:63.0.0'
+
+// DFP SDK
+implementation 'com.google.android.gms:play-services-ads:21.1.0'
+implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+implementation 'com.google.android.gms:play-services-base:18.1.0''
+// Starting from version 20.4.0, Google Mobile Ads SDK require an explicit dependency :
+implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+// SmartAdServer SDK
+implementation 'com.smartadserver.android:smart-display-sdk:7.19.0'
+// Optional : add Smart support library for Huawei devices
+implementation 'com.smartadserver.android:smart-core-sdk-huawei-support:1.0.0'
+
+//Amazon SDK
+implementation ("com.amazon.android:aps-sdk:9.5.7")
+
+// Ogury SDK
+implementation 'co.ogury:ogury-sdk-no-data:5.3.0'
+implementation 'com.madvertise:bluestack-mediation-ogury:5.3.0'
+
+// Criteo SDK
+implementation 'com.criteo.publisher:criteo-publisher-sdk:4.6.1'
+implementation 'com.madvertise:bluestack-mediation-criteo:4.6.2'
+
+```
+
 ## Version 4.1.2
 
 **Upgrade mediation SDKs**

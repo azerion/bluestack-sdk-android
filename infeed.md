@@ -10,31 +10,59 @@ Before You Start. Make sure that you have correctly integrated the MNG SDK into 
 
 ## Step 1. Init Infeed factory
 
-To create a infeed you have to init an object with type MNGAdsSDKFactory.
+To create an infeed you have to init an object with type MNGAdsSDKFactory.
+
+* **Java**
 
 ```java
 MNGAdsFactory mngInfeedAdsFactory = new MNGAdsFactory(this);
 
 ```
+
+* **Kotlin**
+
+```java
+val mngInfeedAdsFactory = MNGAdsFactory(this)
+
+```
+
 ## Step 2. Set Placement ID
 
 You have also to set placement Id :
 
+* **Java**
+
 ```java
 mngInfeedAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+```
+
+* **Kotlin**
+
+```java
+mngInfeedAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID")
 ```
 
 ## Step 3. Implement the Listener
 
 Next, implement the Infeed Listener in your code. 
 
+* **Java**
+
 ```java
 mngAdsInfeedAdsFactory.setInfeedListener(this);
+```
+
+* **Kotlin**
+
+```java
+mngAdsInfeedAdsFactory.setInfeedListener(this)
 ```
 
 The SDK will notify your Listener of all possible events listed below :
 
 - infeedDidLoad(View infeedView): will be called by the SDK when your infeedView is ready. now you can add your infeedView to your view.
+
+* **Java**
 
 ```java
 @Override
@@ -45,12 +73,32 @@ adLayout.addView(infeedView);
 }
 ```
 
+* **Kotlin**
+
+```java
+override fun infeedDidLoad(infeedView: View, preferredHeightDP: Int) {
+Log.d(TAG, "your infeed view is ready")
+...
+adLayout.addView(infeedView)
+}
+```
+
 - infeedDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
+* **Java**
 
 ```java
 @Override
 public void infeedDidFail(Exception adsException) {
-Log.e(TAG, "infeed did fail :" + adsException.toString());
+Log.e(TAG, "infeed did fail : " + adsException.toString());
+}
+```
+
+* **Kotlin**
+
+```java
+override fun infeedDidFail(adsException: Exception) {
+Log.e(TAG, "infeed did fail : " + adsException.toString())
 }
 ```
 
@@ -60,8 +108,17 @@ Log.e(TAG, "infeed did fail :" + adsException.toString());
 
 To make a request you have to call 'loadInfeed' using MAdvertise Infeed Frame:
 
+* **Java**
+
 ```java
-mngAdsInfeedAdsFactory.loadInfeed(new MAdvertiseInfeedFrame(300, MAdvertiseInfeedFrame.INFEED_RATIO_16_9)
+mngAdsInfeedAdsFactory.loadInfeed(new MAdvertiseInfeedFrame(300, MAdvertiseInfeedFrame.INFEED_RATIO_16_9));
+
+```
+
+* **Kotlin**
+
+```java
+mngAdsInfeedAdsFactory.loadInfeed(MAdvertiseInfeedFrame(300, MAdvertiseInfeedFrame.INFEED_RATIO_16_9))
 
 ```
 
@@ -83,11 +140,23 @@ The default ratio is 16:9
 ### Memory managment
 When you have finished your ads plant you must free the memory.
 
+
+* **Java**
+
 ```java
 @Override
 protected void onDestroy() {
 mngAdsInfeedAdsFactory.releaseMemory();
 super.onDestroy();
+}
+```
+
+* **Kotlin**
+
+```java
+override fun onDestroy() {
+mngAdsInfeedAdsFactory.releaseMemory()
+super.onDestroy()
 }
 ```
 
@@ -103,6 +172,8 @@ isBusy will be set to :
 
 **Example**:
 
+* **Java**
+
 ```java
 if (!mngAdsBannerAdsFactory.isBusy()) {
 
@@ -113,8 +184,22 @@ Log.d(TAG, "Ads Factory is busy");
 }
 ```
 
+* **Kotlin**
+
+```java
+if (!mngAdsBannerAdsFactory.isBusy()) {
+
+Log.d(TAG, "Ads Factory is not busy")
+mngAdsInfeedAdsFactory.loadInterstitial(false)
+} else {
+Log.d(TAG, "Ads Factory is busy")
+}
+```
+
 ### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
+
+* **Java**
 
 ```java
 // set click listener
@@ -129,8 +214,24 @@ Log.d(TAG, "Ad Clicked");
 ...
 ```
 
+* **Kotlin**
+
+```java
+// set click listener
+mngAdsInfeedAdsFactory.setClickListener(this)
+
+
+...
+override fun onAdClicked() {
+Log.d(TAG, "Ad Clicked")
+}
+...
+```
+
 ### Ad refresh listener
 You can also implement MNG refresh listener callback to detect when an Ad refreshed
+
+* **Java**
 
 ```java
 // set refresh listener
@@ -148,6 +249,24 @@ Log.d(TAG, "refresh failed");
 }
 ...
 ```
+
+* **Kotlin**
+
+```java
+// set refresh listener
+mngAdsInfeedAdsFactory.setRefreshListener(this)
+
+...
+override fun onRefreshSucceed() {
+Log.d(TAG, "refresh succeed")
+}
+
+override fun onRefreshFailed(e: Exception) {
+Log.d(TAG, "refresh failed")
+}
+...
+```
+
 ### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
 informations that you can set are:
@@ -158,6 +277,8 @@ informations that you can set are:
 - **Gender :**  gender of user
 - **KeyWord :**  Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**.
 - **Content URL :**  URL for content related to your app (url must be a string which length not exceed 512 caracters).
+
+* **Java**
 
 ```java
 
@@ -170,12 +291,33 @@ mngPreference.setLocation(location,CONSENT_FLAG,context);
 mngPreference.setAge(28);
 mngPreference.setGender(MNGGender.MNGGenderFemale);
 mngPreference.setKeyword("brand=myBrand;category=sport");
-mngPreference.setContentUrl("put your content url here")
+mngPreference.setContentUrl("put your content url here");
 
 
 mngAdsInfeedAdsFactory.loadInfeed(new MAdvertiseInfeedFrame(300, MAdvertiseInfeedFrame.INFEED_RATIO_16_9), mngPreference);
 
 ```
+
+* **Kotlin**
+
+```java
+
+val myLocation = Location("I")
+myLocation.setLatitude(35.757866)
+myLocation.setLongitude(10.810547)
+
+val mngPreference = MNGPreference()
+mngPreference.setLocation(location,CONSENT_FLAG,context)
+mngPreference.setAge(28)
+mngPreference.setGender(MNGGender.MNGGenderFemale)
+mngPreference.setKeyword("brand=myBrand;category=sport")
+mngPreference.setContentUrl("put your content url here")
+
+
+mngAdsInfeedAdsFactory.loadInfeed(MAdvertiseInfeedFrame(300, MAdvertiseInfeedFrame.INFEED_RATIO_16_9), mngPreference)
+
+```
+
 **Note :** 
 
 - This [link] can help you to get device location.
@@ -207,6 +349,8 @@ mngAdsInfeedAdsFactory.loadInfeed(new MAdvertiseInfeedFrame(300, MAdvertiseInfee
 Also you can get exception message by calling getMessage().
 In the example below we use interstitialDidFail, even you can use this logic in all our didFail callBack(bannerDidFail, infeedDidFail,nativeAdCollectionDidFail and nativeObjectDidFail)
 
+* **Java**
+
 ```java
 @Override
 public void interstitialDidFail(Exception e) {
@@ -226,16 +370,36 @@ Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+
 }
 ```
 
+* **Kotlin**
+
+```java
+override fun interstitialDidFail(e: Exception) {
+
+val adException = e as MAdvertiseException
+
+when (adException.errorCode)
+{
+ MAdvertiseException.BUSY_FACTORY_ERROR -> {...}
+ MAdvertiseException.INTERSTITIAL_ALREADY_SHOWN_ERROR -> {...}
+.
+.
+.
+
+}
+Log.e(TAG, "Interstitial did fail : ${adException.message} error code ${adException.errorCode}")
+}
+```
+
 # Example
 
 
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/InfeedFragment.java
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/ParallaxFragment.java
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/InfeedFragment.kt
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/ParallaxFragment.kt
 
 
 
 
-[AdsFragment.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.java?at=master
+[AdsFragment.kt]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/src/com/example/mngadsdemo/fragment/AdsFragment.kt?at=master
 [omsdk-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [link]:https://developer.android.com/training/location/retrieve-current.html
 [SmartAdServer]:http://documentation.smartadserver.com/displaySDK
@@ -262,8 +426,8 @@ Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+
 [Ogury]:http://www.ogury.co/
 [ogury-x.x.x.jar]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/libs/?at=master
 [Native Ads guidelines]:./nativead
-[ApplicationManager.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.java?at=master&fileviewer=file-view-default
-[BaseActivity.java]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.java?at=master&fileviewer=file-view-default
+[ApplicationManager.kt]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/utils/ApplicationManager.kt?at=master&fileviewer=file-view-default
+[BaseActivity.kt]:https://bitbucket.org/mngcorp/mngads-demo-android/src/HEAD/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/BaseActivity.kt?at=master&fileviewer=file-view-default
 [Interstitial Guideline]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/interstitial-guideline
 [see Proguard rules on our faq]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-if-your-app-uses-proguard-you-must-edit-your-proguard-settings-to-avoid-stripping-google-play-out-of-your-app
 [more details about instance on our FAQ]:https://bitbucket.org/mngcorp/mngads-demo-android/wiki/faq#markdown-header-interstitial-did-load-callback-without-display
