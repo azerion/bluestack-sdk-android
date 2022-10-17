@@ -11,8 +11,17 @@ A native ad is a custom designed ad that fits seamlessly with your app. If done 
 
 To create a nativeAd you have to init an object with type MNGAdsSDKFactory.
 
+* **Java**
+
 ```java
 MNGAdsFactory mngAdsNativeAdsFactory = new MNGAdsFactory(this);
+
+```
+
+* **Kotlin**
+
+```java
+val mngAdsNativeAdsFactory = MNGAdsFactory(this)
 
 ```
 
@@ -20,21 +29,39 @@ MNGAdsFactory mngAdsNativeAdsFactory = new MNGAdsFactory(this);
 
 You have also to set placement Id :
 
+* **Java**
+
 ```java
 mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+```
+
+* **Kotlin**
+
+```java
+mngAdsNativeAdsFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID")
 ```
 
 ## Step 3. Implement the Listener
 
 Next, implement the Native ads Listener in your code. 
 
+* **Java**
+
 ```java 
-mngAdsNativeAdsFactory.setNativeListener
+mngAdsNativeAdsFactory.setNativeListener(...);
+```
+
+* **Kotlin**
+
+```java 
+mngAdsNativeAdsFactory.setNativeListener(...)
 ```
 
 The SDK will notify your Listener of all possible events listed below :
 
 - nativeObjectDidLoad(): will be called by the SDK when your nativeObject is ready. now you can create your own view.
+
+* **Java**
 
 ```java
 @Override
@@ -44,12 +71,32 @@ The SDK will notify your Listener of all possible events listed below :
 
 ```
 
+* **Kotlin**
+
+```java
+  override fun nativeObjectDidLoad(nativeObject: MNGNativeObject) {
+    Log.d(TAG, "native Object did load")
+  }
+
+```
+
 - nativeObjectDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
+* **Java**
 
 ```java
 @Override
   public void nativeObjectDidFail(Exception adsException) {
-    Log.e(TAG, "nativeObject Did Fail :" + adsException.toString());
+    Log.e(TAG, "nativeObject Did Fail : " + adsException.toString());
+  }
+
+```
+
+* **Kotlin**
+
+```java
+  override fun nativeObjectDidFail(adsException: Exception) {
+    Log.e(TAG, "nativeObject Did Fail : " + adsException.toString())
   }
 
 ```
@@ -59,10 +106,17 @@ The SDK will notify your Listener of all possible events listed below :
 
 To make a request you have to call 'loadNative()'. This is a void method, result will be returned in the callback.
 
+* **Java**
+
+```java
+mngAdsNativeAdsFactory.loadNative();
+``` 
+
+* **Kotlin**
+
 ```java
 mngAdsNativeAdsFactory.loadNative()
 ``` 
-
 
 ## Step 5. Rendering the native ad
 
@@ -71,11 +125,12 @@ mngAdsNativeAdsFactory.loadNative()
 
 Once a native ad is loaded, you may retrieve its metadata with the following methods:
 
+* **Java**
 
 ```java
 
 // Get the app name
-String title=nativeObject.getTitle();
+String title = nativeObject.getTitle();
 
 // Get the app description (tagline)
 String body=nativeObject.getBody();
@@ -85,6 +140,24 @@ Bitmap badge=nativeObject.getBadge();
 
 // Get the localized text to print on the call to action button, such as "DOWNLOAD , LEARNE MORE ..."
 String callToAction=nativeObject.getCallToAction();
+
+```
+
+* **Kotlin**
+
+```java
+
+// Get the app name
+val title: String = nativeObject.getTitle()
+
+// Get the app description (tagline)
+val body: String = nativeObject.getBody()
+
+// Get the "Ad" badge bitmap. You must show this bitmap on your ad view to denote an ad
+val badge: Bitmap = nativeObject.getBadge()
+
+// Get the localized text to print on the call to action button, such as "DOWNLOAD , LEARNE MORE ..."
+val callToAction: String = nativeObject.getCallToAction()
 
 ```
 
@@ -128,11 +201,21 @@ String callToAction=nativeObject.getCallToAction();
 
 MNGNativeObject have all required metadata to build your customized native UI. Your native ad layout should have MAdvertiseNativeContainer as it's root viewGroup container.
 
+* **Java**
 
 ```java
 // Register your custom ad view to automatically report impressions and clicks, and to display icon, image cover or the media video 
 // This is mandatory
 nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,iconImageView,nativeAdCallToActionView);
+
+``` 
+
+* **Kotlin**
+
+```java
+// Register your custom ad view to automatically report impressions and clicks, and to display icon, image cover or the media video 
+// This is mandatory
+nativeObject.registerViewForInteraction(nativeAdContainerView,mediaViewGroup,iconImageView,nativeAdCallToActionView)
 
 ``` 
 
@@ -162,17 +245,32 @@ It accepts four arguments:
 
 Put **null** to hide icon (instead of iconImageView) or image cover (instead of mediaViewGroup). 
 
+* **Java**
+
 ```java
 nativeObject.registerViewForInteraction(nativeAdContainerView,null,null,nativeAdCallToActionView);
+```
+
+* **Kotlin**
+
+```java
+nativeObject.registerViewForInteraction(nativeAdContainerView,null,null,nativeAdCallToActionView)
 ```
 
 ### Customize Native Ad Badge Text
 
 You can use a custom badge Text for the native ad.
 
+* **Java**
+
 ```java
-nativeObject.getBadge(getActivity(),"String to be displayed in the badge");
-}
+nativeObject.getBadge(getActivity(), "String to be displayed in the badge");
+```
+
+* **Kotlin**
+
+```java
+nativeObject.getBadge(activity, "String to be displayed in the badge")
 ```
 
 ### Cache
@@ -183,11 +281,22 @@ Ad metadata that you receive can be cached and re-used for up to 3 hours. If you
 
 When you have finished your ads plant you must free the memory.
 
+* **Java**
+
 ```java
 @Override
 protected void onDestroy() {
 mngAdsNativeAdsFactory.releaseMemory();
 super.onDestroy();
+}
+```
+
+* **Kotlin**
+
+```java
+override fun onDestroy() {
+mngAdsNativeAdsFactory.releaseMemory()
+super.onDestroy()
 }
 ```
 
@@ -203,6 +312,8 @@ isBusy will be set to :
 
 **Example**:
 
+* **Java**
+
 ```java
 if (!mngAdsNativeAdsFactory.isBusy()) {
 
@@ -210,6 +321,17 @@ Log.d(TAG, "Ads Factory is not busy");
 mngAdsNativeAdsFactory.loadInterstitial(false);
 } else {
 Log.d(TAG, "Ads Factory is busy");
+}
+```
+
+* **Kotlin**
+
+```java
+if (!mngAdsNativeAdsFactory.isBusy()) {
+Log.d(TAG, "Ads Factory is not busy")
+mngAdsNativeAdsFactory.loadInterstitial(false)
+} else {
+Log.d(TAG, "Ads Factory is busy")
 }
 ```
 
@@ -226,8 +348,17 @@ BOTTOM_LEFT
 ```
 For example:
 
+* **Java**
+
 ```java
 mngPreferences.setAdChoicePosition(MNGPreferences.TOP_LEFT);
+mngAdsNativeAdsFactory.loadNative(mngPreference);
+```
+
+* **Kotlin**
+
+```java
+mngPreferences.setAdChoicePosition(MNGPreferences.TOP_LEFT)
 mngAdsNativeAdsFactory.loadNative(mngPreference)
 ```
 
@@ -239,11 +370,11 @@ It's **HIGHLY** recommended to only register ONE and ONLY one view for interacti
 ### Ad click listener
 You can then implement MNG AdListener callback to detect when an Ad is clicked
 
+* **Java**
+
 ```java
 // set click listener
 mngAdsNativeAdsFactory.setClickListener(this);
-
-
 ...
 @Override
 public void onAdClicked() {
@@ -252,9 +383,23 @@ Log.d(TAG, "Ad Clicked");
 ...
 ```
 
+* **Kotlin**
+
+```java
+// set click listener
+mngAdsNativeAdsFactory.setClickListener(this)
+...
+override fun onAdClicked() {
+Log.d(TAG, "Ad Clicked")
+}
+...
+```
+
 
 ### Ad refresh listener
 You can also implement MNG refresh listener callback to detect when an Ad refreshed
+
+* **Java**
 
 ```java
 // set refresh listener
@@ -273,6 +418,23 @@ Log.d(TAG, "refresh failed");
 ...
 ```
 
+* **Kotlin**
+
+```java
+// set refresh listener
+mngAdsNativeAdsFactory.setRefreshListener(this)
+
+...
+override fun onRefreshSucceed() {
+Log.d(TAG, "refresh succeed")
+}
+
+override fun onRefreshFailed(e: Exception) {
+Log.d(TAG, "refresh failed")
+}
+...
+```
+
 
 ### Preferences Object
 Preferences object is an optional parameter that allow you select ads by user info.
@@ -285,6 +447,8 @@ informations that you can set are:
 - **KeyWord :**  Use free-form key-values when you want to pass targeting values dynamically into an ad tag based on information you collect from your users. You can also use free-form key-values when there are too many possible values to define in advance. Separator in case of multiple entries is **;**.
 - **Content URL :**  URL for content related to your app (url must be a string which length not exceed 512 caracters).
 
+* **Java**
+
 ```java
 
 Location  myLocation = new Location("I");
@@ -296,12 +460,32 @@ mngPreference.setLocation(location,CONSENT_FLAG,context);
 mngPreference.setAge(28);
 mngPreference.setGender(MNGGender.MNGGenderFemale);
 mngPreference.setKeyword("brand=myBrand;category=sport");
-mngPreference.setContentUrl("put your content url here")
+mngPreference.setContentUrl("put your content url here");
 
 
 mngAdsNativeAdsFactory.loadNative(mngPreference);
 
 ```
+
+* **Kotlin**
+
+```java
+
+val myLocation = Location("I")
+myLocation.setLatitude(35.757866)
+myLocation.setLongitude(10.810547)
+
+val mngPreference = MNGPreference()
+mngPreference.setLocation(location,CONSENT_FLAG,context)
+mngPreference.setAge(28)
+mngPreference.setGender(MNGGender.MNGGenderFemale)
+mngPreference.setKeyword("brand=myBrand;category=sport")
+mngPreference.setContentUrl("put your content url here")
+
+mngAdsNativeAdsFactory.loadNative(mngPreference)
+
+```
+
 **Note :** 
 
 - This [link] can help you to get device location.
@@ -333,6 +517,8 @@ mngAdsNativeAdsFactory.loadNative(mngPreference);
 Also you can get exception message by calling getMessage().
 In the example below we use interstitialDidFail, even you can use this logic in all our didFail callBack(bannerDidFail, infeedDidFail,nativeAdCollectionDidFail and nativeObjectDidFail)
 
+* **Java**
+
 ```java
 @Override
 public void interstitialDidFail(Exception e) {
@@ -352,10 +538,30 @@ Log.e(TAG, "Interstitial did fail : " + adException.getMessage()+" error code "+
 }
 ```
 
+* **Kotlin**
+
+```java
+override fun interstitialDidFail(e: Exception) {
+
+val adException = e as MAdvertiseException
+
+when (adException.errorCode)
+{
+MAdvertiseException.BUSY_FACTORY_ERROR -> {...}
+MAdvertiseException.INTERSTITIAL_ALREADY_SHOWN_ERROR -> {...}
+.
+.
+.
+
+}
+Log.e(TAG, "Interstitial did fail : ${adException.message} error code: ${adException.errorCode}")
+}
+```
+
 # Example
 
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeAdFragment.java
- - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeListFragment.java
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeAdFragment.kt
+ - https://bitbucket.org/mngcorp/mngads-demo-android/src/master/MngAdsDemo/app/src/main/java/com/example/mngadsdemo/fragment/NativeListFragment.jkt
 
 content Ad  | carousel Ad | carousel Ad
 ------------- | ------------- | -------------  | -------------

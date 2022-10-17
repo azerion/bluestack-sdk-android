@@ -10,28 +10,57 @@ Before You Start. Make sure that you have correctly integrated the MNG SDK into 
 
 To create a Thumbnail Ad you must init an object with type MNGAdsSDKFactory :
 
+* **Java**
+
 ```java
 MNGAdsFactory mThumbnailFactory = new MNGAdsFactory(this);
 
 ```
+
+* **Kotlin**
+
+```java
+val mThumbnailFactory = MNGAdsFactory(this)
+
+```
+
 ## Step 2. Set Placement ID
 
 You have also to set placement Id :
+
+* **Java**
 
 ```java
 mThumbnailFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
 ```
 
+* **Kotlin**
+
+```java
+mThumbnailFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID")
+```
+
 ## Step 3. Implement the Listener
 Next, implement the Thumbnail Ad Listener in your code. 
+
+* **Java**
 
 ```java
 // set thumbnail listener
 mThumbnailFactory.setThumbnailListener(this);
 ```
+* **Kotlin**
+
+```java
+// set thumbnail listener
+mThumbnailFactory.setThumbnailListener(this)
+```
+
 The SDK will notify your listener of all possible events listed below :
 
 - thumbnailDidLoad(): will be called by the SDK when your Thumbnail Ads is ready.
+
+* **Java**
 
 ```java
 @Override
@@ -40,19 +69,48 @@ Log.d(TAG, "Thumbnail did load");
 }
 ```
 
+* **Kotlin**
+
+```java
+override fun thumbnailDidLoad() {
+Log.d(TAG, "Thumbnail did load")
+}
+```
+
 - thumbnailDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
+
+* **Java**
 
 ```java
 @Override
 public void thumbnailDidFail(Exception adsException) {
-Log.e(TAG, "Thumbnail did fail :" + adsException.toString());
+Log.e(TAG, "Thumbnail did fail : " + adsException.toString());
 }
 ```
+
+* **Kotlin**
+
+```java
+override fun thumbnailDidFail(adsException: Exception) {
+Log.e(TAG, "Thumbnail did fail : " + adsException.toString())
+}
+```
+
 - thumbnailDidClosed(): will be called when Thumbnail Ads closed by the user. 
+
+* **Java**
 
 ```java
 @Override
 public void thumbnailDidClosed() {
+Log.d(TAG, "Thumbnail Closed");
+}
+```
+
+* **Kotlin**
+
+```java
+override fun thumbnailDidClosed() {
 Log.d(TAG, "Thumbnail Closed")
 }
 ```
@@ -60,10 +118,20 @@ Log.d(TAG, "Thumbnail Closed")
 
 - thumbnailDidDisplayed(): will be called when Thumbnail Ads has been displayed on the screen.
 
+* **Java**
+
 ```java
 @Override
-public void thumbnailDidClosed() {
-Log.d(TAG, "Thumbnail Closed")
+public void thumbnailDidDisplayed() {
+Log.d(TAG, "Thumbnail Displayed");
+}
+```
+
+* **Kotlin**
+
+```java
+override fun thumbnailDidDisplayed() {
+Log.d(TAG, "Thumbnail Displayed")
 }
 ```
 
@@ -80,6 +148,7 @@ mThumbnailFactory.loadThumbnail()
 
 To display the ad, call the showThumbnail method:
 
+* **Java**
 
 ```java
 ...
@@ -87,6 +156,16 @@ To display the ad, call the showThumbnail method:
 public void thumbnailDidLoad() 
 {
 	mThumbnailFactory.showThumbnail();
+}
+```
+
+* **Kotlin**
+
+```java
+...
+override fun thumbnailDidLoad() 
+{
+	mThumbnailFactory.showThumbnail()
 }
 ```
 

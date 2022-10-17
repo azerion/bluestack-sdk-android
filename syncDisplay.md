@@ -58,46 +58,96 @@ implementation 'tv.sync:syncdisplay:3.2.0'
 
 To create a Sync Ad you must init an object with type MNGAdsFactory :
 
+* **Java**
+
 ```java
 MNGAdsFactory mSyncFactory = new MNGAdsFactory(this);
+
+```
+
+* **Kotlin**
+
+```java
+val mSyncFactory = MNGAdsFactory(this)
 
 ```
 ## Step 3. Set Placement ID
 
 You have also to set placement Id :
 
+* **Java**
+
 ```java
 mSyncFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID");
+```
+
+* **Kotlin**
+
+```java
+mSyncFactory.setPlacementId("/YOUR_APP_ID/PLACEMENT_ID")
 ```
 
 ## Step 4. Implement the Listener
 
 Next, implement the Sync Ad Listener in your code. 
 
+* **Java**
+
 ```java
 // set Sync listener
 mSyncFactory.setSyncListener(this);
 ```
+
+* **Kotlin**
+
+```java
+// set Sync listener
+mSyncFactory.setSyncListener(this)
+```
+
 The SDK will notify your listener of all possible events listed below :
 
 - syncDisplayDidLoad(View view): will be called by the SDK when your Sync Ads is ready.
+
+* **Java**
 
 ```java
 @Override
 public void syncDisplayDidLoad(View view) {
 Log.d(TAG, "Sync did load");
 if (this.getActivity() != null) {
-            ((ViewGroup) this.getActivity().findViewById(android.R.id.content)).addView(view);
+   ((ViewGroup) this.getActivity().findViewById(android.R.id.content)).addView(view);
+ }
+}
+```
+
+* **Kotlin**
+
+```java
+override fun syncDisplayDidLoad(view: View) {
+Log.d(TAG, "Sync did load")
+if (activity != null) {
+   (activity.findViewById(android.R.id.content) as ViewGroup).addView(view)
 }
 }
 ```
 
 - syncDisplayDidFail(Exception adsException): will be called when all ads servers fail. it will return the error of last called ads server.
 
+* **Java**
+
 ```java
 @Override
 public void syncDisplayDidFail(Exception adsException) {
-Log.e(TAG, "Sync did fail :" + adsException.toString());
+Log.e(TAG, "Sync did fail : " + adsException.toString());
+}
+```
+
+* **Kotlin**
+
+```java
+override fun syncDisplayDidFail(adsException: Exception) {
+Log.e(TAG, "Sync did fail : " + adsException.toString())
 }
 ```
 
