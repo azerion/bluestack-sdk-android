@@ -1,12 +1,13 @@
-# BlueStack Mediation SDK for Android
+![BlueStack SDK](./images/logo-bluestack.svg)
+# Mobile Ads SDK for Android
 
-Madvertise provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. MngAds SDK (BlueStack) is a library that allow you to handle Ads servers with the easy way.
+BlueStack provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. BlueStack is a library that allow you to handle Ads servers with the easy way.
 
-| **SDK Integration** | 
+| **SDK Integration** |
 | -------- |
-| [Setup the Android SDK] | 
-|[Android Change Log] 
-|[Android Upgrade Guide] 
+| [Setup the Android SDK] |
+| [Android Change Log] |
+| [Android Upgrade Guide] |
 
 
 | **Ad Formats** | 
@@ -23,15 +24,15 @@ Madvertise provides functionalities for monetizing your mobile application: from
 
 | **Advanced Settings** | 
 | -------- |
-|[Android FAQ and Troubleshooting]
-|[Android Debug Mode with Gyroscope Sensor]
-|[Android Targeting Audiences] 
+| [Android FAQ and Troubleshooting] |
+| [Android Debug Mode with Gyroscope Sensor] |
+| [Android Targeting Audiences] |
 
 
 | **Mediation Adapters** | 
 | -------- |
-| [Android Google Mobile Ads Adapter]
-| [Android Mopub Adapter]
+| [Android Google Mobile Ads Adapter] |
+| [Android Mopub Adapter] |
 
 
 
@@ -54,18 +55,5 @@ Madvertise provides functionalities for monetizing your mobile application: from
 [Android Interstitial Ads]:/interstitial.md
 [Android Thumbnail Ads]:/thumbnail.md
 
-
-[Retency]:/Retency.md
-[MAdvertiseVectaury for Android]:/MAdvertiseVectaury.md
-[MAdvertiseVectaury for iOS]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/MAdvertiseVectaury
-[MadvertiseAdExchanges]:https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/MadvertiseAdExchanges
-[MadvertiseLocation for Android]:/MadvertiseLocation.md
-[MadvertiseLocation for iOS]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/MadvertiseLocation
-[Location Data Reporting API]:https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/location-reporting-api
-[MadvertiseLocation iOS Change Log]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/change-log-madvertiselocation
-[MadvertiseLocation Android Change Log]:/change-log-madvertiselocation.md
-[AmazonPublisherService for iOS]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/AmazonPublisherService
-[AmazonPublisherService for Android]:/AmazonPublisherService.md
 [Android Google Mobile Ads Adapter]:/dfp-adapter-android.md
-[iOS Google Mobile Ads Adapter]:https://bitbucket.org/mngcorp/mngads-demo-ios/wiki/dfp-adapter-ios
 [Android SyncDisplay Ads]:/syncDisplay.md
