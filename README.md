@@ -1,5 +1,5 @@
 ![BlueStack SDK](./images/logo-bluestack.svg)
-# Mobile Ads SDK for Android
+# BlueStack Mobile Ads SDK for Android
 
 BlueStack provides functionalities for monetizing your mobile application: from premium sales with rich media, video and innovative formats, it facilitates inserting native mobile ads as well all standard display formats. BlueStack is a library that allow you to handle Ads servers with the easy way.
 
@@ -32,7 +32,6 @@ BlueStack provides functionalities for monetizing your mobile application: from 
 | **Mediation Adapters** | 
 | -------- |
 | [Android Google Mobile Ads Adapter] |
-| [Android Mopub Adapter] |
 
 
 
@@ -46,7 +45,6 @@ BlueStack provides functionalities for monetizing your mobile application: from 
 [Android Best practices]:/guidelines.md
 [Android Debug Mode with Gyroscope Sensor]:/debug-mode-gyro.md
 [Interstitial Guideline]:/interstitial-guideline.md
-[Android Mopub Adapter]:https://bitbucket.org/mngcorp/mobile.mng-ads.com-mngperf/wiki/mopub-adaptor-android
 [Android Rewarded Video Ads]:/rewarded-video.md
 
 [Android Infeed Ads]:/infeed.md
